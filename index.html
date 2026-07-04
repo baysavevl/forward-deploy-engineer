@@ -195,7 +195,16 @@
       gap: 16px;
     }
 
-    .fit-card {
+    .research-grid,
+    .pitch-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .fit-card,
+    .research-card,
+    .pitch-card {
       min-height: 196px;
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -211,13 +220,17 @@
       background: var(--soft-amber);
     }
 
-    .fit-card h3 {
+    .fit-card h3,
+    .research-card h3,
+    .pitch-card h3 {
       margin: 0;
       font-size: 18px;
       letter-spacing: 0;
     }
 
-    .fit-card p {
+    .fit-card p,
+    .research-card p,
+    .pitch-card p {
       color: var(--muted);
       margin: 12px 0 18px;
     }
@@ -226,6 +239,25 @@
       color: var(--blue);
       font-weight: 800;
       font-size: 14px;
+    }
+
+    .source-link {
+      display: inline-flex;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .pitch-card {
+      min-height: 0;
+    }
+
+    .pitch-card:first-child {
+      background: var(--soft);
+    }
+
+    .pitch-card:last-child {
+      background: var(--soft-green);
     }
 
     .evidence {
@@ -278,6 +310,8 @@
 
       .hero-grid,
       .fit-grid,
+      .research-grid,
+      .pitch-grid,
       .evidence-row {
         grid-template-columns: 1fr;
       }
@@ -376,6 +410,56 @@
             <strong>APAC/Vietnam advantage</strong>
             <span>Native Vietnamese, professional English, and deep technical context for Vietnam's dominant messaging ecosystem and local enterprise adoption patterns.</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <h2>Role Research</h2>
+        <p class="thesis">
+          Wonderful-style FDE work is not generic solution consulting. It is last-mile production ownership:
+          entering a complex customer environment, integrating with real systems, managing stakeholders,
+          and proving business impact after launch.
+        </p>
+
+        <div class="research-grid">
+          <article class="research-card">
+            <h3>Last-mile deployment</h3>
+            <p>Wonderful describes FDEs as senior technical owners who build integrations, work through security and compliance constraints, and debug production failures in environments they do not fully control.</p>
+            <a class="source-link" href="https://www.wonderful.ai/blog-articles/owning-the-last-mile">Wonderful FDE blog</a>
+          </article>
+          <article class="research-card">
+            <h3>Outcome ownership</h3>
+            <p>The careers page positions FDEs as deployed engineers across integrations, agents, and data, with deployment teams measured by customer outcomes.</p>
+            <a class="source-link" href="https://www.wonderful.ai/careers">Wonderful careers</a>
+          </article>
+          <article class="research-card">
+            <h3>Agents in real systems</h3>
+            <p>The product direction emphasizes voice, chat, email, direct connection to systems of record, and agents that handle multi-step decisions rather than simple scripted flows.</p>
+            <a class="source-link" href="https://www.wonderful.ai/agent-studio">Wonderful Agent Studio</a>
+          </article>
+          <article class="research-card">
+            <h3>Local market intelligence</h3>
+            <p>Wonderful's public positioning highlights local language, cultural context, dialect, regulatory nuance, and customer expectations as core parts of enterprise agent quality.</p>
+            <a class="source-link" href="https://www.insightpartners.com/ideas/ai-that-speaks-every-language-how-wonderful-is-helping-redefine-agentic-ai-for-the-enterprise/">Insight Partners profile</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <h2>Pitch</h2>
+        <div class="pitch-grid">
+          <article class="pitch-card">
+            <h3>30-second version</h3>
+            <p>I am a senior backend and partner-facing engineer from Zalo, where I built production systems for 30M+ user messaging surfaces and owned integrations across partners and internal business teams. For Wonderful-style FDE work, my edge is production engineering, customer-facing deployment, and Vietnam/APAC context for local-language AI agents.</p>
+          </article>
+          <article class="pitch-card">
+            <h3>90-second version</h3>
+            <p>I am strongest where customer context, architecture, and production ownership meet. At Zalo, I built and operated high-scale messaging and business systems, worked directly with partners on integrations, and delivered enterprise workflows across Finance, Sales, Ops, and Product. That maps directly to FDE work because the hard part is not a demo; it is turning an ambiguous customer workflow into reliable software inside real systems. For Wonderful specifically, I bring production backend depth, partner-facing solution ownership, and a local-market advantage in Vietnam.</p>
+          </article>
         </div>
       </div>
     </section>
