@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vinh Luu - Forward Deployed Engineer</title>
+  <meta name="description" content="Vinh Luu's fit profile for Forward Deployed Engineer roles in enterprise AI agents, production integrations, and customer-facing solution ownership.">
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5d6678;
+      --line: #d7dde8;
+      --blue: #1f5eff;
+      --green: #0b7a53;
+      --amber: #a85f00;
+      --paper: #ffffff;
+      --soft: #f6f8fc;
+      --soft-green: #eef8f4;
+      --soft-amber: #fff6e8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--paper);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 44px;
+      align-items: center;
+      padding: 56px 0 42px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 0.95;
+      letter-spacing: 0;
+      margin: 0;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 22px);
+      margin: 22px 0 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 6px;
+      border: 1px solid var(--ink);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .button.primary {
+      color: white;
+      background: var(--ink);
+    }
+
+    .button.secondary {
+      background: white;
+    }
+
+    .proof {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 24px 80px rgba(23, 32, 51, 0.08);
+    }
+
+    .portrait {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: 50% 18%;
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .profile-note {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .profile-note strong {
+      display: block;
+      font-size: 20px;
+    }
+
+    .profile-note span {
+      display: block;
+      color: var(--muted);
+      margin-top: 4px;
+      font-size: 14px;
+    }
+
+    .proof-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid var(--line);
+      padding: 18px 20px;
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .proof-body {
+      padding: 22px 20px;
+    }
+
+    .metric {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .metric:last-child {
+      border-bottom: 0;
+    }
+
+    .metric strong {
+      font-size: 24px;
+      line-height: 1;
+      color: var(--blue);
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 42px 0 56px;
+    }
+
+    .section h2 {
+      margin: 0 0 18px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .fit-card {
+      min-height: 196px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      background: white;
+    }
+
+    .fit-card:nth-child(2) {
+      background: var(--soft-green);
+    }
+
+    .fit-card:nth-child(3) {
+      background: var(--soft-amber);
+    }
+
+    .fit-card h3 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .fit-card p {
+      color: var(--muted);
+      margin: 12px 0 18px;
+    }
+
+    .fit-card strong {
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .evidence {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .evidence-row {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 18px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .evidence-row:last-child {
+      border-bottom: 0;
+    }
+
+    .evidence-row strong {
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .evidence-row span {
+      color: var(--muted);
+    }
+
+    .thesis {
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 17px;
+      margin: 0 0 22px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 24px 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid,
+      .fit-grid,
+      .evidence-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        padding-top: 38px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Forward Deployed Engineer</p>
+          <h1>Vinh Luu</h1>
+          <p class="subtitle">
+            A strong fit for enterprise AI deployment work: senior backend depth, partner-facing solution ownership,
+            high-scale messaging systems, and local APAC/Vietnam context for real customer rollouts.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf">Open CV PDF</a>
+            <a class="button secondary" href="/cv/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.html">View CV HTML</a>
+          </div>
+        </div>
+
+        <aside class="proof" aria-label="Role fit highlights">
+          <img class="portrait" src="assets/vinh-luu.jpg" alt="Vinh Luu">
+          <div class="profile-note">
+            <strong>Vinh Luu</strong>
+            <span>Senior backend engineer and solution architect for enterprise AI deployment roles.</span>
+          </div>
+          <div class="proof-header">
+            <span>Fit Snapshot</span>
+            <span>Builder + Operator</span>
+          </div>
+          <div class="proof-body">
+            <div class="metric">
+              <strong>5+</strong>
+              <span>years shipping production backend systems across large-scale messaging, partner integrations, and enterprise workflows.</span>
+            </div>
+            <div class="metric">
+              <strong>30M+</strong>
+              <span>user-scale surfaces supported through reliable messaging, notification, and business platform infrastructure.</span>
+            </div>
+            <div class="metric">
+              <strong>40%</strong>
+              <span>faster partner onboarding through integration blueprints, stakeholder discovery, and reusable delivery patterns.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <h2>Why I Fit This FDE Role</h2>
+        <p class="thesis">
+          The role needs someone who can enter an ambiguous customer environment, understand the workflow, design the integration,
+          deploy reliable AI-enabled software, and stay accountable after launch. That is the strongest through-line in my work.
+        </p>
+
+        <div class="fit-grid">
+          <article class="fit-card">
+            <h3>Production engineer at scale</h3>
+            <p>Built backend systems behind Zalo messaging and business surfaces used by tens of millions of users, where latency, reliability, and observability matter every day.</p>
+            <strong>Direct match: production ownership</strong>
+          </article>
+          <article class="fit-card">
+            <h3>Customer and partner fluent</h3>
+            <p>Owned partner discovery, integration workshops, architecture reviews, and live troubleshooting across external partners and internal Finance, Sales, Ops, and Product teams.</p>
+            <strong>Direct match: customer-facing deployment</strong>
+          </article>
+          <article class="fit-card">
+            <h3>AI deployment ready</h3>
+            <p>Applied LLM-backed workflows with structured outputs, review gates, and guardrail thinking, then connected that to enterprise integration and measurable workflow outcomes.</p>
+            <strong>Direct match: AI agent rollout</strong>
+          </article>
+        </div>
+
+        <div class="evidence" aria-label="Forward Deployed Engineer evidence">
+          <div class="evidence-row">
+            <strong>Ambiguous workflow to launch</strong>
+            <span>Delivered SOX-grade reporting and billing workflows across multiple stakeholder groups, reducing operational overhead by 30%.</span>
+          </div>
+          <div class="evidence-row">
+            <strong>External-system integration</strong>
+            <span>Created partner integration patterns and reusable blueprints that improved onboarding speed by 40%.</span>
+          </div>
+          <div class="evidence-row">
+            <strong>Production debugging</strong>
+            <span>Operated systems where issues cross team, partner, data, and platform boundaries, matching the reality of forward-deployed customer environments.</span>
+          </div>
+          <div class="evidence-row">
+            <strong>APAC/Vietnam advantage</strong>
+            <span>Native Vietnamese, professional English, and deep technical context for Vietnam's dominant messaging ecosystem and local enterprise adoption patterns.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">Profile package for Forward Deployed Engineer opportunities.</div>
+  </footer>
+</body>
+</html>
