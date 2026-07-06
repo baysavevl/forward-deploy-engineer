@@ -1,23 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vinh Luu - Forward Deployed Engineer</title>
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <style>
     @page {
       size: Letter;
-      margin: 0.45in;
+      margin: 0.55in 0.58in;
     }
 
     :root {
       --ink: #172033;
-      --muted: #5d6678;
-      --line: #d7dde8;
-      --blue: #1f5eff;
+      --muted: #626b7d;
+      --line: #d9e0ec;
+      --blue: #285cff;
       --green: #0b7a53;
       --amber: #a85f00;
-      --soft: #f6f8fc;
+      --soft: #f7f9fd;
+      --paper: #ffffff;
     }
 
     * {
@@ -28,9 +32,9 @@
       margin: 0;
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      font-size: 10.3px;
-      line-height: 1.33;
-      background: white;
+      font-size: 11.45px;
+      line-height: 1.44;
+      background: #edf2f8;
     }
 
     a {
@@ -40,16 +44,19 @@
 
     .page {
       width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--paper);
     }
 
     header {
-      border-bottom: 1.4px solid var(--ink);
-      padding-bottom: 8px;
-      margin-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
     }
 
     .name {
-      font-size: 28px;
+      font-size: 34px;
       line-height: 1;
       letter-spacing: 0;
       font-weight: 800;
@@ -57,66 +64,81 @@
     }
 
     .title {
-      font-size: 12.5px;
+      font-size: 15px;
       color: var(--blue);
       font-weight: 700;
-      margin: 4px 0 5px;
+      margin: 5px 0 7px;
     }
 
     .contact {
       color: var(--muted);
-      font-size: 9.4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 7px;
+      font-size: 10.9px;
+      font-weight: 600;
+    }
+
+    .contact span::after {
+      content: "·";
+      color: #9aa4b5;
+      margin-left: 7px;
+    }
+
+    .contact span:last-child::after {
+      content: "";
+      margin: 0;
     }
 
     section {
-      margin-top: 8px;
-      break-inside: avoid;
+      margin-top: 13px;
     }
 
     h2 {
-      margin: 0 0 4px;
+      margin: 0 0 7px;
       color: var(--ink);
-      font-size: 10.2px;
+      font-size: 11.8px;
       line-height: 1;
       letter-spacing: 0.055em;
       text-transform: uppercase;
       border-bottom: 1px solid var(--line);
-      padding-bottom: 3px;
+      padding-bottom: 5px;
     }
 
     p {
-      margin: 0 0 5px;
+      margin: 0 0 7px;
     }
 
     .summary {
-      font-size: 10.7px;
+      font-size: 11.75px;
+      line-height: 1.48;
     }
 
     .fit-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 5px;
-      margin-top: 6px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 7px;
+      margin-top: 9px;
     }
 
     .fit {
       border: 1px solid var(--line);
       background: var(--soft);
       border-radius: 6px;
-      padding: 5px 6px;
-      min-height: 42px;
+      padding: 8px 9px;
+      min-height: 58px;
     }
 
     .fit strong {
       display: block;
-      font-size: 9.4px;
-      margin-bottom: 2px;
+      font-size: 10.7px;
+      margin-bottom: 3px;
     }
 
     .fit span {
       color: var(--muted);
-      font-size: 8.7px;
-      line-height: 1.22;
+      font-size: 10px;
+      line-height: 1.32;
       display: block;
     }
 
@@ -125,32 +147,33 @@
       justify-content: space-between;
       gap: 12px;
       align-items: baseline;
-      margin-top: 5px;
+      margin-top: 9px;
     }
 
     .company {
-      font-size: 12px;
+      font-size: 13.2px;
       font-weight: 800;
     }
 
     .company-note {
       color: var(--muted);
       font-weight: 600;
-      font-size: 9.4px;
+      font-size: 10.4px;
       margin-left: 4px;
     }
 
     .dates {
       color: var(--muted);
-      font-size: 9.4px;
+      font-size: 10.2px;
       white-space: nowrap;
+      font-weight: 600;
     }
 
     .role {
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      margin-top: 4px;
+      margin-top: 7px;
       color: var(--ink);
       font-weight: 700;
     }
@@ -161,13 +184,13 @@
     }
 
     ul {
-      margin: 3px 0 5px 14px;
+      margin: 5px 0 8px 17px;
       padding: 0;
     }
 
     li {
-      margin: 0 0 2.2px;
-      padding-left: 1px;
+      margin: 0 0 4px;
+      padding-left: 2px;
     }
 
     li strong {
@@ -177,15 +200,15 @@
     .two-col {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 14px;
+      gap: 20px;
       align-items: start;
     }
 
     .skills {
       display: grid;
-      grid-template-columns: 84px 1fr;
-      gap: 3px 8px;
-      margin-top: 4px;
+      grid-template-columns: 98px 1fr;
+      gap: 5px 10px;
+      margin-top: 5px;
     }
 
     .skills dt {
@@ -200,8 +223,8 @@
 
     .project {
       border-left: 3px solid var(--blue);
-      padding-left: 8px;
-      margin-top: 5px;
+      padding-left: 10px;
+      margin-top: 8px;
     }
 
     .project strong {
@@ -212,7 +235,7 @@
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
     .edu-main {
@@ -221,7 +244,7 @@
 
     .small {
       color: var(--muted);
-      font-size: 9.2px;
+      font-size: 10.35px;
     }
 
     .tag {
@@ -230,7 +253,7 @@
       background: var(--green);
       border-radius: 999px;
       padding: 1px 5px 1.5px;
-      font-size: 8.5px;
+      font-size: 9.4px;
       font-weight: 700;
       margin-right: 3px;
     }
@@ -243,10 +266,61 @@
       break-before: page;
     }
 
+    header,
+    .fit,
+    .project,
+    .role-head,
+    .role,
+    .edu-row {
+      break-inside: avoid;
+    }
+
     @media print {
       body {
+        background: white;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+      }
+
+      .page {
+        max-width: none;
+      }
+    }
+
+    @media screen {
+      body {
+        padding: 32px 16px;
+      }
+
+      .page {
+        padding: 44px 56px;
+        border: 1px solid var(--line);
+        box-shadow: 0 24px 70px rgba(23, 32, 51, 0.12);
+      }
+    }
+
+    @media screen and (max-width: 760px) {
+      body {
+        padding: 0;
+        background: white;
+      }
+
+      .page {
+        padding: 24px 18px;
+        border: 0;
+        box-shadow: none;
+      }
+
+      .fit-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .role,
+      .role-head,
+      .edu-row {
+        flex-direction: column;
+        gap: 3px;
       }
     }
   </style>
@@ -255,10 +329,12 @@
   <main class="page">
     <header>
       <h1 class="name">Vinh Luu</h1>
-      <div class="title">Forward Deployed Engineer - Enterprise AI Agents & Integrations</div>
+      <div class="title">Forward Deployed Engineer - Enterprise AI Agents &amp; Integrations</div>
       <div class="contact">
-        Ho Chi Minh City, Vietnam · <a href="mailto:vinhluu.se@gmail.com">vinhluu.se@gmail.com</a> · +84 795 795 595 ·
-        <a href="https://www.linkedin.com/in/vinhluulinked/">linkedin.com/in/vinhluulinked</a>
+        <span>Ho Chi Minh City, Vietnam</span>
+        <span><a href="mailto:vinhluu.se@gmail.com">vinhluu.se@gmail.com</a></span>
+        <span>+84 795 795 595</span>
+        <span><a href="https://www.linkedin.com/in/vinhluulinked/">linkedin.com/in/vinhluulinked</a></span>
       </div>
     </header>
 
@@ -338,7 +414,7 @@
       </ul>
     </section>
 
-    <section class="page-break">
+    <section>
       <h2>Selected Role-Relevant Projects</h2>
       <div class="project">
         <p><strong>Solution Architect / Solutions Engineer portfolio systems:</strong> Built role-targeted portfolio projects for Google Ads Solution Architect, Customer Solutions Engineer, and Partner Solutions Engineer preparation. The systems package domain knowledge into advisory flows, diagnostic tooling, case-study libraries, and AI-assisted customer guidance - directly mirroring FDE work of learning a domain, building reusable frameworks, and making technical decisions legible to stakeholders.</p>
