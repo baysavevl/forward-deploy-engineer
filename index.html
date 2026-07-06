@@ -546,11 +546,26 @@
       font-size: 12px;
     }
 
+    .agent-status {
+      display: grid;
+      justify-items: end;
+      gap: 4px;
+      min-width: 122px;
+      text-align: right;
+    }
+
     .agent-state {
       color: #8fe0bd;
       font-size: 12px;
       font-weight: 900;
       text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .agent-source {
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 11px;
+      font-weight: 800;
       white-space: nowrap;
     }
 
@@ -588,9 +603,27 @@
       border-top-right-radius: 2px;
     }
 
+    .message.pending {
+      color: var(--quiet);
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(238, 244, 255, 0.92), rgba(255, 255, 255, 0.92));
+      background-size: 180% 100%;
+      animation: thinking-pulse 1.4s ease-in-out infinite;
+    }
+
+    @keyframes thinking-pulse {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 180% 50%;
+      }
+    }
+
     .runtime {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       background: white;
@@ -1001,44 +1034,47 @@
         <div class="section-heading">
           <div>
             <div class="section-kicker">Project proof</div>
-            <h2>Simulated enterprise AI agent.</h2>
+            <h2>Live FDE deployment agent.</h2>
           </div>
           <p>
-            This is a working front-end simulation for interview storytelling: pick a scenario or send a message,
-            then watch the agent response, tool route, guardrail, and rollout metric update together.
+            Gemini-backed demo for real forward-deployed work: clarify the customer workflow, map enterprise systems,
+            set guardrails, define evals, and plan rollout without pretending to mutate real customer data.
           </p>
         </div>
 
         <div class="demo-layout">
           <aside class="scenario-panel" aria-label="Agent scenarios">
-            <h3>Customer workflow</h3>
-            <p>Choose the enterprise workflow the agent should handle.</p>
+            <h3>Deployment situation</h3>
+            <p>Choose the customer environment, then continue the conversation like a live deployment review.</p>
             <div class="scenario-list">
               <button class="scenario-option is-active" type="button" data-scenario="billing">
                 <span class="scenario-icon" aria-hidden="true">₫</span>
-                <span><strong>Billing dispute</strong><span>Telco customer asks why a plan charge changed.</span></span>
+                <span><strong>Telco billing launch</strong><span>Legacy CRM, plan changes, refund policy, ticket handoff.</span></span>
               </button>
               <button class="scenario-option" type="button" data-scenario="booking">
                 <span class="scenario-icon" aria-hidden="true">↻</span>
-                <span><strong>Appointment reschedule</strong><span>Healthcare customer needs a safe booking change.</span></span>
+                <span><strong>Clinic booking rollout</strong><span>Identity, scheduling API, provider calendars, audit notes.</span></span>
               </button>
               <button class="scenario-option" type="button" data-scenario="card">
                 <span class="scenario-icon" aria-hidden="true">!</span>
-                <span><strong>Lost card lock</strong><span>Bank customer needs urgent but compliant action.</span></span>
+                <span><strong>Bank card control</strong><span>Urgent voice/chat flow with 2FA, compliance, escalation.</span></span>
               </button>
             </div>
           </aside>
 
-          <section class="agent-panel" aria-label="Working simulated agent">
+          <section class="agent-panel" aria-label="Live FDE deployment agent">
             <div class="agent-header">
               <div class="agent-name">
                 <div class="agent-face" aria-hidden="true"><img src="/assets/favicon.png" alt=""></div>
                 <div>
-                  <strong>Wonderful-style deployment agent</strong>
-                  <span>Vietnamese-English support, tools, guardrails, eval-ready trace.</span>
+                  <strong>Wonderful-style FDE copilot</strong>
+                  <span>Continuing context, enterprise tools, guardrails, eval-ready trace.</span>
                 </div>
               </div>
-              <div class="agent-state" id="agent-state">Ready</div>
+              <div class="agent-status">
+                <div class="agent-state" id="agent-state">Ready</div>
+                <div class="agent-source" id="agent-source">Gemini ready</div>
+              </div>
             </div>
 
             <div class="messages" id="messages" aria-live="polite"></div>
@@ -1056,6 +1092,10 @@
                 <strong>Metric</strong>
                 <span id="metric-output">50+ billing eval cases</span>
               </div>
+              <div class="runtime-box">
+                <strong>Next step</strong>
+                <span id="next-step-output">Confirm source-of-truth fields</span>
+              </div>
             </div>
 
             <form class="composer" id="agent-form">
@@ -1065,9 +1105,9 @@
             </form>
 
             <div class="quick-prompts" role="group" aria-label="Quick prompts">
-              <button class="prompt-chip" type="button" data-prompt="Can you explain the bill and create a ticket if the tool fails?">Billing + fallback</button>
-              <button class="prompt-chip" type="button" data-prompt="Please reschedule my appointment and confirm the audit trail.">Booking + audit</button>
-              <button class="prompt-chip" type="button" data-prompt="I lost my card. Lock it now, but verify identity first.">Card lock + 2FA</button>
+              <button class="prompt-chip" type="button" data-prompt="Continue from the current workflow. The billing API sometimes returns stale plan data. How would you debug and still launch safely?">Debug stale tool</button>
+              <button class="prompt-chip" type="button" data-prompt="Design the eval set for this workflow before we move from pilot to 20% traffic.">Eval before rollout</button>
+              <button class="prompt-chip" type="button" data-prompt="What should the customer success and engineering owners monitor during the first week after launch?">Launch monitoring</button>
             </div>
           </section>
         </div>
@@ -1148,67 +1188,115 @@
     const scenarios = {
       billing: {
         intro: 'Customer: Khách hàng hỏi vì sao hóa đơn tăng sau khi đổi gói cước.',
-        response: 'Agent: I would verify the account, compare the previous and current plan, explain the exact charge delta in Vietnamese, and create a ticket if the billing API result conflicts with policy.',
-        route: 'CRM lookup -> billing API -> policy retrieval -> ticket note',
-        guardrail: 'No refund promise without policy match and agent permission.',
-        metric: '50+ billing eval cases',
-        state: 'Billing workflow',
+        response: 'Agent: I would start as the deployment owner: confirm which CRM and billing ledger are the source of truth, compare old and new plans, explain the delta in Vietnamese, and create a ticket only when the tool result conflicts with policy.',
+        toolRoute: 'CRM lookup -> billing ledger -> policy retrieval -> ticket note',
+        guardrail: 'No refund or credit promise without policy match and role permission.',
+        metric: '60% containment target with refund-error tracking',
+        nextStep: 'Confirm source-of-truth fields for plan change, proration, and charge disputes.',
+        phase: 'Discovery to MVP',
         input: 'Khách hàng hỏi vì sao hóa đơn tăng sau khi đổi gói cước.'
       },
       booking: {
         intro: 'Customer: I need to reschedule my appointment, but I am not sure which clinic location is available.',
-        response: 'Agent: I would confirm identity, search available slots, propose two options, write the booking transaction once, and leave an audit note for the clinic team.',
-        route: 'Identity check -> slot search -> booking API -> audit note',
+        response: 'Agent: I would map the booking workflow before automation: confirm identity, search available slots, propose two safe options, write the booking transaction once, and leave an audit note for clinic operations.',
+        toolRoute: 'Identity check -> slot search -> booking API -> audit note',
         guardrail: 'No appointment mutation until identity and chosen slot are confirmed.',
-        metric: '3 state changes covered by evals',
-        state: 'Booking workflow',
+        metric: '95% successful reschedules without duplicate bookings',
+        nextStep: 'Map booking states, cancellation windows, and escalation ownership with clinic ops.',
+        phase: 'Workflow mapping',
         input: 'Please reschedule my appointment and confirm the audit trail.'
       },
       card: {
         intro: 'Customer: Tôi mất thẻ rồi. Lock it now please.',
-        response: 'Agent: I would treat this as urgent, verify identity with 2FA, lock the card only after verification, preserve the audit trail, and escalate immediately if confidence is incomplete.',
-        route: 'Identity check -> 2FA -> card lock API -> compliance log',
+        response: 'Agent: I would treat this as a high-risk state change, not a normal answer. The deployment must verify identity with 2FA, lock the card only after verification, preserve the audit trail, and escalate if confidence is incomplete.',
+        toolRoute: 'Identity check -> 2FA -> card lock API -> compliance log',
         guardrail: 'Zero unauthorized state-changing actions allowed.',
-        metric: '0 unsafe lock actions target',
-        state: 'Card lock workflow',
+        metric: 'Under 2 minute containment with 0 unsafe mutations',
+        nextStep: 'Validate authentication step-up, recording policy, and rollback/escalation path.',
+        phase: 'Protected action design',
         input: 'I lost my card. Lock it now, but verify identity first.'
       }
     };
 
+    let currentScenario = 'billing';
+    let chatHistory = [];
+
     const messages = document.getElementById('messages');
     const input = document.getElementById('agent-input');
     const form = document.getElementById('agent-form');
+    const sendButton = form.querySelector('button[type="submit"]');
     const routeOutput = document.getElementById('route-output');
     const guardrailOutput = document.getElementById('guardrail-output');
     const metricOutput = document.getElementById('metric-output');
+    const nextStepOutput = document.getElementById('next-step-output');
     const agentState = document.getElementById('agent-state');
+    const agentSource = document.getElementById('agent-source');
 
-    function appendMessage(kind, text) {
+    function appendMessage(kind, text, options = {}) {
       const message = document.createElement('div');
-      message.className = `message ${kind}`;
+      message.className = `message ${kind}${options.pending ? ' pending' : ''}`;
       message.textContent = text;
       messages.appendChild(message);
       messages.scrollTop = messages.scrollHeight;
+      return message;
     }
 
-    function setRuntime(scenario) {
-      routeOutput.textContent = scenario.route;
-      guardrailOutput.textContent = scenario.guardrail;
-      metricOutput.textContent = scenario.metric;
-      agentState.textContent = scenario.state;
+    function withoutSpeakerPrefix(text) {
+      return text.replace(/^(Customer|Agent):\s*/, '');
+    }
+
+    function setBusy(isBusy) {
+      input.disabled = isBusy;
+      sendButton.disabled = isBusy;
+      sendButton.textContent = isBusy ? 'Thinking' : 'Send';
+      document.querySelectorAll('.prompt-chip, .scenario-option').forEach((button) => {
+        button.disabled = isBusy;
+      });
+    }
+
+    function setActiveScenario(key) {
+      document.querySelectorAll('[data-scenario]').forEach((button) => {
+        button.classList.toggle('is-active', button.getAttribute('data-scenario') === key);
+      });
+    }
+
+    function setRuntime(payload = {}) {
+      const scenario = scenarios[currentScenario] || scenarios.billing;
+      routeOutput.textContent = payload.toolRoute || scenario.toolRoute;
+      guardrailOutput.textContent = payload.guardrail || scenario.guardrail;
+      metricOutput.textContent = payload.metric || scenario.metric;
+      nextStepOutput.textContent = payload.nextStep || scenario.nextStep;
+      agentState.textContent = payload.phase || scenario.phase;
+
+      if (payload.source === 'gemini') {
+        agentSource.textContent = payload.model ? `Gemini ${payload.model}` : 'Gemini live';
+      } else if (payload.source === 'gemini-error') {
+        agentSource.textContent = 'Fallback after API error';
+      } else if (payload.source === 'browser-fallback') {
+        agentSource.textContent = 'Browser fallback';
+      } else {
+        agentSource.textContent = payload.configured === false ? 'Local fallback' : 'Gemini ready';
+      }
     }
 
     function setScenario(key, includeIntro = true) {
       const scenario = scenarios[key];
       if (!scenario) return;
 
-      document.querySelectorAll('[data-scenario]').forEach((button) => {
-        button.classList.toggle('is-active', button.getAttribute('data-scenario') === key);
-      });
-
+      currentScenario = key;
+      setActiveScenario(key);
       messages.innerHTML = '';
-      if (includeIntro) appendMessage('user', scenario.intro.replace('Customer: ', ''));
-      appendMessage('agent', scenario.response.replace('Agent: ', ''));
+      chatHistory = [];
+
+      if (includeIntro) {
+        const intro = withoutSpeakerPrefix(scenario.intro);
+        appendMessage('user', intro);
+        chatHistory.push({ role: 'user', text: intro });
+      }
+
+      const response = withoutSpeakerPrefix(scenario.response);
+      appendMessage('agent', response);
+      chatHistory.push({ role: 'agent', text: response });
       input.value = scenario.input;
       setRuntime(scenario);
     }
@@ -1217,22 +1305,83 @@
       const normalized = text.toLowerCase();
       if (normalized.includes('card') || normalized.includes('lock') || normalized.includes('thẻ')) return 'card';
       if (normalized.includes('appointment') || normalized.includes('book') || normalized.includes('schedule') || normalized.includes('lịch')) return 'booking';
-      return 'billing';
+      if (normalized.includes('bill') || normalized.includes('charge') || normalized.includes('invoice') || normalized.includes('refund') || normalized.includes('hóa đơn') || normalized.includes('gói cước')) return 'billing';
+      return currentScenario || 'billing';
     }
 
-    function handleUserMessage(text) {
+    function localBrowserFallback(text, scenarioKey) {
+      const scenario = scenarios[scenarioKey] || scenarios.billing;
+      const normalized = text.toLowerCase();
+      const phase = normalized.includes('eval') || normalized.includes('test')
+        ? 'Eval design'
+        : normalized.includes('debug') || normalized.includes('fail') || normalized.includes('tool')
+          ? 'Production debug'
+          : normalized.includes('launch') || normalized.includes('rollout') || normalized.includes('monitor')
+            ? 'Controlled rollout'
+            : 'Deployment discovery';
+
+      return {
+        reply: `Continuing this ${scenarioKey} deployment, I would keep the same workflow map and add the new constraint instead of restarting the conversation. The practical FDE move is to verify the system of record, instrument the tool path, add an eval for this exact case, and launch only behind a human fallback until the metric is stable.`,
+        phase,
+        toolRoute: scenario.toolRoute,
+        guardrail: scenario.guardrail,
+        metric: scenario.metric,
+        nextStep: scenario.nextStep,
+        source: 'browser-fallback'
+      };
+    }
+
+    async function requestAgentReply(clean) {
+      const response = await fetch('/api/agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          scenario: currentScenario,
+          message: clean,
+          history: chatHistory.slice(-12)
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Agent API returned ${response.status}`);
+      }
+
+      return response.json();
+    }
+
+    async function handleUserMessage(text) {
       const clean = text.trim();
       if (!clean) return;
 
       const key = inferScenario(clean);
-      const scenario = scenarios[key];
-      messages.innerHTML = '';
+      currentScenario = key;
+      setActiveScenario(key);
       appendMessage('user', clean);
-      appendMessage('agent', scenario.response.replace('Agent: ', ''));
-      setRuntime(scenario);
-      document.querySelectorAll('[data-scenario]').forEach((button) => {
-        button.classList.toggle('is-active', button.getAttribute('data-scenario') === key);
-      });
+      chatHistory.push({ role: 'user', text: clean });
+      input.value = '';
+
+      const pending = appendMessage('agent', 'Thinking through workflow, tools, guardrails, evals, and rollout...', { pending: true });
+      setBusy(true);
+      agentState.textContent = 'FDE thinking';
+      agentSource.textContent = 'Calling Gemini';
+
+      try {
+        const payload = await requestAgentReply(clean);
+        pending.textContent = payload.reply || localBrowserFallback(clean, key).reply;
+        pending.classList.remove('pending');
+        chatHistory.push({ role: 'agent', text: pending.textContent });
+        setRuntime(payload);
+      } catch (error) {
+        const fallback = localBrowserFallback(clean, key);
+        pending.textContent = fallback.reply;
+        pending.classList.remove('pending');
+        chatHistory.push({ role: 'agent', text: fallback.reply });
+        setRuntime(fallback);
+        console.error('Agent demo fallback used', error);
+      } finally {
+        setBusy(false);
+        input.focus();
+      }
     }
 
     document.querySelectorAll('[data-scenario]').forEach((button) => {
