@@ -189,6 +189,84 @@
       border-top-right-radius: 4px;
     }
 
+    .scenario-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .scenario-button {
+      appearance: none;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.76);
+      cursor: pointer;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 9px 8px;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .scenario-button:hover,
+    .scenario-button.is-active {
+      background: white;
+      border-color: white;
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .pipeline {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pipeline-step {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px 12px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .pipeline-step::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #34a853;
+      box-shadow: 0 0 0 4px rgba(52, 168, 83, 0.16);
+      flex: 0 0 auto;
+    }
+
+    .demo-note {
+      margin-top: 16px;
+      border-left: 3px solid #8ab4f8;
+      padding-left: 12px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .agent-avatar {
+        animation: hello-bob 3.2s ease-in-out infinite;
+      }
+
+      @keyframes hello-bob {
+        0%, 100% { transform: translateY(0); }
+        45% { transform: translateY(-4px); }
+      }
+    }
+
     .proof-header {
       display: flex;
       justify-content: space-between;
@@ -452,8 +530,21 @@
                 <span>Chat, voice-ready workflow, tools, evals, fallback.</span>
               </div>
             </div>
-            <div class="chat-line agent">Hello, I can help with billing, plan changes, appointment booking, or handoff.</div>
-            <div class="chat-line user">Vietnamese customer asks about a telco billing issue and needs a safe resolution.</div>
+            <div class="chat-line agent" id="agent-reply">Hello, I can help with billing, plan changes, appointment booking, or handoff.</div>
+            <div class="chat-line user" id="customer-ask">Vietnamese customer asks about a telco billing issue and needs a safe resolution.</div>
+            <div class="scenario-tabs" aria-label="Demo scenarios">
+              <button class="scenario-button is-active" type="button" data-scenario="billing">Billing</button>
+              <button class="scenario-button" type="button" data-scenario="booking">Booking</button>
+              <button class="scenario-button" type="button" data-scenario="card">Card lock</button>
+            </div>
+            <div class="pipeline" aria-label="Agent execution path">
+              <div class="pipeline-step" id="tool-a">CRM lookup</div>
+              <div class="pipeline-step" id="tool-b">Billing API</div>
+              <div class="pipeline-step" id="tool-c">Eval trace</div>
+            </div>
+            <div class="demo-note" id="demo-note">
+              The demo story is designed for FDE interviews: agent reasoning, enterprise tools, guardrails, and a measurable rollout path.
+            </div>
           </div>
           <div class="proof-header">
             <span>Project Snapshot</span>
@@ -461,12 +552,12 @@
           </div>
           <div class="proof-body">
             <div class="metric">
-              <strong>50+</strong>
-              <span>eval cases planned across happy paths, safety, tool failure, escalation, and bilingual phrasing.</span>
+              <strong id="metric-primary">50+</strong>
+              <span id="metric-primary-label">eval cases planned across happy paths, safety, tool failure, escalation, and bilingual phrasing.</span>
             </div>
             <div class="metric">
-              <strong>4</strong>
-              <span>enterprise tools: CRM lookup, billing action, ticket creation, and human handoff.</span>
+              <strong id="metric-secondary">4</strong>
+              <span id="metric-secondary-label">enterprise tools: CRM lookup, billing action, ticket creation, and human handoff.</span>
             </div>
             <div class="metric">
               <strong>1</strong>
@@ -615,5 +706,66 @@
   <footer>
     <div class="shell">Profile package for Forward Deployed Engineer opportunities.</div>
   </footer>
+  <script>
+    const scenarios = {
+      billing: {
+        reply: 'Hello, I can check the latest invoice, explain the charge, and create a follow-up ticket if the billing system disagrees.',
+        ask: 'Vietnamese customer asks why a telco bill changed after a plan upgrade.',
+        tools: ['CRM lookup', 'Billing API', 'Eval trace'],
+        note: 'Strong FDE talking point: system-of-record lookup, policy retrieval, billing action boundaries, and regression evals.',
+        primary: '50+',
+        primaryLabel: 'eval cases for billing explanation, tool failure, escalation, and bilingual phrasing.',
+        secondary: '4',
+        secondaryLabel: 'enterprise tools: CRM lookup, billing action, ticket creation, and human handoff.'
+      },
+      booking: {
+        reply: 'I can find available slots, confirm the customer identity, book the appointment, and send a handoff note when the request is unusual.',
+        ask: 'Customer wants to reschedule a healthcare appointment through chat before switching to a live agent.',
+        tools: ['Policy RAG', 'Slot search', 'Ticket handoff'],
+        note: 'Strong FDE talking point: workflow narrowing, auth requirements, idempotent booking, and customer-safe fallback.',
+        primary: '<800ms',
+        primaryLabel: 'target response budget for voice-ready turns before tool latency is added.',
+        secondary: '3',
+        secondaryLabel: 'critical states: verify, book, and confirm with audit trail.'
+      },
+      card: {
+        reply: 'I can lock the card only after verification, preserve the audit trail, and escalate when identity confidence is incomplete.',
+        ask: 'Bank customer calls in Vietnamese-English code switch and asks to lock a lost card immediately.',
+        tools: ['Identity check', 'Card lock API', 'Audit log'],
+        note: 'Strong FDE talking point: scoped agency, compliance, irreversible actions, and safe escalation under pressure.',
+        primary: '0',
+        primaryLabel: 'unauthorized state-changing actions allowed in the target eval suite.',
+        secondary: '2FA',
+        secondaryLabel: 'required before sensitive tool execution in the demo rollout.'
+      }
+    };
+
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    }
+
+    document.querySelectorAll('[data-scenario]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const key = button.getAttribute('data-scenario');
+        const scenario = scenarios[key];
+        if (!scenario) return;
+
+        document.querySelectorAll('[data-scenario]').forEach((item) => item.classList.remove('is-active'));
+        button.classList.add('is-active');
+
+        setText('agent-reply', scenario.reply);
+        setText('customer-ask', scenario.ask);
+        setText('tool-a', scenario.tools[0]);
+        setText('tool-b', scenario.tools[1]);
+        setText('tool-c', scenario.tools[2]);
+        setText('demo-note', scenario.note);
+        setText('metric-primary', scenario.primary);
+        setText('metric-primary-label', scenario.primaryLabel);
+        setText('metric-secondary', scenario.secondary);
+        setText('metric-secondary-label', scenario.secondaryLabel);
+      });
+    });
+  </script>
 </body>
 </html>
