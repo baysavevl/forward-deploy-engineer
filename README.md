@@ -8,6 +8,7 @@ Application package for Vinh Luu targeting a Forward Deployed Engineer role at a
 - `profile/application-kit.md` - 90-second pitch, recruiter note, and story bank.
 - `cv/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.html` - printable CV source.
 - `output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf` - generated CV PDF.
+- `index.html` - public role-fit page led by a Wonderful-style bilingual agent project/demo, not a personal avatar.
 
 The profile is built from:
 

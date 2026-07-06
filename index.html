@@ -115,31 +115,78 @@
       box-shadow: 0 24px 80px rgba(23, 32, 51, 0.08);
     }
 
-    .portrait {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: 50% 18%;
+    .agent-demo {
+      padding: 18px;
       border-bottom: 1px solid var(--line);
-      background: var(--soft);
+      background: #172033;
+      color: white;
     }
 
-    .profile-note {
-      padding: 18px 20px;
-      border-bottom: 1px solid var(--line);
+    .agent-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
 
-    .profile-note strong {
+    .agent-avatar {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: #dbeafe;
+      color: #172033;
+      font-size: 32px;
+      position: relative;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .agent-avatar::after {
+      content: "";
+      position: absolute;
+      right: -2px;
+      top: -2px;
+      width: 13px;
+      height: 13px;
+      border-radius: 999px;
+      background: #34a853;
+      border: 2px solid #172033;
+    }
+
+    .agent-title strong {
       display: block;
-      font-size: 20px;
+      font-size: 18px;
+      line-height: 1.2;
     }
 
-    .profile-note span {
+    .agent-title span {
       display: block;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.7);
       margin-top: 4px;
-      font-size: 14px;
+      font-size: 13px;
+    }
+
+    .chat-line {
+      margin-top: 16px;
+      padding: 12px 13px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .chat-line.agent {
+      margin-right: 34px;
+      background: white;
+      color: var(--ink);
+      border-top-left-radius: 4px;
+    }
+
+    .chat-line.user {
+      margin-left: 34px;
+      color: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      border-top-right-radius: 4px;
     }
 
     .proof-header {
@@ -260,6 +307,62 @@
       background: var(--soft-green);
     }
 
+    .project-band {
+      background: #172033;
+      color: white;
+      border-block: 1px solid #172033;
+    }
+
+    .project-band .thesis {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .project-card {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 20px;
+    }
+
+    .project-card h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    .project-card p,
+    .project-card li {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+    }
+
+    .project-card ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tool-pill {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
     .evidence {
       margin-top: 16px;
       border: 1px solid var(--line);
@@ -312,6 +415,7 @@
       .fit-grid,
       .research-grid,
       .pitch-grid,
+      .project-grid,
       .evidence-row {
         grid-template-columns: 1fr;
       }
@@ -339,31 +443,74 @@
           </div>
         </div>
 
-        <aside class="proof" aria-label="Role fit highlights">
-          <img class="portrait" src="assets/vinh-luu.jpg" alt="Vinh Luu">
-          <div class="profile-note">
-            <strong>Vinh Luu</strong>
-            <span>Senior backend engineer and solution architect for enterprise AI deployment roles.</span>
+        <aside class="proof" aria-label="Wonderful-style chatbot project preview">
+          <div class="agent-demo">
+            <div class="agent-top">
+              <div class="agent-avatar" aria-hidden="true">👋</div>
+              <div class="agent-title">
+                <strong>Bilingual AI agent demo</strong>
+                <span>Chat, voice-ready workflow, tools, evals, fallback.</span>
+              </div>
+            </div>
+            <div class="chat-line agent">Hello, I can help with billing, plan changes, appointment booking, or handoff.</div>
+            <div class="chat-line user">Vietnamese customer asks about a telco billing issue and needs a safe resolution.</div>
           </div>
           <div class="proof-header">
-            <span>Fit Snapshot</span>
-            <span>Builder + Operator</span>
+            <span>Project Snapshot</span>
+            <span>Agent + Deployment</span>
           </div>
           <div class="proof-body">
             <div class="metric">
-              <strong>5+</strong>
-              <span>years shipping production backend systems across large-scale messaging, partner integrations, and enterprise workflows.</span>
+              <strong>50+</strong>
+              <span>eval cases planned across happy paths, safety, tool failure, escalation, and bilingual phrasing.</span>
             </div>
             <div class="metric">
-              <strong>30M+</strong>
-              <span>user-scale surfaces supported through reliable messaging, notification, and business platform infrastructure.</span>
+              <strong>4</strong>
+              <span>enterprise tools: CRM lookup, billing action, ticket creation, and human handoff.</span>
             </div>
             <div class="metric">
-              <strong>40%</strong>
-              <span>faster partner onboarding through integration blueprints, stakeholder discovery, and reusable delivery patterns.</span>
+              <strong>1</strong>
+              <span>deployable story: discover workflow, integrate systems, launch safely, measure business impact.</span>
             </div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section class="section project-band">
+      <div class="shell">
+        <h2>Wonderful-Style Chatbot Project</h2>
+        <p class="thesis">
+          The portfolio proof is a deployable bilingual customer-service agent, not a personal portrait:
+          Vietnamese-English conversations, enterprise tools, audit traces, evals, and a fallback path.
+        </p>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Demo workflow</h3>
+            <p>
+              A telecom or banking customer asks for help through chat, with the same architecture prepared for voice:
+              identify intent, verify required context, retrieve policy, call mock systems of record, and escalate when confidence or permission is insufficient.
+            </p>
+            <div class="tool-grid">
+              <div class="tool-pill">CRM lookup</div>
+              <div class="tool-pill">Billing API</div>
+              <div class="tool-pill">Ticket handoff</div>
+              <div class="tool-pill">Eval trace</div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>Why this proves FDE fit</h3>
+            <ul>
+              <li>Shows customer discovery translated into a narrow MVP workflow.</li>
+              <li>Connects agent behavior to systems of record instead of a standalone demo.</li>
+              <li>Includes guardrails, auditability, observability, and human fallback.</li>
+              <li>Uses Vietnamese/APAC context as a differentiated deployment advantage.</li>
+              <li>Creates concrete interview talking points for evals, latency, tool failures, and rollout.</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
