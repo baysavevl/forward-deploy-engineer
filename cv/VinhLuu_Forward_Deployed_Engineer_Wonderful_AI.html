@@ -3,24 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vinh Luu - Forward Deployed Engineer</title>
+  <title>Vinh Luu - Forward Deployed Engineer Resume</title>
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="../assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <style>
     @page {
       size: Letter;
-      margin: 0.55in 0.58in;
+      margin: 0.58in 0.62in;
     }
 
     :root {
       --ink: #172033;
-      --muted: #626b7d;
-      --line: #d9e0ec;
-      --blue: #285cff;
-      --green: #0b7a53;
-      --amber: #a85f00;
-      --soft: #f7f9fd;
+      --muted: #4f5a6d;
+      --line: #cfd7e6;
+      --blue: #2458ff;
       --paper: #ffffff;
     }
 
@@ -31,10 +28,10 @@
     body {
       margin: 0;
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      font-size: 11.45px;
-      line-height: 1.44;
       background: #edf2f8;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10.9px;
+      line-height: 1.36;
     }
 
     a {
@@ -44,235 +41,153 @@
 
     .page {
       width: 100%;
-      max-width: 960px;
+      max-width: 930px;
       margin: 0 auto;
       background: var(--paper);
     }
 
     header {
+      padding-bottom: 10px;
       border-bottom: 2px solid var(--ink);
-      padding-bottom: 12px;
-      margin-bottom: 12px;
     }
 
-    .name {
-      font-size: 34px;
-      line-height: 1;
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.05;
       letter-spacing: 0;
       font-weight: 800;
-      margin: 0;
     }
 
-    .title {
-      font-size: 15px;
+    .headline {
+      margin-top: 4px;
       color: var(--blue);
+      font-size: 14px;
       font-weight: 700;
-      margin: 5px 0 7px;
     }
 
     .contact {
+      margin-top: 6px;
       color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px 7px;
-      font-size: 10.9px;
+      font-size: 10.7px;
       font-weight: 600;
-    }
-
-    .contact span::after {
-      content: "·";
-      color: #9aa4b5;
-      margin-left: 7px;
-    }
-
-    .contact span:last-child::after {
-      content: "";
-      margin: 0;
     }
 
     section {
-      margin-top: 13px;
+      margin-top: 11px;
     }
 
     h2 {
-      margin: 0 0 7px;
-      color: var(--ink);
-      font-size: 11.8px;
-      line-height: 1;
-      letter-spacing: 0.055em;
-      text-transform: uppercase;
+      margin: 0 0 5px;
+      padding-bottom: 4px;
       border-bottom: 1px solid var(--line);
-      padding-bottom: 5px;
+      color: var(--ink);
+      font-size: 11.3px;
+      line-height: 1;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     p {
-      margin: 0 0 7px;
-    }
-
-    .summary {
-      font-size: 11.75px;
-      line-height: 1.48;
-    }
-
-    .fit-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 7px;
-      margin-top: 9px;
-    }
-
-    .fit {
-      border: 1px solid var(--line);
-      background: var(--soft);
-      border-radius: 6px;
-      padding: 8px 9px;
-      min-height: 58px;
-    }
-
-    .fit strong {
-      display: block;
-      font-size: 10.7px;
-      margin-bottom: 3px;
-    }
-
-    .fit span {
-      color: var(--muted);
-      font-size: 10px;
-      line-height: 1.32;
-      display: block;
-    }
-
-    .role-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: baseline;
-      margin-top: 9px;
-    }
-
-    .company {
-      font-size: 13.2px;
-      font-weight: 800;
-    }
-
-    .company-note {
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 10.4px;
-      margin-left: 4px;
-    }
-
-    .dates {
-      color: var(--muted);
-      font-size: 10.2px;
-      white-space: nowrap;
-      font-weight: 600;
-    }
-
-    .role {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 7px;
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    .role .role-title {
-      font-style: italic;
-      font-weight: 700;
+      margin: 0 0 5px;
     }
 
     ul {
-      margin: 5px 0 8px 17px;
+      margin: 4px 0 7px 17px;
       padding: 0;
     }
 
     li {
-      margin: 0 0 4px;
+      margin: 0 0 3.8px;
       padding-left: 2px;
     }
 
-    li strong {
+    strong {
       color: var(--ink);
     }
 
-    .two-col {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 20px;
-      align-items: start;
+    .summary {
+      font-size: 11.15px;
+      line-height: 1.42;
     }
 
-    .skills {
-      display: grid;
-      grid-template-columns: 98px 1fr;
-      gap: 5px 10px;
-      margin-top: 5px;
-    }
-
-    .skills dt {
-      font-weight: 800;
-      color: var(--ink);
-    }
-
-    .skills dd {
-      margin: 0;
+    .keywords {
+      margin-top: 6px;
       color: var(--muted);
+      font-size: 10.4px;
+      line-height: 1.35;
     }
 
-    .project {
-      border-left: 3px solid var(--blue);
-      padding-left: 10px;
-      margin-top: 8px;
-    }
-
-    .project strong {
-      color: var(--ink);
-    }
-
+    .role-head,
+    .role-line,
     .edu-row {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
-      margin-top: 6px;
+      gap: 14px;
+      align-items: baseline;
+      break-inside: avoid;
     }
 
-    .edu-main {
+    .role-head {
+      margin-top: 7px;
+    }
+
+    .company {
+      font-size: 12.8px;
       font-weight: 800;
     }
 
+    .company-note,
+    .dates,
     .small {
       color: var(--muted);
-      font-size: 10.35px;
     }
 
-    .tag {
-      display: inline-block;
-      color: white;
-      background: var(--green);
-      border-radius: 999px;
-      padding: 1px 5px 1.5px;
-      font-size: 9.4px;
+    .company-note {
+      font-size: 10.1px;
+      font-weight: 600;
+    }
+
+    .role-line {
+      margin-top: 5px;
       font-weight: 700;
-      margin-right: 3px;
     }
 
-    .tag.amber {
-      background: var(--amber);
+    .role-title {
+      font-style: italic;
     }
 
-    .page-break {
-      break-before: page;
+    .dates {
+      white-space: nowrap;
+      font-size: 10.1px;
+      font-weight: 600;
     }
 
-    header,
-    .fit,
-    .project,
-    .role-head,
-    .role,
-    .edu-row {
+    .project {
+      margin-top: 6px;
       break-inside: avoid;
+    }
+
+    .page-separator {
+      display: block;
+      height: 0;
+      break-before: page;
+      page-break-before: always;
+    }
+
+    .skills-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills-list li {
+      margin: 0 0 4px;
+      padding: 0;
+    }
+
+    .edu-row {
+      margin-top: 5px;
     }
 
     @media print {
@@ -289,11 +204,11 @@
 
     @media screen {
       body {
-        padding: 32px 16px;
+        padding: 30px 16px;
       }
 
       .page {
-        padding: 44px 56px;
+        padding: 42px 52px;
         border: 1px solid var(--line);
         box-shadow: 0 24px 70px rgba(23, 32, 51, 0.12);
       }
@@ -311,16 +226,11 @@
         box-shadow: none;
       }
 
-      .fit-grid,
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-
-      .role,
       .role-head,
+      .role-line,
       .edu-row {
         flex-direction: column;
-        gap: 3px;
+        gap: 2px;
       }
     }
   </style>
@@ -328,148 +238,139 @@
 <body>
   <main class="page">
     <header>
-      <h1 class="name">Vinh Luu</h1>
-      <div class="title">Forward Deployed Engineer - Enterprise AI Agents &amp; Integrations</div>
+      <h1>Vinh Luu</h1>
+      <div class="headline">Forward Deployed Engineer - Enterprise AI Agents, Integrations, Production Systems</div>
       <div class="contact">
-        <span>Ho Chi Minh City, Vietnam</span>
-        <span><a href="mailto:vinhluu.se@gmail.com">vinhluu.se@gmail.com</a></span>
-        <span>+84 795 795 595</span>
-        <span><a href="https://www.linkedin.com/in/vinhluulinked/">linkedin.com/in/vinhluulinked</a></span>
+        Ho Chi Minh City, Vietnam | <a href="mailto:vinhluu.se@gmail.com">vinhluu.se@gmail.com</a> | +84 795 795 595 | <a href="https://www.linkedin.com/in/vinhluulinked/">linkedin.com/in/vinhluulinked</a>
       </div>
     </header>
 
     <section>
-      <h2>Profile</h2>
+      <h2>Professional Summary</h2>
       <p class="summary">
-        Forward-deployed, solutions-oriented engineer with 5+ years shipping production systems on Vietnam's largest messaging platform
-        (30M+ users). Strong fit for enterprise AI agent deployment in APAC: high-throughput conversational infrastructure, partner-facing
-        integrations, ambiguous workflow discovery, SOX-grade enterprise systems, and practical LLM automation with evals and guardrails.
-        I own the path from customer problem to deployed software, production debugging, and measurable business impact.
+        Forward-deployed, solutions-oriented engineer with 5+ years building production systems for Zalo, Vietnam's largest messaging platform with 30M+ users. Strong match for enterprise AI agent deployment roles requiring customer discovery, system design, API integration, production debugging, observability, evals, guardrails, and measurable business outcomes. Proven ability to translate ambiguous stakeholder workflows into reliable software across partner, Finance, Sales, Ops, Product, and Engineering teams.
       </p>
-      <div class="fit-grid">
-        <div class="fit"><strong>Customer discovery</strong><span>Partner workshops, scoping, stakeholder alignment, requirement decomposition.</span></div>
-        <div class="fit"><strong>AI deployment</strong><span>LLM workflows, tool/function calling, structured outputs, eval loops, guardrails.</span></div>
-        <div class="fit"><strong>Integrations</strong><span>APIs, messaging, data pipelines, auth, legacy systems, partner onboarding.</span></div>
-        <div class="fit"><strong>Production owner</strong><span>Observability, latency, back-pressure, reliability, live issue debugging.</span></div>
-      </div>
+      <p class="keywords">
+        Keywords: Forward Deployed Engineer, Solutions Engineer, Solution Architect, enterprise AI agents, customer discovery, technical workshops, system design, backend engineering, API integration, tool calling, RAG, evals, guardrails, observability, production support, stakeholder management, APAC, Vietnam.
+      </p>
+    </section>
+
+    <section>
+      <h2>Core Scope Fit</h2>
+      <ul>
+        <li><strong>Customer workflow to production:</strong> Run discovery, decompose ambiguous requirements, design deployment architecture, and own implementation through launch.</li>
+        <li><strong>Enterprise AI deployment:</strong> Build practical LLM workflows with structured outputs, tool/function calling, eval loops, human review gates, guardrails, and escalation paths.</li>
+        <li><strong>Integration and reliability:</strong> Connect APIs, messaging systems, data pipelines, auth-constrained services, and legacy partner systems with observability and rollback discipline.</li>
+        <li><strong>Business outcome ownership:</strong> Tie engineering decisions to onboarding speed, operational overhead, reliability, compliance, customer trust, and measurable adoption.</li>
+      </ul>
     </section>
 
     <section>
       <h2>Work Experience</h2>
+
       <div class="role-head">
-        <div><span class="company">Zalo, VNG</span><span class="company-note">Vietnam's largest messaging platform - 30M+ users</span></div>
-        <div class="dates">Mar 2021 - Current</div>
+        <div>
+          <span class="company">Zalo, VNG</span>
+          <span class="company-note"> - Vietnam's largest messaging platform, 30M+ users</span>
+        </div>
+        <div class="dates">Mar 2021 - Present</div>
       </div>
 
-      <div class="role">
+      <div class="role-line">
         <span class="role-title">Lead Software Engineer - Solutions Architect</span>
-        <span class="dates">Jul 2025 - Current</span>
+        <span class="dates">Jul 2025 - Present</span>
       </div>
       <ul>
-        <li><strong>Enterprise solutioning:</strong> Serve as technical counterpart for JobMarket and HealthTech verticals; run discovery with partner stakeholders, scope integrations, and turn open-ended business workflows into production architectures.</li>
-        <li><strong>Deployment ownership:</strong> Delivered a SOX-compliant financial reporting and billing workflow end-to-end across Finance, Sales, Ops, and Product, reducing operational overhead by <strong>30%</strong> and enabling auditable reporting.</li>
-        <li><strong>Applied AI:</strong> Introduced LLM-backed workflows for classification, content quality signals, and draft generation with structured outputs, eval loops, and human-in-the-loop guardrails for production use.</li>
-        <li><strong>Reusable delivery:</strong> Built integration prototypes, partner blueprints, and technical docs that reduced onboarding time by <strong>40%</strong> and improved the feedback loop from external partners into Product and Engineering.</li>
-        <li><strong>Leadership:</strong> Lead a team of 4 engineers, promoted 2 to senior, and standardize AI-assisted delivery workflows for spec drafting, prototyping, debugging, and review while keeping senior oversight on high-risk changes.</li>
+        <li><strong>Owned enterprise solutioning</strong> for JobMarket and HealthTech verticals by running partner discovery, scoping integrations, aligning stakeholders, and converting open-ended workflows into production architectures.</li>
+        <li><strong>Reduced operational overhead by 30%</strong> by delivering a SOX-compliant financial reporting and billing workflow across Finance, Sales, Ops, Product, and Engineering, with auditable controls and clear ownership boundaries.</li>
+        <li><strong>Introduced applied AI workflows</strong> for classification, content-quality signals, and draft generation using structured outputs, eval loops, and human-in-the-loop guardrails for production usage.</li>
+        <li><strong>Reduced partner onboarding time by 40%</strong> by building integration prototypes, partner blueprints, technical documentation, and reusable delivery patterns that improved feedback loops into Product and Engineering.</li>
+        <li><strong>Led a team of 4 engineers</strong>, promoted 2 to senior, and standardized AI-assisted delivery practices for spec drafting, prototyping, debugging, and code review while preserving senior review on high-risk changes.</li>
       </ul>
 
-      <div class="role">
+      <div class="role-line">
         <span class="role-title">Senior Software Engineer - Technical Liaison</span>
         <span class="dates">Jul 2023 - Jul 2025</span>
       </div>
       <ul>
-        <li><strong>Conversational systems at scale:</strong> Architected and deployed the business messaging delivery pipeline behind millions of daily business-to-user messages with sub-second latency and hundreds of enterprise partner integrations.</li>
-        <li><strong>Partner integration:</strong> Acted as embedded technical partner for external enterprises adopting the ecosystem: API design, integration workshops, live troubleshooting, and performance tuning across legacy and modern stacks.</li>
-        <li><strong>Production reliability:</strong> Owned performance tuning across 5+ core ecosystem apps; improved peak-traffic stability through observability, back-pressure, and graceful degradation patterns.</li>
+        <li><strong>Architected and deployed</strong> business messaging delivery systems behind millions of daily business-to-user messages, supporting sub-second latency and hundreds of enterprise partner integrations.</li>
+        <li><strong>Acted as embedded technical partner</strong> for external enterprises adopting the ecosystem by leading API design discussions, integration workshops, live troubleshooting, and performance tuning across legacy and modern stacks.</li>
+        <li><strong>Improved peak-traffic stability</strong> across 5+ core ecosystem applications through observability, back-pressure, graceful degradation, and performance tuning under production load.</li>
       </ul>
 
-      <div class="role">
+      <div class="role-line">
         <span class="role-title">Software Engineer</span>
         <span class="dates">Apr 2022 - Jul 2023</span>
       </div>
       <ul>
-        <li><strong>Trust and safety guardrails:</strong> Led message-quality and permission-control work on Zalo Business Message, raising coverage by <strong>50%</strong> on a 30M+ user surface.</li>
-        <li><strong>Infrastructure modernization:</strong> Migrated legacy services to microservices, improving resource efficiency by <strong>25%</strong> without downtime.</li>
+        <li><strong>Increased permission-control coverage by 50%</strong> on Zalo Business Message by leading message-quality and trust/safety guardrail work on a 30M+ user communication surface.</li>
+        <li><strong>Improved resource efficiency by 25%</strong> by migrating legacy services to microservices without user-visible downtime.</li>
       </ul>
 
-      <div class="role">
+      <div class="role-line">
         <span class="role-title">Associate Software Engineer</span>
         <span class="dates">Mar 2021 - Apr 2022</span>
       </div>
       <ul>
-        <li><strong>Requirement to system:</strong> Converted raw user and business requirements into system flows and services; improved business performance by <strong>15%</strong> through latency-focused redesigns using Redis, Kafka, and SQL/NoSQL stacks.</li>
+        <li><strong>Improved business workflow performance by 15%</strong> by converting raw user and business requirements into services and latency-focused redesigns using Redis, Kafka, SQL, and NoSQL systems.</li>
       </ul>
+
+      <div class="page-separator" aria-hidden="true"></div>
 
       <div class="role-head">
         <div><span class="company">FPT Software</span></div>
         <div class="dates">Sep 2019 - Aug 2020</div>
       </div>
-      <div class="role">
-        <span class="role-title">Software Engineer (Intern/Contract)</span>
+      <div class="role-line">
+        <span class="role-title">Software Engineer - Intern/Contract</span>
         <span class="dates">Sep 2019 - Aug 2020</span>
       </div>
       <ul>
-        <li><strong>Data pipelines:</strong> Built automated ETL pipelines consolidating disparate data sources into business intelligence for internal and partner-facing analytics.</li>
-        <li><strong>Partner-facing documentation:</strong> Authored integration guides for third-party portals, reducing onboarding friction for external engineering teams.</li>
+        <li><strong>Built automated ETL pipelines</strong> that consolidated disparate data sources into business intelligence for internal and partner-facing analytics.</li>
+        <li><strong>Authored third-party integration guides</strong> for partner portals, reducing onboarding friction for external engineering teams.</li>
       </ul>
     </section>
 
     <section>
-      <h2>Selected Role-Relevant Projects</h2>
+      <h2>Selected Projects</h2>
       <div class="project">
-        <p><strong>Solution Architect / Solutions Engineer portfolio systems:</strong> Built role-targeted portfolio projects for Google Ads Solution Architect, Customer Solutions Engineer, and Partner Solutions Engineer preparation. The systems package domain knowledge into advisory flows, diagnostic tooling, case-study libraries, and AI-assisted customer guidance - directly mirroring FDE work of learning a domain, building reusable frameworks, and making technical decisions legible to stakeholders.</p>
+        <p><strong>AI-native Forward Deployed Engineer profile and demo:</strong> Built and deployed a Gemini-backed FDE copilot demo that keeps conversation history, maps customer intent to tool routes, surfaces guardrails, and explains rollout metrics for telco billing, healthcare booking, and banking card-control workflows.</p>
       </div>
       <div class="project">
-        <p><strong>AI-native engineering workflow:</strong> Standardized use of Claude, Cursor, and GitHub Copilot across delivery workflows with human review gates, faster spec-to-prototype cycles, and LLM-assisted code review/debugging. Practical focus: use AI to compress iteration time without outsourcing accountability.</p>
+        <p><strong>Solution Architect and Solutions Engineer portfolio systems:</strong> Built role-targeted portfolio projects for Google Ads Solution Architect, Customer Solutions Engineer, and Partner Solutions Engineer preparation, packaging domain knowledge into advisory flows, diagnostic tooling, case-study libraries, and AI-assisted customer guidance.</p>
+      </div>
+      <div class="project">
+        <p><strong>AI-assisted engineering operating model:</strong> Standardized usage of Claude, Cursor, GitHub Copilot, and review gates across delivery workflows to accelerate spec-to-prototype cycles while maintaining human accountability for high-risk code and production decisions.</p>
       </div>
     </section>
 
-    <section class="two-col">
-      <div>
-        <h2>FDE Competencies</h2>
-        <dl class="skills">
-          <dt>AI agents</dt>
-          <dd>Prompt design, RAG, tool/function calling, structured outputs, LangGraph familiarity, evals, LLM-as-judge, guardrails, escalation design.</dd>
-          <dt>Systems</dt>
-          <dd>Distributed systems, high-throughput messaging, microservices, API design, Redis, Kafka, SQL/NoSQL, observability, reliability.</dd>
-          <dt>Integration</dt>
-          <dd>Enterprise APIs, data mapping, auth constraints, partner onboarding, technical workshops, integration documentation, live troubleshooting.</dd>
-          <dt>Customer</dt>
-          <dd>Discovery, scoping, stakeholder management, executive communication, ambiguity handling, business impact tracking.</dd>
-          <dt>Markets</dt>
-          <dd>Vietnamese native, English professional; APAC/Vietnam digital platform, messaging, commerce, and partner ecosystem fluency.</dd>
-        </dl>
-      </div>
-      <div>
-        <h2>Education</h2>
-        <div class="edu-row">
-          <div>
-            <div class="edu-main">Bachelor's degree in Software Engineering</div>
-            <div class="small">FPT University - Ho Chi Minh City</div>
-          </div>
-          <div class="dates">Sep 2016 - Dec 2020</div>
-        </div>
-        <p class="small">70% merit scholarship. Capstone: traffic violation detection from surveillance cameras using computer vision.</p>
+    <section>
+      <h2>Technical Skills</h2>
+      <ul class="skills-list">
+        <li><strong>AI agents and LLM systems:</strong> Prompt design, RAG, tool/function calling, structured outputs, eval design, LLM-as-judge, guardrails, human escalation, Gemini/OpenAI usage.</li>
+        <li><strong>Backend and distributed systems:</strong> Java, Python, TypeScript/JavaScript, REST APIs, microservices, Redis, Kafka, SQL, NoSQL, high-throughput messaging, data pipelines.</li>
+        <li><strong>Production engineering:</strong> Observability, trace-driven debugging, latency tuning, back-pressure, graceful degradation, deployment planning, incident communication, reliability.</li>
+        <li><strong>Enterprise integration:</strong> API design, data mapping, auth constraints, partner onboarding, technical workshops, integration documentation, stakeholder alignment.</li>
+        <li><strong>Market and language:</strong> Vietnamese native, professional English, APAC/Vietnam digital platform and messaging ecosystem fluency.</li>
+      </ul>
+    </section>
 
-        <div class="edu-row">
-          <div>
-            <div class="edu-main">Gifted High School Diploma</div>
-            <div class="small">Le Quy Don Gifted High School - Da Nang</div>
-          </div>
-          <div class="dates">Jun 2013 - May 2016</div>
-        </div>
-        <p class="small">Silver medal, April 30th Olympic for Gifted Students. First Prize, Software Programming Provincial Merit Competition.</p>
+    <section>
+      <h2>Education</h2>
+      <div class="edu-row">
+        <div><strong>Bachelor's Degree in Software Engineering</strong>, FPT University - Ho Chi Minh City</div>
+        <div class="dates">Sep 2016 - Dec 2020</div>
+      </div>
+      <p class="small">70% merit scholarship. Capstone: traffic violation detection from surveillance cameras using computer vision.</p>
+      <div class="edu-row">
+        <div><strong>Gifted High School Diploma</strong>, Le Quy Don Gifted High School - Da Nang</div>
+        <div class="dates">Jun 2013 - May 2016</div>
       </div>
     </section>
 
     <section>
       <h2>Honors and Awards</h2>
-      <p>
-        <span class="tag">VNG</span> 1st Runner Up - MiniApp Building Hackathon
-        <span class="tag amber">Zalo</span> 2nd Runner Up Finalist - ZA Challenge
-        <span class="tag">FPT Software</span> Best BU Intern Performance @ FSG
-        <span class="tag amber">FPT University</span> Honorable Students Award
-      </p>
+      <p>VNG 1st Runner Up - MiniApp Building Hackathon | Zalo 2nd Runner Up Finalist - ZA Challenge | FPT Software Best BU Intern Performance @ FSG | FPT University Honorable Students Award | Silver Medal, April 30th Olympic for Gifted Students | First Prize, Software Programming Provincial Merit Competition.</p>
     </section>
   </main>
 </body>

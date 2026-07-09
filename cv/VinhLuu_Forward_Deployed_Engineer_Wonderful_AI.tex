@@ -1,0 +1,117 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.58in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+\definecolor{headingblue}{HTML}{2458FF}
+\definecolor{textgray}{HTML}{4F5A6D}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlist[itemize]{leftmargin=15pt, topsep=2pt, itemsep=2pt}
+\pagestyle{empty}
+
+\titleformat{\section}
+  {\large\bfseries\uppercase}
+  {}
+  {0pt}
+  {}
+  [\vspace{2pt}\titlerule]
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+
+\newcommand{\role}[2]{%
+  \textit{\textbf{#1}}\hfill {\small\textcolor{textgray}{#2}}\\[-2pt]
+}
+
+\begin{document}
+
+{\LARGE\textbf{Vinh Luu}}\\
+{\color{headingblue}\textbf{Forward Deployed Engineer - Enterprise AI Agents, Integrations, Production Systems}}\\
+Ho Chi Minh City, Vietnam \textbar{}
+\href{mailto:vinhluu.se@gmail.com}{vinhluu.se@gmail.com} \textbar{}
++84 795 795 595 \textbar{}
+\href{https://www.linkedin.com/in/vinhluulinked/}{linkedin.com/in/vinhluulinked}
+
+\section*{Professional Summary}
+Forward-deployed, solutions-oriented engineer with 5+ years building production systems for Zalo, Vietnam's largest messaging platform with 30M+ users. Strong match for enterprise AI agent deployment roles requiring customer discovery, system design, API integration, production debugging, observability, evals, guardrails, and measurable business outcomes. Proven ability to translate ambiguous stakeholder workflows into reliable software across partner, Finance, Sales, Ops, Product, and Engineering teams.
+
+\textbf{Keywords:} Forward Deployed Engineer, Solutions Engineer, Solution Architect, enterprise AI agents, customer discovery, technical workshops, system design, backend engineering, API integration, tool calling, RAG, evals, guardrails, observability, production support, stakeholder management, APAC, Vietnam.
+
+\section*{Core Scope Fit}
+\begin{itemize}
+  \item \textbf{Customer workflow to production:} Run discovery, decompose ambiguous requirements, design deployment architecture, and own implementation through launch.
+  \item \textbf{Enterprise AI deployment:} Build practical LLM workflows with structured outputs, tool/function calling, eval loops, human review gates, guardrails, and escalation paths.
+  \item \textbf{Integration and reliability:} Connect APIs, messaging systems, data pipelines, auth-constrained services, and legacy partner systems with observability and rollback discipline.
+  \item \textbf{Business outcome ownership:} Tie engineering decisions to onboarding speed, operational overhead, reliability, compliance, customer trust, and measurable adoption.
+\end{itemize}
+
+\section*{Work Experience}
+\textbf{Zalo, VNG - Vietnam's largest messaging platform, 30M+ users}\hfill {\small\textcolor{textgray}{Mar 2021 - Present}}\\
+\role{Lead Software Engineer - Solutions Architect}{Jul 2025 - Present}
+\begin{itemize}
+  \item \textbf{Owned enterprise solutioning} for JobMarket and HealthTech verticals by running partner discovery, scoping integrations, aligning stakeholders, and converting open-ended workflows into production architectures.
+  \item \textbf{Reduced operational overhead by 30\%} by delivering a SOX-compliant financial reporting and billing workflow across Finance, Sales, Ops, Product, and Engineering, with auditable controls and clear ownership boundaries.
+  \item \textbf{Introduced applied AI workflows} for classification, content-quality signals, and draft generation using structured outputs, eval loops, and human-in-the-loop guardrails for production usage.
+  \item \textbf{Reduced partner onboarding time by 40\%} by building integration prototypes, partner blueprints, technical documentation, and reusable delivery patterns that improved feedback loops into Product and Engineering.
+  \item \textbf{Led a team of 4 engineers}, promoted 2 to senior, and standardized AI-assisted delivery practices for spec drafting, prototyping, debugging, and code review while preserving senior review on high-risk changes.
+\end{itemize}
+
+\role{Senior Software Engineer - Technical Liaison}{Jul 2023 - Jul 2025}
+\begin{itemize}
+  \item \textbf{Architected and deployed} business messaging delivery systems behind millions of daily business-to-user messages, supporting sub-second latency and hundreds of enterprise partner integrations.
+  \item \textbf{Acted as embedded technical partner} for external enterprises adopting the ecosystem by leading API design discussions, integration workshops, live troubleshooting, and performance tuning across legacy and modern stacks.
+  \item \textbf{Improved peak-traffic stability} across 5+ core ecosystem applications through observability, back-pressure, graceful degradation, and performance tuning under production load.
+\end{itemize}
+
+\role{Software Engineer}{Apr 2022 - Jul 2023}
+\begin{itemize}
+  \item \textbf{Increased permission-control coverage by 50\%} on Zalo Business Message by leading message-quality and trust/safety guardrail work on a 30M+ user communication surface.
+  \item \textbf{Improved resource efficiency by 25\%} by migrating legacy services to microservices without user-visible downtime.
+\end{itemize}
+
+\role{Associate Software Engineer}{Mar 2021 - Apr 2022}
+\begin{itemize}
+  \item \textbf{Improved business workflow performance by 15\%} by converting raw user and business requirements into services and latency-focused redesigns using Redis, Kafka, SQL, and NoSQL systems.
+\end{itemize}
+
+\textbf{FPT Software}\hfill {\small\textcolor{textgray}{Sep 2019 - Aug 2020}}\\
+\role{Software Engineer - Intern/Contract}{Sep 2019 - Aug 2020}
+\begin{itemize}
+  \item \textbf{Built automated ETL pipelines} that consolidated disparate data sources into business intelligence for internal and partner-facing analytics.
+  \item \textbf{Authored third-party integration guides} for partner portals, reducing onboarding friction for external engineering teams.
+\end{itemize}
+
+\section*{Selected Projects}
+\textbf{AI-native Forward Deployed Engineer profile and demo:} Built and deployed a Gemini-backed FDE copilot demo that keeps conversation history, maps customer intent to tool routes, surfaces guardrails, and explains rollout metrics for telco billing, healthcare booking, and banking card-control workflows.
+
+\textbf{Solution Architect and Solutions Engineer portfolio systems:} Built role-targeted portfolio projects for Google Ads Solution Architect, Customer Solutions Engineer, and Partner Solutions Engineer preparation, packaging domain knowledge into advisory flows, diagnostic tooling, case-study libraries, and AI-assisted customer guidance.
+
+\textbf{AI-assisted engineering operating model:} Standardized usage of Claude, Cursor, GitHub Copilot, and review gates across delivery workflows to accelerate spec-to-prototype cycles while maintaining human accountability for high-risk code and production decisions.
+
+\section*{Technical Skills}
+\textbf{AI agents and LLM systems:} Prompt design, RAG, tool/function calling, structured outputs, eval design, LLM-as-judge, guardrails, human escalation, Gemini/OpenAI usage.\\
+\textbf{Backend and distributed systems:} Java, Python, TypeScript/JavaScript, REST APIs, microservices, Redis, Kafka, SQL, NoSQL, high-throughput messaging, data pipelines.\\
+\textbf{Production engineering:} Observability, trace-driven debugging, latency tuning, back-pressure, graceful degradation, deployment planning, incident communication, reliability.\\
+\textbf{Enterprise integration:} API design, data mapping, auth constraints, partner onboarding, technical workshops, integration documentation, stakeholder alignment.\\
+\textbf{Market and language:} Vietnamese native, professional English, APAC/Vietnam digital platform and messaging ecosystem fluency.
+
+\section*{Education}
+\textbf{Bachelor's Degree in Software Engineering}, FPT University - Ho Chi Minh City \hfill {\small\textcolor{textgray}{Sep 2016 - Dec 2020}}\\
+70\% merit scholarship. Capstone: traffic violation detection from surveillance cameras using computer vision.
+
+\textbf{Gifted High School Diploma}, Le Quy Don Gifted High School - Da Nang \hfill {\small\textcolor{textgray}{Jun 2013 - May 2016}}
+
+\section*{Honors and Awards}
+VNG 1st Runner Up - MiniApp Building Hackathon \textbar{}
+Zalo 2nd Runner Up Finalist - ZA Challenge \textbar{}
+FPT Software Best BU Intern Performance @ FSG \textbar{}
+FPT University Honorable Students Award \textbar{}
+Silver Medal, April 30th Olympic for Gifted Students \textbar{}
+First Prize, Software Programming Provincial Merit Competition.
+
+\end{document}

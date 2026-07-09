@@ -217,6 +217,15 @@
       cursor: pointer;
     }
 
+    .button svg,
+    .nav-icon svg,
+    .console-link svg {
+      width: 17px;
+      height: 17px;
+      display: block;
+      fill: currentColor;
+    }
+
     .button.primary {
       background: var(--ink);
       color: white;
@@ -229,114 +238,167 @@
       outline: 0;
     }
 
+    .nav-icon {
+      min-width: 38px;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--blue);
+      background: white;
+    }
+
     .profile-brief {
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.92);
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(143, 224, 189, 0.10) 1px, transparent 1px),
+        linear-gradient(180deg, #10141f, #171b29);
+      background-size: 34px 34px, auto;
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .avatar-stage {
+    .console-stage {
       display: grid;
-      grid-template-columns: 150px 1fr;
       gap: 16px;
+      padding: 20px;
+    }
+
+    .console-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
       align-items: center;
-      padding: 18px;
-      background:
-        linear-gradient(135deg, rgba(36, 88, 255, 0.12), rgba(8, 127, 122, 0.08)),
-        white;
-      border-bottom: 1px solid var(--line);
     }
 
-    .avatar-image {
-      width: 150px;
-      aspect-ratio: 1;
+    .console-person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar-chip {
+      width: 54px;
+      height: 54px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      object-fit: cover;
+      overflow: hidden;
       background: white;
-      box-shadow: 0 18px 40px rgba(22, 23, 29, 0.13);
     }
 
-    .avatar-stage strong {
-      display: block;
-      font-size: 18px;
-      line-height: 1.2;
+    .avatar-chip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .avatar-stage p {
-      margin: 8px 0 14px;
-      color: var(--body);
-      font-size: 14px;
-    }
-
-    .signal-grid {
-      display: grid;
-      gap: 7px;
-    }
-
-    .signal {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 7px 9px;
-      border: 1px solid rgba(223, 227, 235, 0.9);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.72);
-      color: var(--quiet);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .signal span:last-child {
-      color: var(--teal);
-    }
-
-    .brief-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 18px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brief-head strong {
-      display: block;
-      font-size: 18px;
-    }
-
-    .brief-head span,
-    .brief-row span,
-    .link-item span {
-      color: var(--quiet);
-      font-size: 13px;
-    }
-
-    .brief-status {
-      min-width: 96px;
-      color: var(--green);
-      text-align: right;
-      font-size: 12px;
+    .console-kicker {
+      color: #8fe0bd;
+      font-size: 11px;
       font-weight: 900;
       text-transform: uppercase;
     }
 
-    .brief-row {
+    .console-title {
+      display: block;
+      margin-top: 2px;
+      color: white;
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .console-link {
+      width: 40px;
+      height: 40px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .console-link:hover,
+    .console-link:focus-visible {
+      color: #8fe0bd;
+      outline: 0;
+    }
+
+    .flow-stack {
       display: grid;
-      grid-template-columns: 116px 1fr;
-      gap: 16px;
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--line);
+      gap: 9px;
     }
 
-    .brief-row:last-child {
-      border-bottom: 0;
+    .flow-node {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .brief-row strong {
-      color: var(--plum);
+    .flow-node:first-child {
+      border-top: 0;
+    }
+
+    .flow-node b {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      color: #8fe0bd;
+      background: rgba(143, 224, 189, 0.12);
+      font-size: 11px;
+    }
+
+    .flow-node strong {
+      display: block;
       font-size: 14px;
+    }
+
+    .flow-node span {
+      display: block;
+      margin-top: 2px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 12px;
+    }
+
+    .console-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .console-metric {
+      padding: 14px;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .console-metric:last-child {
+      border-right: 0;
+    }
+
+    .console-metric strong {
+      display: block;
+      font-size: 20px;
+    }
+
+    .console-metric span {
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .link-item span {
+      color: var(--quiet);
+      font-size: 13px;
     }
 
     .section {
@@ -804,7 +866,7 @@
     @media (prefers-reduced-motion: no-preference) {
       .hello-mark,
       .agent-face,
-      .avatar-image {
+      .avatar-chip {
         animation: hello-wave 3.4s ease-in-out infinite;
       }
 
@@ -873,7 +935,6 @@
         font-size: clamp(38px, 12vw, 52px);
       }
 
-      .brief-row,
       .runtime,
       .composer {
         grid-template-columns: 1fr;
@@ -888,21 +949,17 @@
         width: 100%;
       }
 
-      .brief-head {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .avatar-stage {
+      .console-metrics {
         grid-template-columns: 1fr;
       }
 
-      .avatar-image {
-        width: min(210px, 100%);
+      .console-metric {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       }
 
-      .brief-status {
-        text-align: left;
+      .console-metric:last-child {
+        border-bottom: 0;
       }
 
       .runtime-box {
@@ -932,6 +989,9 @@
         <a href="#demo">Agent demo</a>
         <a href="#links">Links</a>
         <a href="#pitch">Pitch</a>
+        <a class="nav-icon" href="https://www.linkedin.com/in/vinhluulinked/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V8.99h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.53V8.99H7.1v11.46zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg>
+        </a>
       </nav>
     </div>
   </header>
@@ -948,44 +1008,52 @@
             is Zalo-scale production ownership plus Vietnam/APAC language and market context.
           </p>
           <div class="actions">
-            <a class="button primary" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf">Open CV PDF</a>
+            <a class="button primary" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf" download>Download ATS CV</a>
             <a class="button" href="/cv/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.html">View CV HTML</a>
-            <a class="button" href="https://www.linkedin.com/in/vinhluulinked/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="button" href="/cv/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.tex" download>LaTeX source</a>
+            <a class="button" href="https://www.linkedin.com/in/vinhluulinked/" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V8.99h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.53V8.99H7.1v11.46zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg>
+              LinkedIn
+            </a>
             <a class="button" href="#demo">Try agent demo</a>
           </div>
         </div>
 
-        <aside class="profile-brief" aria-label="Profile summary">
-          <div class="avatar-stage">
-            <img class="avatar-image" src="/assets/vinh-avatar.png" alt="Memoji-style avatar of Vinh Luu waving">
-            <div>
-              <strong>Hello, I am Vinh.</strong>
-              <p>Backend engineer, solution architect, and FDE candidate focused on enterprise AI agents that actually deploy.</p>
-              <div class="signal-grid" role="group" aria-label="Profile signals">
-                <div class="signal"><span>Production</span><span>30M+ users</span></div>
-                <div class="signal"><span>Customer work</span><span>partners</span></div>
-                <div class="signal"><span>AI ramp</span><span>agents + evals</span></div>
+        <aside class="profile-brief" aria-label="AI-native profile summary">
+          <div class="console-stage">
+            <div class="console-top">
+              <div class="console-person">
+                <span class="avatar-chip" aria-hidden="true"><img src="/assets/vinh-avatar.png" alt=""></span>
+                <div>
+                  <span class="console-kicker">Live deployment graph</span>
+                  <strong class="console-title">From customer intent to safe production action</strong>
+                </div>
+              </div>
+              <a class="console-link" href="https://www.linkedin.com/in/vinhluulinked/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V8.99h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.53V8.99H7.1v11.46zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg>
+              </a>
+            </div>
+
+            <div class="flow-stack" aria-label="Forward deployed AI workflow">
+              <div class="flow-node">
+                <b>01</b>
+                <div><strong>Discover workflow</strong><span>Vietnamese customer issue, enterprise stakeholder constraints, success metric.</span></div>
+              </div>
+              <div class="flow-node">
+                <b>02</b>
+                <div><strong>Ground and route</strong><span>Policy retrieval, CRM/billing API contract, auth boundary, tool schema.</span></div>
+              </div>
+              <div class="flow-node">
+                <b>03</b>
+                <div><strong>Guard and launch</strong><span>Eval set, human fallback, trace ID, rollout metric, production debug loop.</span></div>
               </div>
             </div>
           </div>
-          <div class="brief-head">
-            <div>
-              <strong>Vinh Luu</strong>
-              <span>Senior backend engineer and solution architect</span>
-            </div>
-            <div class="brief-status">Profile ready</div>
-          </div>
-          <div class="brief-row">
-            <strong>Scale</strong>
-            <span>Production systems behind 30M+ user messaging and business workflows.</span>
-          </div>
-          <div class="brief-row">
-            <strong>Customer work</strong>
-            <span>Partner discovery, architecture review, integration rollout, and live troubleshooting.</span>
-          </div>
-          <div class="brief-row">
-            <strong>FDE angle</strong>
-            <span>Translate messy enterprise workflow into deployed AI agents with measurable business impact.</span>
+
+          <div class="console-metrics" role="group" aria-label="Profile metrics">
+            <div class="console-metric"><strong>30M+</strong><span>messaging users</span></div>
+            <div class="console-metric"><strong>40%</strong><span>faster onboarding</span></div>
+            <div class="console-metric"><strong>50+</strong><span>eval cases target</span></div>
           </div>
         </aside>
       </div>
@@ -1131,9 +1199,10 @@
           <article class="link-panel">
             <h3>Application package</h3>
             <p>Role-fit profile, CV, and interview pitch assets.</p>
-            <a class="link-item" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf">CV PDF <span>open</span></a>
+            <a class="link-item" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf" download>ATS CV PDF <span>download</span></a>
+            <a class="link-item" href="/cv/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.tex" download>LaTeX CV <span>download</span></a>
             <a class="link-item" href="/profile/role-fit-profile.md">Role-fit notes <span>read</span></a>
-            <a class="link-item" href="https://www.linkedin.com/in/vinhluulinked/" target="_blank" rel="noreferrer">LinkedIn <span>open</span></a>
+            <a class="link-item" href="https://www.linkedin.com/in/vinhluulinked/" target="_blank" rel="noreferrer">LinkedIn <span>icon link</span></a>
           </article>
           <article class="link-panel">
             <h3>Project links</h3>
