@@ -163,11 +163,6 @@
       font-weight: 600;
     }
 
-    .project {
-      margin-top: 6px;
-      break-inside: avoid;
-    }
-
     .page-separator {
       display: block;
       height: 0;
@@ -184,6 +179,18 @@
     .skills-list li {
       margin: 0 0 4px;
       padding: 0;
+    }
+
+    .award-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .award-list li {
+      margin: 0 0 3px;
+      padding: 0;
+      break-inside: avoid;
     }
 
     .edu-row {
@@ -332,19 +339,6 @@
     </section>
 
     <section>
-      <h2>Selected Projects</h2>
-      <div class="project">
-        <p><strong>AI-native Forward Deployed Engineer profile and demo:</strong> Built and deployed a Gemini-backed FDE copilot demo that keeps conversation history, maps customer intent to tool routes, surfaces guardrails, and explains rollout metrics for telco billing, healthcare booking, and banking card-control workflows.</p>
-      </div>
-      <div class="project">
-        <p><strong>Solution Architect and Solutions Engineer portfolio systems:</strong> Built role-targeted portfolio projects for Google Ads Solution Architect, Customer Solutions Engineer, and Partner Solutions Engineer preparation, packaging domain knowledge into advisory flows, diagnostic tooling, case-study libraries, and AI-assisted customer guidance.</p>
-      </div>
-      <div class="project">
-        <p><strong>AI-assisted engineering operating model:</strong> Standardized usage of Claude, Cursor, GitHub Copilot, and review gates across delivery workflows to accelerate spec-to-prototype cycles while maintaining human accountability for high-risk code and production decisions.</p>
-      </div>
-    </section>
-
-    <section>
       <h2>Technical Skills</h2>
       <ul class="skills-list">
         <li><strong>AI agents and LLM systems:</strong> Prompt design, RAG, tool/function calling, structured outputs, eval design, LLM-as-judge, guardrails, human escalation, Gemini/OpenAI usage.</li>
@@ -370,7 +364,14 @@
 
     <section>
       <h2>Honors and Awards</h2>
-      <p>VNG 1st Runner Up - MiniApp Building Hackathon | Zalo 2nd Runner Up Finalist - ZA Challenge | FPT Software Best BU Intern Performance @ FSG | FPT University Honorable Students Award | Silver Medal, April 30th Olympic for Gifted Students | First Prize, Software Programming Provincial Merit Competition.</p>
+      <ul class="award-list">
+        <li>VNG 1st Runner Up - MiniApp Building Hackathon.</li>
+        <li>Zalo 2nd Runner Up Finalist - ZA Challenge.</li>
+        <li>FPT Software Best BU Intern Performance @ FSG.</li>
+        <li>FPT University Honorable Students Award.</li>
+        <li>Silver Medal - April 30th Olympic for Gifted Students.</li>
+        <li>First Prize - Software Programming Provincial Merit Competition.</li>
+      </ul>
     </section>
   </main>
 </body>
