@@ -182,7 +182,29 @@ Keep the current bilingual Gemini-backed demo, but reposition it after the evide
 
 Improve surrounding copy so it is clear this is a deployment reasoning demo, not a support chatbot.
 
-### 8. Links and Application Package
+### 8. Mini Project Showcase
+
+Purpose: prove fit through small, deployed artifacts that a hiring manager can open quickly.
+
+These should be lightweight static pages inside the same Vercel deployment, linked from the profile. They are mockup projects, not claims of customer production deployments.
+
+Projects:
+
+- Deployment Blueprint Lab: interactive FDE workflow map for turning a messy enterprise request into scope, architecture, guardrails, rollout, and metrics.
+- Agent Eval Harness: mock eval dashboard showing scenario coverage, unsafe-action checks, bilingual cases, regression gates, and launch decisions.
+- Partner Integration Runbook: partner onboarding artifact with API contract, source-of-truth mapping, failure modes, escalation path, and reusable handoff checklist.
+
+Each mini project should show:
+
+- The customer problem it models.
+- The FDE skill demonstrated.
+- The technical artifacts involved.
+- The business metric it would protect or improve.
+- A clear link back to the main profile.
+
+The main profile should include a "Mini deployment labs" section with compact cards linking to these pages.
+
+### 9. Links and Application Package
 
 Keep clear links to:
 
@@ -232,6 +254,7 @@ Signature detail:
 ## Interaction And State
 
 - Smooth stage selection in the Deployment Operating System.
+- Selective mini project interactions: scenario tabs, stage selectors, or checklist toggles only where they clarify the proof.
 - Keyboard-accessible buttons/tabs for stages.
 - Reduced-motion fallback.
 - Existing chat demo remains usable on desktop and mobile.
@@ -242,6 +265,7 @@ Signature detail:
 - A recruiter understands within 10 seconds that Vinh is primarily targeting FDE work.
 - A hiring manager can see that Vinh's strength is broader than AI prompt work.
 - Wonderful.ai has a dedicated section that feels tailored to the company and role.
+- Mini project pages are deployed and linked from the main profile as proof artifacts.
 - SA/PSE/CSE strengths are visible as preference/supporting zones, not confusing alternate targets.
 - The page feels more "wow" than the current version while staying credible and human-readable.
 - All claims are traceable to existing CV/profile source material or public company/role research.
@@ -253,8 +277,16 @@ Signature detail:
 - Do not overstate voice/telephony depth; position it as adjacent to conversational messaging and actively rampable.
 - Do not remove the existing CV/download assets.
 - Do not replace the static site with a heavy framework unless required by implementation constraints.
+- Do not make mini projects feel like unrelated portfolio toys; each one must map directly to FDE evidence.
 
 ## Implementation Notes
 
 The current site is a single static `index.html` with an `/api/agent.js` Vercel function for the demo. Keep this architecture unless a clear problem appears. The redesign can be implemented with scoped HTML/CSS/JS edits in `index.html`, preserving existing asset paths and demo API behavior.
 
+Create mini project pages under `projects/` so they deploy on the same Vercel project:
+
+- `projects/deployment-blueprint-lab.html`
+- `projects/agent-eval-harness.html`
+- `projects/partner-integration-runbook.html`
+
+Add a validation script if useful, but do not introduce a build step unless it materially improves verification.
