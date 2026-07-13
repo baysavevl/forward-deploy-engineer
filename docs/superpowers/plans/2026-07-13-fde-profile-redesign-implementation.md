@@ -52,7 +52,7 @@
 - Consumes: local static files: `index.html`, `projects/deployment-blueprint-lab.html`, `projects/agent-eval-harness.html`, `projects/partner-integration-runbook.html`.
 - Produces: command `node --test scripts/validate-profile-site.mjs` that exits non-zero until required profile sections and mini project files exist.
 
-- [ ] **Step 1: Write the failing validation test**
+- [x] **Step 1: Write the failing validation test**
 
 Create `scripts/validate-profile-site.mjs` with this content:
 
@@ -163,7 +163,7 @@ test('profile content stays credible and avoids implementation placeholders', as
 });
 ```
 
-- [ ] **Step 2: Run validation to verify it fails**
+- [x] **Step 2: Run validation to verify it fails**
 
 Run:
 
@@ -173,7 +173,7 @@ node --test scripts/validate-profile-site.mjs
 
 Expected: FAIL because `index.html` does not yet contain the new section IDs and `projects/*.html` do not exist.
 
-- [ ] **Step 3: Commit the failing validation harness**
+- [x] **Step 3: Commit the failing validation harness**
 
 Run:
 
@@ -594,4 +594,3 @@ Report:
 - Spec coverage: the plan covers FDE-first positioning, Wonderful.ai zone, SA/PSE/CSE support zones, selective interactions, mini project pages, validation, GitHub push, and Vercel deployment.
 - Placeholder scan: the plan uses no TBD/TODO/FIXME placeholders and includes exact file paths and commands.
 - Interface consistency: validation expects `operating-system`, `human-story`, `skill-map`, `case-evidence`, `wonderful-fit`, `mini-labs`, `demo`, and `links`; Task 2 creates those exact IDs. Validation expects three `projects/*.html` pages; Task 3 creates those exact paths.
-
