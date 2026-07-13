@@ -369,7 +369,7 @@ git commit -m "feat(profile): redesign FDE dossier"
 - Consumes: main profile links from `/projects/*.html`.
 - Produces: three static pages that pass `scripts/validate-profile-site.mjs`.
 
-- [ ] **Step 1: Create the Deployment Blueprint Lab**
+- [x] **Step 1: Create the Deployment Blueprint Lab**
 
 Create `projects/deployment-blueprint-lab.html` as a static page with:
 
@@ -382,7 +382,7 @@ Create `projects/deployment-blueprint-lab.html` as a static page with:
 
 Use stages `scope`, `architecture`, and `launch`.
 
-- [ ] **Step 2: Create the Agent Eval Harness**
+- [x] **Step 2: Create the Agent Eval Harness**
 
 Create `projects/agent-eval-harness.html` as a static page with:
 
@@ -395,7 +395,7 @@ Create `projects/agent-eval-harness.html` as a static page with:
 
 Use scenarios `billing`, `booking`, and `card`.
 
-- [ ] **Step 3: Create the Partner Integration Runbook**
+- [x] **Step 3: Create the Partner Integration Runbook**
 
 Create `projects/partner-integration-runbook.html` as a static page with:
 
@@ -408,7 +408,7 @@ Create `projects/partner-integration-runbook.html` as a static page with:
 
 Use tabs `contract`, `failure`, and `handoff`.
 
-- [ ] **Step 4: Run validation**
+- [x] **Step 4: Run validation**
 
 Run:
 
@@ -418,7 +418,7 @@ node --test scripts/validate-profile-site.mjs
 
 Expected: PASS.
 
-- [ ] **Step 5: Commit the mini labs**
+- [x] **Step 5: Commit the mini labs**
 
 Run:
 
