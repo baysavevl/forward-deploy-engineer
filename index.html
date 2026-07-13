@@ -3,27 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vinh Luu - Forward Deployed Engineer Profile</title>
-  <meta name="description" content="Vinh Luu's Forward Deployed Engineer profile for Wonderful-style enterprise AI agent deployment, partner integrations, and production ownership.">
+  <title>Vinh Luu - Forward Deployed Engineer</title>
+  <meta name="description" content="Vinh Luu's Forward Deployed Engineer profile for enterprise AI deployments, customer workflows, systems integration, production ownership, and Wonderful.ai role fit.">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <style>
     :root {
-      --ink: #16171d;
+      --ink: #0b1020;
+      --panel: #111827;
+      --panel-2: #172033;
+      --paper: #fbfcff;
+      --white: #ffffff;
       --body: #3f4652;
-      --quiet: #6b7280;
-      --paper: #ffffff;
-      --wash: #f7f8fb;
-      --line: #dfe3eb;
+      --muted: #6b7280;
+      --line: #d8dee9;
+      --cyan: #1dd3ff;
+      --green: #21c77a;
+      --amber: #ffb020;
+      --coral: #e65f4b;
       --blue: #2458ff;
-      --teal: #087f7a;
-      --green: #157347;
-      --plum: #7a3e8e;
-      --orange: #b3561b;
-      --red: #b3261e;
-      --chip: #eef3ff;
-      --shadow: 0 24px 70px rgba(22, 23, 29, 0.08);
+      --wash: #f4f7fb;
+      --shadow: 0 24px 70px rgba(11, 16, 32, 0.12);
     }
 
     * {
@@ -37,11 +38,7 @@
     body {
       margin: 0;
       color: var(--ink);
-      background:
-        linear-gradient(90deg, rgba(36, 88, 255, 0.06) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(8, 127, 122, 0.05), rgba(255, 255, 255, 0) 380px),
-        var(--paper);
-      background-size: 64px 64px, auto, auto;
+      background: var(--paper);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       line-height: 1.55;
       overflow-x: hidden;
@@ -55,6 +52,10 @@
     button,
     input {
       font: inherit;
+    }
+
+    button {
+      cursor: pointer;
     }
 
     .shell {
@@ -77,10 +78,10 @@
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 10;
-      border-bottom: 1px solid rgba(223, 227, 235, 0.92);
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(16px);
+      z-index: 20;
+      border-bottom: 1px solid rgba(216, 222, 233, 0.76);
+      background: rgba(251, 252, 255, 0.88);
+      backdrop-filter: blur(18px);
     }
 
     .topbar-inner {
@@ -88,18 +89,18 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      letter-spacing: 0;
+      gap: 11px;
+      font-weight: 950;
+      white-space: nowrap;
     }
 
-    .hello-mark {
+    .mark {
       width: 38px;
       height: 38px;
       display: grid;
@@ -107,12 +108,11 @@
       border: 1px solid var(--line);
       border-radius: 8px;
       background: white;
-      box-shadow: 0 10px 26px rgba(22, 23, 29, 0.06);
-      transform-origin: 70% 70%;
       overflow: hidden;
+      box-shadow: 0 10px 28px rgba(11, 16, 32, 0.08);
     }
 
-    .hello-mark img {
+    .mark img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -121,34 +121,56 @@
     .nav {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       color: var(--body);
-      font-size: 14px;
-      font-weight: 800;
+      font-size: 13px;
+      font-weight: 850;
     }
 
     .nav a {
-      padding: 8px 10px;
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
       border-radius: 8px;
+      padding: 0 10px;
     }
 
     .nav a:hover,
     .nav a:focus-visible {
       color: var(--blue);
-      background: var(--chip);
+      background: #eef3ff;
       outline: 0;
     }
 
+    .nav-icon {
+      width: 38px;
+      justify-content: center;
+      color: var(--blue);
+    }
+
+    .nav-icon svg,
+    .button svg,
+    .console-link svg {
+      width: 17px;
+      height: 17px;
+      fill: currentColor;
+    }
+
     .hero {
-      padding: 72px 0 42px;
-      border-bottom: 1px solid var(--line);
+      color: white;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(29, 211, 255, 0.2), transparent 30%),
+        radial-gradient(circle at 82% 16%, rgba(33, 199, 122, 0.16), transparent 28%),
+        linear-gradient(180deg, #0b1020 0%, #111827 58%, #172033 100%);
+      border-bottom: 1px solid rgba(216, 222, 233, 0.18);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(330px, 0.72fr);
-      gap: 42px;
+      grid-template-columns: minmax(0, 1.02fr) minmax(330px, 0.58fr);
+      gap: 38px;
       align-items: end;
+      padding: 72px 0 36px;
     }
 
     .label {
@@ -156,41 +178,39 @@
       align-items: center;
       gap: 8px;
       max-width: 100%;
-      min-height: 30px;
-      padding: 0 10px;
-      border: 1px solid var(--line);
+      min-height: 32px;
+      border: 1px solid rgba(29, 211, 255, 0.34);
       border-radius: 999px;
-      color: var(--teal);
-      background: white;
+      padding: 0 11px;
+      color: #aaf0ff;
+      background: rgba(255, 255, 255, 0.06);
       font-size: 12px;
-      font-weight: 900;
+      font-weight: 950;
       text-transform: uppercase;
-      letter-spacing: 0;
-      white-space: normal;
     }
 
     .label::before {
       content: "";
       width: 7px;
       height: 7px;
-      border-radius: 999px;
+      border-radius: 50%;
       background: var(--green);
-      box-shadow: 0 0 0 4px rgba(21, 115, 71, 0.13);
+      box-shadow: 0 0 0 5px rgba(33, 199, 122, 0.14);
     }
 
     h1 {
-      max-width: 880px;
+      max-width: 940px;
       margin: 18px 0 0;
-      font-size: clamp(46px, 7vw, 86px);
+      font-size: clamp(42px, 7.2vw, 88px);
       line-height: 0.96;
       letter-spacing: 0;
       overflow-wrap: anywhere;
     }
 
     .hero-copy {
-      max-width: 760px;
+      max-width: 810px;
       margin: 24px 0 0;
-      color: var(--body);
+      color: rgba(255, 255, 255, 0.78);
       font-size: clamp(18px, 2.1vw, 23px);
     }
 
@@ -198,7 +218,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 30px;
+      margin-top: 28px;
     }
 
     .button {
@@ -207,223 +227,210 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 0 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 8px;
-      border: 1px solid var(--ink);
-      background: white;
-      color: var(--ink);
+      padding: 0 15px;
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
       font-size: 14px;
-      font-weight: 900;
-      cursor: pointer;
-    }
-
-    .button svg,
-    .nav-icon svg,
-    .console-link svg {
-      width: 17px;
-      height: 17px;
-      display: block;
-      fill: currentColor;
+      font-weight: 950;
     }
 
     .button.primary {
-      background: var(--ink);
-      color: white;
+      border-color: var(--cyan);
+      color: var(--ink);
+      background: var(--cyan);
+    }
+
+    .button.light {
+      border-color: var(--ink);
+      color: var(--ink);
+      background: white;
     }
 
     .button:hover,
     .button:focus-visible {
       transform: translateY(-1px);
-      box-shadow: 0 12px 30px rgba(22, 23, 29, 0.12);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
       outline: 0;
     }
 
-    .nav-icon {
-      min-width: 38px;
-      min-height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      color: var(--blue);
-      background: white;
-    }
-
-    .profile-brief {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      color: white;
-      background:
-        linear-gradient(90deg, rgba(143, 224, 189, 0.10) 1px, transparent 1px),
-        linear-gradient(180deg, #10141f, #171b29);
-      background-size: 34px 34px, auto;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .console-stage {
+    .hero-proof {
       display: grid;
-      gap: 16px;
-      padding: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border: 1px solid rgba(216, 222, 233, 0.18);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
     }
 
-    .console-top {
+    .hero-proof div {
+      min-height: 96px;
+      padding: 16px;
+      border-right: 1px solid rgba(216, 222, 233, 0.14);
+      border-bottom: 1px solid rgba(216, 222, 233, 0.14);
+    }
+
+    .hero-proof div:nth-child(3n) {
+      border-right: 0;
+    }
+
+    .hero-proof div:nth-last-child(-n + 3) {
+      border-bottom: 0;
+    }
+
+    .hero-proof strong {
+      display: block;
+      color: white;
+      font-size: 25px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .hero-proof span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .dossier-card {
+      border: 1px solid rgba(216, 222, 233, 0.18);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(29, 211, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+      background-size: 32px 32px, auto;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+    }
+
+    .dossier-head {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 14px;
-      align-items: center;
+      padding: 18px;
+      border-bottom: 1px solid rgba(216, 222, 233, 0.14);
     }
 
-    .console-person {
+    .person {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .avatar-chip {
+    .avatar {
       width: 54px;
       height: 54px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       border-radius: 8px;
       overflow: hidden;
       background: white;
     }
 
-    .avatar-chip img {
+    .avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .console-kicker {
-      color: #8fe0bd;
+    .dossier-kicker {
+      display: block;
+      color: var(--green);
       font-size: 11px;
-      font-weight: 900;
+      font-weight: 950;
       text-transform: uppercase;
     }
 
-    .console-title {
+    .dossier-title {
       display: block;
       margin-top: 2px;
       color: white;
       font-size: 18px;
       line-height: 1.2;
-      font-weight: 900;
+      font-weight: 950;
     }
 
-    .console-link {
-      width: 40px;
-      height: 40px;
-      display: inline-grid;
-      place-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 8px;
-      color: white;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .console-link:hover,
-    .console-link:focus-visible {
-      color: #8fe0bd;
-      outline: 0;
-    }
-
-    .flow-stack {
+    .signal-list {
       display: grid;
-      gap: 9px;
+      gap: 0;
+      padding: 0 18px 18px;
     }
 
-    .flow-node {
+    .signal {
       display: grid;
       grid-template-columns: 34px 1fr;
       gap: 10px;
-      align-items: start;
-      padding: 10px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 14px 0;
+      border-top: 1px solid rgba(216, 222, 233, 0.12);
     }
 
-    .flow-node:first-child {
-      border-top: 0;
-    }
-
-    .flow-node b {
+    .signal b {
       width: 28px;
       height: 28px;
       display: grid;
       place-items: center;
-      border-radius: 999px;
-      color: #8fe0bd;
-      background: rgba(143, 224, 189, 0.12);
+      border-radius: 50%;
+      color: var(--cyan);
+      background: rgba(29, 211, 255, 0.1);
       font-size: 11px;
     }
 
-    .flow-node strong {
+    .signal strong {
       display: block;
+      color: white;
       font-size: 14px;
     }
 
-    .flow-node span {
+    .signal span {
       display: block;
       margin-top: 2px;
       color: rgba(255, 255, 255, 0.68);
       font-size: 12px;
     }
 
-    .console-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .console-metric {
-      padding: 14px;
-      border-right: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .console-metric:last-child {
-      border-right: 0;
-    }
-
-    .console-metric strong {
-      display: block;
-      font-size: 20px;
-    }
-
-    .console-metric span {
-      color: rgba(255, 255, 255, 0.66);
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .link-item span {
-      color: var(--quiet);
-      font-size: 13px;
-    }
-
     .section {
-      padding: 58px 0;
+      padding: 62px 0;
       border-bottom: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .section.dark {
+      color: white;
+      background:
+        linear-gradient(180deg, #0b1020, #111827);
+      border-bottom: 0;
+    }
+
+    .section.wash {
+      background: var(--wash);
     }
 
     .section-heading {
       display: grid;
-      grid-template-columns: minmax(0, 0.78fr) minmax(280px, 0.42fr);
+      grid-template-columns: minmax(0, 0.74fr) minmax(280px, 0.42fr);
       gap: 28px;
       align-items: end;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .section-kicker {
       color: var(--blue);
       font-size: 12px;
-      font-weight: 900;
+      font-weight: 950;
       text-transform: uppercase;
+    }
+
+    .dark .section-kicker {
+      color: var(--cyan);
     }
 
     h2 {
       margin: 8px 0 0;
-      font-size: clamp(28px, 4vw, 44px);
+      font-size: clamp(29px, 4.1vw, 48px);
       line-height: 1.02;
       letter-spacing: 0;
     }
@@ -435,45 +442,394 @@
       font-size: 17px;
     }
 
-    .fit-stack {
-      display: grid;
-      gap: 12px;
+    .dark .section-heading p,
+    .dark .lead {
+      color: rgba(255, 255, 255, 0.72);
     }
 
-    .fit-row {
+    .ops-grid {
       display: grid;
-      grid-template-columns: 190px 1fr 210px;
+      grid-template-columns: minmax(220px, 0.34fr) minmax(0, 0.66fr);
       gap: 18px;
-      align-items: start;
-      border: 1px solid var(--line);
+      align-items: stretch;
+    }
+
+    .stage-list,
+    .zone-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .stage-button,
+    .zone-button,
+    .lab-button {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid rgba(216, 222, 233, 0.16);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 18px;
+      padding: 0 13px;
+      color: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.06);
+      font-weight: 950;
+      text-align: left;
     }
 
-    .fit-row strong {
-      font-size: 16px;
+    .zone-button {
+      color: var(--body);
+      background: white;
+      border-color: var(--line);
     }
 
-    .fit-row p {
-      margin: 0;
+    .stage-button:hover,
+    .stage-button:focus-visible,
+    .stage-button.is-active {
+      color: var(--ink);
+      background: var(--cyan);
+      border-color: var(--cyan);
+      outline: 0;
+    }
+
+    .zone-button:hover,
+    .zone-button:focus-visible,
+    .zone-button.is-active {
+      color: white;
+      background: var(--ink);
+      border-color: var(--ink);
+      outline: 0;
+    }
+
+    .ops-panel,
+    .zone-panel,
+    .story-panel {
+      border: 1px solid rgba(216, 222, 233, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
+    }
+
+    .ops-panel {
+      min-height: 360px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .ops-panel-top {
+      padding: 20px;
+      border-bottom: 1px solid rgba(216, 222, 233, 0.14);
+    }
+
+    .ops-panel-top strong,
+    .zone-panel strong {
+      display: block;
+      color: white;
+      font-size: clamp(23px, 3vw, 34px);
+      line-height: 1.06;
+      font-weight: 950;
+    }
+
+    .zone-panel strong {
+      color: var(--ink);
+      font-size: 24px;
+    }
+
+    .ops-panel-top p,
+    .zone-panel p {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 17px;
+    }
+
+    .zone-panel p {
       color: var(--body);
     }
 
-    .proof-tag {
-      justify-self: end;
-      padding: 7px 10px;
+    .trace-board {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(216, 222, 233, 0.14);
+    }
+
+    .trace-cell {
+      min-height: 94px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .trace-cell b {
+      display: block;
+      color: var(--green);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .trace-cell span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.84);
+      font-weight: 850;
+    }
+
+    .ops-output {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid rgba(216, 222, 233, 0.14);
+    }
+
+    .ops-output div {
+      padding: 16px 18px;
+      border-right: 1px solid rgba(216, 222, 233, 0.14);
+    }
+
+    .ops-output div:last-child {
+      border-right: 0;
+    }
+
+    .ops-output b {
+      display: block;
+      color: var(--amber);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .ops-output span {
+      display: block;
+      margin-top: 7px;
+      color: white;
+      font-weight: 850;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(260px, 0.28fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .story-panel {
+      padding: 26px;
+      color: var(--ink);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .story-panel p {
+      margin: 0;
+      color: var(--body);
+      font-size: clamp(18px, 2vw, 22px);
+    }
+
+    .story-note {
+      border-left: 4px solid var(--coral);
+      padding: 12px 0 12px 14px;
+      color: var(--body);
+      font-weight: 850;
+    }
+
+    .core-grid,
+    .evidence-grid,
+    .lab-grid,
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .core-card,
+    .evidence-card,
+    .lab-card,
+    .link-panel,
+    .wonder-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 18px 55px rgba(11, 16, 32, 0.06);
+      padding: 18px;
+    }
+
+    .core-card strong,
+    .evidence-card strong,
+    .lab-card strong,
+    .link-panel h3,
+    .wonder-card strong {
+      display: block;
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.2;
+      font-weight: 950;
+    }
+
+    .core-card p,
+    .evidence-card p,
+    .lab-card p,
+    .link-panel p,
+    .wonder-card p {
+      margin: 10px 0 0;
+      color: var(--body);
+      font-size: 14px;
+    }
+
+    .metric-tag {
+      display: inline-flex;
+      margin-top: 14px;
       border-radius: 999px;
-      color: var(--teal);
-      background: #e9f8f6;
+      padding: 6px 9px;
+      color: #07513c;
+      background: #ddf8eb;
       font-size: 12px;
-      font-weight: 900;
-      white-space: nowrap;
+      font-weight: 950;
+    }
+
+    .skill-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.64fr) minmax(280px, 0.36fr);
+      gap: 18px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    .zone-panel {
+      padding: 20px;
+      background: white;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .zone-proof {
+      display: inline-flex;
+      margin-top: 14px;
+      border-radius: 8px;
+      padding: 9px 10px;
+      color: var(--ink);
+      background: #fff4da;
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .evidence-card {
+      min-height: 220px;
+    }
+
+    .evidence-card b {
+      display: block;
+      margin-top: 14px;
+      color: var(--blue);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .wonder-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.46fr) minmax(0, 0.54fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .wonder-card {
+      background: #fffdf8;
+      border-color: #f3d69a;
+    }
+
+    .fit-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .fit-table th,
+    .fit-table td {
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .fit-table tr:last-child th,
+    .fit-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .fit-table th {
+      width: 32%;
+      color: var(--ink);
+      background: #f8fafc;
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .fit-table td {
+      color: var(--body);
+      font-size: 14px;
+    }
+
+    .lab-card {
+      min-height: 252px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .lab-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 14px;
+    }
+
+    .lab-meta span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 8px;
+      color: var(--muted);
+      background: #f8fafc;
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .lab-link,
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 44px;
+      border-top: 1px solid var(--line);
+      color: var(--blue);
+      font-weight: 950;
+    }
+
+    .lab-link:hover,
+    .lab-link:focus-visible,
+    .link-item:hover,
+    .link-item:focus-visible {
+      color: var(--coral);
+      outline: 0;
+    }
+
+    .link-panel {
+      min-height: 230px;
+    }
+
+    .link-panel h3 {
+      margin: 0;
+    }
+
+    .link-item:first-of-type {
+      margin-top: 12px;
+    }
+
+    .link-item span {
+      color: var(--muted);
+      font-size: 12px;
     }
 
     .demo-section {
       background:
-        linear-gradient(135deg, rgba(36, 88, 255, 0.08), rgba(8, 127, 122, 0.08)),
+        linear-gradient(135deg, rgba(29, 211, 255, 0.08), rgba(33, 199, 122, 0.08)),
         var(--wash);
     }
 
@@ -481,18 +837,18 @@
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 1px;
-      margin: -18px 0 24px;
+      margin: -12px 0 24px;
       border: 1px solid var(--line);
       border-radius: 8px;
       overflow: hidden;
       background: var(--line);
-      box-shadow: 0 18px 55px rgba(22, 23, 29, 0.05);
+      box-shadow: 0 18px 55px rgba(11, 16, 32, 0.06);
     }
 
     .loop-step {
       min-height: 88px;
       padding: 14px;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
     }
 
     .loop-step b {
@@ -500,7 +856,6 @@
       color: var(--blue);
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
     }
 
     .loop-step span {
@@ -513,18 +868,17 @@
 
     .demo-layout {
       display: grid;
-      grid-template-columns: minmax(290px, 0.42fr) minmax(0, 0.58fr);
+      grid-template-columns: minmax(290px, 0.38fr) minmax(0, 0.62fr);
       gap: 20px;
       align-items: start;
     }
 
     .scenario-panel,
-    .agent-panel,
-    .link-panel {
+    .agent-panel {
       border: 1px solid var(--line);
       border-radius: 8px;
       background: white;
-      box-shadow: 0 18px 55px rgba(22, 23, 29, 0.06);
+      box-shadow: 0 18px 55px rgba(11, 16, 32, 0.06);
     }
 
     .scenario-panel {
@@ -532,8 +886,7 @@
     }
 
     .scenario-panel h3,
-    .agent-panel h3,
-    .link-panel h3 {
+    .agent-panel h3 {
       margin: 0;
       font-size: 18px;
     }
@@ -546,12 +899,12 @@
 
     .scope-note {
       margin-bottom: 14px;
-      border-left: 3px solid var(--orange);
+      border-left: 3px solid var(--amber);
       padding: 10px 12px;
       background: #fff8ed;
       color: var(--body);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .language-toggle {
@@ -561,7 +914,7 @@
       margin: 0 0 14px;
       padding: 4px;
       border: 1px solid var(--line);
-      border-radius: 10px;
+      border-radius: 8px;
       background: var(--wash);
     }
 
@@ -570,16 +923,15 @@
       border: 0;
       border-radius: 7px;
       background: transparent;
-      color: var(--quiet);
-      font-weight: 900;
-      cursor: pointer;
+      color: var(--muted);
+      font-weight: 950;
     }
 
     .language-button:hover,
     .language-button:focus-visible,
     .language-button.is-active {
-      background: white;
       color: var(--blue);
+      background: white;
       outline: 0;
       box-shadow: 0 8px 22px rgba(36, 88, 255, 0.1);
     }
@@ -592,7 +944,7 @@
     .scenario-option {
       width: 100%;
       display: grid;
-      grid-template-columns: 32px 1fr;
+      grid-template-columns: 34px 1fr;
       gap: 10px;
       align-items: start;
       border: 1px solid var(--line);
@@ -600,14 +952,13 @@
       background: white;
       padding: 12px;
       text-align: left;
-      cursor: pointer;
     }
 
     .scenario-option:hover,
     .scenario-option:focus-visible,
     .scenario-option.is-active {
       border-color: var(--blue);
-      background: var(--chip);
+      background: #eef3ff;
       outline: 0;
     }
 
@@ -616,9 +967,11 @@
       height: 32px;
       display: grid;
       place-items: center;
+      border: 1px solid var(--line);
       border-radius: 8px;
       background: white;
-      border: 1px solid var(--line);
+      color: var(--ink);
+      font-weight: 950;
     }
 
     .scenario-option strong {
@@ -626,8 +979,8 @@
       font-size: 14px;
     }
 
-    .scenario-option span {
-      color: var(--quiet);
+    .scenario-option span span {
+      color: var(--muted);
       font-size: 12px;
     }
 
@@ -659,8 +1012,6 @@
       place-items: center;
       border-radius: 8px;
       background: white;
-      color: var(--ink);
-      font-size: 22px;
       overflow: hidden;
     }
 
@@ -691,9 +1042,9 @@
     }
 
     .agent-state {
-      color: #8fe0bd;
+      color: var(--green);
       font-size: 12px;
-      font-weight: 900;
+      font-weight: 950;
       text-transform: uppercase;
       white-space: nowrap;
     }
@@ -701,7 +1052,7 @@
     .agent-source {
       color: rgba(255, 255, 255, 0.68);
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 850;
       white-space: nowrap;
     }
 
@@ -712,8 +1063,7 @@
       max-height: 360px;
       overflow: auto;
       padding: 18px;
-      background:
-        linear-gradient(180deg, rgba(247, 248, 251, 0.82), rgba(255, 255, 255, 0.96));
+      background: linear-gradient(180deg, rgba(244, 247, 251, 0.82), rgba(255, 255, 255, 0.96));
     }
 
     .message {
@@ -740,21 +1090,15 @@
     }
 
     .message.pending {
-      color: var(--quiet);
-      background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(238, 244, 255, 0.92), rgba(255, 255, 255, 0.92));
+      color: var(--muted);
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(238, 244, 255, 0.92), rgba(255, 255, 255, 0.92));
       background-size: 180% 100%;
       animation: thinking-pulse 1.4s ease-in-out infinite;
     }
 
     @keyframes thinking-pulse {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      100% {
-        background-position: 180% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      100% { background-position: 180% 50%; }
     }
 
     .runtime {
@@ -777,7 +1121,7 @@
 
     .runtime-box strong {
       display: block;
-      color: var(--quiet);
+      color: var(--muted);
       font-size: 11px;
       text-transform: uppercase;
     }
@@ -787,7 +1131,7 @@
       margin-top: 7px;
       color: var(--ink);
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 850;
     }
 
     .composer {
@@ -821,8 +1165,7 @@
       border-radius: 8px;
       background: var(--ink);
       color: white;
-      font-weight: 900;
-      cursor: pointer;
+      font-weight: 950;
     }
 
     .send-button:hover,
@@ -847,161 +1190,66 @@
       color: var(--body);
       padding: 7px 10px;
       font-size: 12px;
-      font-weight: 800;
-      cursor: pointer;
+      font-weight: 850;
     }
 
     .prompt-chip:hover,
     .prompt-chip:focus-visible {
       color: var(--blue);
       border-color: var(--blue);
-      background: var(--chip);
+      background: #eef3ff;
       outline: 0;
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .link-panel {
-      min-height: 204px;
-      padding: 18px;
-    }
-
-    .link-panel p {
-      margin: 10px 0 18px;
-      color: var(--body);
-    }
-
-    .proof-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .proof-line {
-      display: grid;
-      gap: 4px;
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-    }
-
-    .proof-line b {
-      color: var(--ink);
-      font-size: 14px;
-    }
-
-    .proof-line span {
-      color: var(--body);
-      font-size: 13px;
-    }
-
-    .link-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      padding: 12px 0;
-      border-top: 1px solid var(--line);
-      color: var(--blue);
-      font-weight: 900;
-    }
-
-    .link-item:first-of-type {
-      margin-top: 4px;
-    }
-
-    .link-item[href]:hover,
-    .link-item[href]:focus-visible {
-      color: var(--plum);
-      outline: 0;
-    }
-
-    .pitch-box {
-      display: grid;
-      grid-template-columns: minmax(0, 0.68fr) minmax(280px, 0.32fr);
-      gap: 20px;
-      align-items: start;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: white;
-      box-shadow: 0 18px 55px rgba(22, 23, 29, 0.05);
-    }
-
-    .pitch-box p {
-      margin: 0;
-      color: var(--body);
-      font-size: 18px;
-    }
-
-    .pitch-notes {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .pitch-notes li {
-      display: block;
-      border-left: 3px solid var(--orange);
-      padding-left: 10px;
-      color: var(--quiet);
-      font-size: 13px;
-      font-weight: 800;
     }
 
     footer {
       padding: 28px 0;
-      color: var(--quiet);
+      color: var(--muted);
+      background: white;
       font-size: 14px;
     }
 
     @media (prefers-reduced-motion: no-preference) {
-      .hello-mark,
-      .agent-face,
-      .avatar-chip {
-        animation: hello-wave 3.4s ease-in-out infinite;
+      .trace-cell {
+        transition: background 180ms ease, transform 180ms ease;
       }
 
-      @keyframes hello-wave {
-        0%, 100% { transform: rotate(0deg) translateY(0); }
-        12% { transform: rotate(8deg) translateY(-1px); }
-        24% { transform: rotate(-5deg) translateY(-2px); }
-        36% { transform: rotate(6deg) translateY(-1px); }
-        48% { transform: rotate(0deg) translateY(0); }
+      .trace-cell:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.1);
       }
     }
 
-    @media (max-width: 900px) {
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 980px) {
       .hero-grid,
       .section-heading,
-      .demo-layout,
-      .pitch-box {
+      .ops-grid,
+      .story-grid,
+      .skill-layout,
+      .wonder-layout,
+      .demo-layout {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        padding-top: 44px;
-      }
-
-      .profile-brief {
-        max-width: 560px;
-      }
-
-      .fit-row {
-        grid-template-columns: 1fr;
-      }
-
-      .proof-tag {
-        justify-self: start;
-      }
-
+      .hero-proof,
+      .core-grid,
+      .evidence-grid,
+      .lab-grid,
       .links-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .deployment-loop {
@@ -1009,7 +1257,7 @@
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 700px) {
       html,
       body {
         max-width: 100%;
@@ -1018,17 +1266,12 @@
 
       .shell {
         width: calc(100% - 24px);
-        max-width: 100%;
-      }
-
-      .topbar-inner,
-      .nav {
-        align-items: flex-start;
       }
 
       .topbar-inner {
-        min-height: 74px;
+        min-height: 78px;
         flex-direction: column;
+        align-items: flex-start;
         justify-content: center;
         gap: 8px;
       }
@@ -1039,86 +1282,63 @@
         padding-bottom: 4px;
       }
 
+      .hero-grid {
+        padding-top: 48px;
+      }
+
       h1 {
-        max-width: 100%;
-        font-size: clamp(38px, 10.8vw, 46px);
+        font-size: clamp(38px, 10vw, 48px);
       }
 
+      .actions,
+      .composer,
       .runtime,
-      .composer {
-        grid-template-columns: 1fr;
-      }
-
+      .hero-proof,
+      .trace-board,
+      .ops-output,
+      .core-grid,
+      .evidence-grid,
+      .lab-grid,
+      .links-grid,
       .deployment-loop {
         grid-template-columns: 1fr;
       }
 
-      .hero-grid,
-      .profile-brief,
-      .console-stage,
-      .console-person,
-      .section-heading,
-      .demo-layout,
-      .scenario-panel,
-      .agent-panel,
-      .link-panel,
-      .pitch-box {
-        min-width: 0;
-        max-width: 100%;
-      }
-
-      .console-top {
-        align-items: flex-start;
-      }
-
-      .console-link {
-        flex: 0 0 auto;
-      }
-
-      .hero-copy,
-      .console-title,
-      .flow-node span,
-      .section-heading p,
-      .fit-row p,
-      .runtime-box span,
-      .message,
-      .proof-line span {
-        overflow-wrap: anywhere;
-      }
-
       .actions {
         display: grid;
-        grid-template-columns: 1fr;
       }
 
       .button {
         width: 100%;
       }
 
-      .console-metrics {
-        grid-template-columns: 1fr;
-      }
-
-      .console-metric {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      }
-
-      .console-metric:last-child {
-        border-bottom: 0;
-      }
-
+      .hero-proof div,
+      .trace-cell,
+      .ops-output div,
       .runtime-box {
         border-right: 0;
-        border-bottom: 1px solid var(--line);
       }
 
-      .runtime-box:last-child {
-        border-bottom: 0;
+      .hero-proof div,
+      .runtime-box {
+        border-bottom: 1px solid rgba(216, 222, 233, 0.18);
       }
 
       .message {
         max-width: 94%;
+      }
+
+      .fit-table,
+      .fit-table tbody,
+      .fit-table tr,
+      .fit-table th,
+      .fit-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .fit-table th {
+        border-bottom: 0;
       }
     }
   </style>
@@ -1127,14 +1347,16 @@
   <header class="topbar">
     <div class="shell topbar-inner">
       <a class="brand" href="#top" aria-label="Vinh Luu profile home">
-        <span class="hello-mark" aria-hidden="true"><img src="/assets/favicon.png" alt=""></span>
+        <span class="mark" aria-hidden="true"><img src="/assets/favicon.png" alt=""></span>
         <span>Vinh Luu</span>
       </a>
       <nav class="nav" aria-label="Profile navigation">
-        <a href="#fit">Fit</a>
-        <a href="#demo">Agent demo</a>
-        <a href="#links">Links</a>
-        <a href="#pitch">Pitch</a>
+        <a href="#operating-system">Operating system</a>
+        <a href="#skill-map">Skill map</a>
+        <a href="#case-evidence">Evidence</a>
+        <a href="#wonderful-fit">Wonderful.ai</a>
+        <a href="#mini-labs">Labs</a>
+        <a href="#demo">Demo</a>
         <a class="nav-icon" href="https://www.linkedin.com/in/vinhluulinked/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V8.99h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.53V8.99H7.1v11.46zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg>
         </a>
@@ -1146,98 +1368,311 @@
     <section class="hero">
       <div class="shell hero-grid">
         <div>
-          <span class="label">Forward Deployed Engineer profile</span>
-          <h1>Builder for the last mile of enterprise AI.</h1>
+          <span class="label">Forward Deployed Engineer for enterprise AI deployments</span>
+          <h1>I deploy AI into the messy last mile of enterprise workflows.</h1>
           <p class="hero-copy">
-            I connect ambiguous customer workflows to production software: backend systems, partner integrations,
-            deployment playbooks, observability, and stakeholder trust. For Wonderful-style FDE work, my strongest edge
-            is Zalo-scale production ownership plus Vietnam/APAC language and market context.
+            I turn unclear customer operations into production software: discovery, architecture,
+            partner integrations, guardrails, observability, rollout, and measurable business impact.
+            My edge is Zalo-scale conversational systems plus Vietnam/APAC customer context.
           </p>
           <div class="actions">
             <a class="button primary" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf" download>Download ATS CV</a>
-            <a class="button" href="/cv/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.html">View CV HTML</a>
-            <a class="button" href="/cv/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.tex" download>LaTeX source</a>
+            <a class="button" href="#operating-system">View operating system</a>
+            <a class="button" href="#mini-labs">Open mini labs</a>
             <a class="button" href="https://www.linkedin.com/in/vinhluulinked/" target="_blank" rel="noreferrer">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V8.99h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.53V8.99H7.1v11.46zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg>
               LinkedIn
             </a>
-            <a class="button" href="#demo">Try agent demo</a>
           </div>
         </div>
 
-        <aside class="profile-brief" aria-label="AI-native profile summary">
-          <div class="console-stage">
-            <div class="console-top">
-              <div class="console-person">
-                <span class="avatar-chip" aria-hidden="true"><img src="/assets/vinh-avatar.png" alt=""></span>
-                <div>
-                  <span class="console-kicker">Live deployment graph</span>
-                  <strong class="console-title">From customer intent to safe production action</strong>
-                </div>
-              </div>
-              <a class="console-link" href="https://www.linkedin.com/in/vinhluulinked/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V8.99h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.53V8.99H7.1v11.46zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg>
-              </a>
-            </div>
-
-            <div class="flow-stack" aria-label="Forward deployed AI workflow">
-              <div class="flow-node">
-                <b>01</b>
-                <div><strong>Discover workflow</strong><span>Vietnamese customer issue, enterprise stakeholder constraints, success metric.</span></div>
-              </div>
-              <div class="flow-node">
-                <b>02</b>
-                <div><strong>Ground and route</strong><span>Policy retrieval, CRM/billing API contract, auth boundary, tool schema.</span></div>
-              </div>
-              <div class="flow-node">
-                <b>03</b>
-                <div><strong>Guard and launch</strong><span>Eval set, human fallback, trace ID, rollout metric, production debug loop.</span></div>
+        <aside class="dossier-card" aria-label="FDE proof snapshot">
+          <div class="dossier-head">
+            <div class="person">
+              <span class="avatar" aria-hidden="true"><img src="/assets/vinh-avatar.png" alt=""></span>
+              <div>
+                <span class="dossier-kicker">Deployment dossier</span>
+                <strong class="dossier-title">Customer workflow -> production system</strong>
               </div>
             </div>
           </div>
-
-          <div class="console-metrics" role="group" aria-label="Profile metrics">
-            <div class="console-metric"><strong>30M+</strong><span>messaging users</span></div>
-            <div class="console-metric"><strong>40%</strong><span>faster onboarding</span></div>
-            <div class="console-metric"><strong>50+</strong><span>eval cases target</span></div>
+          <div class="signal-list">
+            <div class="signal">
+              <b>01</b>
+              <div><strong>Customer room</strong><span>Discover pain, owners, data, risk, and success metric.</span></div>
+            </div>
+            <div class="signal">
+              <b>02</b>
+              <div><strong>System boundary</strong><span>Map APIs, source of truth, auth, audit, and fallback.</span></div>
+            </div>
+            <div class="signal">
+              <b>03</b>
+              <div><strong>Production loop</strong><span>Launch with evals, monitoring, rollback, and business review.</span></div>
+            </div>
           </div>
+        </aside>
+      </div>
+      <div class="shell">
+        <div class="hero-proof" aria-label="Profile proof metrics">
+          <div><strong>30M+</strong><span>Vietnam messaging user context</span></div>
+          <div><strong>Millions</strong><span>daily business messages</span></div>
+          <div><strong>Hundreds</strong><span>partner integrations</span></div>
+          <div><strong>30%</strong><span>ops overhead reduction</span></div>
+          <div><strong>40%</strong><span>faster partner onboarding</span></div>
+          <div><strong>50%</strong><span>permission coverage lift</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="operating-system">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Deployment operating system</div>
+            <h2>How I turn customer chaos into production outcomes.</h2>
+          </div>
+          <p>
+            FDE is broader than an AI demo. It is the operating discipline around the demo:
+            discovery, architecture, integration, guardrails, rollout, and iteration in the customer's real environment.
+          </p>
+        </div>
+
+        <div class="ops-grid">
+          <div class="stage-list" aria-label="Deployment stages">
+            <button class="stage-button is-active" type="button" data-stage="discover">Discover</button>
+            <button class="stage-button" type="button" data-stage="architect">Architect</button>
+            <button class="stage-button" type="button" data-stage="build">Build</button>
+            <button class="stage-button" type="button" data-stage="guard">Guard</button>
+            <button class="stage-button" type="button" data-stage="launch">Launch</button>
+            <button class="stage-button" type="button" data-stage="compound">Compound</button>
+          </div>
+
+          <div class="ops-panel">
+            <div class="ops-panel-top">
+              <strong id="stage-title">Discover the real workflow</strong>
+              <p id="stage-copy">Start with business pain, customer language, actors, system owners, data confidence, risk tolerance, and the metric that decides whether the deployment matters.</p>
+            </div>
+            <div class="trace-board" aria-label="Deployment trace">
+              <div class="trace-cell"><b>Input</b><span>Messy customer workflow</span></div>
+              <div class="trace-cell"><b>Boundary</b><span>Systems, auth, source of truth</span></div>
+              <div class="trace-cell"><b>Action</b><span>Agent/tool workflow</span></div>
+              <div class="trace-cell"><b>Control</b><span>Policy, evals, fallback</span></div>
+              <div class="trace-cell"><b>Release</b><span>Canary, monitor, rollback</span></div>
+              <div class="trace-cell"><b>Outcome</b><span>Reusable customer proof</span></div>
+            </div>
+            <div class="ops-output">
+              <div><b>Proof</b><span id="stage-proof">Partner discovery, Finance/Sales/Ops workflow mapping, and Zalo-scale context.</span></div>
+              <div><b>Artifact</b><span id="stage-artifact">Workshop notes, system map, MVP scope, success metric.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="human-story">
+      <div class="shell story-grid">
+        <div class="story-panel">
+          <div class="section-kicker">Human read</div>
+          <h2>Not just an agent builder.</h2>
+          <p>
+            I started as a backend engineer because I liked making systems hold under real traffic.
+            At Zalo, that moved closer to the customer edge: partners, product, sales, finance, and ops.
+            The lesson I kept seeing is that the hard part is rarely the demo. The hard part is making
+            software survive real workflows, unclear ownership, old systems, local language, and production pressure.
+          </p>
+        </div>
+        <aside class="story-note">
+          My strongest work sits where customer ambiguity, system design, and production ownership meet.
+          AI agents are the current surface; the durable skill is making software work inside real customer environments.
         </aside>
       </div>
     </section>
 
-    <section class="section" id="fit">
+    <section class="section wash" id="skill-map">
       <div class="shell">
         <div class="section-heading">
           <div>
-            <div class="section-kicker">Fit research</div>
-            <h2>Why this profile matches the role.</h2>
+            <div class="section-kicker">Skill strength map</div>
+            <h2>FDE first, with SA/PSE/CSE skills as support.</h2>
           </div>
           <p>
-            Wonderful-style FDE work is not a generic dashboard or resume page. It is proof that I can own deployment,
-            integrations, and customer outcomes when the environment is imperfect.
+            The site is optimized for Forward Deployed Engineer roles. Solution Architect,
+            Partner Solution Engineer, and Customer Solution Engineer appear as evidence zones because those skills make the FDE motion stronger.
           </p>
         </div>
 
-        <div class="fit-stack">
-          <article class="fit-row">
-            <strong>Production depth</strong>
-            <p>Built and operated backend systems for high-scale messaging and business surfaces, where reliability, latency, and debugging discipline are visible to real users.</p>
-            <span class="proof-tag">30M+ user context</span>
+        <div class="core-grid">
+          <article class="core-card">
+            <strong>Customer discovery</strong>
+            <p>Turn ambiguous operational pain into actors, states, data sources, constraints, MVP scope, and measurable outcomes.</p>
+            <span class="metric-tag">Finance, Sales, Ops, Product, partners</span>
           </article>
-          <article class="fit-row">
-            <strong>Forward-deployed motion</strong>
-            <p>Worked across partner teams and internal Finance, Sales, Ops, and Product groups to turn unclear requirements into shipped workflows, integration contracts, and supportable operations.</p>
-            <span class="proof-tag">customer-facing</span>
+          <article class="core-card">
+            <strong>Enterprise architecture</strong>
+            <p>Map APIs, auth, source-of-truth fields, auditability, and fallback paths before automation touches production state.</p>
+            <span class="metric-tag">SOX-grade workflow delivery</span>
           </article>
-          <article class="fit-row">
-            <strong>Enterprise AI readiness</strong>
-            <p>Prepared the missing FDE layer for AI agents: tool calls, evals, guardrails, escalation paths, audit traces, and rollout plans tied to customer metrics.</p>
-            <span class="proof-tag">agent deployment</span>
+          <article class="core-card">
+            <strong>Production systems</strong>
+            <p>Operate high-throughput messaging with latency, back-pressure, graceful degradation, observability, and incident discipline.</p>
+            <span class="metric-tag">Millions of daily messages</span>
           </article>
-          <article class="fit-row">
-            <strong>Local-market advantage</strong>
-            <p>Native Vietnamese, professional English, and technical context for Vietnam's largest messaging ecosystem make APAC deployments more credible than a translated demo.</p>
-            <span class="proof-tag">Vietnam/APAC</span>
+          <article class="core-card">
+            <strong>AI deployment readiness</strong>
+            <p>Use structured outputs, retrieval, tool/function calling, eval loops, guardrails, and human escalation for practical LLM workflows.</p>
+            <span class="metric-tag">Agent deployment layer</span>
+          </article>
+          <article class="core-card">
+            <strong>Stakeholder ownership</strong>
+            <p>Translate technical tradeoffs for commercial, product, partner, and engineering audiences without losing implementation detail.</p>
+            <span class="metric-tag">Business and technical room</span>
+          </article>
+          <article class="core-card">
+            <strong>Vietnam/APAC edge</strong>
+            <p>Native Vietnamese, professional English, and hands-on context for Vietnam's dominant messaging and business ecosystem.</p>
+            <span class="metric-tag">Local deployment advantage</span>
+          </article>
+        </div>
+
+        <div class="skill-layout">
+          <div class="zone-list" aria-label="Supporting skill zones">
+            <button class="zone-button is-active" type="button" data-skill-zone="sa">Solution Architect</button>
+            <button class="zone-button" type="button" data-skill-zone="pse">Partner Solution Engineer</button>
+            <button class="zone-button" type="button" data-skill-zone="cse">Customer Solution Engineer</button>
+          </div>
+          <div class="zone-panel">
+            <strong id="zone-title">Architecture that survives production</strong>
+            <p id="zone-copy">Design systems that hold up after the pilot: data ownership, API boundaries, compliance, reliability, cost, monitoring, and maintainability.</p>
+            <span class="zone-proof" id="zone-proof">Proof: SOX-compliant billing/reporting workflow and high-throughput Zalo messaging architecture.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="case-evidence">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Case evidence</div>
+            <h2>Proof that maps to forward-deployed work.</h2>
+          </div>
+          <p>
+            Strong profiles do not list skills in isolation. They show where the skill was used,
+            which systems were involved, and what business result moved.
+          </p>
+        </div>
+
+        <div class="evidence-grid">
+          <article class="evidence-card">
+            <strong>Zalo Business Messaging</strong>
+            <p>Architected and operated messaging delivery behind millions of daily business-to-user messages with sub-second expectations and partner integration pressure.</p>
+            <b>FDE signal</b>
+            <p>Conversational infrastructure, reliability, production debugging, partner systems.</p>
+          </article>
+          <article class="evidence-card">
+            <strong>SOX-compliant reporting and billing</strong>
+            <p>Converted ambiguous Finance, Sales, Ops, Product, and Engineering requirements into a production workflow with auditable ownership.</p>
+            <b>Result</b>
+            <p>30% operational overhead reduction and stronger enterprise controls.</p>
+          </article>
+          <article class="evidence-card">
+            <strong>Partner onboarding blueprints</strong>
+            <p>Built prototypes, integration guidance, and reusable patterns so partners could adopt platform capabilities faster.</p>
+            <b>Result</b>
+            <p>40% faster partner onboarding and better feedback loops into Product and Engineering.</p>
+          </article>
+          <article class="evidence-card">
+            <strong>Trust and permission controls</strong>
+            <p>Led message-quality and permission-control work across a 30M+ user communication surface.</p>
+            <b>Result</b>
+            <p>50% coverage lift, directly adjacent to the guardrails required for enterprise AI agents.</p>
+          </article>
+          <article class="evidence-card">
+            <strong>AI-assisted workflows</strong>
+            <p>Applied LLM workflows for classification, content-quality signals, draft generation, structured outputs, eval loops, and human review gates.</p>
+            <b>FDE signal</b>
+            <p>Practical AI adoption with production caution instead of generic prompt enthusiasm.</p>
+          </article>
+          <article class="evidence-card">
+            <strong>Team and delivery leadership</strong>
+            <p>Led a team of four engineers, promoted two to senior, and standardized AI-assisted delivery while preserving senior review on high-risk changes.</p>
+            <b>FDE signal</b>
+            <p>Can lead the customer room and the engineering delivery loop.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wash" id="wonderful-fit">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Wonderful.ai fit zone</div>
+            <h2>Why Wonderful.ai should care.</h2>
+          </div>
+          <p>
+            Wonderful.ai needs engineers who can make governed agents work inside real customer environments.
+            My edge is already operating at that boundary: high-scale messaging, partner integrations, regulated workflows, and Vietnam context.
+          </p>
+        </div>
+
+        <div class="wonder-layout">
+          <article class="wonder-card">
+            <strong>The fit in one answer</strong>
+            <p>
+              I am not positioning myself as an AI-only builder. I am a forward-deployed engineer who can deploy enterprise AI into workflows that already have customers, legacy systems, compliance pressure, language nuance, and business owners. That is the hard part Wonderful.ai is selling.
+            </p>
+          </article>
+          <table class="fit-table" aria-label="Wonderful.ai role fit mapping">
+            <tbody>
+              <tr><th>Local deployment teams</th><td>Native Vietnamese, professional English, Vietnam/APAC messaging context.</td></tr>
+              <tr><th>Enterprise agents across channels</th><td>Production conversational messaging and workflow integration experience.</td></tr>
+              <tr><th>Governed regulated workflows</th><td>SOX-grade reporting, permission controls, auditability, guardrails.</td></tr>
+              <tr><th>Existing systems and messy workflows</th><td>Partner APIs, legacy and modern stacks, source-of-truth mapping.</td></tr>
+              <tr><th>Production adoption</th><td>Observability, back-pressure, rollout ownership, metric review.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="mini-labs">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Mini deployment labs</div>
+            <h2>Small proof artifacts, deployed with the profile.</h2>
+          </div>
+          <p>
+            These are simulated labs, not customer production claims. Each one makes a specific FDE skill visible:
+            scoping, evals, integration contracts, failure modes, and handoff discipline.
+          </p>
+        </div>
+
+        <div class="lab-grid">
+          <article class="lab-card">
+            <div>
+              <strong>Deployment Blueprint Lab</strong>
+              <p>Interactive workflow map for turning a messy enterprise request into scope, architecture, guardrails, rollout, and metrics.</p>
+              <div class="lab-meta"><span>Discovery</span><span>Architecture</span><span>Rollout</span></div>
+            </div>
+            <a class="lab-link" href="/projects/deployment-blueprint-lab.html">Open lab <span>scope to launch</span></a>
+          </article>
+          <article class="lab-card">
+            <div>
+              <strong>Agent Eval Harness</strong>
+              <p>Mock eval dashboard for bilingual cases, unsafe-action checks, regression gates, and launch readiness.</p>
+              <div class="lab-meta"><span>Evals</span><span>Guardrails</span><span>Launch gate</span></div>
+            </div>
+            <a class="lab-link" href="/projects/agent-eval-harness.html">Open lab <span>quality gate</span></a>
+          </article>
+          <article class="lab-card">
+            <div>
+              <strong>Partner Integration Runbook</strong>
+              <p>Partner onboarding artifact with API contract, source-of-truth mapping, failure modes, escalation path, and handoff checklist.</p>
+              <div class="lab-meta"><span>Partner API</span><span>Failure modes</span><span>Handoff</span></div>
+            </div>
+            <a class="lab-link" href="/projects/partner-integration-runbook.html">Open lab <span>integration proof</span></a>
           </article>
         </div>
       </div>
@@ -1247,13 +1682,12 @@
       <div class="shell">
         <div class="section-heading">
           <div>
-            <div class="section-kicker">Project proof</div>
-            <h2>Live FDE deployment cockpit.</h2>
+            <div class="section-kicker">Live deployment reasoning demo</div>
+            <h2>A small agent surface that shows the FDE thought process.</h2>
           </div>
           <p>
-            This is not a support chatbot. It is a Gemini-backed simulation of the FDE job: learn the customer's
-            workflow, design the integration path, define safe automation, validate with evals, launch with monitoring,
-            and keep improving after production feedback.
+            This is not a support chatbot. It is a Gemini-backed simulation of how I reason from a customer workflow
+            to tool route, guardrail, eval, rollout, and next engineering action.
           </p>
         </div>
 
@@ -1272,15 +1706,15 @@
             <div class="scope-note">The agent does not mutate real customer data. It shows how an FDE reasons from messy customer need to safe production solution.</div>
             <div class="language-toggle" role="group" aria-label="Chat language">
               <button class="language-button is-active" type="button" data-language="en">English</button>
-              <button class="language-button" type="button" data-language="vi">Tiếng Việt</button>
+              <button class="language-button" type="button" data-language="vi">Tieng Viet</button>
             </div>
             <div class="scenario-list">
               <button class="scenario-option is-active" type="button" data-scenario="billing">
-                <span class="scenario-icon" aria-hidden="true">₫</span>
+                <span class="scenario-icon" aria-hidden="true">$</span>
                 <span><strong>Telco billing launch</strong><span>Legacy CRM, plan changes, refund policy, ticket handoff.</span></span>
               </button>
               <button class="scenario-option" type="button" data-scenario="booking">
-                <span class="scenario-icon" aria-hidden="true">↻</span>
+                <span class="scenario-icon" aria-hidden="true">B</span>
                 <span><strong>Clinic booking rollout</strong><span>Identity, scheduling API, provider calendars, audit notes.</span></span>
               </button>
               <button class="scenario-option" type="button" data-scenario="card">
@@ -1295,7 +1729,7 @@
               <div class="agent-name">
                 <div class="agent-face" aria-hidden="true"><img src="/assets/favicon.png" alt=""></div>
                 <div>
-                  <strong>Wonderful-style deployment copilot</strong>
+                  <strong>Deployment copilot</strong>
                   <span>Continuing context, enterprise tools, guardrails, eval-ready trace.</span>
                 </div>
               </div>
@@ -1333,9 +1767,9 @@
             </form>
 
             <div class="quick-prompts" role="group" aria-label="Quick prompts">
-              <button class="prompt-chip" type="button" data-prompt-en="Continue from the current workflow. The billing API sometimes returns stale plan data. How would you debug and still launch safely?" data-prompt-vi="Tiếp tục workflow hiện tại. Billing API đôi khi trả về dữ liệu gói cước cũ. Bạn sẽ debug và launch an toàn thế nào?">Debug stale tool</button>
-              <button class="prompt-chip" type="button" data-prompt-en="Design the eval set for this workflow before we move from pilot to 20% traffic." data-prompt-vi="Thiết kế bộ eval cho workflow này trước khi tăng từ pilot lên 20% traffic.">Eval before rollout</button>
-              <button class="prompt-chip" type="button" data-prompt-en="What should the customer success and engineering owners monitor during the first week after launch?" data-prompt-vi="Trong tuần đầu sau launch, customer success và engineering owner cần monitor những gì?">Launch monitoring</button>
+              <button class="prompt-chip" type="button" data-prompt-en="Continue from the current workflow. The billing API sometimes returns stale plan data. How would you debug and still launch safely?" data-prompt-vi="Tiep tuc workflow hien tai. Billing API doi khi tra ve du lieu goi cuoc cu. Ban se debug va launch an toan the nao?">Debug stale tool</button>
+              <button class="prompt-chip" type="button" data-prompt-en="Design the eval set for this workflow before we move from pilot to 20% traffic." data-prompt-vi="Thiet ke bo eval cho workflow nay truoc khi tang tu pilot len 20% traffic.">Eval before rollout</button>
+              <button class="prompt-chip" type="button" data-prompt-en="What should customer success and engineering monitor during the first week after launch?" data-prompt-vi="Trong tuan dau sau launch, customer success va engineering can monitor gi?">Launch monitoring</button>
             </div>
           </section>
         </div>
@@ -1346,120 +1780,176 @@
       <div class="shell">
         <div class="section-heading">
           <div>
-            <div class="section-kicker">Sustainable proof</div>
-            <h2>Evidence that maps to the JD.</h2>
+            <div class="section-kicker">Application package</div>
+            <h2>Materials for a deeper read.</h2>
           </div>
-          <p>
-            The JD asks for customer discovery, solution architecture, AI-agent deployment, production ownership,
-            real-data validation, and reusable delivery assets. This profile is structured around those proof points.
-          </p>
+          <p>Recruiter-friendly assets, source notes, and the role-fit narrative behind this profile.</p>
         </div>
 
         <div class="links-grid">
           <article class="link-panel">
-            <h3>Application package</h3>
-            <p>Public materials that make the role fit easy to evaluate.</p>
+            <h3>Resume assets</h3>
+            <p>Printable and source formats for screening and recruiter workflows.</p>
             <a class="link-item" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf" download>ATS CV PDF <span>download</span></a>
-            <a class="link-item" href="/cv/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.tex" download>LaTeX CV <span>download</span></a>
-            <a class="link-item" href="/profile/role-fit-profile.md">Role-fit notes <span>read</span></a>
-            <a class="link-item" href="https://www.linkedin.com/in/vinhluulinked/" target="_blank" rel="noreferrer">LinkedIn <span>icon link</span></a>
+            <a class="link-item" href="/cv/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.html">CV HTML <span>view</span></a>
+            <a class="link-item" href="/cv/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.tex" download>LaTeX CV <span>source</span></a>
           </article>
           <article class="link-panel">
-            <h3>Deployment proof</h3>
-            <p>Artifacts that demonstrate the actual FDE motion from scope to launch.</p>
-            <a class="link-item" href="#demo">Bilingual deployment copilot <span>demo</span></a>
+            <h3>Role-fit notes</h3>
+            <p>Positioning, evidence, gaps, and interview narrative for FDE roles.</p>
+            <a class="link-item" href="/profile/role-fit-profile.md">Role-fit profile <span>read</span></a>
             <a class="link-item" href="/profile/application-kit.md">Application kit <span>read</span></a>
-            <div class="proof-list">
-              <div class="proof-line"><b>Discovery and scoping</b><span>Customer problem, workflow owner, source of truth, constraints, and success metric.</span></div>
-              <div class="proof-line"><b>Architecture and integration</b><span>Tool route, API boundaries, auth, audit trail, fallback, and rollout plan.</span></div>
-            </div>
+            <a class="link-item" href="#wonderful-fit">Wonderful.ai fit <span>section</span></a>
           </article>
           <article class="link-panel">
-            <h3>Reusable delivery assets</h3>
-            <p>What I would bring into repeated enterprise deployments.</p>
-            <div class="proof-list">
-              <div class="proof-line"><b>Eval-first launch rubric</b><span>Happy path, edge case, unsafe action, language variation, and escalation coverage.</span></div>
-              <div class="proof-line"><b>Production operating model</b><span>Trace review, alert thresholds, canary decision, rollback owner, and weekly metric review.</span></div>
-              <div class="proof-line"><b>Customer-ready documentation</b><span>Workshop notes, integration contract, handoff runbook, and post-launch improvement backlog.</span></div>
-            </div>
+            <h3>External profile</h3>
+            <p>Professional profile and contact surface.</p>
+            <a class="link-item" href="https://www.linkedin.com/in/vinhluulinked/" target="_blank" rel="noreferrer">LinkedIn <span>open</span></a>
+            <a class="link-item" href="#demo">Live demo <span>try</span></a>
+            <a class="link-item" href="#mini-labs">Mini labs <span>open</span></a>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="pitch">
-      <div class="shell">
-        <div class="section-heading">
-          <div>
-            <div class="section-kicker">Interview pitch</div>
-            <h2>The profile in one answer.</h2>
-          </div>
-          <p>Use this as the clean public positioning, not as practice content.</p>
-        </div>
-
-        <div class="pitch-box">
-          <p>
-            I am strongest where customer ambiguity, system design, and production ownership meet. At Zalo, I built
-            and operated high-scale backend systems, worked directly with partners on integrations, and delivered
-            business workflows across multiple stakeholder groups. For Wonderful-style FDE work, I bring the hard
-            deployment half: understanding the customer workflow, connecting enterprise systems, debugging under real
-            constraints, and measuring impact after launch.
-          </p>
-          <ul class="pitch-notes">
-            <li>Lead with production ownership.</li>
-            <li>Connect partner work to FDE deployment.</li>
-            <li>Use Vietnam/APAC context as differentiation.</li>
-            <li>Close with agent evals and rollout metrics.</li>
-          </ul>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="shell">Forward Deployed Engineer profile for Wonderful-style enterprise AI deployment roles.</div>
+    <div class="shell">Forward Deployed Engineer profile for enterprise AI deployment roles, with Wonderful.ai fit and supporting SA/PSE/CSE evidence.</div>
   </footer>
 
   <script>
+    const deploymentStages = {
+      discover: {
+        title: 'Discover the real workflow',
+        copy: 'Start with business pain, customer language, actors, system owners, data confidence, risk tolerance, and the metric that decides whether the deployment matters.',
+        proof: 'Partner discovery, Finance/Sales/Ops workflow mapping, and Zalo-scale context.',
+        artifact: 'Workshop notes, system map, MVP scope, success metric.'
+      },
+      architect: {
+        title: 'Architect the boundary before the agent',
+        copy: 'Define source-of-truth systems, API contracts, auth, audit trail, latency budget, escalation paths, and the data that must never be guessed.',
+        proof: 'SOX-compliant reporting and billing workflow, high-throughput messaging design.',
+        artifact: 'Architecture diagram, tool contract, data map, ownership table.'
+      },
+      build: {
+        title: 'Build the narrow workflow first',
+        copy: 'Connect only the workflow that proves business value: retrieval, structured output, tool route, state, and handoff behavior.',
+        proof: 'LLM workflows for classification, content quality signals, draft generation, and structured outputs.',
+        artifact: 'Workflow prototype, tool schema, prompt contract, fallback copy.'
+      },
+      guard: {
+        title: 'Guard every unsafe edge',
+        copy: 'Create evals, policy checks, permission checks, bilingual edge cases, human review gates, and audit traces before expanding automation.',
+        proof: '50% permission coverage lift across a 30M+ user communication surface.',
+        artifact: 'Eval set, launch gate, unsafe-action checklist, trace review.'
+      },
+      launch: {
+        title: 'Launch with production ownership',
+        copy: 'Use canary rollout, monitoring, alert thresholds, rollback owner, customer success playbook, and weekly metric review.',
+        proof: 'Production reliability work across 5+ core ecosystem apps and millions of daily messages.',
+        artifact: 'Runbook, dashboard, incident path, rollout decision log.'
+      },
+      compound: {
+        title: 'Compound into reusable delivery',
+        copy: 'Turn one deployment into templates, partner docs, reusable blueprints, product feedback, and faster next engagements.',
+        proof: '40% faster partner onboarding through prototypes, documentation, and delivery patterns.',
+        artifact: 'Reusable blueprint, partner enablement kit, post-launch backlog.'
+      }
+    };
+
+    const skillZones = {
+      sa: {
+        title: 'Architecture that survives production',
+        copy: 'Design systems that hold up after the pilot: data ownership, API boundaries, compliance, reliability, cost, monitoring, and maintainability.',
+        proof: 'Proof: SOX-compliant billing/reporting workflow and high-throughput Zalo messaging architecture.'
+      },
+      pse: {
+        title: 'Partner motion that reaches go-live',
+        copy: 'Run discovery, integration workshops, API mapping, partner troubleshooting, onboarding blueprints, and product feedback loops.',
+        proof: 'Proof: hundreds of partner integrations and 40% faster onboarding through prototypes and documentation.'
+      },
+      cse: {
+        title: 'Customer adoption after the handoff',
+        copy: 'Translate issues across business and engineering stakeholders, debug live workflows, protect trust, and keep the deployment improving.',
+        proof: 'Proof: technical liaison work across external partners, Sales, Ops, Product, and Engineering.'
+      }
+    };
+
+    function setText(id, value) {
+      const node = document.getElementById(id);
+      if (node) node.textContent = value;
+    }
+
+    function activateButtons(selector, attr, value) {
+      document.querySelectorAll(selector).forEach((button) => {
+        button.classList.toggle('is-active', button.getAttribute(attr) === value);
+      });
+    }
+
+    document.querySelectorAll('[data-stage]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const key = button.getAttribute('data-stage');
+        const stage = deploymentStages[key];
+        if (!stage) return;
+        activateButtons('[data-stage]', 'data-stage', key);
+        setText('stage-title', stage.title);
+        setText('stage-copy', stage.copy);
+        setText('stage-proof', stage.proof);
+        setText('stage-artifact', stage.artifact);
+      });
+    });
+
+    document.querySelectorAll('[data-skill-zone]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const key = button.getAttribute('data-skill-zone');
+        const zone = skillZones[key];
+        if (!zone) return;
+        activateButtons('[data-skill-zone]', 'data-skill-zone', key);
+        setText('zone-title', zone.title);
+        setText('zone-copy', zone.copy);
+        setText('zone-proof', zone.proof);
+      });
+    });
+
     const scenarios = {
       billing: {
         intro: 'Customer: A subscriber asks why the bill increased after changing plans.',
-        introVi: 'Khách hàng: Khách hàng hỏi vì sao hóa đơn tăng sau khi đổi gói cước.',
-        response: 'Agent: I would start as the deployment owner, not just answer the user. First I confirm which CRM and billing ledger are the source of truth, compare old and new plans, explain the proration in customer language, and create a ticket only when the tool result conflicts with policy.',
-        responseVi: 'Agent: Tôi sẽ xử lý như deployment owner, không chỉ trả lời người dùng. Đầu tiên cần xác nhận CRM và billing ledger nào là nguồn dữ liệu chuẩn, so sánh gói cũ và gói mới, giải thích phần prorate bằng ngôn ngữ dễ hiểu, và chỉ tạo ticket khi kết quả tool mâu thuẫn với policy.',
+        introVi: 'Khach hang: Khach hang hoi vi sao hoa don tang sau khi doi goi cuoc.',
+        response: 'Agent: I would start as the deployment owner, not just answer the user. First I confirm which CRM and billing ledger are the source of truth, compare old and new plans, explain proration in customer language, and create a ticket only when the tool result conflicts with policy.',
+        responseVi: 'Agent: Toi se xu ly nhu deployment owner, khong chi tra loi nguoi dung. Dau tien can xac nhan CRM va billing ledger nao la nguon du lieu chuan, so sanh goi cu va goi moi, giai thich prorate bang ngon ngu de hieu, va chi tao ticket khi ket qua tool mau thuan voi policy.',
         toolRoute: 'CRM lookup -> billing ledger -> policy retrieval -> ticket note',
         guardrail: 'No refund or credit promise without policy match and role permission.',
         metric: '60% containment target with refund-error tracking',
         nextStep: 'Confirm source-of-truth fields for plan change, proration, and charge disputes.',
         phase: 'Discovery to MVP',
         input: 'A subscriber asks why the bill increased after changing plans.',
-        inputVi: 'Khách hàng hỏi vì sao hóa đơn tăng sau khi đổi gói cước.'
+        inputVi: 'Khach hang hoi vi sao hoa don tang sau khi doi goi cuoc.'
       },
       booking: {
         intro: 'Customer: I need to reschedule my appointment, but I am not sure which clinic location is available.',
-        introVi: 'Khách hàng: Tôi cần đổi lịch khám nhưng không chắc cơ sở nào còn slot trống.',
+        introVi: 'Khach hang: Toi can doi lich kham nhung khong chac co so nao con slot trong.',
         response: 'Agent: I would map the booking workflow before automation: confirm identity, search available slots, propose two safe options, write the booking transaction once, and leave an audit note for clinic operations.',
-        responseVi: 'Agent: Tôi sẽ map workflow đặt lịch trước khi tự động hóa: xác thực danh tính, tìm slot trống, đề xuất hai lựa chọn an toàn, chỉ ghi transaction đặt lịch một lần, và để lại audit note cho vận hành phòng khám.',
+        responseVi: 'Agent: Toi se map workflow dat lich truoc khi tu dong hoa: xac thuc danh tinh, tim slot trong, de xuat hai lua chon an toan, chi ghi transaction dat lich mot lan, va de lai audit note cho van hanh phong kham.',
         toolRoute: 'Identity check -> slot search -> booking API -> audit note',
         guardrail: 'No appointment mutation until identity and chosen slot are confirmed.',
         metric: '95% successful reschedules without duplicate bookings',
         nextStep: 'Map booking states, cancellation windows, and escalation ownership with clinic ops.',
         phase: 'Workflow mapping',
         input: 'Please reschedule my appointment and confirm the audit trail.',
-        inputVi: 'Giúp tôi đổi lịch khám và xác nhận có audit trail.'
+        inputVi: 'Giup toi doi lich kham va xac nhan co audit trail.'
       },
       card: {
-        intro: 'Customer: Tôi mất thẻ rồi. Lock it now please.',
-        introVi: 'Khách hàng: Tôi mất thẻ rồi. Khóa thẻ ngay giúp tôi.',
+        intro: 'Customer: I lost my card. Lock it now please.',
+        introVi: 'Khach hang: Toi mat the roi. Khoa the ngay giup toi.',
         response: 'Agent: I would treat this as a high-risk state change, not a normal answer. The deployment must verify identity with 2FA, lock the card only after verification, preserve the audit trail, and escalate if confidence is incomplete.',
-        responseVi: 'Agent: Tôi sẽ xem đây là hành động thay đổi trạng thái rủi ro cao, không phải câu trả lời thông thường. Deployment phải xác thực danh tính bằng 2FA, chỉ khóa thẻ sau khi xác thực, lưu audit trail, và chuyển người thật nếu confidence chưa đủ.',
+        responseVi: 'Agent: Toi se xem day la hanh dong thay doi trang thai rui ro cao, khong phai cau tra loi thong thuong. Deployment phai xac thuc danh tinh bang 2FA, chi khoa the sau khi xac thuc, luu audit trail, va chuyen nguoi that neu confidence chua du.',
         toolRoute: 'Identity check -> 2FA -> card lock API -> compliance log',
         guardrail: 'Zero unauthorized state-changing actions allowed.',
         metric: 'Under 2 minute containment with 0 unsafe mutations',
         nextStep: 'Validate authentication step-up, recording policy, and rollback/escalation path.',
         phase: 'Protected action design',
         input: 'I lost my card. Lock it now, but verify identity first.',
-        inputVi: 'Tôi mất thẻ. Hãy khóa ngay nhưng phải xác thực danh tính trước.'
+        inputVi: 'Toi mat the. Hay khoa ngay nhung phai xac thuc danh tinh truoc.'
       }
     };
 
@@ -1493,13 +1983,13 @@
     }
 
     function withoutSpeakerPrefix(text) {
-      return text.replace(/^(Customer|Agent|Khách hàng|Khach hang|FDE):\s*/i, '');
+      return text.replace(/^(Customer|Agent|Khach hang|FDE):\s*/i, '');
     }
 
     function setBusy(isBusy) {
       input.disabled = isBusy;
       sendButton.disabled = isBusy;
-      sendButton.textContent = isBusy ? (chatLanguage === 'vi' ? 'Đang nghĩ' : 'Thinking') : (chatLanguage === 'vi' ? 'Gửi' : 'Send');
+      sendButton.textContent = isBusy ? (chatLanguage === 'vi' ? 'Dang nghi' : 'Thinking') : (chatLanguage === 'vi' ? 'Gui' : 'Send');
       document.querySelectorAll('.prompt-chip, .scenario-option, .language-button').forEach((button) => {
         button.disabled = isBusy;
       });
@@ -1515,7 +2005,7 @@
       document.querySelectorAll('[data-language]').forEach((button) => {
         button.classList.toggle('is-active', button.getAttribute('data-language') === language);
       });
-      sendButton.textContent = language === 'vi' ? 'Gửi' : 'Send';
+      sendButton.textContent = language === 'vi' ? 'Gui' : 'Send';
     }
 
     function setRuntime(payload = {}) {
@@ -1567,9 +2057,9 @@
 
     function inferScenario(text) {
       const normalized = text.toLowerCase();
-      if (normalized.includes('card') || normalized.includes('lock') || normalized.includes('thẻ')) return 'card';
-      if (normalized.includes('appointment') || normalized.includes('book') || normalized.includes('schedule') || normalized.includes('lịch')) return 'booking';
-      if (normalized.includes('bill') || normalized.includes('charge') || normalized.includes('invoice') || normalized.includes('refund') || normalized.includes('hóa đơn') || normalized.includes('gói cước')) return 'billing';
+      if (normalized.includes('card') || normalized.includes('lock') || normalized.includes('the')) return 'card';
+      if (normalized.includes('appointment') || normalized.includes('book') || normalized.includes('schedule') || normalized.includes('lich')) return 'booking';
+      if (normalized.includes('bill') || normalized.includes('charge') || normalized.includes('invoice') || normalized.includes('refund') || normalized.includes('hoa don') || normalized.includes('goi cuoc')) return 'billing';
       return currentScenario || 'billing';
     }
 
@@ -1582,10 +2072,10 @@
           ? 'Production debug'
           : normalized.includes('launch') || normalized.includes('rollout') || normalized.includes('monitor')
             ? 'Controlled rollout'
-          : 'Deployment discovery';
+            : 'Deployment discovery';
 
       const reply = chatLanguage === 'vi'
-        ? `Tiếp tục deployment ${scenarioKey}, tôi sẽ giữ nguyên workflow map và thêm constraint mới thay vì thiết kế lại từ đầu. Việc FDE cần làm là xác nhận system of record, instrument tool path, thêm eval cho đúng case này, và chỉ launch khi có human fallback cho đến khi metric ổn định.`
+        ? `Tiep tuc deployment ${scenarioKey}, toi se giu nguyen workflow map va them constraint moi thay vi thiet ke lai tu dau. Viec FDE can lam la xac nhan system of record, instrument tool path, them eval cho dung case nay, va chi launch khi co human fallback cho den khi metric on dinh.`
         : `Continuing this ${scenarioKey} deployment, I would keep the same workflow map and add the new constraint instead of restarting the conversation. The practical FDE move is to verify the system of record, instrument the tool path, add an eval for this exact case, and launch only behind a human fallback until the metric is stable.`;
 
       return {
@@ -1632,7 +2122,7 @@
       const pending = appendMessage(
         'agent',
         chatLanguage === 'vi'
-          ? 'Đang phân tích workflow, tools, guardrails, evals và rollout...'
+          ? 'Dang phan tich workflow, tools, guardrails, evals va rollout...'
           : 'Thinking through workflow, tools, guardrails, evals, and rollout...',
         { pending: true }
       );

@@ -193,7 +193,7 @@ git commit -m "test(profile): add static site validation"
 - Consumes: existing assets under `assets/`, existing CV/profile links, existing demo DOM IDs used by current script: `messages`, `agent-input`, `agent-form`, `route-output`, `guardrail-output`, `metric-output`, `next-step-output`, `agent-state`, `agent-source`.
 - Produces: required section IDs from Task 1, stage buttons with `data-stage`, skill-zone buttons with `data-skill-zone`, mini-lab links, preserved demo behavior.
 
-- [ ] **Step 1: Replace top-level navigation**
+- [x] **Step 1: Replace top-level navigation**
 
 In `index.html`, update the topbar navigation to point to:
 
@@ -211,7 +211,7 @@ In `index.html`, update the topbar navigation to point to:
 
 Keep the existing LinkedIn SVG inside the nav icon.
 
-- [ ] **Step 2: Rework the hero content**
+- [x] **Step 2: Rework the hero content**
 
 Replace the hero copy with content that includes:
 
@@ -238,7 +238,7 @@ Add a hero proof strip with these exact metrics:
 </div>
 ```
 
-- [ ] **Step 3: Add the Deployment Operating System section**
+- [x] **Step 3: Add the Deployment Operating System section**
 
 Add a section with `id="operating-system"` after the hero. It must include six buttons:
 
@@ -262,7 +262,7 @@ Add a details panel with these IDs:
 
 Implement a `deploymentStages` object in the page script with keys `discover`, `architect`, `build`, `guard`, `launch`, and `compound`. Each key must provide `title`, `copy`, `proof`, and `artifact`.
 
-- [ ] **Step 4: Add the human story section**
+- [x] **Step 4: Add the human story section**
 
 Add a section with `id="human-story"` and concise copy that says:
 
@@ -275,7 +275,7 @@ Add a section with `id="human-story"` and concise copy that says:
 </p>
 ```
 
-- [ ] **Step 5: Add the skill strength map**
+- [x] **Step 5: Add the skill strength map**
 
 Add a section with `id="skill-map"` and three supporting-zone buttons:
 
@@ -295,7 +295,7 @@ Add a panel with IDs:
 
 Implement a `skillZones` object with keys `sa`, `pse`, and `cse`.
 
-- [ ] **Step 6: Add case evidence and Wonderful.ai fit sections**
+- [x] **Step 6: Add case evidence and Wonderful.ai fit sections**
 
 Add `id="case-evidence"` with five proof cards:
 
@@ -315,7 +315,7 @@ Add `id="wonderful-fit"` with a comparison table mapping Wonderful.ai needs to V
 <tr><th>Production adoption</th><td>Observability, back-pressure, rollout ownership, metric review.</td></tr>
 ```
 
-- [ ] **Step 7: Add mini labs and preserve demo/links**
+- [x] **Step 7: Add mini labs and preserve demo/links**
 
 Add `id="mini-labs"` before `id="demo"` with links to:
 
@@ -337,7 +337,7 @@ Ensure the links section has `id="links"` and retains links to:
 <a href="/profile/application-kit.md">Application kit</a>
 ```
 
-- [ ] **Step 8: Run validation**
+- [x] **Step 8: Run validation**
 
 Run:
 
@@ -347,7 +347,7 @@ node --test scripts/validate-profile-site.mjs
 
 Expected: still FAIL because mini project pages do not exist yet, but the main-profile assertions should pass.
 
-- [ ] **Step 9: Commit the main page redesign**
+- [x] **Step 9: Commit the main page redesign**
 
 Run:
 
