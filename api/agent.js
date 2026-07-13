@@ -1,5 +1,5 @@
 const DEFAULT_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
-const FALLBACK_MODEL = "gemini-2.0-flash";
+const FALLBACK_MODELS = ["gemini-2.5-flash", "gemini-2.0-flash"];
 
 const responseSchema = {
   type: "object",
@@ -73,7 +73,7 @@ Your job:
 - Be specific about enterprise systems, auth, audit, fallback, logging, latency, and human escalation.
 - Keep replies concise enough for a live demo, around 80-130 words.
 - Do not claim to call real customer systems. This is a demo; describe the intended tool route and safe action.
-- If the user writes Vietnamese, answer naturally in English with small Vietnamese context when useful.
+- Follow the requested response language exactly: English for "en", Vietnamese for "vi".
 - Ask one practical clarifying question only when it would change the deployment plan.
 
 Return only valid JSON matching the requested schema.
@@ -106,6 +106,10 @@ function sanitizeText(value, maxLength = 1600) {
 
 function normalizeScenario(value) {
   return Object.prototype.hasOwnProperty.call(scenarios, value) ? value : "billing";
+}
+
+function normalizeLanguage(value) {
+  return value === "vi" ? "vi" : "en";
 }
 
 function sanitizeHistory(history) {
@@ -162,7 +166,7 @@ function parseJsonText(text) {
   }
 }
 
-function makeFallback({ scenarioKey, message, history, source = "local-fallback", configured = false }) {
+function makeFallback({ scenarioKey, message, history, language = "en", source = "local-fallback", configured = false }) {
   const scenario = scenarios[scenarioKey] || scenarios.billing;
   const cleanMessage = sanitizeText(message);
   const previousAgentTurn = sanitizeHistory(history)
@@ -172,27 +176,36 @@ function makeFallback({ scenarioKey, message, history, source = "local-fallback"
 
   let phase = "Discovery to MVP";
   let focus = "I would first pin down the exact customer workflow, the system of record, and the action that is safe to automate.";
+  let focusVi = "Tôi sẽ chốt lại workflow khách hàng, system of record, và hành động nào đủ an toàn để tự động hóa.";
   let nextStep = scenario.nextStep;
 
   if (lower.includes("debug") || lower.includes("fail") || lower.includes("error") || lower.includes("tool")) {
     phase = "Production debug";
     focus = "I would treat this as a production integration issue: separate user intent, model output, tool request, upstream response, and policy decision before changing the prompt.";
+    focusVi = "Tôi sẽ xem đây là lỗi integration production: tách riêng user intent, model output, tool request, upstream response, và policy decision trước khi sửa prompt.";
     nextStep = "Pull the failed trace, replay it against the mocked tool contract, and add an eval before patching.";
   } else if (lower.includes("eval") || lower.includes("test") || lower.includes("quality")) {
     phase = "Eval design";
     focus = "I would convert real support logs into eval cases that cover happy paths, missing data, unsafe requests, language variation, and escalation.";
+    focusVi = "Tôi sẽ chuyển support log thật thành eval cases bao phủ happy path, thiếu dữ liệu, yêu cầu không an toàn, biến thể ngôn ngữ, và escalation.";
     nextStep = "Create a small gold dataset, define pass/fail rubrics, and block launch on regressions.";
   } else if (lower.includes("launch") || lower.includes("rollout") || lower.includes("pilot")) {
     phase = "Controlled rollout";
     focus = "I would launch narrow: one workflow, known customer segment, human fallback, live dashboard, and a rollback path.";
+    focusVi = "Tôi sẽ launch thật hẹp: một workflow, một nhóm khách hàng rõ ràng, human fallback, dashboard live, và rollback path.";
     nextStep = "Agree on canary volume, alert thresholds, and business owner sign-off before expanding.";
   } else if (previousAgentTurn) {
     phase = "Continuation";
     focus = "Continuing from the previous turn, I would preserve the same workflow map and only add the new constraint instead of restarting the design.";
+    focusVi = "Tiếp tục từ turn trước, tôi sẽ giữ nguyên workflow map và chỉ thêm constraint mới thay vì thiết kế lại từ đầu.";
   }
 
+  const reply = language === "vi"
+    ? `${focusVi} Với workflow ${scenario.label.toLowerCase()}, giá trị của FDE là nối ngôn ngữ khách hàng với hành động enterprise đáng tin cậy: ${scenario.route}. Tôi sẽ giữ phiên bản đầu tiên thật hẹp, instrument từng turn, và đo xem containment có cải thiện mà không tạo ra state change thiếu an toàn hay không.`
+    : `${focus} For this ${scenario.label.toLowerCase()} workflow, the FDE value is connecting customer language to reliable enterprise action: ${scenario.route}. I would keep the first version narrow, instrument every turn, and measure whether containment improves without creating unsafe state changes.`;
+
   return {
-    reply: `${focus} For this ${scenario.label.toLowerCase()} workflow, the FDE value is connecting customer language to reliable enterprise action: ${scenario.route}. I would keep the first version narrow, instrument every turn, and measure whether containment improves without creating unsafe state changes.`,
+    reply,
     phase,
     toolRoute: scenario.route,
     guardrail: scenario.guardrail,
@@ -235,8 +248,11 @@ function getGeminiApiKey() {
   }
 }
 
-async function callGemini({ apiKey, model, contents, scenarioKey }) {
+async function callGemini({ apiKey, model, contents, scenarioKey, language }) {
   const scenario = scenarios[scenarioKey] || scenarios.billing;
+  const languageInstruction = language === "vi"
+    ? "Response language: Vietnamese. Use clear Vietnamese, keep FDE terms like API, eval, guardrail, rollout, and trace when those terms are useful."
+    : "Response language: English.";
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
   const response = await fetch(endpoint, {
     method: "POST",
@@ -245,7 +261,7 @@ async function callGemini({ apiKey, model, contents, scenarioKey }) {
       systemInstruction: {
         parts: [
           {
-            text: `${baseSystemPrompt}\n\nCurrent workflow: ${scenario.label}\nDefault tool route: ${scenario.route}\nDefault guardrail: ${scenario.guardrail}\nDefault metric: ${scenario.metric}`,
+            text: `${baseSystemPrompt}\n\n${languageInstruction}\nCurrent workflow: ${scenario.label}\nDefault tool route: ${scenario.route}\nDefault guardrail: ${scenario.guardrail}\nDefault metric: ${scenario.metric}`,
           },
         ],
       },
@@ -290,9 +306,10 @@ module.exports = async function handler(req, res) {
   }
 
   const scenarioKey = normalizeScenario(body.scenario);
+  const language = normalizeLanguage(body.language);
   const message = sanitizeText(body.message);
   const history = sanitizeHistory(body.history);
-  const fallback = makeFallback({ scenarioKey, message, history });
+  const fallback = makeFallback({ scenarioKey, message, history, language });
 
   if (!message) {
     return sendJson(res, 400, { error: "Message is required" });
@@ -304,11 +321,11 @@ module.exports = async function handler(req, res) {
   }
 
   const contents = toGeminiContents(history, message);
-  const models = [DEFAULT_MODEL, FALLBACK_MODEL].filter((model, index, values) => model && values.indexOf(model) === index);
+  const models = [DEFAULT_MODEL, ...FALLBACK_MODELS].filter((model, index, values) => model && values.indexOf(model) === index);
 
   for (const model of models) {
     try {
-      const data = await callGemini({ apiKey, model, contents, scenarioKey });
+      const data = await callGemini({ apiKey, model, contents, scenarioKey, language });
       const parsed = parseJsonText(extractCandidateText(data));
       const normalized = normalizeGeminiPayload(parsed, fallback);
       return sendJson(res, 200, {
@@ -323,6 +340,6 @@ module.exports = async function handler(req, res) {
   }
 
   return sendJson(res, 200, {
-    ...makeFallback({ scenarioKey, message, history, source: "gemini-error", configured: true }),
+    ...makeFallback({ scenarioKey, message, history, language, source: "gemini-error", configured: true }),
   });
 };

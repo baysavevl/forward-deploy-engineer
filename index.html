@@ -477,6 +477,40 @@
         var(--wash);
     }
 
+    .deployment-loop {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1px;
+      margin: -18px 0 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--line);
+      box-shadow: 0 18px 55px rgba(22, 23, 29, 0.05);
+    }
+
+    .loop-step {
+      min-height: 88px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .loop-step b {
+      display: block;
+      color: var(--blue);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .loop-step span {
+      display: block;
+      margin-top: 7px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
     .demo-layout {
       display: grid;
       grid-template-columns: minmax(290px, 0.42fr) minmax(0, 0.58fr);
@@ -508,6 +542,46 @@
       margin: 8px 0 16px;
       color: var(--body);
       font-size: 14px;
+    }
+
+    .scope-note {
+      margin-bottom: 14px;
+      border-left: 3px solid var(--orange);
+      padding: 10px 12px;
+      background: #fff8ed;
+      color: var(--body);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .language-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      margin: 0 0 14px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--wash);
+    }
+
+    .language-button {
+      min-height: 36px;
+      border: 0;
+      border-radius: 7px;
+      background: transparent;
+      color: var(--quiet);
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .language-button:hover,
+    .language-button:focus-visible,
+    .language-button.is-active {
+      background: white;
+      color: var(--blue);
+      outline: 0;
+      box-shadow: 0 8px 22px rgba(36, 88, 255, 0.1);
     }
 
     .scenario-list {
@@ -801,6 +875,29 @@
       color: var(--body);
     }
 
+    .proof-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .proof-line {
+      display: grid;
+      gap: 4px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .proof-line b {
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .proof-line span {
+      color: var(--body);
+      font-size: 13px;
+    }
+
     .link-item {
       display: flex;
       justify-content: space-between;
@@ -906,11 +1003,22 @@
       .links-grid {
         grid-template-columns: 1fr;
       }
+
+      .deployment-loop {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 640px) {
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
       .shell {
-        width: min(100% - 24px, 1180px);
+        width: calc(100% - 24px);
+        max-width: 100%;
       }
 
       .topbar-inner,
@@ -932,12 +1040,50 @@
       }
 
       h1 {
-        font-size: clamp(38px, 12vw, 52px);
+        max-width: 100%;
+        font-size: clamp(38px, 10.8vw, 46px);
       }
 
       .runtime,
       .composer {
         grid-template-columns: 1fr;
+      }
+
+      .deployment-loop {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid,
+      .profile-brief,
+      .console-stage,
+      .console-person,
+      .section-heading,
+      .demo-layout,
+      .scenario-panel,
+      .agent-panel,
+      .link-panel,
+      .pitch-box {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .console-top {
+        align-items: flex-start;
+      }
+
+      .console-link {
+        flex: 0 0 auto;
+      }
+
+      .hero-copy,
+      .console-title,
+      .flow-node span,
+      .section-heading p,
+      .fit-row p,
+      .runtime-box span,
+      .message,
+      .proof-line span {
+        overflow-wrap: anywhere;
       }
 
       .actions {
@@ -1102,18 +1248,32 @@
         <div class="section-heading">
           <div>
             <div class="section-kicker">Project proof</div>
-            <h2>Live FDE deployment agent.</h2>
+            <h2>Live FDE deployment cockpit.</h2>
           </div>
           <p>
-            Gemini-backed demo for real forward-deployed work: clarify the customer workflow, map enterprise systems,
-            set guardrails, define evals, and plan rollout without pretending to mutate real customer data.
+            This is not a support chatbot. It is a Gemini-backed simulation of the FDE job: learn the customer's
+            workflow, design the integration path, define safe automation, validate with evals, launch with monitoring,
+            and keep improving after production feedback.
           </p>
+        </div>
+
+        <div class="deployment-loop" aria-label="Forward deployed engineering deployment loop">
+          <div class="loop-step"><b>01 scope</b><span>Clarify pain, owner, data, and success metric.</span></div>
+          <div class="loop-step"><b>02 design</b><span>Map systems, APIs, auth, and fallback paths.</span></div>
+          <div class="loop-step"><b>03 build</b><span>Connect tools, policies, prompts, and state.</span></div>
+          <div class="loop-step"><b>04 validate</b><span>Run evals, traces, guardrails, and risk review.</span></div>
+          <div class="loop-step"><b>05 launch</b><span>Canary rollout, monitor, debug, and iterate.</span></div>
         </div>
 
         <div class="demo-layout">
           <aside class="scenario-panel" aria-label="Agent scenarios">
-            <h3>Deployment situation</h3>
-            <p>Choose the customer environment, then continue the conversation like a live deployment review.</p>
+            <h3>Customer scope</h3>
+            <p>Choose a deployment environment and the language you want to practice.</p>
+            <div class="scope-note">The agent does not mutate real customer data. It shows how an FDE reasons from messy customer need to safe production solution.</div>
+            <div class="language-toggle" role="group" aria-label="Chat language">
+              <button class="language-button is-active" type="button" data-language="en">English</button>
+              <button class="language-button" type="button" data-language="vi">Tiếng Việt</button>
+            </div>
             <div class="scenario-list">
               <button class="scenario-option is-active" type="button" data-scenario="billing">
                 <span class="scenario-icon" aria-hidden="true">₫</span>
@@ -1135,7 +1295,7 @@
               <div class="agent-name">
                 <div class="agent-face" aria-hidden="true"><img src="/assets/favicon.png" alt=""></div>
                 <div>
-                  <strong>Wonderful-style FDE copilot</strong>
+                  <strong>Wonderful-style deployment copilot</strong>
                   <span>Continuing context, enterprise tools, guardrails, eval-ready trace.</span>
                 </div>
               </div>
@@ -1168,14 +1328,14 @@
 
             <form class="composer" id="agent-form">
               <label class="sr-only" for="agent-input">Message to the agent</label>
-              <input id="agent-input" name="message" type="text" autocomplete="off" value="Khách hàng hỏi vì sao hóa đơn tăng sau khi đổi gói cước.">
+              <input id="agent-input" name="message" type="text" autocomplete="off" value="A subscriber asks why the bill increased after changing plans.">
               <button class="send-button" type="submit">Send</button>
             </form>
 
             <div class="quick-prompts" role="group" aria-label="Quick prompts">
-              <button class="prompt-chip" type="button" data-prompt="Continue from the current workflow. The billing API sometimes returns stale plan data. How would you debug and still launch safely?">Debug stale tool</button>
-              <button class="prompt-chip" type="button" data-prompt="Design the eval set for this workflow before we move from pilot to 20% traffic.">Eval before rollout</button>
-              <button class="prompt-chip" type="button" data-prompt="What should the customer success and engineering owners monitor during the first week after launch?">Launch monitoring</button>
+              <button class="prompt-chip" type="button" data-prompt-en="Continue from the current workflow. The billing API sometimes returns stale plan data. How would you debug and still launch safely?" data-prompt-vi="Tiếp tục workflow hiện tại. Billing API đôi khi trả về dữ liệu gói cước cũ. Bạn sẽ debug và launch an toàn thế nào?">Debug stale tool</button>
+              <button class="prompt-chip" type="button" data-prompt-en="Design the eval set for this workflow before we move from pilot to 20% traffic." data-prompt-vi="Thiết kế bộ eval cho workflow này trước khi tăng từ pilot lên 20% traffic.">Eval before rollout</button>
+              <button class="prompt-chip" type="button" data-prompt-en="What should the customer success and engineering owners monitor during the first week after launch?" data-prompt-vi="Trong tuần đầu sau launch, customer success và engineering owner cần monitor những gì?">Launch monitoring</button>
             </div>
           </section>
         </div>
@@ -1186,35 +1346,42 @@
       <div class="shell">
         <div class="section-heading">
           <div>
-            <div class="section-kicker">Portfolio direction</div>
-            <h2>Profile now, projects and writing later.</h2>
+            <div class="section-kicker">Sustainable proof</div>
+            <h2>Evidence that maps to the JD.</h2>
           </div>
           <p>
-            This site should remain a personal profile. New material can be linked here without turning the page into
-            another interview-prep product.
+            The JD asks for customer discovery, solution architecture, AI-agent deployment, production ownership,
+            real-data validation, and reusable delivery assets. This profile is structured around those proof points.
           </p>
         </div>
 
         <div class="links-grid">
           <article class="link-panel">
             <h3>Application package</h3>
-            <p>Role-fit profile, CV, and interview pitch assets.</p>
+            <p>Public materials that make the role fit easy to evaluate.</p>
             <a class="link-item" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf" download>ATS CV PDF <span>download</span></a>
             <a class="link-item" href="/cv/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.tex" download>LaTeX CV <span>download</span></a>
             <a class="link-item" href="/profile/role-fit-profile.md">Role-fit notes <span>read</span></a>
             <a class="link-item" href="https://www.linkedin.com/in/vinhluulinked/" target="_blank" rel="noreferrer">LinkedIn <span>icon link</span></a>
           </article>
           <article class="link-panel">
-            <h3>Project links</h3>
-            <p>Future place for demos that prove deployment ability.</p>
-            <a class="link-item" href="#demo">Bilingual AI agent <span>demo</span></a>
+            <h3>Deployment proof</h3>
+            <p>Artifacts that demonstrate the actual FDE motion from scope to launch.</p>
+            <a class="link-item" href="#demo">Bilingual deployment copilot <span>demo</span></a>
             <a class="link-item" href="/profile/application-kit.md">Application kit <span>read</span></a>
+            <div class="proof-list">
+              <div class="proof-line"><b>Discovery and scoping</b><span>Customer problem, workflow owner, source of truth, constraints, and success metric.</span></div>
+              <div class="proof-line"><b>Architecture and integration</b><span>Tool route, API boundaries, auth, audit trail, fallback, and rollout plan.</span></div>
+            </div>
           </article>
           <article class="link-panel">
-            <h3>Writing queue</h3>
-            <p>Short posts to publish later about FDE work, evals, and enterprise AI rollout.</p>
-            <div class="link-item">Last-mile deployment notes <span>planned</span></div>
-            <div class="link-item">Voice agent eval checklist <span>planned</span></div>
+            <h3>Reusable delivery assets</h3>
+            <p>What I would bring into repeated enterprise deployments.</p>
+            <div class="proof-list">
+              <div class="proof-line"><b>Eval-first launch rubric</b><span>Happy path, edge case, unsafe action, language variation, and escalation coverage.</span></div>
+              <div class="proof-line"><b>Production operating model</b><span>Trace review, alert thresholds, canary decision, rollback owner, and weekly metric review.</span></div>
+              <div class="proof-line"><b>Customer-ready documentation</b><span>Workshop notes, integration contract, handoff runbook, and post-launch improvement backlog.</span></div>
+            </div>
           </article>
         </div>
       </div>
@@ -1256,38 +1423,48 @@
   <script>
     const scenarios = {
       billing: {
-        intro: 'Customer: Khách hàng hỏi vì sao hóa đơn tăng sau khi đổi gói cước.',
-        response: 'Agent: I would start as the deployment owner: confirm which CRM and billing ledger are the source of truth, compare old and new plans, explain the delta in Vietnamese, and create a ticket only when the tool result conflicts with policy.',
+        intro: 'Customer: A subscriber asks why the bill increased after changing plans.',
+        introVi: 'Khách hàng: Khách hàng hỏi vì sao hóa đơn tăng sau khi đổi gói cước.',
+        response: 'Agent: I would start as the deployment owner, not just answer the user. First I confirm which CRM and billing ledger are the source of truth, compare old and new plans, explain the proration in customer language, and create a ticket only when the tool result conflicts with policy.',
+        responseVi: 'Agent: Tôi sẽ xử lý như deployment owner, không chỉ trả lời người dùng. Đầu tiên cần xác nhận CRM và billing ledger nào là nguồn dữ liệu chuẩn, so sánh gói cũ và gói mới, giải thích phần prorate bằng ngôn ngữ dễ hiểu, và chỉ tạo ticket khi kết quả tool mâu thuẫn với policy.',
         toolRoute: 'CRM lookup -> billing ledger -> policy retrieval -> ticket note',
         guardrail: 'No refund or credit promise without policy match and role permission.',
         metric: '60% containment target with refund-error tracking',
         nextStep: 'Confirm source-of-truth fields for plan change, proration, and charge disputes.',
         phase: 'Discovery to MVP',
-        input: 'Khách hàng hỏi vì sao hóa đơn tăng sau khi đổi gói cước.'
+        input: 'A subscriber asks why the bill increased after changing plans.',
+        inputVi: 'Khách hàng hỏi vì sao hóa đơn tăng sau khi đổi gói cước.'
       },
       booking: {
         intro: 'Customer: I need to reschedule my appointment, but I am not sure which clinic location is available.',
+        introVi: 'Khách hàng: Tôi cần đổi lịch khám nhưng không chắc cơ sở nào còn slot trống.',
         response: 'Agent: I would map the booking workflow before automation: confirm identity, search available slots, propose two safe options, write the booking transaction once, and leave an audit note for clinic operations.',
+        responseVi: 'Agent: Tôi sẽ map workflow đặt lịch trước khi tự động hóa: xác thực danh tính, tìm slot trống, đề xuất hai lựa chọn an toàn, chỉ ghi transaction đặt lịch một lần, và để lại audit note cho vận hành phòng khám.',
         toolRoute: 'Identity check -> slot search -> booking API -> audit note',
         guardrail: 'No appointment mutation until identity and chosen slot are confirmed.',
         metric: '95% successful reschedules without duplicate bookings',
         nextStep: 'Map booking states, cancellation windows, and escalation ownership with clinic ops.',
         phase: 'Workflow mapping',
-        input: 'Please reschedule my appointment and confirm the audit trail.'
+        input: 'Please reschedule my appointment and confirm the audit trail.',
+        inputVi: 'Giúp tôi đổi lịch khám và xác nhận có audit trail.'
       },
       card: {
         intro: 'Customer: Tôi mất thẻ rồi. Lock it now please.',
+        introVi: 'Khách hàng: Tôi mất thẻ rồi. Khóa thẻ ngay giúp tôi.',
         response: 'Agent: I would treat this as a high-risk state change, not a normal answer. The deployment must verify identity with 2FA, lock the card only after verification, preserve the audit trail, and escalate if confidence is incomplete.',
+        responseVi: 'Agent: Tôi sẽ xem đây là hành động thay đổi trạng thái rủi ro cao, không phải câu trả lời thông thường. Deployment phải xác thực danh tính bằng 2FA, chỉ khóa thẻ sau khi xác thực, lưu audit trail, và chuyển người thật nếu confidence chưa đủ.',
         toolRoute: 'Identity check -> 2FA -> card lock API -> compliance log',
         guardrail: 'Zero unauthorized state-changing actions allowed.',
         metric: 'Under 2 minute containment with 0 unsafe mutations',
         nextStep: 'Validate authentication step-up, recording policy, and rollback/escalation path.',
         phase: 'Protected action design',
-        input: 'I lost my card. Lock it now, but verify identity first.'
+        input: 'I lost my card. Lock it now, but verify identity first.',
+        inputVi: 'Tôi mất thẻ. Hãy khóa ngay nhưng phải xác thực danh tính trước.'
       }
     };
 
     let currentScenario = 'billing';
+    let chatLanguage = 'en';
     let chatHistory = [];
 
     const messages = document.getElementById('messages');
@@ -1310,15 +1487,20 @@
       return message;
     }
 
+    function getScenarioText(scenario, field) {
+      const localizedField = chatLanguage === 'vi' ? `${field}Vi` : field;
+      return scenario[localizedField] || scenario[field] || '';
+    }
+
     function withoutSpeakerPrefix(text) {
-      return text.replace(/^(Customer|Agent):\s*/, '');
+      return text.replace(/^(Customer|Agent|Khách hàng|Khach hang|FDE):\s*/i, '');
     }
 
     function setBusy(isBusy) {
       input.disabled = isBusy;
       sendButton.disabled = isBusy;
-      sendButton.textContent = isBusy ? 'Thinking' : 'Send';
-      document.querySelectorAll('.prompt-chip, .scenario-option').forEach((button) => {
+      sendButton.textContent = isBusy ? (chatLanguage === 'vi' ? 'Đang nghĩ' : 'Thinking') : (chatLanguage === 'vi' ? 'Gửi' : 'Send');
+      document.querySelectorAll('.prompt-chip, .scenario-option, .language-button').forEach((button) => {
         button.disabled = isBusy;
       });
     }
@@ -1327,6 +1509,13 @@
       document.querySelectorAll('[data-scenario]').forEach((button) => {
         button.classList.toggle('is-active', button.getAttribute('data-scenario') === key);
       });
+    }
+
+    function setActiveLanguage(language) {
+      document.querySelectorAll('[data-language]').forEach((button) => {
+        button.classList.toggle('is-active', button.getAttribute('data-language') === language);
+      });
+      sendButton.textContent = language === 'vi' ? 'Gửi' : 'Send';
     }
 
     function setRuntime(payload = {}) {
@@ -1358,16 +1547,22 @@
       chatHistory = [];
 
       if (includeIntro) {
-        const intro = withoutSpeakerPrefix(scenario.intro);
+        const intro = withoutSpeakerPrefix(getScenarioText(scenario, 'intro'));
         appendMessage('user', intro);
         chatHistory.push({ role: 'user', text: intro });
       }
 
-      const response = withoutSpeakerPrefix(scenario.response);
+      const response = withoutSpeakerPrefix(getScenarioText(scenario, 'response'));
       appendMessage('agent', response);
       chatHistory.push({ role: 'agent', text: response });
-      input.value = scenario.input;
+      input.value = getScenarioText(scenario, 'input');
       setRuntime(scenario);
+    }
+
+    function setLanguage(language) {
+      chatLanguage = language === 'vi' ? 'vi' : 'en';
+      setActiveLanguage(chatLanguage);
+      setScenario(currentScenario);
     }
 
     function inferScenario(text) {
@@ -1387,10 +1582,14 @@
           ? 'Production debug'
           : normalized.includes('launch') || normalized.includes('rollout') || normalized.includes('monitor')
             ? 'Controlled rollout'
-            : 'Deployment discovery';
+          : 'Deployment discovery';
+
+      const reply = chatLanguage === 'vi'
+        ? `Tiếp tục deployment ${scenarioKey}, tôi sẽ giữ nguyên workflow map và thêm constraint mới thay vì thiết kế lại từ đầu. Việc FDE cần làm là xác nhận system of record, instrument tool path, thêm eval cho đúng case này, và chỉ launch khi có human fallback cho đến khi metric ổn định.`
+        : `Continuing this ${scenarioKey} deployment, I would keep the same workflow map and add the new constraint instead of restarting the conversation. The practical FDE move is to verify the system of record, instrument the tool path, add an eval for this exact case, and launch only behind a human fallback until the metric is stable.`;
 
       return {
-        reply: `Continuing this ${scenarioKey} deployment, I would keep the same workflow map and add the new constraint instead of restarting the conversation. The practical FDE move is to verify the system of record, instrument the tool path, add an eval for this exact case, and launch only behind a human fallback until the metric is stable.`,
+        reply,
         phase,
         toolRoute: scenario.toolRoute,
         guardrail: scenario.guardrail,
@@ -1407,6 +1606,7 @@
         body: JSON.stringify({
           scenario: currentScenario,
           message: clean,
+          language: chatLanguage,
           history: chatHistory.slice(-12)
         })
       });
@@ -1429,7 +1629,13 @@
       chatHistory.push({ role: 'user', text: clean });
       input.value = '';
 
-      const pending = appendMessage('agent', 'Thinking through workflow, tools, guardrails, evals, and rollout...', { pending: true });
+      const pending = appendMessage(
+        'agent',
+        chatLanguage === 'vi'
+          ? 'Đang phân tích workflow, tools, guardrails, evals và rollout...'
+          : 'Thinking through workflow, tools, guardrails, evals, and rollout...',
+        { pending: true }
+      );
       setBusy(true);
       agentState.textContent = 'FDE thinking';
       agentSource.textContent = 'Calling Gemini';
@@ -1457,9 +1663,13 @@
       button.addEventListener('click', () => setScenario(button.getAttribute('data-scenario')));
     });
 
-    document.querySelectorAll('[data-prompt]').forEach((button) => {
+    document.querySelectorAll('[data-language]').forEach((button) => {
+      button.addEventListener('click', () => setLanguage(button.getAttribute('data-language')));
+    });
+
+    document.querySelectorAll('[data-prompt-en]').forEach((button) => {
       button.addEventListener('click', () => {
-        input.value = button.getAttribute('data-prompt') || '';
+        input.value = button.getAttribute(chatLanguage === 'vi' ? 'data-prompt-vi' : 'data-prompt-en') || '';
         handleUserMessage(input.value);
       });
     });
