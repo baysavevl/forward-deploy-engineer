@@ -6,10 +6,11 @@ import { existsSync } from 'node:fs';
 const requiredIndexSections = [
   'match-check',
   'fde-proof',
+  'skills',
   'experience',
+  'playground',
   'education',
   'wonderful-fit',
-  'profile-assistant',
   'links'
 ];
 
@@ -23,6 +24,8 @@ test('main profile is FDE-first and recruiter-readable', async () => {
   assert.match(html, /Forward Deployed Engineer/i);
   assert.match(html, /Wonderful\.ai/i);
   assert.match(html, /99% match|100% match/i);
+  assert.match(html, /first target/i);
+  assert.match(html, /6\+ years/i);
   assert.match(html, /Experience/i);
   assert.match(html, /Education/i);
   assert.match(html, /Zalo/i);
@@ -32,11 +35,12 @@ test('main profile is FDE-first and recruiter-readable', async () => {
   }
 
   assert.match(html, /data-company=["']wonderful["']/, 'Recruiter match flow needs Wonderful.ai option.');
-  assert.match(html, /data-assistant-topic=/, 'Floating assistant needs selectable profile topics.');
+  assert.match(html, /80%|99%|100%/, 'Fit flow should show the playful ramp from onboarding to full fit.');
+  assert.match(html, /hot lead|recruiter chatbot|lead matching/i, 'Playground needs concrete recruiting-product examples.');
   assert.match(html, /prefers-reduced-motion/, 'Reduced-motion CSS guard is required.');
 });
 
-test('main profile does not expose confusing raw markdown or unrelated role positioning', async () => {
+test('main profile does not expose confusing raw markdown, old claims, or floating assistant UI', async () => {
   const html = await readText('index.html');
 
   assert.doesNotMatch(html, /href=["'][^"']+\.md["']/, 'Do not link recruiters to raw Markdown files.');
@@ -44,18 +48,22 @@ test('main profile does not expose confusing raw markdown or unrelated role posi
   assert.doesNotMatch(html, /Customer Solution Engineer/i, 'Do not present CSE as a target role.');
   assert.doesNotMatch(html, /SA\/PSE\/CSE|Solution Architect/i, 'Do not dilute the page with adjacent-role positioning.');
   assert.doesNotMatch(html, /Live deployment reasoning demo/i, 'Remove the confusing agent demo framing.');
-  assert.doesNotMatch(html, /projects\/deployment-blueprint-lab|projects\/agent-eval-harness|projects\/partner-integration-runbook/, 'Mini labs should not be linked from the main profile.');
+  assert.doesNotMatch(html, /profile-assistant|data-open-assistant|data-assistant-topic/i, 'Floating assistant should be removed.');
+  assert.doesNotMatch(html, /background-size:\s*44px 44px/i, 'Grid background should be removed.');
+  assert.doesNotMatch(html, /50% permission coverage|permission-control coverage by 50%|50% coverage/i, 'Remove unclear permission coverage claim.');
 });
 
 test('experience evidence is concrete enough for a recruiter to understand fit', async () => {
   const html = await readText('index.html');
 
   const requiredPhrases = [
-    '30M+',
-    'millions of daily business messages',
+    'ZNS',
+    'previous product',
+    '50k',
     '30% operational overhead reduction',
     '40% faster partner onboarding',
-    '50% permission coverage',
+    'LifeService',
+    'Job Market',
     'SOX-compliant',
     'Vietnam/APAC'
   ];

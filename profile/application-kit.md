@@ -2,54 +2,93 @@
 
 ## 90-Second Pitch
 
-I am a lead software engineer and solutions architect at Zalo, Vietnam's largest messaging platform. For the last five years I have worked at the intersection of backend systems, product, and external partners: designing APIs and integration patterns, running technical discovery, debugging production workflows, and shipping systems that support 30M+ user surfaces.
+I am Vinh, a Lead Software Engineer at Zalo/VNG with 6+ years of software engineering experience. My current product is Job Market on the Zalo LifeService platform, a recruiting product for blue-collar hiring that connects Vietnamese job seekers with recruiters and labor-supply partners.
 
-The FDE role fits me because I do not want to stay only inside product engineering. I like the last mile: taking an ambiguous customer workflow, turning it into architecture, deploying it into a live environment, and iterating until the business metric moves.
+The FDE role fits me because I do not want to stay only inside backend engineering. I like talking to customers, end users, and operators to understand what the real workflow is, then using software to solve the problem directly. When the puzzle pieces connect, the solution often moves faster than a long chain of translated requirements.
 
-My strongest match is enterprise AI deployment in Vietnam/APAC. I understand high-throughput conversational infrastructure, local messaging behavior, partner integrations, and multi-stakeholder enterprise constraints. I have also been applying LLM workflows in production-oriented ways: classification, draft generation, structured outputs, eval loops, and guardrails.
+My strongest evidence is the mix of software depth and stakeholder work: leading engineers, owning production systems, working with recruiters and partners, automating manual operations, adding AI into product workflows, and measuring impact through lead send time, coverage, missed leads, onboarding speed, and operational overhead.
 
-The gap I am actively closing is voice-specific agent deployment: telephony, STT/TTS latency, barge-in, SIP/Twilio/LiveKit. But the core FDE skill is already how I work: sit with stakeholders, find the real workflow, ship reliable software, measure business impact, and own the messy production edge.
+I am honest about the ramp. I can be quiet at first, and new systems may take me time to understand deeply. But once the model clicks, my output compounds quickly. I become faster, more creative, and more useful because I can see the system from multiple angles.
 
 ## Recruiter / LinkedIn Note
 
-Hi [Name], I am Vinh, currently Lead Software Engineer / Solutions Architect at Zalo in Vietnam. I saw the FDE role for enterprise AI agents in APAC and think my background maps closely: 5+ years building production messaging and partner-integration systems for 30M+ users, direct technical discovery with enterprise partners, SOX-grade workflows, and practical LLM automation with guardrails. I would be glad to share a short role-fit profile and CV.
+Hi [Name], I am Vinh, Lead Software Engineer at Zalo/VNG in Vietnam. I am targeting Forward Deployed Engineer roles, with Wonderful.ai as my first target. My background combines 6+ years of software engineering, Zalo-scale production systems, recruiting-product ownership, partner/recruiter workflows, AI-assisted automation, and Vietnam/APAC context. I would be glad to share a short role-fit profile and CV.
 
-## "Why Wonderful / Why FDE / Why You"
-
-**Why Wonderful**
-
-Wonderful is working on the hard part of AI adoption: not the demo, but deploying agents inside enterprise workflows where localization, integration, reliability, and measurable business outcomes matter.
+## Why FDE / Why Wonderful / Why Me
 
 **Why FDE**
 
-FDE is the role closest to how I naturally work. I like ambiguous customer problems, architecture, production debugging, and measurable impact more than owning a feature in isolation.
+I can code, but I believe I can create more value when I also work close to customers and end users. I want to find the real problem, design the workflow, build the system, and see the business result move.
+
+**Why Wonderful.ai**
+
+Wonderful grows fast, and I grow fast after I understand a system. Its FDE work sits in the area I want: AI agents, enterprise workflows, integrations, production rollout, and local execution in APAC.
 
 **Why me**
 
-I bring the unusual combination of senior backend depth, customer-facing partner ownership, and Vietnam/APAC market fluency. I have shipped high-scale conversational systems, worked across legacy and modern partner stacks, and can translate both business requirements and production failures into concrete technical action.
+I bring senior software engineering depth, lead-team experience, stakeholder range, Vietnam market context, mindfulness, and a practical AI mindset. I may need onboarding time, but I learn systems deeply and then accelerate.
 
 ## Story Bank
 
 | Theme | Story to prepare | Metrics / proof |
 | --- | --- | --- |
-| Ambiguous workflow to production | SOX-compliant financial reporting/billing system across Finance, Sales, Ops, Product | 30% operational overhead reduction; auditable reporting |
-| Customer-facing integration | Partner onboarding and integration discovery for JobMarket / HealthTech / business messaging partners | 40% faster onboarding via blueprints/prototypes |
-| Production incident / debug | Messaging reliability and peak traffic work across 5+ ecosystem apps | Sub-second delivery; graceful degradation and back-pressure |
-| Guardrails and trust | Message-quality and permission-control initiative | 50% coverage increase on 30M+ user surface |
-| System modernization | Legacy service migration to microservices | 25% resource efficiency improvement without downtime |
-| AI adoption | LLM workflows for classification, content quality, draft generation, AI-assisted delivery | Explain eval loops, guardrails, and where humans stay in the loop |
+| Current end-to-end ownership | Job Market on Zalo LifeService for blue-collar recruiting | Roughly 50k daily requests; lead send time; lead coverage; missed leads |
+| AI in operations | Automating repeated manual actions and adding AI into product/delivery workflows | 30% operational overhead reduction |
+| Partner onboarding | Chatbot and KB-backed support for recruiters when issues appear | 40% faster onboarding; faster support resolution |
+| Previous high-scale product | ZNS / business messaging previous product | 30M+ user surfaces; millions of daily business messages |
+| Ambiguous workflow to production | Manual recruiter/Ops workflow becomes scoped product automation | Processing time; escalation rate; support deflection |
+| Production incident/debug | Lead delivery, onboarding blockage, or business messaging peak-load story | Latency, error rate, missed lead count, rollback/fallback behavior |
 
-## Case Study Response Skeleton
+## Incident Stories To Build Out
 
-Use this structure for FDE case interviews:
+Use one of these as the main production debugging story:
 
-1. **Clarify outcome:** business metric, user segment, volume, risk tolerance, rollout deadline.
-2. **Map the workflow:** actors, systems, data, auth, handoffs, failure points.
-3. **Define the narrow MVP:** one workflow, one channel, measurable success, manual fallback.
-4. **Design architecture:** agent/channel layer, tool/API layer, data/RAG layer, evals, observability, escalation.
-5. **Ship safely:** sandbox, pilot, canary, monitoring, rollback, human handoff.
-6. **Measure and expand:** task success, containment, latency, escalation rate, cost, CSAT/NPS/business value.
+1. **Lead delivery issue**
+   A recruiter or Ops team reports late/missed leads. Explain how you traced the lead path, identified the failing boundary, protected the business flow, and added monitoring or fallback.
+
+2. **Recruiter onboarding issue**
+   A partner gets blocked outside normal support time. Explain how repeated issues became a KB-backed chatbot or clearer self-serve troubleshooting flow.
+
+3. **Business messaging peak-load issue**
+   A previous ZNS/business messaging flow sees latency or error spikes. Explain how you isolated the bottleneck, used caching/back-pressure/graceful degradation, and communicated impact.
+
+## Case Interview Skeleton
+
+1. Clarify outcome: business metric, user segment, volume, risk tolerance, rollout deadline.
+2. Map workflow: actors, systems, data, auth, handoffs, source of truth, failure points.
+3. Define MVP: one workflow, one channel, measurable success, manual fallback.
+4. Design architecture: UI/channel layer, tool/API layer, data/KB layer, prompts, evals, observability, escalation.
+5. Ship safely: sandbox, pilot, canary, monitoring, rollback, human handoff.
+6. Measure and expand: task success, latency, escalation rate, cost, coverage, missed leads, business value.
+
+## Skills To Emphasize
+
+Top FDE skills:
+
+- Problem solving and ambiguity decomposition.
+- Software engineering and system design.
+- Backend/integration engineering: Java, APIs, Kafka, Redis, MySQL, React.
+- AI workflow design: prompting, Dify, KB-backed support, structured outputs, guardrails.
+- Customer discovery and workflow mapping.
+- Stakeholder management, negotiation, expectation setting, project timeline.
+- Production reliability: observability, incident triage, fallback, rollback, runbooks.
+- Business impact measurement: lead send time, coverage, missed leads, onboarding speed, operational overhead.
+
+Strong:
+
+- Java/backend engineering.
+- System design and problem solving.
+- Team leadership.
+- Stakeholder communication.
+- Product curiosity and workflow mapping.
+- Vietnam/APAC context.
+
+Still learning:
+
+- Voice/telephony-specific agent deployment.
+- Wonderful.ai internal tools and customer playbooks.
+- Any new technology that requires deliberate ramp before production confidence.
 
 ## Resume Keywords To Keep
 
-Forward deployed engineering, enterprise AI agents, customer discovery, technical workshops, production deployment, system architecture, integrations, APIs, workflow automation, conversational systems, LLM evals, guardrails, observability, stakeholder alignment, business impact, APAC, Vietnam, high-throughput messaging.
+Forward Deployed Engineer, enterprise AI agents, customer discovery, workflow mapping, technical workshops, system design, backend engineering, API integration, Java, React, Kafka, Redis, MySQL, Kubernetes, Dify, prompt design, workflow automation, KB-backed chatbot, structured outputs, guardrails, observability, incident triage, stakeholder management, project management, APAC, Vietnam, Zalo, VNG, Job Market, LifeService, ZNS.

@@ -15,4 +15,4 @@ The profile is built from:
 
 - The supplied EV Search FDE JD PDF.
 - The existing draft CV at `/Users/lap14894/Downloads/VinhLuu___Forward_Deploy_Engineer.pdf`.
-- Adjacent role-positioning work in the Solution Architect, Solution Engineer, and Partner Solutions Engineer projects.
+- Current positioning notes for FDE roles, with Wonderful.ai as the first target.

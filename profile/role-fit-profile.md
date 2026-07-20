@@ -2,87 +2,183 @@
 
 ## Target
 
-Forward Deployed Engineer for an enterprise AI agent company expanding in APAC/Vietnam. The supplied JD emphasizes:
+Forward Deployed Engineer roles, with Wonderful.ai as the first target.
+
+The supplied JD emphasizes:
 
 - Direct enterprise customer engagement and discovery.
 - Translating ambiguous operational workflows into scalable technical architecture.
 - Building and deploying AI-powered agents into customer platforms.
-- Production ownership: reliability, monitoring, performance, iteration.
+- Production ownership: reliability, monitoring, performance, and iteration.
 - Measuring real-world business impact.
 - Creating reusable frameworks, tools, documentation, and best practices.
 
-## Positioning Thesis
+Wonderful.ai's public positioning also emphasizes local execution, integrations, agents, data, complex workflows, and production impact. That makes the best positioning:
 
-Vinh is strongest when positioned as a builder-operator who can sit with customer stakeholders, decompose messy business workflows, and ship production software across APIs, data systems, messaging surfaces, and enterprise constraints.
+> Built for FDE roles. Wonderful.ai is the first target because it sits at the intersection of customer workflows, AI agents, integrations, production systems, and local APAC execution.
 
-The key move is to frame the Zalo background as forward-deployed work inside a large consumer and business messaging ecosystem, not as generic backend engineering:
+## 10-Second Recruiter Message
 
-> 5+ years building production systems on Vietnam's largest messaging platform, with direct partner-facing integration ownership, high-throughput conversational infrastructure, SOX-grade enterprise workflows, and practical LLM/automation deployment.
+Vinh is a Lead Software Engineer at Zalo/VNG with 6+ years of software engineering experience. He has led a team, worked across many stakeholders, and built production systems inside one of Vietnam's leading technology companies.
+
+The first impression should be:
+
+> This is a software engineer with real technical foundation, team leadership, stakeholder range, interpersonal patience, product curiosity, persistence, creativity, and mindfulness.
+
+## 2-Minute Hiring Manager Message
+
+Vinh may not have years of formal FDE title experience, but he is FDE-shaped:
+
+- Strong software engineering and system design base.
+- Algorithmic and problem-solving background.
+- Lead-team experience.
+- Hands-on stakeholder work across Product, Ops, recruiters, partners, and Engineering.
+- Practical AI usage in both product-building process and product workflows.
+- Critical mindset: he asks what the real workflow is, where the bottleneck is, and how to measure whether the system helped.
+- Learning curve pattern: he may need time at the start of a new system, but once the mental model forms, output compounds quickly.
+
+## Current Proof
+
+### Job Market / LifeService at Zalo
+
+Current product: recruiting product for blue-collar hiring on Zalo, built on the LifeService platform.
+
+Core story:
+
+- Connects Vietnamese job seekers with recruiters and labor-supply partners.
+- Helps many people find jobs through Zalo.
+- Serves roughly 50k daily requests.
+- Works with industrial-zone mass-hiring partners and labor-supply partners.
+- Tracks practical metrics: processing time, lead send time, lead coverage, and missed leads.
+- Uses AI and automation to reduce repeated manual work.
+
+Proof to lead with:
+
+- 30% operational overhead reduction by automating manual actions and adding AI into product/delivery workflows.
+- 40% faster partner onboarding by creating chatbot support and KB-backed troubleshooting for recruiters.
+- Lead-team ownership and stakeholder alignment across product, operations, recruiters, partners, and engineering.
+
+### ZNS / Business Messaging
+
+Previous product context: ZNS and business messaging.
+
+Position this carefully:
+
+- ZNS was previous work, not the current Job Market product.
+- This is where the 30M+ user surface and millions of daily business messages belong.
+- ZNS is the large Zalo business-notification channel where enterprises send customer notifications through APIs and Zalo surfaces.
+
+This supports:
+
+- High-scale production systems.
+- APIs and enterprise messaging workflows.
+- Reliability pressure.
+- Integration thinking.
 
 ## JD Alignment
 
 | JD signal | Evidence to lead with |
 | --- | --- |
-| Enterprise customer discovery | Partner-facing technical discovery for JobMarket, HealthTech, advertiser/business ecosystem partners, Finance, Sales, Ops, and Product stakeholders. |
-| Ambiguous requirement to architecture | SOX-compliant financial reporting/billing system delivered end-to-end from unclear multi-team requirements to go-live. |
-| AI agents and automation | LLM-backed workflows for classification, content quality signals, draft generation, structured outputs, and internal delivery acceleration with guardrails. |
-| Customer platforms and integrations | Business messaging APIs, hundreds of partner integrations, legacy and modern stacks, high-scale notification/messaging delivery. |
-| Production reliability | Sub-second business messaging delivery, millions of daily messages, observability, back-pressure, graceful degradation, 5+ core ecosystem apps. |
-| Business impact | 30% operational overhead reduction, 40% faster partner onboarding, 50% permission-control coverage improvement, 25% resource efficiency improvement. |
-| Reusable delivery frameworks | Integration prototypes, blueprints, technical docs, AI-assisted delivery workflow, partner enablement material. |
-| APAC/Vietnam expansion | Native Vietnamese, professional English, deep technical knowledge of Vietnam messaging/commerce behavior, and experience with local enterprise/platform constraints. |
+| Enterprise customer discovery | Partner and recruiter-facing discovery for Job Market, mass-hiring partners, labor-supply partners, Product, Ops, and Engineering. |
+| Ambiguous requirement to architecture | Manual recruiter support, lead handling, onboarding, and cross-team reporting/billing workflows turned into product/system flows. |
+| AI agents and automation | Dify, prompt design, KB-backed chatbot support, structured support flows, AI-assisted delivery, classification, and workflow automation. |
+| Customer platforms and integrations | Zalo business messaging APIs, Job Market partner workflows, recruiter support, lead delivery, legacy and modern service boundaries. |
+| Production reliability | ZNS/business messaging scale, 50k daily Job Market requests, caching, fallback thinking, debugging, and operational ownership. |
+| Business impact | 30% operational overhead reduction, 40% faster partner onboarding, lead send time, coverage rate, and missed lead tracking. |
+| Reusable delivery frameworks | Chatbot support, partner onboarding guidance, KB documentation, delivery practices, and reusable troubleshooting flows. |
+| APAC/Vietnam expansion | Native Vietnamese, professional English, Zalo/VNG background, local hiring-market and messaging-context fluency. |
 
-## Differentiators
+## Top Skills To Show
 
-1. **Vietnam market advantage**
-   Wonderful-style AI agents need local language, local etiquette, local workflows, and local system integration. Vinh has direct production experience on Zalo, the dominant Vietnamese messaging surface, plus Vietnamese-native stakeholder fluency.
+Suggested top 8 FDE skills:
 
-2. **Conversational infrastructure before AI hype**
-   The CV should make clear that he has already built and operated high-throughput messaging systems. AI agents over chat, voice, and email are a natural extension, not a career pivot from zero.
+1. Problem solving and ambiguity decomposition.
+2. Software engineering and system design.
+3. Enterprise integration: APIs, auth, data mapping, legacy systems.
+4. Customer discovery and workflow mapping.
+5. AI workflow design: prompting, Dify, KB/RAG-style support, structured outputs, guardrails.
+6. Production reliability: observability, incident triage, rollback, fallback, latency.
+7. Stakeholder management: communication, negotiation, expectation setting, project timeline.
+8. Business impact measurement: onboarding speed, operational overhead, lead metrics, adoption.
 
-3. **Partner-facing engineering at scale**
-   The Partner Solutions Engineer and Solution Architect projects show a pattern: learn a domain fast, package technical knowledge, build diagnostic/advisory tools, and communicate solutions in customer language.
+## Strong vs Learning
 
-4. **Production ownership under enterprise constraints**
-   The SOX-compliant reporting system, billing/finance workflows, and business messaging reliability map well to enterprise AI deployments where the work starts after the demo.
+Strong:
+
+- Java/backend engineering.
+- System design and problem solving.
+- Zalo/VNG production context.
+- Partner/recruiter workflow understanding.
+- Stakeholder communication and project ownership.
+- AI-assisted delivery process.
+- Mindful listening, patience, and cross-cultural flexibility.
+
+Applied and growing:
+
+- AI product workflows with Dify, prompts, KB support, and chatbot troubleshooting.
+- Eval/guardrail thinking for AI workflow quality.
+- Lead scoring/matching and product-ops automation.
+
+Learning honestly:
+
+- Voice/telephony-specific agent deployment.
+- Wonderful.ai internal stack, customer playbooks, and deployment standards.
+- Any new technology that needs deliberate ramp time before confident production decisions.
 
 ## Honest Gaps
 
 | Gap | How to handle |
 | --- | --- |
-| Voice/telephony depth | Position as adjacent, not mastered: "I have production conversational messaging depth and am ramping voice-specific telephony: STT, TTS, SIP, Twilio/LiveKit, latency budgets, barge-in." |
-| Dedicated AI agent deployment history | Lead with practical LLM workflow deployment and eval/guardrail thinking. Avoid overstating "agent platform" experience unless demo project exists. |
-| External-customer production access | Use partner integrations and multi-stakeholder Zalo workflows as evidence. Emphasize debugging systems that cross ownership boundaries. |
+| Quiet at the beginning | Frame as listening-first, not passive. He takes time to understand the system and people before accelerating. |
+| New system ramp | Say clearly: "I may need time to build the mental model, but once it clicks, my output compounds quickly." |
+| Not much formal FDE title history | Emphasize the FDE motion already exists in current work: customer workflow, stakeholders, systems, AI support, rollout, metrics. |
+| Some newer AI/voice tech | Treat as a learning plan, not a fake claim. Lead with adjacent conversational messaging and practical AI workflow experience. |
+
+## Suggested Incident / Debugging Stories
+
+Prepare one of these in detail:
+
+1. **Missed lead or delayed lead delivery**
+   - Symptom: recruiters or Ops see leads arriving late, duplicated, or missed.
+   - FDE angle: identify source of truth, trace event path, inspect queues/cache/database state, protect user flow, then improve monitoring.
+   - Metrics: lead send time, missed lead count, cover rate.
+
+2. **Recruiter onboarding blocked during off-hours**
+   - Symptom: partner cannot complete setup or gets stuck on a repeated issue.
+   - FDE angle: build chatbot/KB support, define escalation, collect unresolved questions, and feed product improvements back.
+   - Metrics: onboarding time, support response time, support deflection.
+
+3. **Business messaging reliability under peak load**
+   - Symptom: ZNS/business messages slow down or fail under high traffic.
+   - FDE angle: isolate bottleneck, use caching/back-pressure/graceful degradation, communicate with stakeholders, and prevent recurrence.
+   - Metrics: delivery latency, error rate, throughput.
+
+4. **Ambiguous manual operation becoming product automation**
+   - Symptom: Ops repeatedly performs manual checks or handoffs.
+   - FDE angle: map workflow, classify action types, decide what AI can automate, where humans approve, and what metric proves success.
+   - Metrics: processing time, overhead reduction, accuracy, escalation rate.
 
 ## Interview Narrative
 
 **Why FDE**
 
-I am most effective where engineering, product judgment, and customer context meet. I like owning the last mile: not just designing a good system, but making it run inside a customer's real workflow with real data, unclear constraints, and business pressure.
+I can write software, but I think I can create more value when I also speak with customers and end users. I want to understand the real problem, find the right workflow, then use engineering to solve it directly. I like connecting puzzle pieces, seeing the system work, and improving it with feedback.
 
-**Why this company**
+**Why Wonderful.ai**
 
-The company is building enterprise AI agents in APAC/Vietnam, where deployment quality depends on local workflows, language, integrations, and production reliability. That is exactly where my Zalo background compounds: I know Vietnamese digital behavior, high-scale messaging, partner integrations, and how enterprise stakeholders actually adopt new systems.
+Wonderful grows fast, and I also grow fast once I understand a system. The role fits the kind of work I want: AI agents, messy enterprise workflows, integrations, customer context, and local execution in APAC.
 
-**Why me**
+**Why Vietnam/APAC**
 
-I bring senior backend depth plus customer-facing solution ownership. I have shipped production systems for 30M+ user surfaces, run partner discovery and integration workshops, delivered SOX-grade workflows, and built LLM-backed automation with guardrails. I can be the engineer in the customer room who turns ambiguity into running software.
+I understand Asian working culture deeply, and I also read and learn about Western working styles. That helps me adapt in customer rooms with different cultures.
 
-## CV Direction
+**What makes me different**
 
-Use the title:
-
-> Forward Deployed Engineer - Enterprise AI Agents & Integrations
-
-Make the first page answer three questions quickly:
-
-1. Can he build real production systems? Yes: Zalo, 30M+ users, messaging, reliability.
-2. Can he work with customers/stakeholders? Yes: partner discovery, integration workshops, Finance/Sales/Ops/Product.
-3. Can he deploy AI agents/automation? Emerging but credible: LLM workflows, evals, guardrails, agent concepts, portfolio practice path.
+I practice mindfulness every day, so I try to look deeply at problems and find the real itch to scratch. I stay calm, listen carefully, and then build toward the practical answer.
 
 ## Avoid
 
-- Do not lead with generic "AI enthusiasm".
-- Do not overuse tool names without outcomes.
-- Do not call every LLM workflow an "agent" unless it has tools, memory/state, and task ownership.
-- Do not frame FDE as "less coding"; frame it as production coding under customer constraints.
+- Do not imply Job Market has 30M+ users. Use 50k daily requests for Job Market.
+- Do not use the old permission-coverage claim until it is clarified.
+- Do not pretend to have deep voice/telephony experience.
+- Do not frame FDE as less coding. It is coding plus customer context and production ownership.

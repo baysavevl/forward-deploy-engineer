@@ -4,29 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vinh Luu - Forward Deployed Engineer</title>
-  <meta name="description" content="Vinh Luu's Forward Deployed Engineer profile for Wonderful.ai: enterprise AI deployment, customer workflows, integrations, production systems, and Vietnam/APAC context.">
+  <meta name="description" content="Vinh Luu's Forward Deployed Engineer profile for FDE roles, with Wonderful.ai as the first target: Zalo-scale software engineering, stakeholder ownership, AI workflows, integrations, production systems, and Vietnam/APAC context.">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <style>
     :root {
-      --ink: #0d1324;
-      --ink-2: #182235;
-      --body: #465164;
-      --muted: #6c7585;
-      --line: #d8e0ec;
-      --line-strong: #b8c4d7;
-      --paper: #f7f9fc;
+      --ink: #12131a;
+      --body: #4d5563;
+      --muted: #737b88;
+      --paper: #f6f8fb;
       --white: #ffffff;
-      --blue: #2458ff;
-      --cyan: #22c7f5;
-      --green: #1fbf75;
-      --amber: #ffbd3a;
-      --red: #e95d4f;
-      --mint: #e4f8ef;
-      --sky: #e8f5ff;
-      --cream: #fff4d5;
-      --shadow: 0 22px 58px rgba(13, 19, 36, 0.12);
+      --line: #dce2ea;
+      --line-strong: #b8c3d2;
+      --blue: #2468f2;
+      --green: #18a77a;
+      --amber: #f0a21a;
+      --coral: #e46c5a;
+      --violet: #6f4bd8;
+      --cyan: #17b8d8;
+      --shadow: 0 24px 70px rgba(18, 19, 26, 0.12);
     }
 
     * {
@@ -40,11 +37,7 @@
     body {
       margin: 0;
       color: var(--ink);
-      background:
-        linear-gradient(90deg, rgba(216, 224, 236, 0.42) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(216, 224, 236, 0.42) 1px, transparent 1px),
-        var(--paper);
-      background-size: 44px 44px;
+      background: var(--paper);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       line-height: 1.55;
       overflow-x: hidden;
@@ -69,13 +62,13 @@
       position: sticky;
       top: 0;
       z-index: 40;
-      border-bottom: 1px solid rgba(216, 224, 236, 0.86);
-      background: rgba(247, 249, 252, 0.9);
+      border-bottom: 1px solid rgba(220, 226, 234, 0.9);
+      background: rgba(246, 248, 251, 0.9);
       backdrop-filter: blur(18px);
     }
 
     .topbar-inner {
-      min-height: 66px;
+      min-height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -94,10 +87,10 @@
       width: 38px;
       height: 38px;
       border: 1px solid var(--line);
-      border-radius: 10px;
+      border-radius: 8px;
       background: var(--white);
       object-fit: cover;
-      box-shadow: 0 10px 28px rgba(13, 19, 36, 0.1);
+      box-shadow: 0 10px 28px rgba(18, 19, 26, 0.09);
     }
 
     .brand small {
@@ -117,70 +110,49 @@
       font-weight: 850;
     }
 
-    .nav a,
-    .nav button {
+    .nav a {
       min-height: 36px;
       display: inline-flex;
       align-items: center;
-      border: 0;
       border-radius: 8px;
       padding: 0 10px;
       color: inherit;
-      background: transparent;
     }
 
     .nav a:hover,
-    .nav a:focus-visible,
-    .nav button:hover,
-    .nav button:focus-visible {
+    .nav a:focus-visible {
       color: var(--blue);
-      background: #eef3ff;
+      background: #eaf0ff;
       outline: 0;
     }
 
     .hero {
       position: relative;
-      color: var(--white);
+      border-bottom: 1px solid var(--line);
       background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-        linear-gradient(135deg, #07111f 0%, #101827 55%, #18243a 100%);
-      background-size: 52px 52px, 52px 52px, auto;
-      border-bottom: 1px solid rgba(216, 224, 236, 0.22);
-    }
-
-    .hero::after {
-      position: absolute;
-      right: 8%;
-      bottom: -92px;
-      width: min(460px, 44vw);
-      height: min(460px, 44vw);
-      border: 1px solid rgba(34, 199, 245, 0.24);
-      border-radius: 50%;
-      content: "";
-      pointer-events: none;
+        linear-gradient(135deg, rgba(36, 104, 242, 0.11), transparent 38%),
+        linear-gradient(315deg, rgba(24, 167, 122, 0.12), transparent 42%),
+        var(--white);
     }
 
     .hero-grid {
-      position: relative;
-      z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.42fr);
+      grid-template-columns: minmax(0, 1fr) minmax(330px, 0.38fr);
       gap: 38px;
       align-items: end;
-      padding: 72px 0 42px;
+      padding: 78px 0 44px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      min-height: 33px;
-      border: 1px solid rgba(34, 199, 245, 0.45);
+      gap: 8px;
+      min-height: 32px;
+      border: 1px solid var(--line-strong);
       border-radius: 999px;
       padding: 0 12px;
-      color: #a9eeff;
-      background: rgba(255, 255, 255, 0.06);
+      color: var(--blue);
+      background: rgba(255, 255, 255, 0.76);
       font-size: 12px;
       font-weight: 950;
       text-transform: uppercase;
@@ -191,24 +163,28 @@
       height: 7px;
       border-radius: 999px;
       background: var(--green);
-      box-shadow: 0 0 0 5px rgba(31, 191, 117, 0.16);
+      box-shadow: 0 0 0 5px rgba(24, 167, 122, 0.16);
       content: "";
     }
 
     h1 {
       max-width: 900px;
       margin: 18px 0 0;
-      font-size: clamp(43px, 7.2vw, 86px);
+      font-size: clamp(42px, 6.8vw, 82px);
       line-height: 0.98;
       letter-spacing: 0;
       overflow-wrap: anywhere;
     }
 
     .hero-copy {
-      max-width: 790px;
+      max-width: 820px;
       margin: 24px 0 0;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: clamp(17px, 2.05vw, 22px);
+      color: var(--body);
+      font-size: clamp(17px, 2vw, 22px);
+    }
+
+    .hero-copy strong {
+      color: var(--ink);
     }
 
     .actions {
@@ -224,108 +200,109 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      border: 1px solid var(--line-strong);
       border-radius: 8px;
       padding: 0 15px;
-      color: var(--white);
-      background: rgba(255, 255, 255, 0.08);
+      color: var(--ink);
+      background: var(--white);
       font-size: 14px;
       font-weight: 950;
       transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
     }
 
     .button.primary {
-      border-color: var(--cyan);
-      color: var(--ink);
-      background: var(--cyan);
-    }
-
-    .button.dark {
       border-color: var(--ink);
       color: var(--white);
       background: var(--ink);
     }
 
-    .button.light {
-      border-color: var(--line-strong);
-      color: var(--ink);
-      background: var(--white);
+    .button.dark {
+      border-color: var(--blue);
+      color: var(--white);
+      background: var(--blue);
     }
 
     .button:hover,
     .button:focus-visible {
       transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(13, 19, 36, 0.18);
+      box-shadow: 0 14px 32px rgba(18, 19, 26, 0.16);
       outline: 0;
     }
 
     .hero-card {
-      border: 1px solid rgba(216, 224, 236, 0.22);
+      border: 1px solid var(--line-strong);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.16);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .score-face {
-      padding: 24px;
-      background: rgba(255, 255, 255, 0.05);
+    .hero-card-head {
+      padding: 22px;
+      color: var(--white);
+      background: var(--ink);
     }
 
-    .score-label {
-      color: #a9eeff;
+    .hero-card-head span {
+      color: #aee6ff;
       font-size: 12px;
-      font-weight: 950;
+      font-weight: 1000;
       text-transform: uppercase;
     }
 
-    .score-number {
-      margin-top: 6px;
-      font-size: clamp(56px, 9vw, 84px);
-      line-height: 0.9;
-      font-weight: 1000;
+    .hero-card-head strong {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(38px, 6vw, 58px);
+      line-height: 0.95;
     }
 
-    .score-face p {
+    .hero-card-head p {
       margin: 14px 0 0;
-      color: rgba(255, 255, 255, 0.78);
-      font-weight: 750;
+      color: rgba(255, 255, 255, 0.74);
+      font-weight: 760;
     }
 
     .proof-strip {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      border-top: 1px solid rgba(216, 224, 236, 0.22);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
     }
 
     .proof-strip div {
-      min-height: 96px;
+      min-height: 104px;
       padding: 16px;
-      border-right: 1px solid rgba(216, 224, 236, 0.22);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
     }
 
-    .proof-strip div:last-child {
+    .proof-strip div:nth-child(2n) {
       border-right: 0;
+    }
+
+    .proof-strip div:nth-last-child(-n + 2) {
+      border-bottom: 0;
     }
 
     .proof-strip strong {
       display: block;
-      color: var(--white);
-      font-size: 20px;
+      color: var(--ink);
+      font-size: 22px;
       line-height: 1.05;
     }
 
     .proof-strip span {
       display: block;
-      margin-top: 5px;
-      color: rgba(255, 255, 255, 0.66);
+      margin-top: 7px;
+      color: var(--muted);
       font-size: 12px;
-      font-weight: 850;
+      font-weight: 900;
       text-transform: uppercase;
     }
 
     section {
-      padding: 74px 0;
+      padding: 72px 0;
       border-bottom: 1px solid var(--line);
     }
 
@@ -347,7 +324,7 @@
 
     h2 {
       margin: 0;
-      font-size: clamp(34px, 5.2vw, 64px);
+      font-size: clamp(33px, 5vw, 62px);
       line-height: 1;
       letter-spacing: 0;
       overflow-wrap: anywhere;
@@ -356,35 +333,36 @@
     .lead {
       margin: 0;
       color: var(--body);
-      font-size: clamp(17px, 2vw, 21px);
+      font-size: clamp(17px, 1.9vw, 21px);
       font-weight: 560;
     }
 
     .panel {
       border: 1px solid var(--line-strong);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.86);
+      background: var(--white);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
     .match-panel {
       display: grid;
-      grid-template-columns: minmax(270px, 0.39fr) minmax(0, 1fr);
+      grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
     }
 
     .match-controls {
       padding: 24px;
       border-right: 1px solid var(--line);
-      background: var(--white);
+      background: #fbfcff;
     }
 
     .match-controls h3,
     .match-result h3,
     .card h3,
-    .timeline h3,
+    .role h3,
+    .skill-card h3,
     .edu-card h3,
-    .fit-card h3 {
+    .play-card h3 {
       margin: 0;
       font-size: 24px;
       line-height: 1.14;
@@ -393,32 +371,28 @@
     .match-controls p,
     .match-result p,
     .card p,
-    .timeline p,
+    .role p,
+    .skill-card p,
     .edu-card p,
-    .fit-card p {
+    .play-card p {
       margin: 10px 0 0;
       color: var(--body);
       font-size: 15.5px;
     }
 
-    .company-picker {
-      display: grid;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
     .company-option {
       width: 100%;
-      min-height: 72px;
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 14px;
+      margin-top: 20px;
       border: 1px solid var(--blue);
       border-radius: 8px;
       padding: 14px;
       color: var(--ink);
-      background: #eef3ff;
+      background: #eaf0ff;
       text-align: left;
       font-weight: 950;
     }
@@ -437,8 +411,8 @@
       min-height: 28px;
       border-radius: 999px;
       padding: 0 10px;
-      color: #0f5a39;
-      background: var(--mint);
+      color: #0d5f44;
+      background: #ddf5eb;
       font-size: 12px;
       font-weight: 950;
       white-space: nowrap;
@@ -447,7 +421,7 @@
     .match-result {
       padding: 24px;
       background:
-        linear-gradient(90deg, rgba(36, 88, 255, 0.1), transparent 42%),
+        linear-gradient(90deg, rgba(36, 104, 242, 0.09), transparent 46%),
         var(--white);
     }
 
@@ -488,91 +462,98 @@
       width: 99%;
       height: 100%;
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--green), var(--cyan), var(--blue));
+      background: linear-gradient(90deg, var(--amber), var(--green), var(--blue));
       transform-origin: left;
+      transition: width 240ms ease;
     }
 
     .match-copy {
       margin-top: 18px;
       padding: 15px;
       border-left: 4px solid var(--amber);
-      background: var(--cream);
+      background: #fff7e6;
       color: var(--ink);
       font-size: 17px;
       font-weight: 900;
     }
 
-    .fit-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-      margin-top: 22px;
-      border: 1px solid var(--line);
+    .ramp-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .ramp-actions button,
+    .play-tabs button {
+      min-height: 38px;
+      border: 1px solid var(--line-strong);
       border-radius: 8px;
-      overflow: hidden;
+      padding: 0 12px;
+      color: var(--ink);
+      background: var(--white);
+      font-size: 13px;
+      font-weight: 950;
     }
 
-    .fit-grid div {
-      min-height: 132px;
-      padding: 15px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.72);
+    .ramp-actions button:hover,
+    .ramp-actions button:focus-visible,
+    .ramp-actions button.is-active,
+    .play-tabs button:hover,
+    .play-tabs button:focus-visible,
+    .play-tabs button.is-active {
+      color: var(--white);
+      background: var(--ink);
+      border-color: var(--ink);
+      outline: 0;
     }
 
-    .fit-grid div:last-child {
-      border-right: 0;
-      border-bottom: 0;
-    }
-
-    .fit-grid span {
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 1000;
-      text-transform: uppercase;
-    }
-
-    .fit-grid strong {
-      display: block;
-      margin-top: 8px;
-      font-size: 18px;
-      line-height: 1.18;
-    }
-
-    .grid {
+    .grid,
+    .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
 
+    .skills-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
     .card,
+    .skill-card,
     .edu-card,
-    .fit-card {
+    .play-card {
       border: 1px solid var(--line-strong);
       border-radius: 8px;
       padding: 21px;
-      background: rgba(255, 255, 255, 0.86);
-      box-shadow: 0 16px 38px rgba(13, 19, 36, 0.08);
+      background: var(--white);
+      box-shadow: 0 16px 38px rgba(18, 19, 26, 0.07);
     }
 
     .card .tag,
-    .timeline .tag,
+    .skill-card .tag,
     .edu-card .tag,
-    .fit-card .tag {
+    .play-card .tag {
       display: inline-flex;
       align-items: center;
       min-height: 29px;
       margin-top: 16px;
       border-radius: 999px;
       padding: 0 10px;
-      color: #0f5a39;
-      background: var(--mint);
+      color: #0d5f44;
+      background: #ddf5eb;
       font-size: 12px;
       font-weight: 950;
     }
 
+    .skill-card[data-level="learning"] .tag {
+      color: #764d00;
+      background: #fff1cf;
+    }
+
     .experience-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.38fr);
+      grid-template-columns: minmax(0, 1fr) minmax(290px, 0.36fr);
       gap: 16px;
       align-items: start;
     }
@@ -589,8 +570,8 @@
       border: 1px solid var(--line-strong);
       border-radius: 8px;
       padding: 18px;
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 16px 34px rgba(13, 19, 36, 0.07);
+      background: var(--white);
+      box-shadow: 0 16px 34px rgba(18, 19, 26, 0.07);
     }
 
     .date {
@@ -612,7 +593,7 @@
 
     .snapshot {
       position: sticky;
-      top: 88px;
+      top: 86px;
       border: 1px solid var(--ink);
       border-radius: 8px;
       background: var(--ink);
@@ -629,7 +610,7 @@
     .snapshot-head img {
       width: 54px;
       height: 54px;
-      border-radius: 10px;
+      border-radius: 8px;
       object-fit: cover;
       vertical-align: middle;
       margin-right: 10px;
@@ -642,7 +623,7 @@
 
     .snapshot-row {
       display: grid;
-      grid-template-columns: 86px minmax(0, 1fr);
+      grid-template-columns: 90px minmax(0, 1fr);
       gap: 12px;
       padding: 15px 20px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -653,7 +634,7 @@
     }
 
     .snapshot-row span {
-      color: #a9eeff;
+      color: #aee6ff;
       font-size: 11px;
       font-weight: 1000;
       text-transform: uppercase;
@@ -665,8 +646,93 @@
       line-height: 1.32;
     }
 
-    .education-grid,
-    .wonderful-grid {
+    .play-layout {
+      display: grid;
+      grid-template-columns: minmax(230px, 0.32fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .play-tabs {
+      display: grid;
+      gap: 8px;
+      align-content: start;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--white);
+      box-shadow: 0 16px 38px rgba(18, 19, 26, 0.07);
+    }
+
+    .play-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+      gap: 18px;
+    }
+
+    .mini-table {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .mini-table div {
+      display: grid;
+      grid-template-columns: 118px minmax(0, 1fr);
+      gap: 10px;
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+    }
+
+    .mini-table span {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    .mini-table strong {
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .play-diagram {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background:
+        linear-gradient(135deg, rgba(36, 104, 242, 0.09), transparent),
+        #fbfcff;
+    }
+
+    .flow-step {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      margin-bottom: 10px;
+      color: var(--body);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .flow-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .flow-step b {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      color: var(--white);
+      background: var(--ink);
+      font-size: 12px;
+    }
+
+    .education-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
@@ -745,124 +811,10 @@
       justify-content: flex-end;
     }
 
-    .assistant {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 60;
-      width: min(420px, calc(100vw - 36px));
-      pointer-events: none;
-    }
-
-    .assistant-panel {
-      display: none;
-      margin-bottom: 10px;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      background: var(--white);
-      box-shadow: 0 24px 70px rgba(13, 19, 36, 0.22);
-      overflow: hidden;
-      pointer-events: auto;
-    }
-
-    .assistant.is-open .assistant-panel {
-      display: block;
-    }
-
-    .assistant-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px;
-      color: var(--white);
-      background: var(--ink);
-    }
-
-    .assistant-head img {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-
-    .assistant-head strong {
-      display: block;
-      line-height: 1.1;
-    }
-
-    .assistant-head span {
-      color: rgba(255, 255, 255, 0.64);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .assistant-body {
-      padding: 14px;
-    }
-
-    .assistant-topics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .assistant-topics button {
-      min-height: 34px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 0 11px;
-      color: var(--ink);
-      background: var(--paper);
-      font-size: 12px;
-      font-weight: 950;
-    }
-
-    .assistant-topics button:hover,
-    .assistant-topics button:focus-visible {
-      border-color: var(--blue);
-      color: var(--blue);
-      outline: 0;
-    }
-
-    .assistant-answer {
-      min-height: 118px;
-      margin-top: 12px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 13px;
-      color: var(--body);
-      background: var(--paper);
-      font-size: 14px;
-    }
-
-    .assistant-toggle {
-      min-height: 50px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-left: auto;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      padding: 0 16px;
-      color: var(--white);
-      background: var(--ink);
-      font-weight: 950;
-      box-shadow: 0 18px 42px rgba(13, 19, 36, 0.22);
-      pointer-events: auto;
-    }
-
-    .assistant-toggle span {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--green);
-      box-shadow: 0 0 0 5px rgba(31, 191, 117, 0.18);
-    }
-
-    .assistant-toggle:hover,
-    .assistant-toggle:focus-visible {
-      outline: 0;
-      transform: translateY(-1px);
+    @media (max-width: 1060px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 980px) {
@@ -874,6 +826,8 @@
       .section-head,
       .match-panel,
       .experience-layout,
+      .play-layout,
+      .play-card,
       .links-panel {
         grid-template-columns: 1fr;
       }
@@ -889,7 +843,6 @@
         border-bottom: 1px solid var(--line);
       }
 
-      .fit-grid,
       .grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -909,15 +862,11 @@
       }
 
       .hero-grid {
-        padding: 48px 0 30px;
-      }
-
-      .hero::after {
-        display: none;
+        padding: 50px 0 30px;
       }
 
       h1 {
-        font-size: clamp(39px, 14vw, 58px);
+        font-size: clamp(38px, 13vw, 56px);
       }
 
       section {
@@ -925,39 +874,28 @@
       }
 
       .proof-strip,
-      .fit-grid,
       .grid,
+      .skills-grid,
       .education-grid,
-      .wonderful-grid,
       .proof-row {
         grid-template-columns: 1fr;
       }
 
       .proof-strip div,
-      .fit-grid div,
       .proof-row > div {
         border-right: 0;
         border-bottom: 1px solid var(--line);
       }
 
       .proof-strip div:last-child,
-      .fit-grid div:last-child,
       .proof-row > div:last-child {
         border-bottom: 0;
       }
 
-      .role {
+      .role,
+      .meter,
+      .mini-table div {
         grid-template-columns: 1fr;
-      }
-
-      .meter {
-        grid-template-columns: 1fr;
-      }
-
-      .assistant {
-        right: 13px;
-        bottom: 13px;
-        width: calc(100vw - 26px);
       }
     }
 
@@ -986,10 +924,10 @@
       <nav class="nav" aria-label="Profile navigation">
         <a href="#match-check">Match</a>
         <a href="#fde-proof">Proof</a>
+        <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
+        <a href="#playground">Playground</a>
         <a href="#wonderful-fit">Wonderful.ai</a>
-        <button type="button" data-open-assistant>Ask profile</button>
         <a href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf">CV</a>
       </nav>
     </div>
@@ -999,37 +937,42 @@
     <section class="hero" aria-label="Profile introduction">
       <div class="shell hero-grid">
         <div>
-          <div class="eyebrow">Wonderful.ai candidate profile</div>
-          <h1>I turn messy enterprise workflows into production software.</h1>
+          <div class="eyebrow">FDE roles - Wonderful.ai first target</div>
+          <h1>I build where customer workflows get messy.</h1>
           <p class="hero-copy">
-            Forward Deployed Engineer profile for enterprise AI deployment: customer discovery, system boundaries,
-            API integration, guardrails, rollout, and measurable business impact in Vietnam/APAC.
+            <strong>6+ years as a software engineer</strong>, now Lead Software Engineer at Zalo/VNG.
+            I have led a team, shipped recruiting and messaging products, worked with many stakeholders,
+            and used AI both inside the build process and inside product workflows.
           </p>
           <div class="actions">
-            <a class="button primary" href="#match-check">Run recruiter fit check</a>
-            <button class="button" type="button" data-open-assistant>Ask profile assistant</button>
+            <a class="button primary" href="#match-check">Run fit ramp</a>
+            <a class="button" href="#experience">Read evidence</a>
             <a class="button" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf">Open CV</a>
           </div>
         </div>
 
         <aside class="hero-card" aria-label="Fast profile proof">
-          <div class="score-face">
-            <div class="score-label">First-screen answer</div>
-            <div class="score-number">99%</div>
-            <p>Match for Wonderful.ai-style FDE work. The missing 1% is learning internal systems on day one.</p>
+          <div class="hero-card-head">
+            <span>Recruiter 10-second read</span>
+            <strong>Engineer, lead, listener.</strong>
+            <p>Technical foundation from Zalo/VNG, stakeholder range, calm persistence, and enough product curiosity to keep asking where the real pain is.</p>
           </div>
           <div class="proof-strip">
             <div>
-              <strong>30M+</strong>
-              <span>User surface</span>
+              <strong>Lead SWE</strong>
+              <span>Zalo/VNG</span>
             </div>
             <div>
-              <strong>5+ yrs</strong>
-              <span>Production systems</span>
+              <strong>50k/day</strong>
+              <span>Job Market requests</span>
+            </div>
+            <div>
+              <strong>30%</strong>
+              <span>Operational overhead reduction</span>
             </div>
             <div>
               <strong>APAC</strong>
-              <span>Vietnam edge</span>
+              <span>Vietnam culture edge</span>
             </div>
           </div>
         </aside>
@@ -1040,44 +983,40 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <p class="kicker">Recruiter fit test</p>
-            <h2>Test matching percentage for this candidate.</h2>
+            <p class="kicker">Playful fit check</p>
+            <h2>From 80% strong engineer to 100% after onboarding.</h2>
           </div>
           <p class="lead">
-            Select the target company, then run the check. There is one option because this page is written for one role:
-            Forward Deployed Engineer at Wonderful.ai.
+            The target is FDE roles broadly. Wonderful.ai is the first target because its work asks for integrations,
+            agents, customer deployment, production impact, and local execution.
           </p>
         </div>
 
         <div class="panel match-panel">
           <div class="match-controls">
-            <h3>Choose company</h3>
-            <p>The score is based on the role needs: customer workflow discovery, enterprise integration, agent deployment readiness, and production ownership.</p>
-            <div class="company-picker">
-              <button class="company-option" type="button" data-company="wonderful" aria-pressed="true">
-                <span>Selected</span>
-                Wonderful.ai
-                <strong class="pill">FDE target</strong>
-              </button>
-              <button class="button dark" type="button" id="run-match">Run fit check</button>
+            <h3>Selected target</h3>
+            <p>Built for Forward Deployed Engineer roles, with Wonderful.ai used as the first concrete company fit.</p>
+            <button class="company-option" type="button" data-company="wonderful" aria-pressed="true">
+              <span>First target</span>
+              Wonderful.ai
+              <strong class="pill">FDE</strong>
+            </button>
+            <div class="ramp-actions" aria-label="Fit ramp stages">
+              <button type="button" data-fit-score="80" data-fit-copy="80% fit: senior software foundation, production habits, and algorithmic problem solving are already there.">80%</button>
+              <button type="button" data-fit-score="92" data-fit-copy="92% fit: add stakeholder work, lead-team experience, product curiosity, and the habit of turning ambiguity into scope.">92%</button>
+              <button class="is-active" type="button" data-fit-score="99" data-fit-copy="99% fit: Wonderful.ai-style work maps to APIs, agents, workflows, live customer context, and Vietnam/APAC execution.">99%</button>
+              <button type="button" data-fit-score="100" data-fit-copy="100% after onboarding: once the internal systems and customer playbooks click, the learning curve compounds quickly.">100%</button>
             </div>
           </div>
           <div class="match-result" aria-live="polite">
             <h3>Wonderful.ai FDE match</h3>
-            <p>Vinh fits the work where an engineer must sit close to customers, understand messy operations, build the integration path, and keep the deployment safe after launch.</p>
+            <p>Strong today, honest about the ramp. The gap is not motivation or engineering depth. It is learning the internal stack, customer playbooks, and any new domain-specific technology.</p>
             <div class="meter">
               <div class="meter-number" id="match-score"><span>99%</span><small>match</small></div>
               <div>
-                <div class="meter-track" aria-hidden="true"><div class="meter-fill"></div></div>
-                <div class="match-copy" id="match-copy">99% match. The 1% is learning Wonderful.ai's internal stack, customers, and playbooks on day one.</div>
+                <div class="meter-track" aria-hidden="true"><div class="meter-fill" id="meter-fill"></div></div>
+                <div class="match-copy" id="match-copy">99% match: Wonderful.ai-style work maps to APIs, agents, workflows, live customer context, and Vietnam/APAC execution.</div>
               </div>
-            </div>
-            <div class="fit-grid">
-              <div><span>Customer room</span><strong>Partner discovery, Finance, Sales, Ops, Product, Engineering.</strong></div>
-              <div><span>Build path</span><strong>APIs, auth, source of truth, auditability, fallback paths.</strong></div>
-              <div><span>AI layer</span><strong>LLM workflows, structured outputs, eval loops, guardrails.</strong></div>
-              <div><span>Production</span><strong>Millions of daily business messages with reliability pressure.</strong></div>
-              <div><span>Local edge</span><strong>Vietnam/APAC context, Vietnamese native, professional English.</strong></div>
             </div>
           </div>
         </div>
@@ -1088,45 +1027,103 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <p class="kicker">What the profile wants to prove</p>
-            <h2>FDE means customer problem to production outcome.</h2>
+            <p class="kicker">Hiring-manager belief after 2 minutes</p>
+            <h2>Not a lifelong FDE yet. A strong FDE-shaped engineer.</h2>
           </div>
           <p class="lead">
-            This page is not trying to show every possible role. It shows one motion: understand a customer workflow,
-            design the system boundary, ship the integration, and measure whether the business moved.
+            The honest claim: I may need time to master a new customer stack, but my technical base,
+            critical mindset, stakeholder range, and learning curve make that time a good investment.
           </p>
         </div>
 
         <div class="grid">
           <article class="card">
-            <h3>Customer discovery</h3>
-            <p>Turn ambiguous operational pain into actors, states, data sources, constraints, MVP scope, and measurable outcomes.</p>
-            <span class="tag">Finance, Sales, Ops, Product, partners</span>
+            <h3>Software depth</h3>
+            <p>Java, React, Kafka, Redis, MySQL, service design, production debugging, and enough algorithmic background to reason from first principles.</p>
+            <span class="tag">6+ years SWE</span>
           </article>
           <article class="card">
-            <h3>Enterprise integration</h3>
-            <p>Map APIs, auth, permissions, legacy systems, modern services, audit logs, and fallback paths before automation changes state.</p>
-            <span class="tag">SOX-compliant workflow delivery</span>
+            <h3>Customer-room instincts</h3>
+            <p>I like talking to users and customers because the fastest answer often appears after hearing the real workflow, not the translated ticket.</p>
+            <span class="tag">Discovery and listening</span>
           </article>
           <article class="card">
-            <h3>Production ownership</h3>
-            <p>Operate high-throughput messaging with latency, observability, graceful degradation, back-pressure, and incident discipline.</p>
-            <span class="tag">Millions of daily business messages</span>
+            <h3>Product curiosity</h3>
+            <p>I keep asking how a product can adapt to more partners, cover more cases, and reduce manual work without breaking trust.</p>
+            <span class="tag">Problem solver</span>
           </article>
           <article class="card">
-            <h3>AI deployment readiness</h3>
-            <p>Use retrieval, tool calling, structured outputs, eval loops, guardrails, and human review for practical LLM workflows.</p>
-            <span class="tag">Agent deployment layer</span>
+            <h3>AI in the process</h3>
+            <p>Used AI to speed up product-building work: specs, prototypes, analysis, support flows, and product operations where humans should not repeat the same task forever.</p>
+            <span class="tag">Practical automation</span>
           </article>
           <article class="card">
-            <h3>Stakeholder ownership</h3>
-            <p>Explain technical tradeoffs for commercial, product, partner, and engineering audiences without losing implementation detail.</p>
-            <span class="tag">Business and technical room</span>
+            <h3>AI in the product</h3>
+            <p>Applied LLM workflows, Dify, prompt design, KB-backed support, chatbot guidance, classification, and human review gates for recruiting-product workflows.</p>
+            <span class="tag">Agents and workflows</span>
           </article>
           <article class="card">
-            <h3>Vietnam/APAC edge</h3>
-            <p>Native Vietnamese, professional English, and hands-on context for Vietnam's messaging, commerce, and enterprise adoption behavior.</p>
-            <span class="tag">Local deployment advantage</span>
+            <h3>Honest ramp</h3>
+            <p>I can be quiet at first and may take time with new systems. Once the mental model forms, my output compounds fast and I bring more angles to the table.</p>
+            <span class="tag">Mindful, then fast</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="kicker">FDE skill map</p>
+            <h2>The skills recruiters should see first.</h2>
+          </div>
+          <p class="lead">
+            Researched FDE roles consistently ask for coding depth, customer deployment, integrations,
+            production ownership, communication, AI workflow judgment, and measurable business impact.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Problem solving</h3>
+            <p>Break vague problems into workflow maps, constraints, source of truth, MVP scope, and measurable outcomes.</p>
+            <span class="tag">Strong</span>
+          </article>
+          <article class="skill-card">
+            <h3>System design</h3>
+            <p>Design backend services, event flows, data boundaries, rollout paths, and operational ownership across teams.</p>
+            <span class="tag">Strong</span>
+          </article>
+          <article class="skill-card">
+            <h3>Integration engineering</h3>
+            <p>APIs, auth, partner constraints, legacy systems, SOX-compliant workflows, data mapping, error handling, and onboarding documentation.</p>
+            <span class="tag">Strong</span>
+          </article>
+          <article class="skill-card">
+            <h3>Stakeholder management</h3>
+            <p>Project management, expectation setting, negotiation, technical explanation, and making people feel heard.</p>
+            <span class="tag">Strong</span>
+          </article>
+          <article class="skill-card">
+            <h3>AI workflows</h3>
+            <p>Prompting, Dify workflows, KB support, structured outputs, chatbot flows, and human-in-the-loop checks.</p>
+            <span class="tag">Applied</span>
+          </article>
+          <article class="skill-card">
+            <h3>Production reliability</h3>
+            <p>Logs, metrics, tracing mindset, latency tuning, rollback plans, fallback paths, runbooks, and incident communication.</p>
+            <span class="tag">Applied</span>
+          </article>
+          <article class="skill-card">
+            <h3>Business metrics</h3>
+            <p>Track lead send time, lead coverage, missed leads, onboarding speed, operational overhead, and adoption friction.</p>
+            <span class="tag">Applied</span>
+          </article>
+          <article class="skill-card" data-level="learning">
+            <h3>New domains</h3>
+            <p>Voice, telephony, and company-specific stacks may need ramp time. The learning plan is deliberate, not hand-wavy.</p>
+            <span class="tag">Learning honestly</span>
           </article>
         </div>
       </div>
@@ -1137,10 +1134,11 @@
         <div class="section-head">
           <div>
             <p class="kicker">Experience evidence</p>
-            <h2>Real work behind the match score.</h2>
+            <h2>Zalo-scale engineer, now closer to customer workflows.</h2>
           </div>
           <p class="lead">
-            The strongest proof is Zalo-scale production experience, partner-facing integration work, and measurable outcomes from ambiguous cross-team requirements.
+            Current work is Job Market on the LifeService platform. Previous work includes ZNS and business messaging,
+            where the scale and production pressure were much larger.
           </p>
         </div>
 
@@ -1149,12 +1147,14 @@
             <article class="role">
               <div class="date">Jul 2025 - Present</div>
               <div>
-                <h3>Lead Software Engineer, Zalo</h3>
-                <p>Customer-facing architecture, AI-assisted delivery, and enterprise workflow ownership for Vietnam's largest messaging platform.</p>
+                <h3>Lead Software Engineer, Zalo - Job Market / LifeService</h3>
+                <p>Recruiting product for blue-collar hiring on Zalo, connecting Vietnamese job seekers with recruiters and labor-supply partners.</p>
                 <ul>
-                  <li>Delivered a SOX-compliant reporting and billing workflow across Finance, Sales, Ops, Product, and Engineering, reducing operational overhead by 30%.</li>
-                  <li>Led LLM-assisted delivery workflows for classification, content-quality signals, draft generation, structured outputs, eval loops, and human review gates.</li>
-                  <li>Led four engineers and promoted two to senior while preserving senior review on high-risk production changes.</li>
+                  <li>Owned the current Job Market system end to end on the LifeService platform, serving roughly 50k daily requests.</li>
+                  <li>Worked with recruiters, industrial-zone mass-hiring partners, labor-supply partners, Product, Ops, and Engineering to reduce manual handoffs.</li>
+                  <li>Reduced operational overhead by 30% by automating repeated manual actions and adding AI support into product and delivery workflows.</li>
+                  <li>Improved partner onboarding by 40% with chatbot assistance, KB-backed troubleshooting, and faster self-serve answers when recruiters hit issues.</li>
+                  <li>Tracked practical business metrics: processing time, lead send time, lead coverage, and missed leads.</li>
                 </ul>
               </div>
             </article>
@@ -1162,12 +1162,12 @@
             <article class="role">
               <div class="date">Jul 2023 - Jul 2025</div>
               <div>
-                <h3>Senior Software Engineer, Zalo</h3>
-                <p>Business messaging delivery, partner integrations, and reliability work across high-scale customer communication surfaces.</p>
+                <h3>Senior Software Engineer, Zalo - ZNS / business messaging previous product</h3>
+                <p>High-scale business messaging product where enterprises send customer notifications through Zalo surfaces.</p>
                 <ul>
-                  <li>Architected and operated messaging delivery behind millions of daily business messages with sub-second expectations and partner integration pressure.</li>
-                  <li>Built partner onboarding blueprints, prototypes, and guidance for JobMarket, HealthTech, and business messaging partners, improving onboarding speed by 40%.</li>
-                  <li>Improved performance and reliability across 5+ ecosystem apps through caching, graceful degradation, and clearer operational ownership.</li>
+                  <li>Worked on ZNS and business messaging systems, a previous product context with 30M+ user surfaces and millions of daily business messages.</li>
+                  <li>Built and operated APIs, partner integration paths, delivery behavior, and reliability improvements under business-message pressure.</li>
+                  <li>Improved stability across core ecosystem applications using caching, graceful degradation, and clearer operational ownership.</li>
                 </ul>
               </div>
             </article>
@@ -1176,11 +1176,11 @@
               <div class="date">Apr 2022 - Jul 2023</div>
               <div>
                 <h3>Software Engineer, Zalo</h3>
-                <p>Permission controls, trust surfaces, service migration, and maintainability improvements for a 30M+ user surface.</p>
+                <p>Backend services, trust surfaces, performance, and migration work for communication products.</p>
                 <ul>
-                  <li>Led message-quality and permission-control work that increased permission coverage by 50%.</li>
-                  <li>Migrated legacy services toward microservice boundaries, improving resource efficiency by 25% without downtime.</li>
-                  <li>Converted unclear business requirements into implementation flows across backend services and product surfaces.</li>
+                  <li>Converted unclear business requirements into backend service flows and product behavior across multiple teams.</li>
+                  <li>Migrated legacy services toward cleaner service boundaries, improving resource efficiency by 25% without user-visible downtime.</li>
+                  <li>Built practical reliability habits: isolate the failing boundary, add visibility, protect the user flow, then clean up the system.</li>
                 </ul>
               </div>
             </article>
@@ -1191,7 +1191,7 @@
                 <h3>Associate Software Engineer, Zalo</h3>
                 <p>Backend services, API behavior, and product workflow implementation for communication products.</p>
                 <ul>
-                  <li>Translated stakeholder requirements into backend flows and improved service performance by 15%.</li>
+                  <li>Translated stakeholder requirements into backend flows and improved service performance with Redis, Kafka, SQL, and NoSQL systems.</li>
                   <li>Built product features with attention to edge cases, rollback behavior, and operational support.</li>
                 </ul>
               </div>
@@ -1214,12 +1214,53 @@
               <img src="/assets/vinh-avatar.png" alt="">
               <strong>Vinh Luu</strong>
             </div>
-            <div class="snapshot-row"><span>Role</span><strong>Forward Deployed Engineer</strong></div>
+            <div class="snapshot-row"><span>Target</span><strong>Forward Deployed Engineer</strong></div>
             <div class="snapshot-row"><span>Base</span><strong>Ho Chi Minh City, Vietnam</strong></div>
-            <div class="snapshot-row"><span>Systems</span><strong>Zalo production services, 30M+ user surface</strong></div>
-            <div class="snapshot-row"><span>Proof</span><strong>30% operational overhead reduction, 40% faster partner onboarding, 50% permission coverage lift.</strong></div>
+            <div class="snapshot-row"><span>Current</span><strong>Job Market on Zalo LifeService, roughly 50k daily requests</strong></div>
+            <div class="snapshot-row"><span>Previous</span><strong>ZNS / business messaging, 30M+ user surfaces and millions of daily messages</strong></div>
+            <div class="snapshot-row"><span>Proof</span><strong>30% operational overhead reduction, 40% faster partner onboarding.</strong></div>
             <div class="snapshot-row"><span>Contact</span><strong><a href="mailto:vinhluu.se@gmail.com">vinhluu.se@gmail.com</a></strong></div>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="playground">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Small playground</p>
+            <h2>Recruiting AI examples from the work world.</h2>
+          </div>
+          <p class="lead">
+            This is intentionally small: a few concrete examples that show how I think about applying AI
+            to recruiting workflows, not a giant demo fighting the resume.
+          </p>
+        </div>
+
+        <div class="play-layout">
+          <div class="play-tabs" aria-label="Recruiting AI playground tabs">
+            <button class="is-active" type="button" data-play="hot-lead">Hot lead triage</button>
+            <button type="button" data-play="recruiter-chatbot">Recruiter chatbot support</button>
+            <button type="button" data-play="lead-matching">Lead matching map</button>
+          </div>
+          <article class="play-card" aria-live="polite">
+            <div>
+              <h3 id="play-title">Hot lead triage</h3>
+              <p id="play-summary">Prioritize candidates or employers when demand spikes, so Ops does not spend the morning manually guessing which lead needs attention first.</p>
+              <div class="mini-table">
+                <div><span>Customer pain</span><strong id="play-pain">Too many leads, not enough time, unclear urgency.</strong></div>
+                <div><span>AI move</span><strong id="play-ai">Score lead freshness, intent, missing fields, and recruiter capacity before human review.</strong></div>
+                <div><span>Metric</span><strong id="play-metric">Lead send time, cover rate, missed leads.</strong></div>
+              </div>
+              <span class="tag" id="play-tag">FDE skill: scope the workflow before automating it</span>
+            </div>
+            <div class="play-diagram" id="play-diagram" aria-label="Workflow sketch">
+              <div class="flow-step"><b>1</b><span>Collect recruiter need, job location, urgency, and candidate constraints.</span></div>
+              <div class="flow-step"><b>2</b><span>Rank leads with rules plus AI explanation, keeping human review for risky actions.</span></div>
+              <div class="flow-step"><b>3</b><span>Measure send time and missed lead rate after rollout.</span></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1229,10 +1270,11 @@
         <div class="section-head">
           <div>
             <p class="kicker">Education and foundation</p>
-            <h2>Technical base, competitive habits, and delivery discipline.</h2>
+            <h2>Technical base, competition habits, and calm learning.</h2>
           </div>
           <p class="lead">
-            The profile is FDE-first, but education matters because the role rewards fast learning, structured communication, and strong engineering fundamentals.
+            The FDE signal is not only school history. It is the combination of algorithmic thinking,
+            software engineering discipline, persistence, and mindfulness under ambiguous pressure.
           </p>
         </div>
 
@@ -1244,18 +1286,18 @@
           </article>
           <article class="edu-card">
             <h3>Le Quy Don High School for the Gifted</h3>
-            <p>Mathematics and computer-science preparation with an early focus on problem solving, algorithms, and competition-style thinking.</p>
+            <p>Mathematics and computer-science preparation with early focus on problem solving, algorithms, and competition-style thinking.</p>
             <span class="tag">Analytical foundation</span>
           </article>
           <article class="edu-card">
-            <h3>Awards and recognition</h3>
-            <p>Programming and academic awards from the early technical path, now applied to production systems and customer-facing engineering work.</p>
+            <h3>Awards and hackathons</h3>
+            <p>Programming and academic awards from the early technical path, now applied to production systems and customer-facing product work.</p>
             <span class="tag">Competitive learning loop</span>
           </article>
           <article class="edu-card">
-            <h3>Languages</h3>
-            <p>Native Vietnamese and professional English, useful for APAC customer rooms where the deployment depends on local workflow nuance.</p>
-            <span class="tag">Vietnam/APAC communication</span>
+            <h3>Languages and culture</h3>
+            <p>Native Vietnamese and professional English. Strong in Vietnam/APAC because I understand local business etiquette and also study Western working styles.</p>
+            <span class="tag">Cross-cultural flexibility</span>
           </article>
         </div>
       </div>
@@ -1266,33 +1308,34 @@
         <div class="section-head">
           <div>
             <p class="kicker">Why Wonderful.ai</p>
-            <h2>My background fits the hard part after the AI demo.</h2>
+            <h2>Wonderful grows fast. I grow fast after the system clicks.</h2>
           </div>
           <p class="lead">
-            Enterprise AI agents succeed when the workflow is understood, the tools are integrated, guardrails are measured, and the rollout survives production constraints.
+            Wonderful.ai is the first target because its FDE work sits exactly at the intersection of
+            integrations, AI agents, customer workflows, production readiness, and local execution.
           </p>
         </div>
 
         <div class="proof-table" aria-label="Wonderful.ai fit mapping">
           <div class="proof-row">
-            <div><span>Wonderful.ai need</span><strong>Deploy agents into real customer workflows.</strong></div>
-            <div><span>My evidence</span><strong>Partner discovery, integration workshops, multi-team Zalo workflow ownership.</strong></div>
-            <div><span>FDE signal</span><strong>I can turn unclear operations into a scoped build plan.</strong></div>
+            <div><span>Wonderful.ai need</span><strong>Deploy AI agents into real business workflows.</strong></div>
+            <div><span>My evidence</span><strong>Recruiting workflow ownership, partner onboarding, chatbot support, and AI-assisted operations.</strong></div>
+            <div><span>FDE signal</span><strong>I like the last mile where things must work, not just demo well.</strong></div>
           </div>
           <div class="proof-row">
-            <div><span>Wonderful.ai need</span><strong>Connect tools, APIs, data, auth, and audit logs.</strong></div>
-            <div><span>My evidence</span><strong>Business messaging APIs, SOX-compliant billing/reporting, legacy-to-modern service boundaries.</strong></div>
-            <div><span>FDE signal</span><strong>I know the integration layer is where deployments become real.</strong></div>
+            <div><span>Wonderful.ai need</span><strong>Connect APIs, data, tools, auth, and customer systems.</strong></div>
+            <div><span>My evidence</span><strong>Java services, React surfaces, Kafka, Redis, MySQL, ZNS APIs, and partner integration paths.</strong></div>
+            <div><span>FDE signal</span><strong>I know integrations are where customer trust is won or lost.</strong></div>
           </div>
           <div class="proof-row">
-            <div><span>Wonderful.ai need</span><strong>Keep automation safe and measurable.</strong></div>
-            <div><span>My evidence</span><strong>LLM workflows, eval loops, structured outputs, permission controls, human review gates.</strong></div>
-            <div><span>FDE signal</span><strong>I do not sell agent magic. I define checks, owners, and rollback paths.</strong></div>
+            <div><span>Wonderful.ai need</span><strong>Measure impact and keep production systems improving.</strong></div>
+            <div><span>My evidence</span><strong>Lead send time, coverage, missed leads, onboarding speed, operational overhead, and reliability work.</strong></div>
+            <div><span>FDE signal</span><strong>I connect engineering decisions to business metrics.</strong></div>
           </div>
           <div class="proof-row">
-            <div><span>Wonderful.ai need</span><strong>Win APAC/Vietnam customers with local context.</strong></div>
-            <div><span>My evidence</span><strong>Native Vietnamese, professional English, Zalo-scale messaging, local partner ecosystem.</strong></div>
-            <div><span>FDE signal</span><strong>I understand how Vietnamese users and enterprise stakeholders adopt new systems.</strong></div>
+            <div><span>Wonderful.ai need</span><strong>Execute locally in APAC/Vietnam.</strong></div>
+            <div><span>My evidence</span><strong>Vietnamese native, professional English, Zalo/VNG background, and flexible cross-cultural communication.</strong></div>
+            <div><span>FDE signal</span><strong>I can listen carefully in the customer room and still build the technical answer.</strong></div>
           </div>
         </div>
       </div>
@@ -1303,11 +1346,11 @@
         <div class="links-panel">
           <div>
             <p class="kicker">Next recruiter action</p>
-            <h2>Open the CV, then use the assistant for quick answers.</h2>
-            <p>No raw Markdown pages. The profile, CV, and match story are the recruiter-facing surfaces.</p>
+            <h2>Open the CV, then ask me about one workflow.</h2>
+            <p>The best interview path: give me a messy customer workflow, a few constraints, and the metric you care about.</p>
           </div>
           <div class="link-actions">
-            <a class="button primary" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf">PDF CV</a>
+            <a class="button dark" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf">PDF CV</a>
             <a class="button" href="/cv/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.html">HTML CV</a>
             <a class="button" href="https://www.linkedin.com/in/vinhluulinked/">LinkedIn</a>
             <a class="button" href="mailto:vinhluu.se@gmail.com">Email</a>
@@ -1317,78 +1360,92 @@
     </section>
   </main>
 
-  <aside class="assistant" id="profile-assistant" aria-label="Profile assistant">
-    <div class="assistant-panel" role="dialog" aria-label="Ask Vinh profile assistant">
-      <div class="assistant-head">
-        <img src="/assets/vinh-avatar.png" alt="">
-        <div>
-          <strong>Profile assistant</strong>
-          <span>Select what a recruiter wants to know.</span>
-        </div>
-      </div>
-      <div class="assistant-body">
-        <div class="assistant-topics" aria-label="Profile topics">
-          <button type="button" data-assistant-topic="experience">Experience</button>
-          <button type="button" data-assistant-topic="education">Education</button>
-          <button type="button" data-assistant-topic="fde">Why FDE</button>
-          <button type="button" data-assistant-topic="wonderful">Wonderful.ai fit</button>
-          <button type="button" data-assistant-topic="ai">AI skills</button>
-          <button type="button" data-assistant-topic="contact">Contact</button>
-        </div>
-        <div class="assistant-answer" id="assistant-answer">
-          Choose a topic. I will answer like a recruiter summary: direct, evidence-first, and tied to the Forward Deployed Engineer role.
-        </div>
-      </div>
-    </div>
-    <button class="assistant-toggle" type="button" id="assistant-toggle" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      Ask Vinh profile
-    </button>
-  </aside>
-
   <script>
-    const matchButton = document.querySelector('#run-match');
     const matchScore = document.querySelector('#match-score');
     const matchCopy = document.querySelector('#match-copy');
-    const assistant = document.querySelector('#profile-assistant');
-    const assistantToggle = document.querySelector('#assistant-toggle');
-    const assistantAnswer = document.querySelector('#assistant-answer');
-    const openAssistantButtons = document.querySelectorAll('[data-open-assistant]');
+    const meterFill = document.querySelector('#meter-fill');
+    const fitButtons = document.querySelectorAll('[data-fit-score]');
 
-    const answers = {
-      experience: "Vinh has 5+ years at Zalo, Vietnam's largest messaging platform, across backend systems, partner integrations, business messaging, billing/reporting workflows, and reliability work for a 30M+ user surface.",
-      education: "Vinh studied Software Engineering at FPT University and came from a mathematics/computer-science foundation at Le Quy Don High School for the Gifted. The signal for FDE is fast learning plus structured problem solving.",
-      fde: "FDE fits because Vinh works at the intersection of customer context and engineering: discover the workflow, define system boundaries, build the integration, launch safely, and measure the business result.",
-      wonderful: "For Wonderful.ai, the match is strong because enterprise AI agents need exactly Vinh's mix: conversational infrastructure, APIs, customer workflow discovery, guardrails, production ownership, and Vietnam/APAC context.",
-      ai: "Vinh's AI work is practical: LLM-assisted classification, content-quality signals, draft generation, structured outputs, eval loops, guardrails, and human review gates. He avoids overstating agent experience and focuses on safe deployment.",
-      contact: "Email: vinhluu.se@gmail.com. LinkedIn: linkedin.com/in/vinhluulinked. Location: Ho Chi Minh City, Vietnam. Target role: Forward Deployed Engineer."
+    fitButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const score = button.getAttribute('data-fit-score');
+        const copy = button.getAttribute('data-fit-copy');
+
+        fitButtons.forEach((item) => item.classList.remove('is-active'));
+        button.classList.add('is-active');
+        matchScore.innerHTML = `<span>${score}%</span><small>match</small>`;
+        matchCopy.textContent = copy;
+        meterFill.style.width = `${score}%`;
+      });
+    });
+
+    const playgrounds = {
+      'hot-lead': {
+        title: 'Hot lead triage',
+        summary: 'Prioritize candidates or employers when demand spikes, so Ops does not spend the morning manually guessing which lead needs attention first.',
+        pain: 'Too many leads, not enough time, unclear urgency.',
+        ai: 'Score lead freshness, intent, missing fields, and recruiter capacity before human review.',
+        metric: 'Lead send time, cover rate, missed leads.',
+        tag: 'FDE skill: scope the workflow before automating it',
+        steps: [
+          'Collect recruiter need, job location, urgency, and candidate constraints.',
+          'Rank leads with rules plus AI explanation, keeping human review for risky actions.',
+          'Measure send time and missed lead rate after rollout.'
+        ]
+      },
+      'recruiter-chatbot': {
+        title: 'Recruiter chatbot support',
+        summary: 'Give recruiters instant guidance when they hit onboarding, posting, or lead-management issues instead of waiting through a weekend support queue.',
+        pain: 'Recruiters get blocked by repeated questions and unclear next actions.',
+        ai: 'Use a KB-backed chatbot to diagnose issue type, suggest next steps, and escalate only when needed.',
+        metric: 'Onboarding time, support deflection, issue resolution time.',
+        tag: 'FDE skill: turn support noise into reusable product guidance',
+        steps: [
+          'Map repeated recruiter issues and the source of truth for each answer.',
+          'Build KB retrieval, prompt guardrails, and clear escalation paths.',
+          'Track which answers resolve issues and which need product fixes.'
+        ]
+      },
+      'lead-matching': {
+        title: 'Lead matching map',
+        summary: 'Connect job-seeker intent with recruiter demand across location, shift, urgency, and job type without hiding the decision behind a black box.',
+        pain: 'Good candidates and urgent jobs miss each other because constraints are scattered.',
+        ai: 'Extract structured preferences, compare constraints, and explain why a match should or should not move forward.',
+        metric: 'Match acceptance, missed leads, recruiter response time.',
+        tag: 'FDE skill: make the system explainable enough for adoption',
+        steps: [
+          'Normalize candidate and recruiter constraints into comparable fields.',
+          'Score matches with explainable reasons and manual override points.',
+          'Feed mismatch patterns back into product and data collection.'
+        ]
+      }
     };
 
-    function openAssistant() {
-      assistant.classList.add('is-open');
-      assistantToggle.setAttribute('aria-expanded', 'true');
-    }
+    const playTabs = document.querySelectorAll('[data-play]');
+    const playTitle = document.querySelector('#play-title');
+    const playSummary = document.querySelector('#play-summary');
+    const playPain = document.querySelector('#play-pain');
+    const playAi = document.querySelector('#play-ai');
+    const playMetric = document.querySelector('#play-metric');
+    const playTag = document.querySelector('#play-tag');
+    const playDiagram = document.querySelector('#play-diagram');
 
-    function toggleAssistant() {
-      const isOpen = assistant.classList.toggle('is-open');
-      assistantToggle.setAttribute('aria-expanded', String(isOpen));
-    }
-
-    matchButton?.addEventListener('click', () => {
-      matchScore.innerHTML = '<span>99%</span><small>match</small>';
-      matchCopy.textContent = "99% match. The 1% is learning Wonderful.ai's internal stack, customers, and playbooks on day one. The core FDE motion is already proven.";
-      matchButton.textContent = 'Fit check complete';
-    });
-
-    assistantToggle?.addEventListener('click', toggleAssistant);
-    openAssistantButtons.forEach((button) => {
-      button.addEventListener('click', openAssistant);
-    });
-
-    document.querySelectorAll('[data-assistant-topic]').forEach((button) => {
+    playTabs.forEach((button) => {
       button.addEventListener('click', () => {
-        const topic = button.getAttribute('data-assistant-topic');
-        assistantAnswer.textContent = answers[topic] || answers.experience;
+        const key = button.getAttribute('data-play');
+        const item = playgrounds[key] || playgrounds['hot-lead'];
+
+        playTabs.forEach((tab) => tab.classList.remove('is-active'));
+        button.classList.add('is-active');
+        playTitle.textContent = item.title;
+        playSummary.textContent = item.summary;
+        playPain.textContent = item.pain;
+        playAi.textContent = item.ai;
+        playMetric.textContent = item.metric;
+        playTag.textContent = item.tag;
+        playDiagram.innerHTML = item.steps.map((step, index) => (
+          `<div class="flow-step"><b>${index + 1}</b><span>${step}</span></div>`
+        )).join('');
       });
     });
   </script>
