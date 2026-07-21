@@ -427,7 +427,7 @@
 
     .meter {
       display: grid;
-      grid-template-columns: minmax(300px, 0.4fr) minmax(260px, 1fr);
+      grid-template-columns: minmax(180px, 0.28fr) minmax(260px, 1fr);
       gap: 18px;
       align-items: center;
       margin-top: 18px;
@@ -435,8 +435,8 @@
 
     .meter-number {
       color: var(--ink);
-      font-size: clamp(34px, 4vw, 62px);
-      line-height: 0.95;
+      font-size: clamp(58px, 7vw, 96px);
+      line-height: 0.88;
       font-weight: 1000;
       overflow-wrap: normal;
       word-break: normal;
@@ -465,7 +465,7 @@
     }
 
     .meter-fill {
-      width: 72%;
+      width: 25%;
       height: 100%;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--amber), var(--green), var(--blue));
@@ -488,6 +488,45 @@
       flex-wrap: wrap;
       gap: 8px;
       margin-top: 18px;
+    }
+
+    .ramp-stages {
+      display: grid;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .ramp-stage {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      padding: 10px;
+      color: var(--body);
+      background: var(--white);
+      font-size: 13px;
+      font-weight: 900;
+      transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    .ramp-stage b {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      color: var(--ink);
+      background: #eaf0ff;
+      font-size: 12px;
+    }
+
+    .ramp-stage.is-active {
+      border-color: var(--blue);
+      color: var(--ink);
+      background: #f0f5ff;
     }
 
     .ramp-actions button,
@@ -540,6 +579,20 @@
       box-shadow: 0 16px 38px rgba(18, 19, 26, 0.07);
     }
 
+    .card,
+    .case-card,
+    .lab-link,
+    .skill-card,
+    .edu-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card,
+    .skill-card {
+      min-height: 226px;
+    }
+
     .card .tag,
     .case-card .tag,
     .skill-card .tag,
@@ -548,13 +601,14 @@
       display: inline-flex;
       align-items: center;
       min-height: 29px;
-      margin-top: 16px;
+      margin-top: auto;
       border-radius: 999px;
       padding: 0 10px;
       color: #0d5f44;
       background: #ddf5eb;
       font-size: 12px;
       font-weight: 950;
+      align-self: flex-start;
     }
 
     .skill-card[data-level="learning"] .tag {
@@ -1054,43 +1108,43 @@
       </div>
     </section>
 
-    <section id="match-check">
+    <section id="match-check" data-scroll-ramp>
       <div class="shell">
         <div class="section-head">
           <div>
-            <p class="kicker">Credible readiness</p>
-            <h2>Strong now, faster after onboarding.</h2>
+            <p class="kicker">Scroll-readiness ramp</p>
+            <h2>Scroll the evidence. Watch the FDE ramp fill.</h2>
           </div>
           <p class="lead">
-            The target is FDE roles broadly. Wonderful.ai is the first concrete target because its work asks for
-            integrations, agents, customer deployment, production impact, and local execution.
+            This is not a self-score. The bar tracks how the page builds the case:
+            Foundation -> workflow -> production -> onboarding upside.
           </p>
         </div>
 
         <div class="panel match-panel">
           <div class="match-controls">
             <h3>Selected target</h3>
-            <p>Built for Forward Deployed Engineer roles, with Wonderful.ai used as the first concrete target to test the story.</p>
+            <p>Forward Deployed Engineer roles broadly, with Wonderful.ai as the first concrete target to test the story.</p>
             <button class="company-option" type="button" data-company="wonderful" aria-pressed="true">
               <span>First concrete target</span>
               Wonderful.ai
               <strong class="pill">FDE</strong>
             </button>
-            <div class="ramp-actions" aria-label="Fit ramp stages">
-              <button class="is-active" type="button" data-readiness-label="Now" data-readiness-copy="Now: senior software foundation, production habits, stakeholder range, and practical AI workflow work are already visible in the evidence below." data-readiness-width="72">Now</button>
-              <button type="button" data-readiness-label="Ramp" data-readiness-copy="Ramp: new internal tools, customer playbooks, and any voice/telephony-specific details need deliberate onboarding before confident production decisions." data-readiness-width="82">Ramp</button>
-              <button type="button" data-readiness-label="After onboarding" data-readiness-copy="After onboarding: once the customer stack and operating model click, the learning curve compounds through deeper debugging, reusable runbooks, and faster customer translation." data-readiness-width="92">After onboarding</button>
-              <button type="button" data-readiness-label="Proof" data-readiness-copy="Proof: the strongest signal is not a score; it is Job Market workflow automation, recruiter onboarding support, and ZNS/business messaging reliability under real production pressure." data-readiness-width="100">Proof</button>
+            <div class="ramp-stages" aria-label="Scroll progress stages">
+              <div class="ramp-stage is-active" data-ramp-stage="foundation"><b>25</b><span>Foundation: 6+ years SWE, Zalo/VNG, system design.</span></div>
+              <div class="ramp-stage" data-ramp-stage="workflow"><b>50</b><span>Workflow: recruiter, partner, Ops, and product pain mapped into scope.</span></div>
+              <div class="ramp-stage" data-ramp-stage="production"><b>75</b><span>Production: Job Market metrics and ZNS/business messaging reliability.</span></div>
+              <div class="ramp-stage" data-ramp-stage="onboarding"><b>100</b><span>Onboarding upside: faster once the customer stack and playbooks click.</span></div>
             </div>
           </div>
           <div class="match-result" aria-live="polite">
-            <h3>FDE readiness narrative</h3>
-            <p>Strong today, honest about the ramp. The gap is not motivation or engineering depth. It is learning the internal stack, customer playbooks, and any new domain-specific technology.</p>
+            <h3>FDE readiness progress</h3>
+            <p>The percentage rises as you move from basic foundation to concrete proof. It is a reading aid, not a hiring claim.</p>
             <div class="meter">
-              <div class="meter-number" id="match-score"><span>Now</span><small>ready</small></div>
+              <div class="meter-number" id="match-score"><span>25%</span><small>scroll progress</small></div>
               <div>
                 <div class="meter-track" aria-hidden="true"><div class="meter-fill" id="meter-fill"></div></div>
-                <div class="match-copy" id="match-copy">Now: senior software foundation, production habits, stakeholder range, and practical AI workflow work are already visible in the evidence below.</div>
+                <div class="match-copy" id="match-copy">Foundation: senior software engineering base, production habits, and Zalo/VNG operating context.</div>
               </div>
             </div>
           </div>
@@ -1151,45 +1205,45 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <p class="kicker">Hiring-manager belief after 2 minutes</p>
-            <h2>Not a lifelong FDE yet. A strong FDE-shaped engineer.</h2>
+            <p class="kicker">Recruiter screen</p>
+            <h2>Evidence before claims.</h2>
           </div>
           <p class="lead">
-            The honest claim: I may need time to master a new customer stack, but my technical base,
-            critical mindset, stakeholder range, and learning curve make that time a good investment.
+            If you are screening me for FDE, start with proof you can ask about:
+            shipped systems, workflow mapping, integrations, reliability, communication, and measured impact.
           </p>
         </div>
 
         <div class="grid">
           <article class="card">
             <h3>Software depth</h3>
-            <p>Java, React, Kafka, Redis, MySQL, service design, production debugging, and enough algorithmic background to reason from first principles.</p>
-            <span class="tag">6+ years SWE</span>
+            <p>Java, React, Kafka, Redis, MySQL, service design, production debugging, and algorithmic problem solving.</p>
+            <span class="tag">Screen: backend depth</span>
           </article>
           <article class="card">
-            <h3>Customer-room instincts</h3>
-            <p>I like talking to users and customers because the fastest answer often appears after hearing the real workflow, not the translated ticket.</p>
-            <span class="tag">Discovery and listening</span>
+            <h3>Workflow mapping</h3>
+            <p>Ask how recruiter, partner, Ops, and Product friction became clearer lead-handling and onboarding flows.</p>
+            <span class="tag">Screen: discovery</span>
           </article>
           <article class="card">
-            <h3>Product curiosity</h3>
-            <p>I keep asking how a product can adapt to more partners, cover more cases, and reduce manual work without breaking trust.</p>
-            <span class="tag">Problem solver</span>
+            <h3>Integration work</h3>
+            <p>API paths, partner constraints, source-of-truth mapping, failure modes, and onboarding documentation.</p>
+            <span class="tag">Screen: systems fit</span>
           </article>
           <article class="card">
-            <h3>AI in the process</h3>
-            <p>Used AI to speed up product-building work: specs, prototypes, analysis, support flows, and product operations where humans should not repeat the same task forever.</p>
-            <span class="tag">Practical automation</span>
+            <h3>Practical AI</h3>
+            <p>Dify, KB-backed support, prompt design, classification, chatbot guidance, and human review gates.</p>
+            <span class="tag">Screen: AI judgment</span>
           </article>
           <article class="card">
-            <h3>AI in the product</h3>
-            <p>Applied LLM workflows, Dify, prompt design, KB-backed support, chatbot guidance, classification, and human review gates for recruiting-product workflows.</p>
-            <span class="tag">Agents and workflows</span>
+            <h3>Production habits</h3>
+            <p>Debug the failing boundary, add visibility, protect user flow, and make the operating path clearer.</p>
+            <span class="tag">Screen: reliability</span>
           </article>
           <article class="card">
-            <h3>Honest ramp</h3>
-            <p>I can be quiet at first and may take time with new systems. Once the mental model forms, my output compounds fast and I bring more angles to the table.</p>
-            <span class="tag">Mindful, then fast</span>
+            <h3>Business metrics</h3>
+            <p>Lead send time, coverage, missed leads, onboarding speed, operational overhead, and adoption friction.</p>
+            <span class="tag">Screen: impact</span>
           </article>
         </div>
       </div>
@@ -1200,11 +1254,12 @@
         <div class="section-head">
           <div>
             <p class="kicker">FDE skill map</p>
-            <h2>The skills recruiters should see first.</h2>
+            <h2>What to screen me for first.</h2>
           </div>
           <p class="lead">
-            Researched FDE roles consistently ask for coding depth, customer deployment, integrations,
-            production ownership, communication, AI workflow judgment, and measurable business impact.
+            If you are screening for FDE, start with these signals: shipped backend systems,
+            customer workflow mapping, integration work, production reliability, stakeholder communication,
+            and measurable business impact.
           </p>
         </div>
 
@@ -1506,21 +1561,56 @@
     const matchScore = document.querySelector('#match-score');
     const matchCopy = document.querySelector('#match-copy');
     const meterFill = document.querySelector('#meter-fill');
-    const readinessButtons = document.querySelectorAll('[data-readiness-label]');
+    const rampStages = document.querySelectorAll('[data-ramp-stage]');
+    const scrollRamp = [
+      {
+        id: 'match-check',
+        key: 'foundation',
+        percent: 25,
+        copy: 'Foundation: senior software engineering base, production habits, and Zalo/VNG operating context.'
+      },
+      {
+        id: 'case-evidence',
+        key: 'workflow',
+        percent: 50,
+        copy: 'Workflow: concrete Job Market and recruiter onboarding cases replace vague role-fit claims.'
+      },
+      {
+        id: 'experience',
+        key: 'production',
+        percent: 75,
+        copy: 'Production: Job Market metrics and ZNS/business messaging reliability show operating pressure.'
+      },
+      {
+        id: 'wonderful-fit',
+        key: 'onboarding',
+        percent: 100,
+        copy: 'Onboarding upside: new customer stacks still need ramp, but the evidence shows where output compounds.'
+      }
+    ];
 
-    readinessButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const label = button.getAttribute('data-readiness-label');
-        const copy = button.getAttribute('data-readiness-copy');
-        const width = button.getAttribute('data-readiness-width');
+    function updateReadinessProgress() {
+      const checkpoint = window.scrollY + window.innerHeight * 0.42;
+      let active = scrollRamp[0];
 
-        readinessButtons.forEach((item) => item.classList.remove('is-active'));
-        button.classList.add('is-active');
-        matchScore.innerHTML = `<span>${label}</span><small>ready</small>`;
-        matchCopy.textContent = copy;
-        meterFill.style.width = `${width}%`;
+      scrollRamp.forEach((item) => {
+        const section = document.getElementById(item.id);
+        if (section && checkpoint >= section.offsetTop) {
+          active = item;
+        }
       });
-    });
+
+      matchScore.innerHTML = `<span>${active.percent}%</span><small>scroll progress</small>`;
+      matchCopy.textContent = active.copy;
+      meterFill.style.width = `${active.percent}%`;
+      rampStages.forEach((stage) => {
+        stage.classList.toggle('is-active', stage.getAttribute('data-ramp-stage') === active.key);
+      });
+    }
+
+    window.addEventListener('scroll', updateReadinessProgress, { passive: true });
+    window.addEventListener('resize', updateReadinessProgress);
+    updateReadinessProgress();
 
     const playgrounds = {
       'hot-lead': {

@@ -24,7 +24,7 @@ test('main profile is FDE-first and recruiter-readable', async () => {
 
   assert.match(html, /Forward Deployed Engineer/i);
   assert.match(html, /Wonderful\.ai/i);
-  assert.match(html, /Strong now, faster after onboarding/i);
+  assert.match(html, /Scroll the evidence/i);
   assert.match(html, /first concrete target/i);
   assert.match(html, /6\+ years/i);
   assert.match(html, /Experience/i);
@@ -36,10 +36,9 @@ test('main profile is FDE-first and recruiter-readable', async () => {
   }
 
   assert.match(html, /data-company=["']wonderful["']/, 'Recruiter match flow needs Wonderful.ai option.');
-  assert.match(html, /data-readiness-label=["']Now["']/, 'Readiness flow needs a Now stage.');
-  assert.match(html, /data-readiness-label=["']Ramp["']/, 'Readiness flow needs a Ramp stage.');
-  assert.match(html, /data-readiness-label=["']After onboarding["']/, 'Readiness flow needs an After onboarding stage.');
-  assert.match(html, /data-readiness-label=["']Proof["']/, 'Readiness flow needs a Proof stage.');
+  assert.match(html, /data-scroll-ramp/, 'Readiness flow should be driven by scroll progress.');
+  assert.match(html, /Foundation -> workflow -> production -> onboarding/i, 'Readiness ramp needs clear stage labels.');
+  assert.match(html, /addEventListener\(["']scroll["']/, 'Readiness ramp should update as the reader scrolls.');
   assert.match(html, /hot lead|recruiter chatbot|lead matching/i, 'Playground needs concrete recruiting-product examples.');
   assert.match(html, /self-built reasoning artifact/i, 'Playground must be framed as a self-built reasoning artifact.');
   assert.match(html, /prefers-reduced-motion/, 'Reduced-motion CSS guard is required.');
@@ -58,6 +57,7 @@ test('main profile does not expose confusing raw markdown, old claims, or floati
   assert.doesNotMatch(html, /50% permission coverage|permission-control coverage by 50%|50% coverage/i, 'Remove unclear permission coverage claim.');
   assert.doesNotMatch(html, /99% match|100% match/i, 'Remove self-scored match claims.');
   assert.doesNotMatch(html, /From 80% strong engineer to 100% after onboarding/i, 'Replace percentage fit framing with evidence-led readiness.');
+  assert.doesNotMatch(html, /Not a lifelong FDE yet/i, 'Remove self-conscious FDE framing.');
 });
 
 test('experience evidence is concrete enough for a recruiter to understand fit', async () => {
@@ -96,6 +96,15 @@ test('case evidence shows proof instead of self-scored fit', async () => {
   for (const phrase of requiredCasePhrases) {
     assert.match(html, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), `Missing case evidence phrase: ${phrase}`);
   }
+});
+
+test('recruiter-facing sections avoid talking to itself', async () => {
+  const html = await readText('index.html');
+
+  assert.match(html, /Evidence before claims/i);
+  assert.match(html, /If you are screening me for FDE/i);
+  assert.match(html, /What to screen me for first/i);
+  assert.doesNotMatch(html, /Researched FDE roles consistently ask/i);
 });
 
 test('local static links referenced by the profile are present', async () => {

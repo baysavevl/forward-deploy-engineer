@@ -13,7 +13,8 @@ Improve the public FDE profile so it keeps the current strong positioning while 
 
 ## Content Decisions
 
-- Replace the `80% / 92% / 99% / 100%` fit meter with a readiness ramp using concrete stages: `Now`, `Ramp`, `After onboarding`, and `Proof`.
+- Replace the `80% / 92% / 99% / 100%` fit meter with a scroll-driven readiness ramp. The percentage is a reading progress aid, not a match score.
+- The scroll ramp uses concrete stages: foundation, workflow, production, and onboarding upside.
 - Keep Wonderful.ai as the first concrete target, but make the page useful for FDE roles broadly.
 - Add a case evidence section with three recruiter-readable proof cards:
   - Job Market workflow automation.
@@ -22,6 +23,8 @@ Improve the public FDE profile so it keeps the current strong positioning while 
 - Each case must state the customer/workflow pain, what Vinh owned, the result, and the FDE signal.
 - Clarify that the playground is a small self-built reasoning artifact, not a production customer deployment.
 - Preserve honest boundaries around voice/telephony and new internal customer stacks.
+- Remove self-conscious copy such as "Not a lifelong FDE yet" and use recruiter-facing screening language instead.
+- Keep proof cards visually balanced, with consistent card heights and compact tags aligned to the bottom.
 
 ## Success Criteria
 
@@ -29,4 +32,5 @@ Improve the public FDE profile so it keeps the current strong positioning while 
 - A hiring manager sees concrete evidence before the Wonderful.ai-specific mapping.
 - The page still has a clear FDE identity and does not become a generic resume page.
 - Validation fails if the old `99% match` or `100% match` framing returns.
+- Validation fails if the old self-conscious FDE framing returns.
 - All local links remain valid.
