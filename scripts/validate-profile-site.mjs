@@ -6,6 +6,7 @@ import { existsSync } from 'node:fs';
 const requiredIndexSections = [
   'match-check',
   'fde-proof',
+  'case-evidence',
   'skills',
   'experience',
   'playground',
@@ -23,8 +24,8 @@ test('main profile is FDE-first and recruiter-readable', async () => {
 
   assert.match(html, /Forward Deployed Engineer/i);
   assert.match(html, /Wonderful\.ai/i);
-  assert.match(html, /99% match|100% match/i);
-  assert.match(html, /first target/i);
+  assert.match(html, /Strong now, faster after onboarding/i);
+  assert.match(html, /first concrete target/i);
   assert.match(html, /6\+ years/i);
   assert.match(html, /Experience/i);
   assert.match(html, /Education/i);
@@ -35,8 +36,12 @@ test('main profile is FDE-first and recruiter-readable', async () => {
   }
 
   assert.match(html, /data-company=["']wonderful["']/, 'Recruiter match flow needs Wonderful.ai option.');
-  assert.match(html, /80%|99%|100%/, 'Fit flow should show the playful ramp from onboarding to full fit.');
+  assert.match(html, /data-readiness-label=["']Now["']/, 'Readiness flow needs a Now stage.');
+  assert.match(html, /data-readiness-label=["']Ramp["']/, 'Readiness flow needs a Ramp stage.');
+  assert.match(html, /data-readiness-label=["']After onboarding["']/, 'Readiness flow needs an After onboarding stage.');
+  assert.match(html, /data-readiness-label=["']Proof["']/, 'Readiness flow needs a Proof stage.');
   assert.match(html, /hot lead|recruiter chatbot|lead matching/i, 'Playground needs concrete recruiting-product examples.');
+  assert.match(html, /self-built reasoning artifact/i, 'Playground must be framed as a self-built reasoning artifact.');
   assert.match(html, /prefers-reduced-motion/, 'Reduced-motion CSS guard is required.');
 });
 
@@ -51,6 +56,8 @@ test('main profile does not expose confusing raw markdown, old claims, or floati
   assert.doesNotMatch(html, /profile-assistant|data-open-assistant|data-assistant-topic/i, 'Floating assistant should be removed.');
   assert.doesNotMatch(html, /background-size:\s*44px 44px/i, 'Grid background should be removed.');
   assert.doesNotMatch(html, /50% permission coverage|permission-control coverage by 50%|50% coverage/i, 'Remove unclear permission coverage claim.');
+  assert.doesNotMatch(html, /99% match|100% match/i, 'Remove self-scored match claims.');
+  assert.doesNotMatch(html, /From 80% strong engineer to 100% after onboarding/i, 'Replace percentage fit framing with evidence-led readiness.');
 });
 
 test('experience evidence is concrete enough for a recruiter to understand fit', async () => {
@@ -70,6 +77,24 @@ test('experience evidence is concrete enough for a recruiter to understand fit',
 
   for (const phrase of requiredPhrases) {
     assert.match(html, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), `Missing proof phrase: ${phrase}`);
+  }
+});
+
+test('case evidence shows proof instead of self-scored fit', async () => {
+  const html = await readText('index.html');
+
+  const requiredCasePhrases = [
+    'Job Market workflow automation',
+    'Recruiter onboarding support',
+    'ZNS / business messaging reliability',
+    'Customer pain',
+    'Owned',
+    'Result',
+    'FDE signal'
+  ];
+
+  for (const phrase of requiredCasePhrases) {
+    assert.match(html, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), `Missing case evidence phrase: ${phrase}`);
   }
 });
 

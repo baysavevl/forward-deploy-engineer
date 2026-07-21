@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vinh Luu - Forward Deployed Engineer</title>
-  <meta name="description" content="Vinh Luu's Forward Deployed Engineer profile for FDE roles, with Wonderful.ai as the first target: Zalo-scale software engineering, stakeholder ownership, AI workflows, integrations, production systems, and Vietnam/APAC context.">
+  <meta name="description" content="Vinh Luu's Forward Deployed Engineer profile for FDE roles, with Wonderful.ai as the first concrete target: Zalo-scale software engineering, stakeholder ownership, AI workflows, integrations, production systems, and Vietnam/APAC context.">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -427,7 +427,7 @@
 
     .meter {
       display: grid;
-      grid-template-columns: minmax(150px, 0.26fr) minmax(220px, 1fr);
+      grid-template-columns: minmax(300px, 0.4fr) minmax(260px, 1fr);
       gap: 18px;
       align-items: center;
       margin-top: 18px;
@@ -435,9 +435,15 @@
 
     .meter-number {
       color: var(--ink);
-      font-size: clamp(58px, 7.2vw, 88px);
-      line-height: 0.88;
+      font-size: clamp(34px, 4vw, 62px);
+      line-height: 0.95;
       font-weight: 1000;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .meter-number span {
+      display: block;
     }
 
     .meter-number small {
@@ -459,7 +465,7 @@
     }
 
     .meter-fill {
-      width: 99%;
+      width: 72%;
       height: 100%;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--amber), var(--green), var(--blue));
@@ -509,6 +515,8 @@
     }
 
     .grid,
+    .case-grid,
+    .lab-links,
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -520,6 +528,8 @@
     }
 
     .card,
+    .case-card,
+    .lab-link,
     .skill-card,
     .edu-card,
     .play-card {
@@ -531,6 +541,7 @@
     }
 
     .card .tag,
+    .case-card .tag,
     .skill-card .tag,
     .edu-card .tag,
     .play-card .tag {
@@ -549,6 +560,65 @@
     .skill-card[data-level="learning"] .tag {
       color: #764d00;
       background: #fff1cf;
+    }
+
+    .case-card h3,
+    .lab-link h3 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.14;
+    }
+
+    .case-card p,
+    .lab-link p {
+      margin: 10px 0 0;
+      color: var(--body);
+      font-size: 15.5px;
+    }
+
+    .case-facts {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .case-fact {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+
+    .case-fact span {
+      display: block;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    .case-fact strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--ink);
+      font-size: 14.5px;
+      line-height: 1.4;
+    }
+
+    .lab-links {
+      margin-top: 18px;
+    }
+
+    .lab-link {
+      display: block;
+      min-height: 100%;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+
+    .lab-link:hover,
+    .lab-link:focus-visible {
+      border-color: var(--blue);
+      box-shadow: 0 18px 42px rgba(36, 104, 242, 0.15);
+      transform: translateY(-1px);
+      outline: 0;
     }
 
     .experience-layout {
@@ -843,7 +913,9 @@
         border-bottom: 1px solid var(--line);
       }
 
-      .grid {
+      .grid,
+      .case-grid,
+      .lab-links {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -875,6 +947,8 @@
 
       .proof-strip,
       .grid,
+      .case-grid,
+      .lab-links,
       .skills-grid,
       .education-grid,
       .proof-row {
@@ -922,7 +996,8 @@
         <span>Vinh Luu <small>Forward Deployed Engineer</small></span>
       </a>
       <nav class="nav" aria-label="Profile navigation">
-        <a href="#match-check">Match</a>
+        <a href="#match-check">Readiness</a>
+        <a href="#case-evidence">Cases</a>
         <a href="#fde-proof">Proof</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
@@ -937,7 +1012,7 @@
     <section class="hero" aria-label="Profile introduction">
       <div class="shell hero-grid">
         <div>
-          <div class="eyebrow">FDE roles - Wonderful.ai first target</div>
+          <div class="eyebrow">FDE roles - Wonderful.ai first concrete target</div>
           <h1>I build where customer workflows get messy.</h1>
           <p class="hero-copy">
             <strong>6+ years as a software engineer</strong>, now Lead Software Engineer at Zalo/VNG.
@@ -945,7 +1020,7 @@
             and used AI both inside the build process and inside product workflows.
           </p>
           <div class="actions">
-            <a class="button primary" href="#match-check">Run fit ramp</a>
+            <a class="button primary" href="#match-check">Check readiness</a>
             <a class="button" href="#experience">Read evidence</a>
             <a class="button" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf">Open CV</a>
           </div>
@@ -983,42 +1058,91 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <p class="kicker">Playful fit check</p>
-            <h2>From 80% strong engineer to 100% after onboarding.</h2>
+            <p class="kicker">Credible readiness</p>
+            <h2>Strong now, faster after onboarding.</h2>
           </div>
           <p class="lead">
-            The target is FDE roles broadly. Wonderful.ai is the first target because its work asks for integrations,
-            agents, customer deployment, production impact, and local execution.
+            The target is FDE roles broadly. Wonderful.ai is the first concrete target because its work asks for
+            integrations, agents, customer deployment, production impact, and local execution.
           </p>
         </div>
 
         <div class="panel match-panel">
           <div class="match-controls">
             <h3>Selected target</h3>
-            <p>Built for Forward Deployed Engineer roles, with Wonderful.ai used as the first concrete company fit.</p>
+            <p>Built for Forward Deployed Engineer roles, with Wonderful.ai used as the first concrete target to test the story.</p>
             <button class="company-option" type="button" data-company="wonderful" aria-pressed="true">
-              <span>First target</span>
+              <span>First concrete target</span>
               Wonderful.ai
               <strong class="pill">FDE</strong>
             </button>
             <div class="ramp-actions" aria-label="Fit ramp stages">
-              <button type="button" data-fit-score="80" data-fit-copy="80% fit: senior software foundation, production habits, and algorithmic problem solving are already there.">80%</button>
-              <button type="button" data-fit-score="92" data-fit-copy="92% fit: add stakeholder work, lead-team experience, product curiosity, and the habit of turning ambiguity into scope.">92%</button>
-              <button class="is-active" type="button" data-fit-score="99" data-fit-copy="99% fit: Wonderful.ai-style work maps to APIs, agents, workflows, live customer context, and Vietnam/APAC execution.">99%</button>
-              <button type="button" data-fit-score="100" data-fit-copy="100% after onboarding: once the internal systems and customer playbooks click, the learning curve compounds quickly.">100%</button>
+              <button class="is-active" type="button" data-readiness-label="Now" data-readiness-copy="Now: senior software foundation, production habits, stakeholder range, and practical AI workflow work are already visible in the evidence below." data-readiness-width="72">Now</button>
+              <button type="button" data-readiness-label="Ramp" data-readiness-copy="Ramp: new internal tools, customer playbooks, and any voice/telephony-specific details need deliberate onboarding before confident production decisions." data-readiness-width="82">Ramp</button>
+              <button type="button" data-readiness-label="After onboarding" data-readiness-copy="After onboarding: once the customer stack and operating model click, the learning curve compounds through deeper debugging, reusable runbooks, and faster customer translation." data-readiness-width="92">After onboarding</button>
+              <button type="button" data-readiness-label="Proof" data-readiness-copy="Proof: the strongest signal is not a score; it is Job Market workflow automation, recruiter onboarding support, and ZNS/business messaging reliability under real production pressure." data-readiness-width="100">Proof</button>
             </div>
           </div>
           <div class="match-result" aria-live="polite">
-            <h3>Wonderful.ai FDE match</h3>
+            <h3>FDE readiness narrative</h3>
             <p>Strong today, honest about the ramp. The gap is not motivation or engineering depth. It is learning the internal stack, customer playbooks, and any new domain-specific technology.</p>
             <div class="meter">
-              <div class="meter-number" id="match-score"><span>99%</span><small>match</small></div>
+              <div class="meter-number" id="match-score"><span>Now</span><small>ready</small></div>
               <div>
                 <div class="meter-track" aria-hidden="true"><div class="meter-fill" id="meter-fill"></div></div>
-                <div class="match-copy" id="match-copy">99% match: Wonderful.ai-style work maps to APIs, agents, workflows, live customer context, and Vietnam/APAC execution.</div>
+                <div class="match-copy" id="match-copy">Now: senior software foundation, production habits, stakeholder range, and practical AI workflow work are already visible in the evidence below.</div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-evidence">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Case evidence</p>
+            <h2>Proof a hiring manager can question.</h2>
+          </div>
+          <p class="lead">
+            These are not generic traits. They are work-shaped examples a recruiter or hiring manager can ask about in an interview.
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-card">
+            <h3>Job Market workflow automation</h3>
+            <p>Current LifeService recruiting product connecting Vietnamese job seekers with recruiters and labor-supply partners.</p>
+            <div class="case-facts">
+              <div class="case-fact"><span>Customer pain</span><strong>Recruiters and Ops had repeated manual actions across lead handling, processing, and partner coordination.</strong></div>
+              <div class="case-fact"><span>Owned</span><strong>Mapped the workflow, led implementation on the platform, and connected Product, Ops, recruiters, partners, and Engineering.</strong></div>
+              <div class="case-fact"><span>Result</span><strong>Reduced operational overhead by 30% while tracking processing time, lead send time, coverage, and missed leads.</strong></div>
+              <div class="case-fact"><span>FDE signal</span><strong>Turns ambiguous operating work into a scoped product flow with metrics and production accountability.</strong></div>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <h3>Recruiter onboarding support</h3>
+            <p>Support and onboarding improvements for recruiters and mass-hiring partners using Job Market on Zalo.</p>
+            <div class="case-facts">
+              <div class="case-fact"><span>Customer pain</span><strong>Recruiters got blocked by repeated setup, posting, and troubleshooting questions when support was busy.</strong></div>
+              <div class="case-fact"><span>Owned</span><strong>Converted repeated questions into KB-backed chatbot guidance, clearer troubleshooting paths, and escalation boundaries.</strong></div>
+              <div class="case-fact"><span>Result</span><strong>Improved partner onboarding by 40% and made common support answers more self-serve.</strong></div>
+              <div class="case-fact"><span>FDE signal</span><strong>Listens to the customer room, identifies repeatable friction, and turns support noise into reusable delivery material.</strong></div>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <h3>ZNS / business messaging reliability</h3>
+            <p>Previous high-scale business messaging context where enterprises send customer notifications through Zalo surfaces.</p>
+            <div class="case-facts">
+              <div class="case-fact"><span>Customer pain</span><strong>Enterprise notification flows need API behavior and delivery reliability under much higher pressure than a demo.</strong></div>
+              <div class="case-fact"><span>Owned</span><strong>Worked on API paths, partner integration behavior, caching, graceful degradation, and clearer operational ownership.</strong></div>
+              <div class="case-fact"><span>Result</span><strong>Operated in a previous product context with 30M+ user surfaces and millions of daily business messages.</strong></div>
+              <div class="case-fact"><span>FDE signal</span><strong>Understands that customer trust depends on integration details, failure handling, and production communication.</strong></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1229,12 +1353,12 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <p class="kicker">Small playground</p>
-            <h2>Recruiting AI examples from the work world.</h2>
+            <p class="kicker">Self-built reasoning artifact</p>
+            <h2>Small AI workflow demos, clearly scoped.</h2>
           </div>
           <p class="lead">
-            This is intentionally small: a few concrete examples that show how I think about applying AI
-            to recruiting workflows, not a giant demo fighting the resume.
+            This is a self-built reasoning artifact, not a production customer deployment. It shows how I scope
+            recruiting workflows, define guardrails, and connect automation to metrics without hiding the human fallback.
           </p>
         </div>
 
@@ -1261,6 +1385,24 @@
               <div class="flow-step"><b>3</b><span>Measure send time and missed lead rate after rollout.</span></div>
             </div>
           </article>
+        </div>
+
+        <div class="lab-links" aria-label="Mini deployment labs">
+          <a class="lab-link" href="/projects/deployment-blueprint-lab.html">
+            <h3>Deployment Blueprint Lab</h3>
+            <p>Maps a messy enterprise request into scope, architecture, guardrails, rollout, and metrics.</p>
+            <span class="tag">Open mini-lab</span>
+          </a>
+          <a class="lab-link" href="/projects/agent-eval-harness.html">
+            <h3>Agent Eval Harness</h3>
+            <p>Shows launch judgment through scenarios, unsafe-action checks, bilingual cases, and regression gates.</p>
+            <span class="tag">Open mini-lab</span>
+          </a>
+          <a class="lab-link" href="/projects/partner-integration-runbook.html">
+            <h3>Partner Integration Runbook</h3>
+            <p>Frames API contracts, source-of-truth mapping, failure modes, escalation, and handoff.</p>
+            <span class="tag">Open mini-lab</span>
+          </a>
         </div>
       </div>
     </section>
@@ -1311,7 +1453,7 @@
             <h2>Wonderful grows fast. I grow fast after the system clicks.</h2>
           </div>
           <p class="lead">
-            Wonderful.ai is the first target because its FDE work sits exactly at the intersection of
+            Wonderful.ai is the first concrete target because its FDE work sits exactly at the intersection of
             integrations, AI agents, customer workflows, production readiness, and local execution.
           </p>
         </div>
@@ -1364,18 +1506,19 @@
     const matchScore = document.querySelector('#match-score');
     const matchCopy = document.querySelector('#match-copy');
     const meterFill = document.querySelector('#meter-fill');
-    const fitButtons = document.querySelectorAll('[data-fit-score]');
+    const readinessButtons = document.querySelectorAll('[data-readiness-label]');
 
-    fitButtons.forEach((button) => {
+    readinessButtons.forEach((button) => {
       button.addEventListener('click', () => {
-        const score = button.getAttribute('data-fit-score');
-        const copy = button.getAttribute('data-fit-copy');
+        const label = button.getAttribute('data-readiness-label');
+        const copy = button.getAttribute('data-readiness-copy');
+        const width = button.getAttribute('data-readiness-width');
 
-        fitButtons.forEach((item) => item.classList.remove('is-active'));
+        readinessButtons.forEach((item) => item.classList.remove('is-active'));
         button.classList.add('is-active');
-        matchScore.innerHTML = `<span>${score}%</span><small>match</small>`;
+        matchScore.innerHTML = `<span>${label}</span><small>ready</small>`;
         matchCopy.textContent = copy;
-        meterFill.style.width = `${score}%`;
+        meterFill.style.width = `${width}%`;
       });
     });
 
