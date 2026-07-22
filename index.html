@@ -53,6 +53,18 @@
       cursor: pointer;
     }
 
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .shell {
       width: min(1180px, calc(100% - 36px));
       margin: 0 auto;
@@ -529,6 +541,72 @@
       background: #f0f5ff;
     }
 
+    .score-panel {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.32fr) minmax(0, 1fr);
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .score-target {
+      padding: 24px;
+      border-right: 1px solid var(--line);
+      background: #fbfcff;
+    }
+
+    .score-target h3,
+    .score-card h3,
+    .chat-rail h3,
+    .chat-panel h3,
+    .chat-insights h3 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.14;
+    }
+
+    .score-target p,
+    .score-card p,
+    .chat-rail p,
+    .chat-panel p,
+    .chat-insights p {
+      margin: 10px 0 0;
+      color: var(--body);
+      font-size: 15.5px;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .score-card {
+      min-height: 166px;
+      padding: 18px;
+      background: var(--white);
+    }
+
+    .score-card span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      color: var(--white);
+      background: var(--ink);
+      font-size: 12px;
+      font-weight: 1000;
+    }
+
+    .score-card h3 {
+      margin-top: 14px;
+    }
+
     .ramp-actions button,
     .play-tabs button {
       min-height: 38px;
@@ -673,6 +751,196 @@
       box-shadow: 0 18px 42px rgba(36, 104, 242, 0.15);
       transform: translateY(-1px);
       outline: 0;
+    }
+
+    .chat-shell {
+      display: grid;
+      grid-template-columns: minmax(250px, 0.3fr) minmax(0, 1fr);
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .chat-rail {
+      padding: 24px;
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .chat-rail p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .chat-rail .kicker {
+      color: #aee6ff;
+    }
+
+    .chat-scenarios,
+    .prompt-stack {
+      display: grid;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .chat-scenarios button,
+    .prompt-stack button {
+      min-height: 42px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 0 12px;
+      color: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 13px;
+      font-weight: 900;
+      text-align: left;
+    }
+
+    .chat-scenarios button:hover,
+    .chat-scenarios button:focus-visible,
+    .chat-scenarios button.is-active,
+    .prompt-stack button:hover,
+    .prompt-stack button:focus-visible {
+      color: var(--ink);
+      background: #aee6ff;
+      border-color: #aee6ff;
+      outline: 0;
+    }
+
+    .chat-workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.34fr);
+      min-width: 0;
+    }
+
+    .chat-panel {
+      min-width: 0;
+      padding: 18px;
+      border-right: 1px solid var(--line);
+    }
+
+    .chat-panel h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .chat-status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0 10px;
+      color: #0d5f44;
+      background: #ddf5eb;
+      font-size: 12px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .chat-log {
+      height: 380px;
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #f6f8fb;
+      overflow-y: auto;
+    }
+
+    .chat-message {
+      max-width: 88%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 11px 12px;
+      background: var(--white);
+      color: var(--body);
+      font-size: 14.5px;
+    }
+
+    .chat-message b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    .chat-message.user {
+      margin-left: auto;
+      border-color: #c7d7ff;
+      background: #eaf0ff;
+      color: var(--ink);
+    }
+
+    .chat-message.agent {
+      border-color: #d0eadf;
+      background: #f0fbf6;
+    }
+
+    .chat-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      margin-top: 12px;
+      align-items: end;
+    }
+
+    .chat-form textarea {
+      min-height: 72px;
+      resize: vertical;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      padding: 12px;
+      color: var(--ink);
+      background: var(--white);
+      font: inherit;
+      line-height: 1.4;
+    }
+
+    .chat-form textarea:focus {
+      border-color: var(--blue);
+      outline: 3px solid rgba(36, 104, 242, 0.16);
+    }
+
+    .chat-insights {
+      display: grid;
+      align-content: start;
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .chat-insights h3 {
+      padding: 18px;
+      background: var(--white);
+    }
+
+    .insight-row {
+      padding: 15px 18px;
+      background: var(--white);
+    }
+
+    .insight-row span {
+      display: block;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    .insight-row strong {
+      display: block;
+      margin-top: 6px;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.35;
     }
 
     .experience-layout {
@@ -949,6 +1217,9 @@
       .hero-grid,
       .section-head,
       .match-panel,
+      .score-panel,
+      .chat-shell,
+      .chat-workspace,
       .experience-layout,
       .play-layout,
       .play-card,
@@ -963,6 +1234,12 @@
       }
 
       .match-controls {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .score-target,
+      .chat-panel {
         border-right: 0;
         border-bottom: 1px solid var(--line);
       }
@@ -1005,6 +1282,7 @@
       .lab-links,
       .skills-grid,
       .education-grid,
+      .score-grid,
       .proof-row {
         grid-template-columns: 1fr;
       }
@@ -1022,8 +1300,17 @@
 
       .role,
       .meter,
-      .mini-table div {
+      .mini-table div,
+      .chat-form {
         grid-template-columns: 1fr;
+      }
+
+      .chat-log {
+        height: 260px;
+      }
+
+      .chat-message {
+        max-width: 100%;
       }
     }
 
@@ -1050,12 +1337,13 @@
         <span>Vinh Luu <small>Forward Deployed Engineer</small></span>
       </a>
       <nav class="nav" aria-label="Profile navigation">
-        <a href="#match-check">Readiness</a>
+        <a href="#chatbot-lab">Chatbot</a>
+        <a href="#match-check">Scorecard</a>
         <a href="#case-evidence">Cases</a>
         <a href="#fde-proof">Proof</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#playground">Playground</a>
+        <a href="#playground">Projects</a>
         <a href="#wonderful-fit">Wonderful.ai</a>
         <a href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf">CV</a>
       </nav>
@@ -1067,62 +1355,125 @@
       <div class="shell hero-grid">
         <div>
           <div class="eyebrow">FDE roles - Wonderful.ai first concrete target</div>
-          <h1>I build where customer workflows get messy.</h1>
+          <h1>I build customer workflow agents that survive the messy middle.</h1>
           <p class="hero-copy">
             <strong>6+ years as a software engineer</strong>, now Lead Software Engineer at Zalo/VNG.
-            I have led a team, shipped recruiting and messaging products, worked with many stakeholders,
-            and used AI both inside the build process and inside product workflows.
+            The proof is not only a resume: try the workflow chatbot, inspect the guardrails,
+            then read the Zalo cases behind the FDE fit.
           </p>
           <div class="actions">
-            <a class="button primary" href="#match-check">Check readiness</a>
-            <a class="button" href="#experience">Read evidence</a>
+            <a class="button primary" href="#chatbot-lab">Try the live chatbot</a>
+            <a class="button" href="#case-evidence">Read cases</a>
             <a class="button" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf">Open CV</a>
           </div>
         </div>
 
         <aside class="hero-card" aria-label="Fast profile proof">
           <div class="hero-card-head">
-            <span>Recruiter 10-second read</span>
-            <strong>Engineer, lead, listener.</strong>
-            <p>Technical foundation from Zalo/VNG, stakeholder range, calm persistence, and enough product curiosity to keep asking where the real pain is.</p>
+            <span>Live project signal</span>
+            <strong>Customer Workflow Chatbot</strong>
+            <p>Ask a messy enterprise request. The bot returns phase, tool route, guardrail, metric, and next step.</p>
           </div>
           <div class="proof-strip">
             <div>
-              <strong>Lead SWE</strong>
-              <span>Zalo/VNG</span>
+              <strong>Ask</strong>
+              <span>Customer workflow</span>
             </div>
             <div>
-              <strong>50k/day</strong>
-              <span>Job Market requests</span>
+              <strong>Map</strong>
+              <span>Tool route</span>
             </div>
             <div>
-              <strong>30%</strong>
-              <span>Operational overhead reduction</span>
+              <strong>Block</strong>
+              <span>Unsafe actions</span>
             </div>
             <div>
-              <strong>APAC</strong>
-              <span>Vietnam culture edge</span>
+              <strong>Ship</strong>
+              <span>Metric + rollout</span>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section id="match-check" data-scroll-ramp>
+    <section id="chatbot-lab">
       <div class="shell">
         <div class="section-head">
           <div>
-            <p class="kicker">Scroll-readiness ramp</p>
-            <h2>Scroll the evidence. Watch the FDE ramp fill.</h2>
+            <p class="kicker">Interactive project</p>
+            <h2>Customer Workflow Chatbot</h2>
           </div>
           <p class="lead">
-            This is not a self-score. The bar tracks how the page builds the case:
-            Foundation -> workflow -> production -> onboarding upside.
+            Try the live chatbot like a hiring manager would: give it a customer workflow,
+            then judge whether it thinks in systems, guardrails, rollout, and business metrics.
           </p>
         </div>
 
-        <div class="panel match-panel">
-          <div class="match-controls">
+        <div class="chat-shell" data-chatbot>
+          <aside class="chat-rail">
+            <p class="kicker">Try the live chatbot</p>
+            <h3>FDE deployment simulator</h3>
+            <p>
+              This is a small customer workflow agent for enterprise AI deployment thinking.
+              It calls the local agent API when configured and falls back to deterministic logic when not.
+            </p>
+
+            <div class="chat-scenarios" aria-label="Workflow scenarios">
+              <button class="is-active" type="button" data-scenario-choice="billing">Telco billing dispute</button>
+              <button type="button" data-scenario-choice="booking">Clinic appointment reschedule</button>
+              <button type="button" data-scenario-choice="card">Bank lost-card lock</button>
+            </div>
+
+            <div class="prompt-stack" aria-label="Sample prompts">
+              <button type="button" data-prompt="A customer says their latest bill is wrong after a plan change. What would you automate first, and what would you keep behind human approval?">Billing dispute prompt</button>
+              <button type="button" data-prompt="The clinic wants an AI agent to reschedule appointments, but duplicate bookings are risky. How would you launch it safely?">Booking rollout prompt</button>
+              <button type="button" data-prompt="A bank customer says they lost a card and wants the agent to lock it immediately. What identity and audit controls matter?">Lost-card guardrail prompt</button>
+            </div>
+          </aside>
+
+          <div class="chat-workspace">
+            <div class="chat-panel">
+              <h3>
+                Ask the bot
+                <span class="chat-status" data-chat-status>Ready</span>
+              </h3>
+              <p>Use this to test the portfolio, not as a production support channel.</p>
+              <div class="chat-log" data-chat-log aria-live="polite" aria-label="Chat transcript"></div>
+              <form class="chat-form" data-chat-form>
+                <label class="sr-only" for="chat-message">Customer workflow message</label>
+                <textarea id="chat-message" data-chat-input rows="3" placeholder="Example: Customer cannot finish onboarding because the CRM data is stale and support is busy."></textarea>
+                <button class="button primary" type="submit">Ask the bot</button>
+              </form>
+            </div>
+
+            <aside class="chat-insights" aria-label="Deployment answer fields">
+              <h3>Deployment readout</h3>
+              <div class="insight-row"><span>phase</span><strong data-chat-phase>Discovery</strong></div>
+              <div class="insight-row"><span>tool route</span><strong data-chat-route>CRM lookup -> policy retrieval -> ticket note</strong></div>
+              <div class="insight-row"><span>guardrail</span><strong data-chat-guardrail>No state-changing action without permission and source-of-truth match.</strong></div>
+              <div class="insight-row"><span>metric</span><strong data-chat-metric>Containment, unsafe action rate, and time to resolution.</strong></div>
+              <div class="insight-row"><span>next step</span><strong data-chat-next>Confirm the system of record and escalation owner.</strong></div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="match-check">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Recruiter scorecard</p>
+            <h2>Screen the fit with evidence, not self-scoring.</h2>
+          </div>
+          <p class="lead">
+            The page now has one live artifact plus the case evidence behind it.
+            This is the shortest path for a recruiter to decide whether the FDE signal is real.
+          </p>
+        </div>
+
+        <div class="score-panel">
+          <div class="score-target">
             <h3>Selected target</h3>
             <p>Forward Deployed Engineer roles broadly, with Wonderful.ai as the first concrete target to test the story.</p>
             <button class="company-option" type="button" data-company="wonderful" aria-pressed="true">
@@ -1130,23 +1481,29 @@
               Wonderful.ai
               <strong class="pill">FDE</strong>
             </button>
-            <div class="ramp-stages" aria-label="Scroll progress stages">
-              <div class="ramp-stage is-active" data-ramp-stage="foundation"><b>25</b><span>Foundation: 6+ years SWE, Zalo/VNG, system design.</span></div>
-              <div class="ramp-stage" data-ramp-stage="workflow"><b>50</b><span>Workflow: recruiter, partner, Ops, and product pain mapped into scope.</span></div>
-              <div class="ramp-stage" data-ramp-stage="production"><b>75</b><span>Production: Job Market metrics and ZNS/business messaging reliability.</span></div>
-              <div class="ramp-stage" data-ramp-stage="onboarding"><b>100</b><span>Onboarding upside: faster once the customer stack and playbooks click.</span></div>
-            </div>
           </div>
-          <div class="match-result" aria-live="polite">
-            <h3>FDE readiness progress</h3>
-            <p>The percentage rises as you move from basic foundation to concrete proof. It is a reading aid, not a hiring claim.</p>
-            <div class="meter">
-              <div class="meter-number" id="match-score"><span>25%</span><small>scroll progress</small></div>
-              <div>
-                <div class="meter-track" aria-hidden="true"><div class="meter-fill" id="meter-fill"></div></div>
-                <div class="match-copy" id="match-copy">Foundation: senior software engineering base, production habits, and Zalo/VNG operating context.</div>
-              </div>
-            </div>
+
+          <div class="score-grid">
+            <article class="score-card">
+              <span>01</span>
+              <h3>Customer workflow agent</h3>
+              <p>Live chatbot maps ambiguous enterprise requests into phase, tool route, guardrail, metric, and next step.</p>
+            </article>
+            <article class="score-card">
+              <span>02</span>
+              <h3>Zalo production base</h3>
+              <p>Lead SWE experience, Job Market ownership, 50k daily requests, and previous ZNS/business messaging scale.</p>
+            </article>
+            <article class="score-card">
+              <span>03</span>
+              <h3>Measured workflow impact</h3>
+              <p>30% operational overhead reduction and 40% faster partner onboarding from practical automation and support flows.</p>
+            </article>
+            <article class="score-card">
+              <span>04</span>
+              <h3>FDE ramp honesty</h3>
+              <p>Strong software and customer-workflow base, with new stack/domain ramp treated as a delivery plan, not a vague claim.</p>
+            </article>
           </div>
         </div>
       </div>
@@ -1409,10 +1766,10 @@
         <div class="section-head">
           <div>
             <p class="kicker">Self-built reasoning artifact</p>
-            <h2>Small AI workflow demos, clearly scoped.</h2>
+            <h2>Project shelf behind the chatbot.</h2>
           </div>
           <p class="lead">
-            This is a self-built reasoning artifact, not a production customer deployment. It shows how I scope
+            The chatbot is the primary interactive project. These supporting artifacts show how I scope
             recruiting workflows, define guardrails, and connect automation to metrics without hiding the human fallback.
           </p>
         </div>
@@ -1443,6 +1800,11 @@
         </div>
 
         <div class="lab-links" aria-label="Mini deployment labs">
+          <a class="lab-link" href="#chatbot-lab">
+            <h3>Customer Workflow Chatbot</h3>
+            <p>Interactive FDE agent demo: ask a messy customer request and inspect phase, tool route, guardrail, metric, and next step.</p>
+            <span class="tag">Try the live chatbot</span>
+          </a>
           <a class="lab-link" href="/projects/deployment-blueprint-lab.html">
             <h3>Deployment Blueprint Lab</h3>
             <p>Maps a messy enterprise request into scope, architecture, guardrails, rollout, and metrics.</p>
@@ -1558,59 +1920,188 @@
   </main>
 
   <script>
-    const matchScore = document.querySelector('#match-score');
-    const matchCopy = document.querySelector('#match-copy');
-    const meterFill = document.querySelector('#meter-fill');
-    const rampStages = document.querySelectorAll('[data-ramp-stage]');
-    const scrollRamp = [
-      {
-        id: 'match-check',
-        key: 'foundation',
-        percent: 25,
-        copy: 'Foundation: senior software engineering base, production habits, and Zalo/VNG operating context.'
+    const chatScenarios = {
+      billing: {
+        label: 'Telco billing dispute',
+        route: 'CRM lookup -> billing ledger -> policy retrieval -> ticket note',
+        guardrail: 'No refund or credit promise without policy match and role permission.',
+        metric: 'Containment rate, billing CSAT, refund-error rate, and time to resolution.',
+        nextStep: 'Confirm source-of-truth fields for plan change, proration, and charge disputes.'
       },
-      {
-        id: 'case-evidence',
-        key: 'workflow',
-        percent: 50,
-        copy: 'Workflow: concrete Job Market and recruiter onboarding cases replace vague role-fit claims.'
+      booking: {
+        label: 'Clinic appointment reschedule',
+        route: 'Identity check -> appointment service -> provider calendar -> audit note',
+        guardrail: 'No appointment mutation until identity, clinic, and selected slot are confirmed.',
+        metric: 'Successful reschedules, duplicate-booking rate, audit completeness, and fallback volume.',
+        nextStep: 'Map booking states, cancellation windows, and escalation ownership with clinic ops.'
       },
-      {
-        id: 'experience',
-        key: 'production',
-        percent: 75,
-        copy: 'Production: Job Market metrics and ZNS/business messaging reliability show operating pressure.'
-      },
-      {
-        id: 'wonderful-fit',
-        key: 'onboarding',
-        percent: 100,
-        copy: 'Onboarding upside: new customer stacks still need ramp, but the evidence shows where output compounds.'
+      card: {
+        label: 'Bank lost-card lock',
+        route: 'Identity proofing -> 2FA -> card controls API -> compliance log -> human escalation',
+        guardrail: 'Zero unauthorized state-changing actions; escalate if identity confidence is incomplete.',
+        metric: 'Lock-card completion time, unsafe mutation count, escalation rate, and audit coverage.',
+        nextStep: 'Validate authentication step-up, recording policy, rollback, and escalation path.'
       }
-    ];
+    };
 
-    function updateReadinessProgress() {
-      const checkpoint = window.scrollY + window.innerHeight * 0.42;
-      let active = scrollRamp[0];
+    const chatForm = document.querySelector('[data-chat-form]');
+    const chatInput = document.querySelector('[data-chat-input]');
+    const chatLog = document.querySelector('[data-chat-log]');
+    const chatStatus = document.querySelector('[data-chat-status]');
+    const chatScenarioButtons = document.querySelectorAll('[data-scenario-choice]');
+    const chatPromptButtons = document.querySelectorAll('[data-prompt]');
+    const chatFields = {
+      phase: document.querySelector('[data-chat-phase]'),
+      route: document.querySelector('[data-chat-route]'),
+      guardrail: document.querySelector('[data-chat-guardrail]'),
+      metric: document.querySelector('[data-chat-metric]'),
+      nextStep: document.querySelector('[data-chat-next]')
+    };
+    let activeScenario = 'billing';
+    const chatHistory = [];
 
-      scrollRamp.forEach((item) => {
-        const section = document.getElementById(item.id);
-        if (section && checkpoint >= section.offsetTop) {
-          active = item;
-        }
-      });
-
-      matchScore.innerHTML = `<span>${active.percent}%</span><small>scroll progress</small>`;
-      matchCopy.textContent = active.copy;
-      meterFill.style.width = `${active.percent}%`;
-      rampStages.forEach((stage) => {
-        stage.classList.toggle('is-active', stage.getAttribute('data-ramp-stage') === active.key);
-      });
+    function setChatStatus(message) {
+      if (chatStatus) {
+        chatStatus.textContent = message;
+      }
     }
 
-    window.addEventListener('scroll', updateReadinessProgress, { passive: true });
-    window.addEventListener('resize', updateReadinessProgress);
-    updateReadinessProgress();
+    function appendChatMessage(role, text) {
+      if (!chatLog) return;
+      const bubble = document.createElement('div');
+      bubble.className = `chat-message ${role}`;
+
+      const label = document.createElement('b');
+      label.textContent = role === 'user' ? 'Customer' : 'FDE bot';
+
+      const content = document.createElement('span');
+      content.textContent = text;
+
+      bubble.append(label, content);
+      chatLog.appendChild(bubble);
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    function updateChatReadout(payload) {
+      if (!payload) return;
+      if (chatFields.phase) chatFields.phase.textContent = payload.phase || 'Discovery';
+      if (chatFields.route) chatFields.route.textContent = payload.toolRoute || chatScenarios[activeScenario].route;
+      if (chatFields.guardrail) chatFields.guardrail.textContent = payload.guardrail || chatScenarios[activeScenario].guardrail;
+      if (chatFields.metric) chatFields.metric.textContent = payload.metric || chatScenarios[activeScenario].metric;
+      if (chatFields.nextStep) chatFields.nextStep.textContent = payload.nextStep || chatScenarios[activeScenario].nextStep;
+    }
+
+    function localWorkflowReply(scenarioKey, message) {
+      const scenario = chatScenarios[scenarioKey] || chatScenarios.billing;
+      const lower = String(message || '').toLowerCase();
+      let phase = 'Discovery';
+      let focus = 'I would first map the customer workflow, source of truth, permission boundary, and human fallback before automating the action.';
+
+      if (lower.includes('debug') || lower.includes('fail') || lower.includes('error')) {
+        phase = 'Production debug';
+        focus = 'I would split the failure into user intent, model output, tool request, upstream response, and policy decision before changing prompts.';
+      } else if (lower.includes('launch') || lower.includes('rollout') || lower.includes('pilot')) {
+        phase = 'Controlled rollout';
+        focus = 'I would launch this as a narrow pilot with trace logging, alert thresholds, human fallback, and a rollback path.';
+      } else if (lower.includes('eval') || lower.includes('test') || lower.includes('quality')) {
+        phase = 'Eval design';
+        focus = 'I would turn real support logs into eval cases for happy path, missing data, unsafe requests, bilingual phrasing, and escalation.';
+      }
+
+      return {
+        reply: `${focus} For the ${scenario.label.toLowerCase()} workflow, the first useful agent is not a generic chat answer. It needs a safe tool route (${scenario.route}), a clear guardrail, and a metric that proves the deployment helped without creating unsafe state changes.`,
+        phase,
+        toolRoute: scenario.route,
+        guardrail: scenario.guardrail,
+        metric: scenario.metric,
+        nextStep: scenario.nextStep,
+        source: 'local-fallback',
+        configured: false
+      };
+    }
+
+    function resetChatIntro() {
+      if (!chatLog) return;
+      const scenario = chatScenarios[activeScenario];
+      chatLog.innerHTML = '';
+      chatHistory.length = 0;
+      const intro = `Give me a messy ${scenario.label.toLowerCase()} request. I will answer like an FDE: phase, tool route, guardrail, metric, and next step.`;
+      appendChatMessage('agent', intro);
+      chatHistory.push({ role: 'agent', text: intro });
+      updateChatReadout({
+        phase: 'Discovery',
+        toolRoute: scenario.route,
+        guardrail: scenario.guardrail,
+        metric: scenario.metric,
+        nextStep: scenario.nextStep
+      });
+      setChatStatus('Ready');
+    }
+
+    async function submitChatMessage(message) {
+      const cleanMessage = String(message || '').trim();
+      if (!cleanMessage) return;
+
+      appendChatMessage('user', cleanMessage);
+      chatHistory.push({ role: 'user', text: cleanMessage });
+      setChatStatus('Thinking');
+
+      let payload;
+      try {
+        const response = await fetch('/api/agent', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            scenario: activeScenario,
+            language: 'en',
+            message: cleanMessage,
+            history: chatHistory
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`Agent API returned ${response.status}`);
+        }
+
+        payload = await response.json();
+        setChatStatus(payload.configured ? 'Live API' : 'Local fallback');
+      } catch (_error) {
+        payload = localWorkflowReply(activeScenario, cleanMessage);
+        setChatStatus('Local fallback');
+      }
+
+      const reply = payload.reply || localWorkflowReply(activeScenario, cleanMessage).reply;
+      appendChatMessage('agent', reply);
+      chatHistory.push({ role: 'agent', text: reply });
+      updateChatReadout(payload);
+    }
+
+    if (chatForm && chatInput) {
+      resetChatIntro();
+
+      chatForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const message = chatInput.value;
+        chatInput.value = '';
+        submitChatMessage(message);
+      });
+
+      chatScenarioButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          activeScenario = button.getAttribute('data-scenario-choice') || 'billing';
+          chatScenarioButtons.forEach((item) => item.classList.toggle('is-active', item === button));
+          resetChatIntro();
+          chatInput.focus();
+        });
+      });
+
+      chatPromptButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          chatInput.value = button.getAttribute('data-prompt') || '';
+          chatInput.focus();
+        });
+      });
+    }
 
     const playgrounds = {
       'hot-lead': {

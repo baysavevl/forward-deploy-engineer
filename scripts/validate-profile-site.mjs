@@ -9,6 +9,7 @@ const requiredIndexSections = [
   'case-evidence',
   'skills',
   'experience',
+  'chatbot-lab',
   'playground',
   'education',
   'wonderful-fit',
@@ -24,7 +25,7 @@ test('main profile is FDE-first and recruiter-readable', async () => {
 
   assert.match(html, /Forward Deployed Engineer/i);
   assert.match(html, /Wonderful\.ai/i);
-  assert.match(html, /Scroll the evidence/i);
+  assert.match(html, /Try the live chatbot/i);
   assert.match(html, /first concrete target/i);
   assert.match(html, /6\+ years/i);
   assert.match(html, /Experience/i);
@@ -36,9 +37,8 @@ test('main profile is FDE-first and recruiter-readable', async () => {
   }
 
   assert.match(html, /data-company=["']wonderful["']/, 'Recruiter match flow needs Wonderful.ai option.');
-  assert.match(html, /data-scroll-ramp/, 'Readiness flow should be driven by scroll progress.');
-  assert.match(html, /Foundation -> workflow -> production -> onboarding/i, 'Readiness ramp needs clear stage labels.');
-  assert.match(html, /addEventListener\(["']scroll["']/, 'Readiness ramp should update as the reader scrolls.');
+  assert.match(html, /Customer workflow agent/i, 'Profile should lead with an agent/workflow project signal.');
+  assert.match(html, /Recruiter scorecard/i, 'Profile needs a concise screenable scorecard.');
   assert.match(html, /hot lead|recruiter chatbot|lead matching/i, 'Playground needs concrete recruiting-product examples.');
   assert.match(html, /self-built reasoning artifact/i, 'Playground must be framed as a self-built reasoning artifact.');
   assert.match(html, /prefers-reduced-motion/, 'Reduced-motion CSS guard is required.');
@@ -96,6 +96,34 @@ test('case evidence shows proof instead of self-scored fit', async () => {
   for (const phrase of requiredCasePhrases) {
     assert.match(html, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), `Missing case evidence phrase: ${phrase}`);
   }
+});
+
+test('profile exposes an interactive FDE chatbot project', async () => {
+  const html = await readText('index.html');
+
+  const requiredChatbotPhrases = [
+    'Customer Workflow Chatbot',
+    'Try the live chatbot',
+    'Ask the bot',
+    'data-chat-form',
+    'data-chat-input',
+    'data-chat-log',
+    'data-prompt',
+    '/api/agent',
+    'localWorkflowReply',
+    'tool route',
+    'guardrail',
+    'metric',
+    'next step'
+  ];
+
+  for (const phrase of requiredChatbotPhrases) {
+    assert.match(html, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), `Missing chatbot phrase: ${phrase}`);
+  }
+
+  assert.match(html, /href=["']#chatbot-lab["']/i, 'Primary flow should link to the chatbot lab.');
+  assert.match(html, /fetch\(["']\/api\/agent["']/i, 'Chatbot should call the local agent API.');
+  assert.match(html, /aria-live=["']polite["']/i, 'Chatbot output should be announced accessibly.');
 });
 
 test('recruiter-facing sections avoid talking to itself', async () => {
