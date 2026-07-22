@@ -10,20 +10,26 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <style>
     :root {
-      --ink: #12131a;
-      --body: #4d5563;
-      --muted: #737b88;
-      --paper: #f6f8fb;
+      --google-blue: #4285f4;
+      --google-red: #ea4335;
+      --google-yellow: #fbbc04;
+      --google-green: #34a853;
+      --ink: #202124;
+      --body: #5f6368;
+      --muted: #7b818b;
+      --paper: #ffffff;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
       --white: #ffffff;
-      --line: #dce2ea;
-      --line-strong: #b8c3d2;
-      --blue: #2468f2;
-      --green: #18a77a;
-      --amber: #f0a21a;
-      --coral: #e46c5a;
-      --violet: #6f4bd8;
-      --cyan: #17b8d8;
-      --shadow: 0 24px 70px rgba(18, 19, 26, 0.12);
+      --line: #e5e7eb;
+      --line-strong: #d1d5db;
+      --blue: var(--google-blue);
+      --green: var(--google-green);
+      --amber: var(--google-yellow);
+      --coral: var(--google-red);
+      --violet: #7c3aed;
+      --cyan: #0891b2;
+      --shadow: 0 18px 50px rgba(60, 64, 67, 0.12);
     }
 
     * {
@@ -75,7 +81,7 @@
       top: 0;
       z-index: 40;
       border-bottom: 1px solid rgba(220, 226, 234, 0.9);
-      background: rgba(246, 248, 251, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(18px);
     }
 
@@ -141,18 +147,17 @@
     .hero {
       position: relative;
       border-bottom: 1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(36, 104, 242, 0.11), transparent 38%),
-        linear-gradient(315deg, rgba(24, 167, 122, 0.12), transparent 42%),
-        var(--white);
+      background: var(--paper);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(330px, 0.38fr);
-      gap: 38px;
-      align-items: end;
-      padding: 78px 0 44px;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: center;
+      justify-items: center;
+      padding: 86px 0 58px;
+      text-align: center;
     }
 
     .eyebrow {
@@ -160,30 +165,30 @@
       align-items: center;
       gap: 8px;
       min-height: 32px;
-      border: 1px solid var(--line-strong);
+      border: 1px solid #dbeafe;
       border-radius: 999px;
       padding: 0 12px;
       color: var(--blue);
-      background: rgba(255, 255, 255, 0.76);
+      background: #eff6ff;
       font-size: 12px;
       font-weight: 950;
       text-transform: uppercase;
     }
 
     .eyebrow::before {
-      width: 7px;
-      height: 7px;
+      width: 60px;
+      height: 4px;
       border-radius: 999px;
-      background: var(--green);
-      box-shadow: 0 0 0 5px rgba(24, 167, 122, 0.16);
+      background: linear-gradient(90deg, var(--google-blue) 0 25%, var(--google-red) 25% 50%, var(--google-yellow) 50% 75%, var(--google-green) 75% 100%);
+      box-shadow: none;
       content: "";
     }
 
     h1 {
       max-width: 900px;
       margin: 18px 0 0;
-      font-size: clamp(42px, 6.8vw, 82px);
-      line-height: 0.98;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.02;
       letter-spacing: 0;
       overflow-wrap: anywhere;
     }
@@ -192,7 +197,7 @@
       max-width: 820px;
       margin: 24px 0 0;
       color: var(--body);
-      font-size: clamp(17px, 2vw, 22px);
+      font-size: clamp(17px, 1.8vw, 21px);
     }
 
     .hero-copy strong {
@@ -204,6 +209,7 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 28px;
+      justify-content: center;
     }
 
     .button {
@@ -223,9 +229,9 @@
     }
 
     .button.primary {
-      border-color: var(--ink);
+      border-color: var(--blue);
       color: var(--white);
-      background: var(--ink);
+      background: var(--blue);
     }
 
     .button.dark {
@@ -244,19 +250,20 @@
     .hero-card {
       border: 1px solid var(--line-strong);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.88);
-      box-shadow: var(--shadow);
+      background: var(--surface);
+      box-shadow: 0 12px 32px rgba(60, 64, 67, 0.08);
       overflow: hidden;
+      width: min(760px, 100%);
     }
 
     .hero-card-head {
       padding: 22px;
-      color: var(--white);
-      background: var(--ink);
+      color: var(--ink);
+      background: var(--surface);
     }
 
     .hero-card-head span {
-      color: #aee6ff;
+      color: var(--blue);
       font-size: 12px;
       font-weight: 1000;
       text-transform: uppercase;
@@ -265,13 +272,13 @@
     .hero-card-head strong {
       display: block;
       margin-top: 8px;
-      font-size: clamp(38px, 6vw, 58px);
-      line-height: 0.95;
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1.04;
     }
 
     .hero-card-head p {
       margin: 14px 0 0;
-      color: rgba(255, 255, 255, 0.74);
+      color: var(--body);
       font-weight: 760;
     }
 
@@ -286,7 +293,7 @@
       padding: 16px;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      background: var(--white);
+      background: var(--surface-soft);
     }
 
     .proof-strip div:nth-child(2n) {
@@ -755,31 +762,34 @@
 
     .chat-shell {
       display: grid;
-      grid-template-columns: minmax(250px, 0.3fr) minmax(0, 1fr);
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      background: var(--white);
-      box-shadow: var(--shadow);
+      grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+      gap: 24px;
+      align-items: start;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
       overflow: hidden;
     }
 
     .chat-rail {
-      padding: 24px;
-      color: var(--white);
-      background: var(--ink);
+      padding: 0;
+      color: var(--ink);
+      background: transparent;
     }
 
     .chat-rail p {
-      color: rgba(255, 255, 255, 0.72);
+      color: var(--body);
     }
 
     .chat-rail .kicker {
-      color: #aee6ff;
+      color: var(--blue);
     }
 
     .chat-scenarios,
     .prompt-stack {
-      display: grid;
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
       margin-top: 18px;
     }
@@ -787,11 +797,11 @@
     .chat-scenarios button,
     .prompt-stack button {
       min-height: 42px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      padding: 0 12px;
-      color: rgba(255, 255, 255, 0.82);
-      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      padding: 0 14px;
+      color: var(--body);
+      background: var(--surface);
       font-size: 13px;
       font-weight: 900;
       text-align: left;
@@ -802,22 +812,28 @@
     .chat-scenarios button.is-active,
     .prompt-stack button:hover,
     .prompt-stack button:focus-visible {
-      color: var(--ink);
-      background: #aee6ff;
-      border-color: #aee6ff;
+      color: var(--blue);
+      background: #eff6ff;
+      border-color: #bfdbfe;
       outline: 0;
     }
 
     .chat-workspace {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.34fr);
+      gap: 14px;
       min-width: 0;
+      border: 1px solid var(--line-strong);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: 0 18px 50px rgba(60, 64, 67, 0.12);
+      overflow: hidden;
     }
 
     .chat-panel {
       min-width: 0;
       padding: 18px;
-      border-right: 1px solid var(--line);
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
     }
 
     .chat-panel h3 {
@@ -831,37 +847,38 @@
       display: inline-flex;
       align-items: center;
       min-height: 28px;
-      border: 1px solid var(--line);
+      border: 1px solid #bbf7d0;
       border-radius: 999px;
       padding: 0 10px;
       color: #0d5f44;
-      background: #ddf5eb;
+      background: #dcfce7;
       font-size: 12px;
       font-weight: 950;
       white-space: nowrap;
     }
 
     .chat-log {
-      height: 380px;
+      height: clamp(180px, 28vh, 280px);
       display: grid;
       align-content: start;
       gap: 12px;
       margin-top: 14px;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 14px;
       padding: 14px;
-      background: #f6f8fb;
+      background: var(--surface-soft);
       overflow-y: auto;
     }
 
     .chat-message {
       max-width: 88%;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 14px;
       padding: 11px 12px;
-      background: var(--white);
+      background: var(--surface);
       color: var(--body);
       font-size: 14.5px;
+      overflow-wrap: anywhere;
     }
 
     .chat-message b {
@@ -875,14 +892,14 @@
 
     .chat-message.user {
       margin-left: auto;
-      border-color: #c7d7ff;
-      background: #eaf0ff;
+      border-color: #bfdbfe;
+      background: #eff6ff;
       color: var(--ink);
     }
 
     .chat-message.agent {
-      border-color: #d0eadf;
-      background: #f0fbf6;
+      border-color: #bbf7d0;
+      background: #f0fdf4;
     }
 
     .chat-form {
@@ -897,10 +914,10 @@
       min-height: 72px;
       resize: vertical;
       border: 1px solid var(--line-strong);
-      border-radius: 8px;
+      border-radius: 14px;
       padding: 12px;
       color: var(--ink);
-      background: var(--white);
+      background: var(--surface);
       font: inherit;
       line-height: 1.4;
     }
@@ -912,12 +929,14 @@
 
     .chat-insights {
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       align-content: start;
       gap: 1px;
       background: var(--line);
     }
 
     .chat-insights h3 {
+      grid-column: 1 / -1;
       padding: 18px;
       background: var(--white);
     }
@@ -941,6 +960,7 @@
       color: var(--ink);
       font-size: 14px;
       line-height: 1.35;
+      overflow-wrap: anywhere;
     }
 
     .experience-layout {
@@ -1218,8 +1238,6 @@
       .section-head,
       .match-panel,
       .score-panel,
-      .chat-shell,
-      .chat-workspace,
       .experience-layout,
       .play-layout,
       .play-card,
@@ -1255,6 +1273,16 @@
       }
     }
 
+    @media (max-width: 860px) {
+      .chat-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .chat-insights {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 700px) {
       .shell {
         width: min(100% - 26px, 1180px);
@@ -1265,15 +1293,41 @@
       }
 
       .hero-grid {
-        padding: 50px 0 30px;
+        padding: 46px 0 34px;
       }
 
       h1 {
-        font-size: clamp(38px, 13vw, 56px);
+        font-size: clamp(34px, 11vw, 48px);
       }
 
       section {
-        padding: 52px 0;
+        padding: 46px 0;
+      }
+
+      .section-head {
+        gap: 18px;
+        margin-bottom: 22px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
+      .chat-rail p {
+        margin-top: 8px;
+      }
+
+      .chat-scenarios,
+      .prompt-stack {
+        gap: 6px;
+        margin-top: 12px;
+      }
+
+      .chat-scenarios button,
+      .prompt-stack button {
+        min-height: 38px;
+        padding: 0 12px;
+        font-size: 12px;
       }
 
       .proof-strip,
@@ -1306,7 +1360,7 @@
       }
 
       .chat-log {
-        height: 260px;
+        height: clamp(200px, 32vh, 260px);
       }
 
       .chat-message {
@@ -1329,7 +1383,7 @@
     }
   </style>
 </head>
-<body>
+<body data-visit-beacon>
   <header class="topbar">
     <div class="shell topbar-inner">
       <a class="brand" href="#top" aria-label="Vinh Luu profile home">
@@ -1920,6 +1974,61 @@
   </main>
 
   <script>
+    function getOrCreateVisitId() {
+      try {
+        const key = 'fde_visit_id';
+        const existing = window.localStorage.getItem(key);
+        if (existing) return { id: existing, firstVisit: false };
+        const nextId = `s_${Math.random().toString(36).slice(2)}${Date.now().toString(36)}`;
+        window.localStorage.setItem(key, nextId);
+        return { id: nextId, firstVisit: true };
+      } catch (_error) {
+        return { id: `s_${Date.now().toString(36)}`, firstVisit: true };
+      }
+    }
+
+    function sendVisitBeacon() {
+      if (!document.body || !document.body.hasAttribute('data-visit-beacon')) return;
+
+      try {
+        const sessionKey = 'fde_visit_beacon_sent';
+        if (window.sessionStorage.getItem(sessionKey)) return;
+        window.sessionStorage.setItem(sessionKey, '1');
+      } catch (_error) {
+        // Ignore storage failures; the beacon can still be sent once for this load.
+      }
+
+      const visit = getOrCreateVisitId();
+      const payload = {
+        sessionId: visit.id,
+        firstVisit: visit.firstVisit,
+        landing: window.location.pathname || '/',
+        referrer: document.referrer || '',
+        language: navigator.language || '',
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+        screen: window.screen ? `${window.screen.width}x${window.screen.height}` : '',
+        viewport: `${window.innerWidth}x${window.innerHeight}`,
+        platform: navigator.platform || '',
+        userAgent: navigator.userAgent || ''
+      };
+      const body = JSON.stringify(payload);
+
+      if (navigator.sendBeacon) {
+        const blob = new Blob([body], { type: 'application/json' });
+        navigator.sendBeacon('/api/visit', blob);
+        return;
+      }
+
+      fetch('/api/visit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+        keepalive: true
+      }).catch(() => {});
+    }
+
+    sendVisitBeacon();
+
     const chatScenarios = {
       billing: {
         label: 'Telco billing dispute',

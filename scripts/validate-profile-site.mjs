@@ -114,7 +114,8 @@ test('profile exposes an interactive FDE chatbot project', async () => {
     'tool route',
     'guardrail',
     'metric',
-    'next step'
+    'next step',
+    'data-visit-beacon'
   ];
 
   for (const phrase of requiredChatbotPhrases) {
@@ -124,6 +125,38 @@ test('profile exposes an interactive FDE chatbot project', async () => {
   assert.match(html, /href=["']#chatbot-lab["']/i, 'Primary flow should link to the chatbot lab.');
   assert.match(html, /fetch\(["']\/api\/agent["']/i, 'Chatbot should call the local agent API.');
   assert.match(html, /aria-live=["']polite["']/i, 'Chatbot output should be announced accessibly.');
+});
+
+test('chatbot layout is viewport-safe and follows the cleaner reference pattern', async () => {
+  const html = await readText('index.html');
+
+  assert.match(html, /--google-blue/i, 'Design system should expose Google-inspired color tokens.');
+  assert.match(html, /--surface/i, 'Design system should use a neutral surface token.');
+  assert.match(html, /grid-template-columns:\s*minmax\(0,\s*0\.92fr\)\s+minmax\(360px,\s*1\.08fr\)/i, 'Chatbot should be a two-column product surface on desktop.');
+  assert.match(html, /@media\s*\(max-width:\s*860px\)[\s\S]*\.chat-shell\s*\{[\s\S]*grid-template-columns:\s*1fr/i, 'Chatbot should collapse to one column before tablet/mobile.');
+  assert.match(html, /\.chat-log\s*\{[\s\S]*height:\s*clamp\(180px,\s*28vh,\s*280px\)/i, 'Chat log height must be viewport-relative, not a fixed oversized block.');
+  assert.match(html, /\.chat-insights\s*\{[\s\S]*grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/i, 'Readout should wrap into readable two-column rows.');
+  assert.match(html, /overflow-wrap:\s*anywhere/i, 'Long route/metric strings need wrapping protection.');
+  assert.doesNotMatch(html, /grid-template-columns:\s*minmax\(250px,\s*0\.3fr\)\s+minmax\(0,\s*1fr\)/i, 'Remove the old heavy sidebar shell.');
+  assert.doesNotMatch(html, /grid-template-columns:\s*minmax\(0,\s*1fr\)\s+minmax\(260px,\s*0\.34fr\)/i, 'Remove the nested three-column chatbot layout.');
+  assert.doesNotMatch(html, /height:\s*380px/i, 'Fixed 380px chat log caused mobile layout break.');
+});
+
+test('visit notification is wired for Telegram without exposing secrets', async () => {
+  const html = await readText('index.html');
+  const visitApi = await readText('api/visit.js');
+
+  assert.match(html, /sendVisitBeacon/i);
+  assert.match(html, /navigator\.sendBeacon|fetch\(["']\/api\/visit["']/i);
+  assert.match(visitApi, /TELEGRAM_BOT_TOKEN/);
+  assert.match(visitApi, /TELEGRAM_VISIT_CHAT_ID/);
+  assert.match(visitApi, /TELEGRAM_CHAT_ID/);
+  assert.match(visitApi, /sendMessage/);
+  assert.match(visitApi, /inline_keyboard/);
+  assert.match(visitApi, /Mark lead/);
+  assert.match(visitApi, /Info/);
+  assert.match(visitApi, /Block/);
+  assert.doesNotMatch(visitApi, /\b\d{8,}:[A-Za-z0-9_-]{20,}\b/, 'Telegram bot token must not be hardcoded.');
 });
 
 test('recruiter-facing sections avoid talking to itself', async () => {
