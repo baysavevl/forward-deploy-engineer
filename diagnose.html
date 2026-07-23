@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Deployment Diagnostic - Wonderful FDE Workbench</title>
+  <meta name="description" content="A five-question diagnostic that maps a messy enterprise AI request into first workflow, integration route, guardrail, metric, and next step.">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/assets/fde-workbench.css?v=20260724b">
+</head>
+<body data-visit-beacon>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="/" aria-label="Wonderful FDE Workbench home">
+        <img src="/assets/vinh-avatar.png" alt="">
+        <span>Vinh Luu <small>Wonderful FDE Workbench</small></span>
+      </a>
+      <nav class="nav" aria-label="Workbench navigation">
+        <a href="/">Home</a>
+        <a href="/why-wonderful.html">Why Wonderful</a>
+        <a href="/diagnose.html">Diagnostic</a>
+        <a href="/explain.html">Explainer</a>
+        <a href="/toolkit.html">Toolkit</a>
+        <a href="/why-me.html">Why me</a>
+        <a href="/let-me-help.html">Let me help</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero page-hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="kicker">Interactive tool</p>
+          <h1>Agent Deployment Diagnostic</h1>
+          <p class="lead">Five questions turn a broad AI idea into the FDE plan Wonderful would need: first workflow, integration path, guardrail, launch metric, and next step.</p>
+        </div>
+        <div class="page-note">
+          <strong>Modeled after the Google SA diagnostic.</strong>
+          <p>This version is about enterprise agents, not ads. It demonstrates how I scope before coding.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell split" data-diagnostic>
+        <div class="diagnostic-card">
+          <p class="kicker">Question set</p>
+          <div class="question" data-question>
+            <h3>1. What should the first agent improve?</h3>
+            <div class="option-row">
+              <button class="is-active" type="button" data-diagnostic-choice data-value="matching">Lead matching</button>
+              <button type="button" data-diagnostic-choice data-value="support">Support onboarding</button>
+              <button type="button" data-diagnostic-choice data-value="operations">Manual operations</button>
+              <button type="button" data-diagnostic-choice data-value="compliance">Risky actions</button>
+            </div>
+          </div>
+          <div class="question" data-question>
+            <h3>2. How ready is the data?</h3>
+            <div class="option-row">
+              <button class="is-active" type="button" data-diagnostic-choice data-value="known">Known sources</button>
+              <button type="button" data-diagnostic-choice data-value="scattered">Scattered logs</button>
+              <button type="button" data-diagnostic-choice data-value="unclear">Unclear owner</button>
+            </div>
+          </div>
+          <div class="question" data-question>
+            <h3>3. Where must the agent live?</h3>
+            <div class="option-row">
+              <button class="is-active" type="button" data-diagnostic-choice data-value="internal">Internal tool</button>
+              <button type="button" data-diagnostic-choice data-value="crm">CRM or support desk</button>
+              <button type="button" data-diagnostic-choice data-value="customer">Customer-facing channel</button>
+            </div>
+          </div>
+          <div class="question" data-question>
+            <h3>4. What is the risk level?</h3>
+            <div class="option-row">
+              <button class="is-active" type="button" data-diagnostic-choice data-value="moderate">Recommend only</button>
+              <button type="button" data-diagnostic-choice data-value="high">Write actions</button>
+              <button type="button" data-diagnostic-choice data-value="regulated">Regulated data</button>
+            </div>
+          </div>
+          <div class="question" data-question>
+            <h3>5. What proves value?</h3>
+            <div class="option-row">
+              <button class="is-active" type="button" data-diagnostic-choice data-value="business">Business metric</button>
+              <button type="button" data-diagnostic-choice data-value="quality">Quality metric</button>
+              <button type="button" data-diagnostic-choice data-value="cost">Cost metric</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="result-panel" data-diagnostic-result>
+          <p class="kicker">Recommended deployment</p>
+          <h2 data-result-workflow>AI lead-matching copilot</h2>
+          <p>Use this as a first customer conversation artifact: it is specific enough to discuss systems, but small enough to pilot.</p>
+          <div class="mini-result">
+            <div><span>Integration route</span><strong data-result-route></strong></div>
+            <div><span>Guardrail</span><strong data-result-guardrail></strong></div>
+            <div><span>Metric</span><strong data-result-metric></strong></div>
+            <div><span>Next step</span><strong data-result-next></strong></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <script src="/assets/fde-workbench.js?v=20260724b"></script>
+</body>
+</html>
