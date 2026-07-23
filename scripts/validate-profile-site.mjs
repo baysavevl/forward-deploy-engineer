@@ -244,6 +244,7 @@ test('why pages answer the hiring proof problem with STAR proof and product unde
     '$150M Series B',
     '$2B valuation',
     '$286M total raised',
+    'TechCrunch report',
     '30+ markets',
     '350 to 900',
     'Applied AI for critical workflows',
