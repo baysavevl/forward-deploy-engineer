@@ -1,5 +1,6 @@
 const DEFAULT_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
 const FALLBACK_MODELS = ["gemini-2.5-flash", "gemini-2.0-flash"];
+const GEMINI_TIMEOUT_MS = Number(process.env.GEMINI_TIMEOUT_MS || 8000);
 
 const responseSchema = {
   type: "object",
@@ -262,26 +263,35 @@ async function callGemini({ apiKey, model, contents, scenarioKey, language }) {
     ? "Response language: Vietnamese. Use clear Vietnamese, keep FDE terms like API, eval, guardrail, rollout, and trace when those terms are useful."
     : "Response language: English.";
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
-  const response = await fetch(endpoint, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      systemInstruction: {
-        parts: [
-          {
-            text: `${baseSystemPrompt}\n\n${languageInstruction}\nCurrent workflow: ${scenario.label}\nDefault tool route: ${scenario.route}\nDefault guardrail: ${scenario.guardrail}\nDefault metric: ${scenario.metric}`,
-          },
-        ],
-      },
-      contents,
-      generationConfig: {
-        temperature: 0.35,
-        maxOutputTokens: 900,
-        responseMimeType: "application/json",
-        responseJsonSchema: responseSchema,
-      },
-    }),
-  });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), GEMINI_TIMEOUT_MS);
+  let response;
+
+  try {
+    response = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      signal: controller.signal,
+      body: JSON.stringify({
+        systemInstruction: {
+          parts: [
+            {
+              text: `${baseSystemPrompt}\n\n${languageInstruction}\nCurrent workflow: ${scenario.label}\nDefault tool route: ${scenario.route}\nDefault guardrail: ${scenario.guardrail}\nDefault metric: ${scenario.metric}`,
+            },
+          ],
+        },
+        contents,
+        generationConfig: {
+          temperature: 0.35,
+          maxOutputTokens: 900,
+          responseMimeType: "application/json",
+          responseJsonSchema: responseSchema,
+        },
+      }),
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
 
   if (!response.ok) {
     const errorText = await response.text();

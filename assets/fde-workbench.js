@@ -310,11 +310,14 @@
     const scenario = activeScenario();
     appendMessage("user", message);
     if (status) status.textContent = "Thinking";
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 9000);
 
     try {
       const response = await fetch("/api/agent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
         body: JSON.stringify({ message, scenario, language: "en" }),
       });
       const payload = response.ok ? await response.json() : localWorkflowReply(message);
@@ -325,6 +328,7 @@
       appendMessage("agent", payload.reply);
       updateReadout(payload);
     } finally {
+      clearTimeout(timeout);
       if (status) status.textContent = "Ready";
     }
   }

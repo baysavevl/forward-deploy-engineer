@@ -117,9 +117,12 @@ test('chatbot project is interactive and uses the local agent API with fallback'
   }
 
   assert.match(js, /fetch\(["']\/api\/agent["']/i);
+  assert.match(js, /AbortController/i);
   assert.match(js, /localWorkflowReply/i);
   assert.match(js, /navigator\.sendBeacon|fetch\(["']\/api\/visit["']/i);
   assert.match(api, /Wonderful is an AI transformation partner/i);
+  assert.match(api, /GEMINI_TIMEOUT_MS/i);
+  assert.match(api, /controller\.abort/i);
   assert.match(api, /advisory, onsite implementation/i);
   assert.match(api, /platform ownership/i);
   assert.match(api, /enterprise angle is scale, governance, security, compliance, and privacy/i);
