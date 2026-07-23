@@ -236,7 +236,22 @@ test('why pages answer the hiring proof problem with STAR proof and product unde
   const whyMe = await readText('why-me.html');
   const help = await readText('let-me-help.html');
 
-  for (const phrase of ['AI transformation partner', 'advisory', 'onsite implementation', 'governed platform', '100+ paying clients', '30+ locations', 'Almost $300M', 'Vietnam is on the Q3 map']) {
+  for (const phrase of [
+    'enterprise AI company',
+    'advisory',
+    'onsite implementation',
+    'governed platform',
+    '$150M Series B',
+    '$2B valuation',
+    '$286M total raised',
+    '30+ markets',
+    '350 to 900',
+    'Applied AI for critical workflows',
+    'logs and traces',
+    'Agent Studio',
+    'local deployment is the operating model',
+    'Research links used for this page'
+  ]) {
     assert.match(whyWonderful, new RegExp(escapeRegex(phrase), 'i'), `Missing Wonderful proof: ${phrase}`);
   }
 
