@@ -134,7 +134,7 @@
     },
     people: {
       questions:
-        "What did the first interview expose? What story should be told tighter? Which role concern should be reframed?",
+        "Which evidence should the hiring team inspect first? Which STAR story supports the role? Which customer-room concern should be clarified?",
       proof:
         "Use the corrected STAR stories: AI matching cost, recruiter onboarding, operations automation, and team promotion.",
       objection:
@@ -167,9 +167,9 @@
         policy: "Block outreach if consent or eligibility is missing.",
         human: "Recruiter approves match batches and rejected reasons feed evals.",
       },
-      verdict: "Move to hiring manager interview",
+      verdict: "Move to hiring manager review",
       reason:
-        "The interview's best signal was AI cost thinking at Zalo scale. This plan turns it into a concrete enterprise deployment pattern.",
+        "The strongest signal is AI cost thinking at Zalo scale. This plan turns it into a concrete enterprise deployment pattern.",
     },
     support: {
       title: "Recruiter support-agent deployment brief",
@@ -188,7 +188,7 @@
       },
       verdict: "Strong customer-workflow fit",
       reason:
-        "This maps directly to the interview evidence: chatbot/KB-backed support, 40% faster onboarding, and product feedback loops.",
+        "This maps directly to production evidence: chatbot/KB-backed support, 40% faster onboarding, and product feedback loops.",
     },
     regulated: {
       title: "Governed action-agent deployment brief",
@@ -213,7 +213,7 @@
 
   const reviewModes = {
     recruiter: {
-      verdict: "Move to hiring manager interview",
+      verdict: "Move to hiring manager review",
       reason:
         "Zalo-scale product engineering, AI cost discipline, support automation, and leadership evidence map directly to Wonderful's FDE motion.",
     },

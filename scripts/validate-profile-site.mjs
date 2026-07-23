@@ -22,18 +22,21 @@ function escapeRegex(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-test('landing is a Wonderful FDE product hub for hiring review', async () => {
+test('landing is an AI deployment workbench for hiring review', async () => {
   const html = await readText('index.html');
 
   const required = [
-    'Wonderful FDE Workbench',
-    'Forward Deployed Engineer for governed AI agents',
-    "I'm here to help Wonderful deploy enterprise agents in Vietnam",
+    'AI Deployment Workbench',
+    'Lead Software Engineer at Zalo/VNG',
+    'I turn messy workflows into governed AI deployments',
     'Paste a messy customer workflow',
     'Generate deployment brief',
     'AI cost simulator',
     'Eval harness',
-    'Interview recovery',
+    'Technical case',
+    'AI matching at Zalo scale',
+    'Proof translation',
+    'Synthetic demo',
     'Agent Deployment Diagnostic',
     'Wonderful motion explained',
     'FDE conversation kit',
@@ -72,6 +75,7 @@ test('landing stays clean and avoids the previous confusing framing', async () =
   assert.doesNotMatch(html, /Partner Solution Engineer|Customer Solution Engineer|SA\/PSE\/CSE/i);
   assert.doesNotMatch(html, /99% match|100% match|Not a lifelong FDE yet/i);
   assert.doesNotMatch(html, /id=["']star-stories["']|id=["']ai-product["']|id=["']wonderful-fit["']/i, 'STAR detail belongs on subpages now.');
+  assert.doesNotMatch(html, /30%\s*\/\s*40%/i, 'Separate 30% and 40% into distinct proof metrics.');
 });
 
 test('public pages avoid internal critique wording', async () => {
@@ -82,6 +86,8 @@ test('public pages avoid internal critique wording', async () => {
   assert.doesNotMatch(html, /I build stuff|Run fit ramp|Small playground/i);
   assert.doesNotMatch(html, /quiet at first|FDE-shaped|almost ready/i);
   assert.doesNotMatch(html, /Client-facing concern|I do not need to be the seller/i);
+  assert.doesNotMatch(html, /Interview recovery|first-round|first interview|This is the last impression|STAR evidence from my interview/i);
+  assert.doesNotMatch(html, /Interview signal|Interview miss|sales-adjacent/i);
 });
 
 test('shared workbench design protects layout across viewport sizes', async () => {
@@ -93,6 +99,7 @@ test('shared workbench design protects layout across viewport sizes', async () =
   assert.match(css, /grid-template-columns:\s*minmax\(0,\s*0\.82fr\)\s+minmax\(390px,\s*0\.72fr\)/i);
   assert.match(css, /\.chat-log\s*\{[\s\S]*height:\s*clamp\(180px,\s*25vh,\s*260px\)/i);
   assert.match(css, /@media\s*\(max-width:\s*1040px\)[\s\S]*grid-template-columns:\s*1fr/i);
+  assert.match(css, /@media\s*\(max-width:\s*1040px\)[\s\S]*\.page-hero\s+\.hero-grid/i);
   assert.match(css, /@media\s*\(max-width:\s*920px\)[\s\S]*\.nav\s*\{[\s\S]*display:\s*none/i);
   assert.match(css, /@media\s*\(max-width:\s*760px\)[\s\S]*grid-template-columns:\s*1fr/i);
   assert.match(css, /prefers-reduced-motion/i);
@@ -137,9 +144,13 @@ test('homepage includes a wow work-sample layer for recruiters and hiring manage
     'data-cost-lab',
     'data-cost-saving',
     'Eval harness',
-    'Interview recovery',
-    'Scattered achievement story',
-    'Client-facing confidence'
+    'Technical case',
+    'AI matching at Zalo scale',
+    'Signal filter',
+    'Manager review',
+    'Proof translation',
+    'Structured achievement stories',
+    'Technical conviction'
   ]) {
     assert.match(html, new RegExp(escapeRegex(phrase), 'i'), `Missing wow layer phrase: ${phrase}`);
   }
@@ -170,7 +181,10 @@ test('diagnostic page provides a separate five-question tool', async () => {
     'data-result-route',
     'data-result-guardrail',
     'data-result-metric',
-    'data-result-next'
+    'data-result-next',
+    'Job demand -> candidate signals -> policy rules -> ranked recommendations',
+    'Token cost per useful match',
+    'Pilot one segment'
   ]) {
     assert.match(html, new RegExp(escapeRegex(phrase), 'i'), `Missing diagnostic phrase: ${phrase}`);
   }
@@ -188,8 +202,24 @@ test('explainer and toolkit pages provide reference-style tools', async () => {
     assert.match(explainer, new RegExp(escapeRegex(phrase), 'i'), `Missing explainer phrase: ${phrase}`);
   }
 
+  for (const phrase of [
+    'Turn a vague customer request into system boundaries',
+    'Pick the first workflow that creates visible value quickly',
+    "This maps to Wonderful's first motion"
+  ]) {
+    assert.match(explainer, new RegExp(escapeRegex(phrase), 'i'), `Missing default explainer content: ${phrase}`);
+  }
+
   for (const phrase of ['FDE conversation kit', 'CTO', 'Business owner', 'Operations', 'Hiring team', 'What I would ask', 'What evidence I bring', 'How I would answer']) {
     assert.match(toolkit, new RegExp(escapeRegex(phrase), 'i'), `Missing toolkit phrase: ${phrase}`);
+  }
+
+  for (const phrase of [
+    'Which systems are source of truth',
+    'Zalo-scale production',
+    'start read-only, add eval gates, expose traces'
+  ]) {
+    assert.match(toolkit, new RegExp(escapeRegex(phrase), 'i'), `Missing default toolkit content: ${phrase}`);
   }
 
   assert.match(js, /const concepts/i);
@@ -198,7 +228,7 @@ test('explainer and toolkit pages provide reference-style tools', async () => {
   assert.match(js, /bindToolkit/i);
 });
 
-test('why pages answer the interview problem with STAR proof and product understanding', async () => {
+test('why pages answer the hiring proof problem with STAR proof and product understanding', async () => {
   const whyWonderful = await readText('why-wonderful.html');
   const whyMe = await readText('why-me.html');
   const help = await readText('let-me-help.html');
