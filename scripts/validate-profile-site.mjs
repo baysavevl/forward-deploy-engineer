@@ -29,7 +29,11 @@ test('landing is a Wonderful FDE product hub for hiring review', async () => {
     'Wonderful FDE Workbench',
     'Forward Deployed Engineer for governed AI agents',
     "I'm here to help Wonderful deploy enterprise agents in Vietnam",
-    'A working FDE surface for Wonderful',
+    'Paste a messy customer workflow',
+    'Generate deployment brief',
+    'AI cost simulator',
+    'Eval harness',
+    'Interview recovery',
     'Agent Deployment Diagnostic',
     'Wonderful motion explained',
     'FDE conversation kit',
@@ -77,6 +81,7 @@ test('public pages avoid internal critique wording', async () => {
   assert.doesNotMatch(html, /This is not a long resume page|Last section fixed/i);
   assert.doesNotMatch(html, /I build stuff|Run fit ramp|Small playground/i);
   assert.doesNotMatch(html, /quiet at first|FDE-shaped|almost ready/i);
+  assert.doesNotMatch(html, /Client-facing concern|I do not need to be the seller/i);
 });
 
 test('shared workbench design protects layout across viewport sizes', async () => {
@@ -111,6 +116,41 @@ test('chatbot project is interactive and uses the local agent API with fallback'
   assert.match(api, /advisory, onsite implementation/i);
   assert.match(api, /platform ownership/i);
   assert.match(api, /enterprise angle is scale, governance, security, compliance, and privacy/i);
+});
+
+test('homepage includes a wow work-sample layer for recruiters and hiring managers', async () => {
+  const html = await readText('index.html');
+  const js = await readText('assets/fde-workbench.js');
+  const css = await readText('assets/fde-workbench.css');
+
+  for (const phrase of [
+    'Flagship work sample',
+    'Get an enterprise AI deployment brief',
+    'data-planner',
+    'data-review-mode="recruiter"',
+    'data-review-mode="manager"',
+    'data-generate-plan',
+    'Trace view',
+    'data-trace-intent',
+    'data-trace-policy',
+    'AI cost simulator',
+    'data-cost-lab',
+    'data-cost-saving',
+    'Eval harness',
+    'Interview recovery',
+    'Scattered achievement story',
+    'Client-facing confidence'
+  ]) {
+    assert.match(html, new RegExp(escapeRegex(phrase), 'i'), `Missing wow layer phrase: ${phrase}`);
+  }
+
+  assert.match(js, /workflowSamples/i);
+  assert.match(js, /deploymentPlans/i);
+  assert.match(js, /bindPlanner/i);
+  assert.match(js, /bindCostLab/i);
+  assert.match(css, /planner-grid/i);
+  assert.match(css, /brief-console/i);
+  assert.match(css, /eval-table/i);
 });
 
 test('diagnostic page provides a separate five-question tool', async () => {
@@ -167,7 +207,7 @@ test('why pages answer the interview problem with STAR proof and product underst
     assert.match(whyWonderful, new RegExp(escapeRegex(phrase), 'i'), `Missing Wonderful proof: ${phrase}`);
   }
 
-  for (const phrase of ['AI matching cost at Zalo scale', 'Situation', 'Task', 'Action', 'Result', '80M-user ecosystem', '40%', '30%', 'all team members were promoted', 'Sales owns pipeline']) {
+  for (const phrase of ['AI matching cost at Zalo scale', 'Situation', 'Task', 'Action', 'Result', '80M-user ecosystem', '40%', '30%', 'all team members were promoted', 'Technical conviction, not generic sales talk']) {
     assert.match(whyMe, new RegExp(escapeRegex(phrase), 'i'), `Missing Why me proof: ${phrase}`);
   }
 

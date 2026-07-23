@@ -8,7 +8,7 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/fde-workbench.css?v=20260724c">
+  <link rel="stylesheet" href="/assets/fde-workbench.css?v=20260724d">
 </head>
 <body data-visit-beacon>
   <header class="topbar">
@@ -19,6 +19,7 @@
       </a>
       <nav class="nav" aria-label="Workbench navigation">
         <a href="/">Home</a>
+        <a href="/#workbench">Planner</a>
         <a href="/why-wonderful.html">Why Wonderful</a>
         <a href="/diagnose.html">Diagnostic</a>
         <a href="/explain.html">Explainer</a>
@@ -36,13 +37,13 @@
           <p class="kicker">I'm here to help Wonderful deploy enterprise agents in Vietnam</p>
           <h1>Forward Deployed Engineer for governed AI agents.</h1>
           <p class="lead">
-            A working FDE surface for Wonderful: ask the bot to scope a messy workflow, run a deployment diagnostic,
-            inspect the platform motion, and review the STAR proof behind my fit.
+            Paste a messy customer workflow and this site turns it into a deployment brief: discovery questions,
+            integration route, guardrails, evals, rollout plan, cost signal, and STAR evidence from my interview.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#bot">Ask the bot</a>
+            <a class="button primary" href="#workbench">Build deployment brief</a>
+            <a class="button" href="#bot">Ask the bot</a>
             <a class="button" href="/diagnose.html">Run diagnostic</a>
-            <a class="button" href="/let-me-help.html">How I can help</a>
           </div>
           <div class="proof-metrics" aria-label="Candidate proof metrics">
             <div><strong>6+ yrs</strong><span>Zalo/VNG product engineering</span></div>
@@ -87,6 +88,128 @@
             <div><span>Metric</span><strong data-chat-metric>Token cost per useful match, acceptance rate, missed leads.</strong></div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section id="workbench" class="band">
+      <div class="shell section-head">
+        <div>
+          <p class="kicker">Flagship work sample</p>
+          <h2>Paste a messy workflow. Get an enterprise AI deployment brief.</h2>
+        </div>
+        <p class="lead">
+          This is the strongest hiring signal: I can turn ambiguity into scope, systems, risk controls, metrics,
+          and a rollout plan that a customer team can actually own.
+        </p>
+      </div>
+
+      <div class="shell planner-grid" data-planner>
+        <div class="planner-input panel">
+          <div class="bot-head">
+            <div>
+              <p class="kicker">Review mode</p>
+              <h3>What should the reviewer see first?</h3>
+            </div>
+          </div>
+          <div class="segmented" aria-label="Reviewer mode">
+            <button class="is-active" type="button" data-review-mode="recruiter">Recruiter</button>
+            <button type="button" data-review-mode="manager">Hiring manager</button>
+          </div>
+
+          <label class="field-label" for="workflow-input">Customer workflow</label>
+          <textarea id="workflow-input" data-plan-input rows="7">A recruiting customer has too many candidate leads, recruiters repeat onboarding questions, and AI matching costs can explode at Zalo-scale volume. They want an agent, but actions need audit, consent, and human review.</textarea>
+
+          <div class="prompt-row" aria-label="Workflow samples">
+            <button type="button" data-workflow-sample="matching">AI matching cost</button>
+            <button type="button" data-workflow-sample="support">Recruiter support</button>
+            <button type="button" data-workflow-sample="regulated">Regulated action</button>
+          </div>
+
+          <button class="button primary wide-action" type="button" data-generate-plan>Generate deployment brief</button>
+
+          <div class="review-verdict" aria-label="Recruiter quick verdict">
+            <span>Screening verdict</span>
+            <strong data-review-verdict>Move to hiring manager interview</strong>
+            <p data-review-reason>Zalo-scale product engineering, AI cost discipline, support automation, and leadership evidence map directly to Wonderful's FDE motion.</p>
+          </div>
+        </div>
+
+        <div class="brief-console">
+          <div class="console-head">
+            <div>
+              <p class="kicker">Generated brief</p>
+              <h3 data-brief-title>AI lead-matching deployment brief</h3>
+            </div>
+            <span class="status">Ownable pilot</span>
+          </div>
+
+          <p class="brief-summary" data-brief-summary>
+            Start with a recommendation copilot, not an autonomous action agent: reduce token waste with pre-filtering,
+            cite match reasons, and require recruiter review before candidate outreach.
+          </p>
+
+          <div class="brief-grid">
+            <div><span>First workflow</span><strong data-plan-workflow>Recruiter lead triage and match explanation</strong></div>
+            <div><span>Integration route</span><strong data-plan-route>Job demand -> candidate signals -> policy rules -> ranked recommendations</strong></div>
+            <div><span>Guardrail</span><strong data-plan-guardrail>Consent, eligibility, source citation, and human approval for uncertain matches</strong></div>
+            <div><span>Metric</span><strong data-plan-metric>Token cost per useful match, acceptance rate, missed leads, recruiter response time</strong></div>
+          </div>
+
+          <div class="trace-panel">
+            <p class="kicker">Trace view</p>
+            <ol class="trace-list">
+              <li><strong>Intent</strong><span data-trace-intent>Prioritize urgent jobs and high-fit candidates.</span></li>
+              <li><strong>Data</strong><span data-trace-data>Candidate profile, job demand, freshness, consent, recruiter history.</span></li>
+              <li><strong>Tool route</strong><span data-trace-tool>Read-only ranking service before any outbound action.</span></li>
+              <li><strong>Policy</strong><span data-trace-policy>Block outreach if consent or eligibility is missing.</span></li>
+              <li><strong>Human gate</strong><span data-trace-human>Recruiter approves match batches and rejected reasons feed evals.</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell proof-lab-grid">
+        <article class="panel cost-lab" data-cost-lab>
+          <div class="section-head compact-head">
+            <div>
+              <p class="kicker">AI cost simulator</p>
+              <h2>Show the token-cost mindset from the interview.</h2>
+            </div>
+            <p class="lead">A hard manager should see that I think about AI economics, not only model output.</p>
+          </div>
+
+          <div class="slider-grid">
+            <label>Daily leads <input type="range" min="2000" max="60000" step="1000" value="24000" data-cost-input="leads"></label>
+            <label>Tokens per raw lead <input type="range" min="300" max="1800" step="50" value="900" data-cost-input="tokens"></label>
+            <label>Pre-filter kept <input type="range" min="10" max="80" step="5" value="25" data-cost-input="kept"></label>
+          </div>
+
+          <div class="brief-grid cost-output">
+            <div><span>Raw tokens/day</span><strong data-cost-raw>21.6M</strong></div>
+            <div><span>Optimized tokens/day</span><strong data-cost-optimized>5.4M</strong></div>
+            <div><span>Reduction</span><strong data-cost-saving>75%</strong></div>
+            <div><span>Business point</span><strong data-cost-point>Filter before generation; evaluate on useful matches.</strong></div>
+          </div>
+        </article>
+
+        <article class="panel eval-lab">
+          <div class="section-head compact-head">
+            <div>
+              <p class="kicker">Eval harness</p>
+              <h2>What I would test before launch.</h2>
+            </div>
+            <p class="lead">Enterprise agents need release gates: quality, safety, cost, and escalation behavior.</p>
+          </div>
+
+          <div class="eval-table" aria-label="Agent eval cases">
+            <div><span>Safe recommendation</span><strong>Agent explains match reasons and asks recruiter to approve.</strong><b>Pass</b></div>
+            <div><span>Missing consent</span><strong>Agent refuses outreach and asks for consent source.</strong><b>Pass</b></div>
+            <div><span>High-cost prompt</span><strong>Agent retrieves/filter candidates before model generation.</strong><b>Pass</b></div>
+            <div><span>Ambiguous policy</span><strong>Agent escalates to owner instead of inventing rule.</strong><b>Pass</b></div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -153,6 +276,44 @@
       </div>
     </section>
 
+    <section class="band">
+      <div class="shell section-head">
+        <div>
+          <p class="kicker">Interview recovery</p>
+          <h2>The site turns the first-round gaps into evidence.</h2>
+        </div>
+        <p class="lead">
+          The interview had strong raw signals and a few communication misses. This artifact gives the hiring team the structured version.
+        </p>
+      </div>
+      <div class="shell story-grid">
+        <article class="story-card">
+          <span>Signal</span>
+          <h3>Zalo-scale credibility</h3>
+          <p><strong>Interview signal:</strong> 80M-user ecosystem context and recruiting workflow ownership.</p>
+          <p><strong>Site proof:</strong> The planner centers high-volume matching, token cost, support load, and recruiter outcomes.</p>
+        </article>
+        <article class="story-card">
+          <span>Signal</span>
+          <h3>AI cost discipline</h3>
+          <p><strong>Interview signal:</strong> Token-cost optimization was the strongest technical-business point.</p>
+          <p><strong>Site proof:</strong> The simulator shows pre-filtering and eval-driven cost control as launch requirements.</p>
+        </article>
+        <article class="story-card">
+          <span>Fix</span>
+          <h3>Scattered achievement story</h3>
+          <p><strong>Interview miss:</strong> The proud-project answer jumped between several achievements.</p>
+          <p><strong>Site proof:</strong> STAR cards separate AI matching, onboarding support, ops automation, and team growth.</p>
+        </article>
+        <article class="story-card">
+          <span>Fix</span>
+          <h3>Client-facing confidence</h3>
+          <p><strong>Interview miss:</strong> The sales-adjacent concern sounded too blunt.</p>
+          <p><strong>Site proof:</strong> Toolkit and planner show technical conviction: questions, tradeoffs, pilot, guardrails, and value proof.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="cta-band">
       <div class="shell cta-panel">
         <div>
@@ -172,6 +333,6 @@
     </section>
   </main>
 
-  <script src="/assets/fde-workbench.js?v=20260724c"></script>
+  <script src="/assets/fde-workbench.js?v=20260724d"></script>
 </body>
 </html>

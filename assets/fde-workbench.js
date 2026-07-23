@@ -142,6 +142,88 @@
     },
   };
 
+  const workflowSamples = {
+    matching:
+      "A recruiting customer has too many candidate leads, recruiters repeat onboarding questions, and AI matching costs can explode at Zalo-scale volume. They want an agent, but actions need audit, consent, and human review.",
+    support:
+      "Recruiters keep asking the same setup, job-posting, and troubleshooting questions. Support is slow after hours, onboarding is delayed, and the customer wants a KB-backed agent with safe escalation.",
+    regulated:
+      "A bank wants a customer-facing agent that can lock a lost card from chat. The action is urgent, but identity confidence, 2FA, audit logs, rollback, and human escalation must be controlled.",
+  };
+
+  const deploymentPlans = {
+    matching: {
+      title: "AI lead-matching deployment brief",
+      summary:
+        "Start with a recommendation copilot, not an autonomous action agent: reduce token waste with pre-filtering, cite match reasons, and require recruiter review before candidate outreach.",
+      workflow: "Recruiter lead triage and match explanation",
+      route: "Job demand -> candidate signals -> policy rules -> ranked recommendations",
+      guardrail: "Consent, eligibility, source citation, and human approval for uncertain matches",
+      metric: "Token cost per useful match, acceptance rate, missed leads, recruiter response time",
+      trace: {
+        intent: "Prioritize urgent jobs and high-fit candidates.",
+        data: "Candidate profile, job demand, freshness, consent, recruiter history.",
+        tool: "Read-only ranking service before any outbound action.",
+        policy: "Block outreach if consent or eligibility is missing.",
+        human: "Recruiter approves match batches and rejected reasons feed evals.",
+      },
+      verdict: "Move to hiring manager interview",
+      reason:
+        "The interview's best signal was AI cost thinking at Zalo scale. This plan turns it into a concrete enterprise deployment pattern.",
+    },
+    support: {
+      title: "Recruiter support-agent deployment brief",
+      summary:
+        "Launch a KB-backed support agent for repeated onboarding questions, with cited answers, unresolved-question capture, and escalation to product/support owners.",
+      workflow: "Recruiter onboarding and troubleshooting assistant",
+      route: "Knowledge base -> issue classifier -> account/job-post state -> ticket handoff",
+      guardrail: "Cited answer required; account-specific changes need auth and escalation",
+      metric: "Onboarding time, support deflection, unresolved-question backlog, escalation quality",
+      trace: {
+        intent: "Resolve repeated recruiter setup and troubleshooting questions.",
+        data: "KB articles, product rules, account state, support tags, unresolved logs.",
+        tool: "Retrieval first; ticket creation only when confidence or permission is insufficient.",
+        policy: "No account-specific answer without source citation and owner escalation.",
+        human: "Support/product owner reviews unresolved clusters weekly.",
+      },
+      verdict: "Strong customer-workflow fit",
+      reason:
+        "This maps directly to the interview evidence: chatbot/KB-backed support, 40% faster onboarding, and product feedback loops.",
+    },
+    regulated: {
+      title: "Governed action-agent deployment brief",
+      summary:
+        "Start read-only, then graduate one state-changing action behind identity proofing, permission scope, audit logs, rollback, and human escalation.",
+      workflow: "High-risk customer action with approval gate",
+      route: "Identity -> 2FA -> policy engine -> least-privilege API -> audit log",
+      guardrail: "No write action without identity confidence, permission scope, trace, and rollback path",
+      metric: "Unsafe action rate, audit completeness, containment time, escalation quality",
+      trace: {
+        intent: "Help a customer complete an urgent high-risk action.",
+        data: "Identity signal, policy rule, customer account state, permission scope.",
+        tool: "Least-privilege API call only after confidence and policy checks pass.",
+        policy: "Escalate if identity, permission, or policy ownership is incomplete.",
+        human: "Human reviewer approves exceptions and reviews audit trails.",
+      },
+      verdict: "Enterprise-grade risk awareness",
+      reason:
+        "This demonstrates the FDE behavior Wonderful needs: fast pilot, but no unsafe tool action without governance.",
+    },
+  };
+
+  const reviewModes = {
+    recruiter: {
+      verdict: "Move to hiring manager interview",
+      reason:
+        "Zalo-scale product engineering, AI cost discipline, support automation, and leadership evidence map directly to Wonderful's FDE motion.",
+    },
+    manager: {
+      verdict: "Ask him to scope a real workflow live",
+      reason:
+        "The strongest signal is not the page copy; it is the ability to decompose workflow, systems, guardrails, evals, rollout, and metrics in one structured answer.",
+    },
+  };
+
   function text(selector, value, root = document) {
     const element = root.querySelector(selector);
     if (element) element.textContent = value;
@@ -352,6 +434,113 @@
     setStakeholder("cto");
   }
 
+  function inferDeploymentPlan(value) {
+    const lower = String(value || "").toLowerCase();
+    if (lower.includes("bank") || lower.includes("card") || lower.includes("2fa") || lower.includes("regulated") || lower.includes("audit")) {
+      return "regulated";
+    }
+    if (lower.includes("support") || lower.includes("onboarding") || lower.includes("question") || lower.includes("troubleshooting")) {
+      return "support";
+    }
+    return "matching";
+  }
+
+  function renderDeploymentPlan(key) {
+    const plan = deploymentPlans[key] || deploymentPlans.matching;
+    text("[data-brief-title]", plan.title);
+    text("[data-brief-summary]", plan.summary);
+    text("[data-plan-workflow]", plan.workflow);
+    text("[data-plan-route]", plan.route);
+    text("[data-plan-guardrail]", plan.guardrail);
+    text("[data-plan-metric]", plan.metric);
+    text("[data-trace-intent]", plan.trace.intent);
+    text("[data-trace-data]", plan.trace.data);
+    text("[data-trace-tool]", plan.trace.tool);
+    text("[data-trace-policy]", plan.trace.policy);
+    text("[data-trace-human]", plan.trace.human);
+  }
+
+  function renderReviewMode(mode, planKey) {
+    const modePayload = reviewModes[mode] || reviewModes.recruiter;
+    const plan = deploymentPlans[planKey] || deploymentPlans.matching;
+    text("[data-review-verdict]", mode === "recruiter" ? plan.verdict : modePayload.verdict);
+    text("[data-review-reason]", mode === "recruiter" ? plan.reason : modePayload.reason);
+  }
+
+  function bindPlanner() {
+    const root = document.querySelector("[data-planner]");
+    if (!root) return;
+    let activeMode = "recruiter";
+    let activePlan = "matching";
+
+    function setMode(mode) {
+      activeMode = mode === "manager" ? "manager" : "recruiter";
+      root.querySelectorAll("[data-review-mode]").forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.reviewMode === activeMode);
+      });
+      renderReviewMode(activeMode, activePlan);
+    }
+
+    function setPlan(key) {
+      activePlan = deploymentPlans[key] ? key : "matching";
+      renderDeploymentPlan(activePlan);
+      renderReviewMode(activeMode, activePlan);
+    }
+
+    root.querySelectorAll("[data-review-mode]").forEach((button) => {
+      button.addEventListener("click", () => setMode(button.dataset.reviewMode));
+    });
+
+    root.querySelectorAll("[data-workflow-sample]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.workflowSample;
+        const input = root.querySelector("[data-plan-input]");
+        if (input && workflowSamples[key]) input.value = workflowSamples[key];
+        setPlan(key);
+      });
+    });
+
+    root.querySelector("[data-generate-plan]")?.addEventListener("click", () => {
+      const input = root.querySelector("[data-plan-input]");
+      setPlan(inferDeploymentPlan(input && input.value));
+    });
+
+    setPlan(activePlan);
+    setMode(activeMode);
+  }
+
+  function formatTokenCount(value) {
+    if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
+    if (value >= 1000) return `${Math.round(value / 1000)}K`;
+    return String(Math.round(value));
+  }
+
+  function bindCostLab() {
+    const root = document.querySelector("[data-cost-lab]");
+    if (!root) return;
+
+    function updateCost() {
+      const leads = Number(root.querySelector('[data-cost-input="leads"]')?.value || 0);
+      const tokens = Number(root.querySelector('[data-cost-input="tokens"]')?.value || 0);
+      const kept = Number(root.querySelector('[data-cost-input="kept"]')?.value || 0);
+      const raw = leads * tokens;
+      const optimized = raw * (kept / 100);
+      const saving = raw ? Math.round((1 - optimized / raw) * 100) : 0;
+      text("[data-cost-raw]", formatTokenCount(raw));
+      text("[data-cost-optimized]", formatTokenCount(optimized));
+      text("[data-cost-saving]", `${saving}%`);
+      text(
+        "[data-cost-point]",
+        saving >= 70
+          ? "Filter before generation; evaluate on useful matches."
+          : "Tune retrieval and routing until cost reduction is launch-worthy."
+      );
+    }
+
+    root.querySelectorAll("[data-cost-input]").forEach((input) => input.addEventListener("input", updateCost));
+    updateCost();
+  }
+
   function sendVisitBeacon() {
     if (!document.body.hasAttribute("data-visit-beacon")) return;
     const key = "fde-workbench-session-id";
@@ -388,6 +577,8 @@
   bindDiagnostic();
   bindExplainer();
   bindToolkit();
+  bindPlanner();
+  bindCostLab();
   sendVisitBeacon();
 
   window.localWorkflowReply = localWorkflowReply;
