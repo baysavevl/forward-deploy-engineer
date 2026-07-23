@@ -39,19 +39,19 @@ const responseSchema = {
 };
 
 const scenarios = {
-  billing: {
-    label: "Telco billing dispute",
-    route: "CRM lookup -> billing ledger -> policy retrieval -> ticket note",
-    guardrail: "No refund or credit promise without policy match and role permission.",
-    metric: "60% containment target with billing-CSAT and refund-error tracking.",
-    nextStep: "Confirm source-of-truth fields for plan change, proration, and charge disputes.",
+  matching: {
+    label: "Zalo lead matching",
+    route: "Candidate signals -> recruiter demand -> policy rules -> explainable recommendation",
+    guardrail: "No automated match push without consent, eligibility checks, and human review for uncertain cases.",
+    metric: "Token cost per useful match, acceptance rate, missed leads, and recruiter response time.",
+    nextStep: "Define the smallest matching workflow and create eval cases from real support logs.",
   },
-  booking: {
-    label: "Healthcare appointment reschedule",
-    route: "Identity check -> appointment service -> provider calendar -> audit note",
-    guardrail: "No appointment mutation until identity, clinic, and selected slot are confirmed.",
-    metric: "95% successful reschedules without duplicate bookings or missing audit trails.",
-    nextStep: "Map booking states, cancellation windows, and escalation ownership with clinic ops.",
+  support: {
+    label: "Recruiter support",
+    route: "KB retrieval -> issue classification -> account/job-post state -> support ticket escalation",
+    guardrail: "No account-specific or policy-sensitive answer without source citation and escalation path.",
+    metric: "Onboarding time, support deflection, issue resolution time, and escalation quality.",
+    nextStep: "Map repeated recruiter questions to source-of-truth answers and support owners.",
   },
   card: {
     label: "Bank lost-card lock",
@@ -66,9 +66,17 @@ const baseSystemPrompt = `
 You are the live FDE demo agent on Vinh Luu's profile site for Wonderful-style enterprise AI deployment roles.
 Answer like a real forward deployed engineer, not like a generic support bot.
 
+Wonderful context from the first-round interview:
+- Wonderful is an AI transformation partner for enterprises.
+- Go-to-market combines advisory, onsite implementation with the client, and a product platform.
+- The platform helps teams build and deploy agents quickly, while letting clients own their transformation.
+- The enterprise angle is scale, governance, security, compliance, and privacy.
+- The FDE bridges Wonderful's platform and client systems through integration, product building, and local requirements.
+
 Your job:
 - Continue the conversation using the provided history.
 - Translate ambiguous customer messages into deployment work: discovery, system mapping, integration route, guardrails, evals, rollout, observability, and business impact.
+- Make the Wonderful motion explicit when useful: advisory -> onsite implementation -> platform ownership.
 - Use first-person FDE framing when helpful: "I would..." or "As the deployment owner..."
 - Be specific about enterprise systems, auth, audit, fallback, logging, latency, and human escalation.
 - Keep replies concise enough for a live demo, around 80-130 words.
@@ -105,7 +113,7 @@ function sanitizeText(value, maxLength = 1600) {
 }
 
 function normalizeScenario(value) {
-  return Object.prototype.hasOwnProperty.call(scenarios, value) ? value : "billing";
+  return Object.prototype.hasOwnProperty.call(scenarios, value) ? value : "matching";
 }
 
 function normalizeLanguage(value) {
@@ -167,32 +175,32 @@ function parseJsonText(text) {
 }
 
 function makeFallback({ scenarioKey, message, history, language = "en", source = "local-fallback", configured = false }) {
-  const scenario = scenarios[scenarioKey] || scenarios.billing;
+  const scenario = scenarios[scenarioKey] || scenarios.matching;
   const cleanMessage = sanitizeText(message);
   const previousAgentTurn = sanitizeHistory(history)
     .filter((turn) => turn.role === "agent")
     .pop();
   const lower = cleanMessage.toLowerCase();
 
-  let phase = "Discovery to MVP";
-  let focus = "I would first pin down the exact customer workflow, the system of record, and the action that is safe to automate.";
-  let focusVi = "Tôi sẽ chốt lại workflow khách hàng, system of record, và hành động nào đủ an toàn để tự động hóa.";
+  let phase = "Advisory";
+  let focus = "I would start with advisory: pin down the exact workflow, the system of record, the user pain, and the action that is safe enough for an agent.";
+  let focusVi = "Tôi sẽ bắt đầu bằng advisory: chốt workflow, system of record, pain point, và hành động nào đủ an toàn cho agent.";
   let nextStep = scenario.nextStep;
 
   if (lower.includes("debug") || lower.includes("fail") || lower.includes("error") || lower.includes("tool")) {
-    phase = "Production debug";
-    focus = "I would treat this as a production integration issue: separate user intent, model output, tool request, upstream response, and policy decision before changing the prompt.";
-    focusVi = "Tôi sẽ xem đây là lỗi integration production: tách riêng user intent, model output, tool request, upstream response, và policy decision trước khi sửa prompt.";
+    phase = "Onsite implementation";
+    focus = "I would treat this like a deployed integration: separate user intent, model output, tool request, upstream response, policy decision, and human fallback before changing prompts.";
+    focusVi = "Tôi sẽ xem đây như một integration đã deploy: tách user intent, model output, tool request, upstream response, policy decision, và human fallback trước khi sửa prompt.";
     nextStep = "Pull the failed trace, replay it against the mocked tool contract, and add an eval before patching.";
   } else if (lower.includes("eval") || lower.includes("test") || lower.includes("quality")) {
-    phase = "Eval design";
-    focus = "I would convert real support logs into eval cases that cover happy paths, missing data, unsafe requests, language variation, and escalation.";
-    focusVi = "Tôi sẽ chuyển support log thật thành eval cases bao phủ happy path, thiếu dữ liệu, yêu cầu không an toàn, biến thể ngôn ngữ, và escalation.";
+    phase = "Platform ownership";
+    focus = "I would convert real support logs into eval cases so the client can keep governing and improving the agent after the first deployment.";
+    focusVi = "Tôi sẽ chuyển support log thật thành eval cases để client tiếp tục govern và cải thiện agent sau deployment đầu.";
     nextStep = "Create a small gold dataset, define pass/fail rubrics, and block launch on regressions.";
   } else if (lower.includes("launch") || lower.includes("rollout") || lower.includes("pilot")) {
     phase = "Controlled rollout";
-    focus = "I would launch narrow: one workflow, known customer segment, human fallback, live dashboard, and a rollback path.";
-    focusVi = "Tôi sẽ launch thật hẹp: một workflow, một nhóm khách hàng rõ ràng, human fallback, dashboard live, và rollback path.";
+    focus = "I would launch narrow: one workflow, known customer segment, human fallback, live dashboard, client owner sign-off, and a rollback path.";
+    focusVi = "Tôi sẽ launch thật hẹp: một workflow, một nhóm khách hàng rõ ràng, human fallback, dashboard live, owner phía client sign-off, và rollback path.";
     nextStep = "Agree on canary volume, alert thresholds, and business owner sign-off before expanding.";
   } else if (previousAgentTurn) {
     phase = "Continuation";
@@ -201,8 +209,8 @@ function makeFallback({ scenarioKey, message, history, language = "en", source =
   }
 
   const reply = language === "vi"
-    ? `${focusVi} Với workflow ${scenario.label.toLowerCase()}, giá trị của FDE là nối ngôn ngữ khách hàng với hành động enterprise đáng tin cậy: ${scenario.route}. Tôi sẽ giữ phiên bản đầu tiên thật hẹp, instrument từng turn, và đo xem containment có cải thiện mà không tạo ra state change thiếu an toàn hay không.`
-    : `${focus} For this ${scenario.label.toLowerCase()} workflow, the FDE value is connecting customer language to reliable enterprise action: ${scenario.route}. I would keep the first version narrow, instrument every turn, and measure whether containment improves without creating unsafe state changes.`;
+    ? `${focusVi} Với workflow ${scenario.label.toLowerCase()}, giá trị FDE là nối customer language với enterprise action đáng tin cậy: ${scenario.route}. Tôi sẽ thể hiện đúng Wonderful motion: advisory để chọn workflow đầu tiên, onsite implementation để nối tool an toàn, và platform ownership để client tự govern agent sau đó.`
+    : `${focus} For ${scenario.label.toLowerCase()}, the FDE value is connecting customer language to reliable enterprise action: ${scenario.route}. I would make Wonderful's motion visible: advisory to choose the first workflow, onsite implementation to connect tools safely, and platform ownership so the client can govern future agents.`;
 
   return {
     reply,
@@ -249,7 +257,7 @@ function getGeminiApiKey() {
 }
 
 async function callGemini({ apiKey, model, contents, scenarioKey, language }) {
-  const scenario = scenarios[scenarioKey] || scenarios.billing;
+  const scenario = scenarios[scenarioKey] || scenarios.matching;
   const languageInstruction = language === "vi"
     ? "Response language: Vietnamese. Use clear Vietnamese, keep FDE terms like API, eval, guardrail, rollout, and trace when those terms are useful."
     : "Response language: English.";

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FDE Conversation Toolkit - Wonderful FDE Workbench</title>
+  <meta name="description" content="A compact FDE conversation toolkit for CTO, business, operations, and people interview stakeholders.">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/assets/fde-workbench.css?v=20260724b">
+</head>
+<body data-visit-beacon>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="/" aria-label="Wonderful FDE Workbench home">
+        <img src="/assets/vinh-avatar.png" alt="">
+        <span>Vinh Luu <small>Wonderful FDE Workbench</small></span>
+      </a>
+      <nav class="nav" aria-label="Workbench navigation">
+        <a href="/">Home</a>
+        <a href="/why-wonderful.html">Why Wonderful</a>
+        <a href="/diagnose.html">Diagnostic</a>
+        <a href="/explain.html">Explainer</a>
+        <a href="/toolkit.html">Toolkit</a>
+        <a href="/why-me.html">Why me</a>
+        <a href="/let-me-help.html">Let me help</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero page-hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="kicker">Client toolkit</p>
+          <h1>FDE conversation kit</h1>
+          <p class="lead">This is the sales-adjacent part of the role: not finding pipeline, but creating technical conviction in the customer room.</p>
+        </div>
+        <div class="page-note">
+          <strong>Sharper than “I build stuff”.</strong>
+          <p>Use the right questions, proof, and objection handling for each stakeholder.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell" data-toolkit>
+        <div class="tab-row">
+          <button class="is-active" type="button" data-stakeholder="cto">CTO</button>
+          <button type="button" data-stakeholder="business">Business owner</button>
+          <button type="button" data-stakeholder="ops">Operations</button>
+          <button type="button" data-stakeholder="people">Hiring team</button>
+        </div>
+        <div class="toolkit-grid">
+          <article class="toolkit-card">
+            <p class="kicker">Questions</p>
+            <h3>What I would ask</h3>
+            <p data-toolkit-questions></p>
+          </article>
+          <article class="toolkit-card">
+            <p class="kicker">Proof</p>
+            <h3>What evidence I bring</h3>
+            <p data-toolkit-proof></p>
+          </article>
+          <article class="toolkit-card">
+            <p class="kicker">Objection</p>
+            <h3>How I would answer</h3>
+            <p data-toolkit-objection></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="/assets/fde-workbench.js?v=20260724b"></script>
+</body>
+</html>

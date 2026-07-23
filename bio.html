@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vinh Luu - Bio Infographic</title>
+  <meta name="description" content="Detailed bio infographic for Vinh Luu: Zalo/VNG experience, AI workflow work, FDE skill map, education, and projects.">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <style>
+    :root {
+      --ink: #202124;
+      --body: #5f6368;
+      --muted: #7b818b;
+      --paper: #ffffff;
+      --surface: #f8fafc;
+      --line: #e5e7eb;
+      --line-strong: #d1d5db;
+      --blue: #4285f4;
+      --green: #34a853;
+      --amber: #fbbc04;
+      --red: #ea4335;
+      --shadow: 0 18px 50px rgba(60, 64, 67, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar-inner {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 950;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      color: var(--body);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .nav a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 8px;
+      padding: 0 10px;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--blue);
+      background: #eff6ff;
+      outline: 0;
+    }
+
+    .hero {
+      padding: 76px 0 52px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 270px;
+      gap: 42px;
+      align-items: end;
+    }
+
+    .kicker {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(46px, 8vw, 92px);
+      line-height: 0.94;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 780px;
+      margin: 20px 0 0;
+      color: var(--body);
+      font-size: clamp(17px, 1.9vw, 21px);
+    }
+
+    .portrait {
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      padding: 14px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .portrait img {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #fff;
+    }
+
+    .portrait strong,
+    .portrait span {
+      display: block;
+    }
+
+    .portrait strong {
+      margin-top: 12px;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .portrait span {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(260px, 0.42fr);
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .metric-grid,
+    .skill-grid,
+    .project-grid,
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric,
+    .skill,
+    .project,
+    .education {
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      padding: 18px;
+      background: #fff;
+      box-shadow: 0 16px 38px rgba(18, 19, 26, 0.07);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    .metric span,
+    .skill span,
+    .project span,
+    .education span,
+    .date {
+      display: block;
+      margin-top: 8px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    .metric p,
+    .skill p,
+    .project p,
+    .education p {
+      margin: 10px 0 0;
+      color: var(--body);
+      font-size: 15px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .role {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 18px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      padding: 18px;
+      background: #fff;
+      box-shadow: 0 16px 38px rgba(18, 19, 26, 0.07);
+    }
+
+    .role h3,
+    .skill h3,
+    .project h3,
+    .education h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.14;
+    }
+
+    .role p {
+      margin: 8px 0 0;
+      color: var(--body);
+    }
+
+    .role ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--body);
+    }
+
+    .role li {
+      margin: 7px 0;
+    }
+
+    .cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 24px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .cta p {
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      padding: 0 14px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    .button.primary {
+      border-color: var(--blue);
+      color: #fff;
+      background: var(--blue);
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        display: none;
+      }
+
+      .hero-grid,
+      .section-head,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait {
+        width: min(270px, 100%);
+      }
+
+      .metric-grid,
+      .skill-grid,
+      .project-grid,
+      .education-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .shell {
+        width: min(100% - 26px, 1120px);
+      }
+
+      .hero,
+      section {
+        padding: 46px 0;
+      }
+
+      h1 {
+        font-size: clamp(42px, 14vw, 64px);
+      }
+
+      .metric-grid,
+      .skill-grid,
+      .project-grid,
+      .education-grid,
+      .role {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="/" aria-label="Back to landing page">
+        <img src="/assets/vinh-avatar.png" alt="">
+        <span>Vinh Luu</span>
+      </a>
+      <nav class="nav" aria-label="Bio navigation">
+        <a href="/">Landing</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="kicker">Bio infographic</p>
+          <h1>More context, kept off the landing page.</h1>
+          <p class="lead">
+            The homepage is designed for a fast Wonderful FDE hiring read.
+            This page carries the fuller background: scale, career path, skills, education, and project artifacts.
+          </p>
+        </div>
+        <aside class="portrait">
+          <img src="/assets/vinh-avatar.png" alt="Vinh Luu">
+          <strong>Vinh Luu</strong>
+          <span>Lead Software Engineer at Zalo/VNG</span>
+          <span>Forward Deployed Engineer target</span>
+        </aside>
+      </div>
+    </section>
+
+    <section aria-label="Candidate metrics">
+      <div class="shell metric-grid">
+        <article class="metric">
+          <strong>6+</strong>
+          <span>Years software engineering</span>
+          <p>Backend, product systems, stakeholder coordination, architecture review, and production delivery.</p>
+        </article>
+        <article class="metric">
+          <strong>80M</strong>
+          <span>Zalo ecosystem context</span>
+          <p>Experience around products operating in Vietnam's largest communication platform ecosystem.</p>
+        </article>
+        <article class="metric">
+          <strong>30%</strong>
+          <span>Operational overhead reduction</span>
+          <p>Workflow automation for Job Market operations, recruiters, and partner coordination.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Experience</p>
+            <h2>Zalo-scale systems and customer workflow ownership.</h2>
+          </div>
+          <p class="lead">The short version: product engineering, integration, AI workflow work, and business metrics.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="role">
+            <div class="date">Jul 2025 - Present</div>
+            <div>
+              <h3>Lead Software Engineer, Zalo - Job Market / LifeService</h3>
+              <p>Recruiting product connecting Vietnamese job seekers with recruiters and labor-supply partners.</p>
+              <ul>
+                <li>Owned Job Market delivery on LifeService, serving roughly 50k daily requests.</li>
+                <li>Worked with recruiters, Ops, Product, partners, and Engineering to reduce manual handoffs.</li>
+                <li>Reduced operational overhead by 30% and improved partner onboarding by 40%.</li>
+                <li>Applied AI to matching research, support flows, process automation, and product assistance.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="date">Jul 2023 - Jul 2025</div>
+            <div>
+              <h3>Senior Software Engineer, Zalo - ZNS / business messaging</h3>
+              <p>Enterprise notification and business messaging systems through Zalo surfaces.</p>
+              <ul>
+                <li>Worked in a previous product context with 30M+ user surfaces and millions of daily business messages.</li>
+                <li>Built API paths, partner integration behavior, caching, graceful degradation, and operational ownership.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="date">2021 - 2023</div>
+            <div>
+              <h3>Software Engineer, Zalo</h3>
+              <p>Backend services, communication products, service migration, reliability, and product workflow delivery.</p>
+              <ul>
+                <li>Translated unclear business requirements into backend flows and production behavior.</li>
+                <li>Improved resource efficiency by 25% through cleaner service boundaries and migration work.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Skill map</p>
+            <h2>What I bring into an FDE room.</h2>
+          </div>
+          <p class="lead">Deep enough to build, practical enough to ship, structured enough to explain.</p>
+        </div>
+
+        <div class="skill-grid">
+          <article class="skill">
+            <h3>System design</h3>
+            <p>Java services, React surfaces, Kafka, Redis, MySQL, service boundaries, data flow, and rollout planning.</p>
+            <span>Engineering depth</span>
+          </article>
+          <article class="skill">
+            <h3>AI workflows</h3>
+            <p>Prompt design, Dify-style workflows, KB-backed support, structured outputs, evals, and human review gates.</p>
+            <span>Applied AI</span>
+          </article>
+          <article class="skill">
+            <h3>Integration</h3>
+            <p>APIs, auth boundaries, partner constraints, source-of-truth mapping, failure modes, and runbooks.</p>
+            <span>FDE core</span>
+          </article>
+          <article class="skill">
+            <h3>Product thinking</h3>
+            <p>Lead send time, coverage, missed leads, onboarding speed, operational overhead, and adoption friction.</p>
+            <span>Business metrics</span>
+          </article>
+          <article class="skill">
+            <h3>Stakeholders</h3>
+            <p>Product, Ops, recruiters, partners, client engineering teams, and sales-side context when needed.</p>
+            <span>Communication</span>
+          </article>
+          <article class="skill">
+            <h3>Leadership</h3>
+            <p>Architecture review, delivery targets, coaching, and team growth. Four team members promoted across two years.</p>
+            <span>Team ownership</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Education</p>
+            <h2>Technical foundation.</h2>
+          </div>
+          <p class="lead">Software engineering, algorithms, competition habits, and bilingual working context.</p>
+        </div>
+
+        <div class="education-grid">
+          <article class="education">
+            <h3>FPT University</h3>
+            <p>Bachelor of Software Engineering.</p>
+            <span>Software Engineering</span>
+          </article>
+          <article class="education">
+            <h3>Le Quy Don High School for the Gifted</h3>
+            <p>Mathematics and computer-science preparation.</p>
+            <span>Analytical foundation</span>
+          </article>
+          <article class="education">
+            <h3>Languages</h3>
+            <p>Native Vietnamese and professional English, with strong Vietnam/APAC working context.</p>
+            <span>Local execution</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Project artifacts</p>
+            <h2>Supporting labs.</h2>
+          </div>
+          <p class="lead">Small artifacts behind the main live demo.</p>
+        </div>
+
+        <div class="project-grid">
+          <a class="project" href="/#bot">
+            <h3>Wonderful FDE Helper</h3>
+            <p>Live chatbot that maps a messy workflow into phase, tool route, guardrail, metric, and next step.</p>
+            <span>Open demo</span>
+          </a>
+          <a class="project" href="/projects/deployment-blueprint-lab.html">
+            <h3>Deployment Blueprint Lab</h3>
+            <p>Scope, architecture, guardrails, rollout, and metrics for enterprise agent deployment.</p>
+            <span>Open mini-lab</span>
+          </a>
+          <a class="project" href="/projects/agent-eval-harness.html">
+            <h3>Agent Eval Harness</h3>
+            <p>Scenarios, unsafe-action checks, bilingual cases, and regression gates.</p>
+            <span>Open mini-lab</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell cta">
+        <div>
+          <p class="kicker">Back to the hiring page</p>
+          <h2>Use the landing page for the fast read.</h2>
+          <p>It is intentionally shorter: why me, why Wonderful, live demo, and STAR proof.</p>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="/">Open landing</a>
+          <a class="button" href="/output/pdf/VinhLuu_Forward_Deployed_Engineer_Wonderful_AI.pdf">PDF CV</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
