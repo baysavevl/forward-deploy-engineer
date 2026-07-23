@@ -22,14 +22,14 @@ function escapeRegex(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-test('landing is a Wonderful FDE product hub, not a long one-page resume', async () => {
+test('landing is a Wonderful FDE product hub for hiring review', async () => {
   const html = await readText('index.html');
 
   const required = [
     'Wonderful FDE Workbench',
-    'Forward Deployed Engineer, shown as a working product',
+    'Forward Deployed Engineer for governed AI agents',
     "I'm here to help Wonderful deploy enterprise agents in Vietnam",
-    'This is not a long resume page',
+    'A working FDE surface for Wonderful',
     'Agent Deployment Diagnostic',
     'Wonderful motion explained',
     'FDE conversation kit',
@@ -63,10 +63,20 @@ test('landing stays clean and avoids the previous confusing framing', async () =
   const html = await readText('index.html');
 
   assert.doesNotMatch(html, /FDE ROLES - WONDERFUL\.AI FIRST CONCRETE TARGET/i);
+  assert.doesNotMatch(html, /Google SA|Google Architect|The reference is|This is not a long resume page|Last section fixed/i);
   assert.doesNotMatch(html, /href=["'][^"']+\.md["']/i, 'Do not link recruiters to raw Markdown files.');
   assert.doesNotMatch(html, /Partner Solution Engineer|Customer Solution Engineer|SA\/PSE\/CSE/i);
   assert.doesNotMatch(html, /99% match|100% match|Not a lifelong FDE yet/i);
   assert.doesNotMatch(html, /id=["']star-stories["']|id=["']ai-product["']|id=["']wonderful-fit["']/i, 'STAR detail belongs on subpages now.');
+});
+
+test('public pages avoid internal critique wording', async () => {
+  const html = (await Promise.all(pages.map((page) => readText(page)))).join('\n');
+
+  assert.doesNotMatch(html, /Google SA|Google Architect|The reference is/i);
+  assert.doesNotMatch(html, /This is not a long resume page|Last section fixed/i);
+  assert.doesNotMatch(html, /I build stuff|Run fit ramp|Small playground/i);
+  assert.doesNotMatch(html, /quiet at first|FDE-shaped|almost ready/i);
 });
 
 test('shared workbench design protects layout across viewport sizes', async () => {
