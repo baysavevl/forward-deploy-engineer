@@ -2,12 +2,12 @@
   "redirects": [
     {
       "source": "/profile/role-fit-profile.md",
-      "destination": "/#experience",
+      "destination": "/bio.html#experience",
       "permanent": false
     },
     {
       "source": "/profile/application-kit.md",
-      "destination": "/#experience",
+      "destination": "/bio.html#experience",
       "permanent": false
     }
   ]

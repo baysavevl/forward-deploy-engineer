@@ -4,14 +4,10 @@ import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 
 const requiredIndexSections = [
-  'match-check',
-  'fde-proof',
-  'case-evidence',
-  'skills',
-  'experience',
+  'help',
   'chatbot-lab',
-  'playground',
-  'education',
+  'star-stories',
+  'ai-product',
   'wonderful-fit',
   'links'
 ];
@@ -25,22 +21,22 @@ test('main profile is FDE-first and recruiter-readable', async () => {
 
   assert.match(html, /Forward Deployed Engineer/i);
   assert.match(html, /Wonderful\.ai/i);
-  assert.match(html, /Try the live chatbot/i);
+  assert.match(html, /Try the live chatbot|Try the demo/i);
   assert.match(html, /first concrete target/i);
   assert.match(html, /6\+ years/i);
-  assert.match(html, /Experience/i);
-  assert.match(html, /Education/i);
+  assert.match(html, /I'm here to help/i);
+  assert.match(html, /Why Wonderful, why me/i);
   assert.match(html, /Zalo/i);
 
   for (const id of requiredIndexSections) {
     assert.match(html, new RegExp(`id=["']${id}["']`), `Missing #${id}`);
   }
 
-  assert.match(html, /data-company=["']wonderful["']/, 'Recruiter match flow needs Wonderful.ai option.');
-  assert.match(html, /Customer workflow agent/i, 'Profile should lead with an agent/workflow project signal.');
-  assert.match(html, /Recruiter scorecard/i, 'Profile needs a concise screenable scorecard.');
-  assert.match(html, /hot lead|recruiter chatbot|lead matching/i, 'Playground needs concrete recruiting-product examples.');
-  assert.match(html, /self-built reasoning artifact/i, 'Playground must be framed as a self-built reasoning artifact.');
+  assert.match(html, /Customer Workflow Chatbot/i, 'Profile should expose an agent/workflow project signal.');
+  assert.match(html, /STAR stories/i, 'Profile needs structured interview evidence.');
+  assert.match(html, /Zalo lead matching|Recruiter support/i, 'Demo needs concrete recruiting-product examples.');
+  assert.match(html, /advisory, onsite implementation, and an enterprise platform/i, 'Profile should show understanding of Wonderful product motion.');
+  assert.match(html, /href=["']\/bio\.html["']/i, 'Detailed bio should move to a subpage.');
   assert.match(html, /prefers-reduced-motion/, 'Reduced-motion CSS guard is required.');
 });
 
@@ -60,19 +56,18 @@ test('main profile does not expose confusing raw markdown, old claims, or floati
   assert.doesNotMatch(html, /Not a lifelong FDE yet/i, 'Remove self-conscious FDE framing.');
 });
 
-test('experience evidence is concrete enough for a recruiter to understand fit', async () => {
+test('landing evidence is concrete enough for a recruiter to understand fit', async () => {
   const html = await readText('index.html');
 
   const requiredPhrases = [
     'ZNS',
-    'previous product',
-    '50k',
+    '80M',
     '30% operational overhead reduction',
     '40% faster partner onboarding',
-    'LifeService',
     'Job Market',
     'SOX-compliant',
-    'Vietnam/APAC'
+    'Vietnam',
+    'almost $300M'
   ];
 
   for (const phrase of requiredPhrases) {
@@ -80,17 +75,19 @@ test('experience evidence is concrete enough for a recruiter to understand fit',
   }
 });
 
-test('case evidence shows proof instead of self-scored fit', async () => {
+test('STAR evidence shows proof instead of self-scored fit', async () => {
   const html = await readText('index.html');
 
   const requiredCasePhrases = [
     'Job Market workflow automation',
     'Recruiter onboarding support',
-    'ZNS / business messaging reliability',
-    'Customer pain',
-    'Owned',
+    'AI matching cost at Zalo scale',
+    'Leading a team that levels up',
+    'Situation',
+    'Task',
+    'Action',
     'Result',
-    'FDE signal'
+    'all members were promoted'
   ];
 
   for (const phrase of requiredCasePhrases) {
@@ -111,6 +108,8 @@ test('profile exposes an interactive FDE chatbot project', async () => {
     'data-prompt',
     '/api/agent',
     'localWorkflowReply',
+    'Zalo lead matching',
+    'Recruiter support',
     'tool route',
     'guardrail',
     'metric',
@@ -162,14 +161,14 @@ test('visit notification is wired for Telegram without exposing secrets', async 
 test('recruiter-facing sections avoid talking to itself', async () => {
   const html = await readText('index.html');
 
-  assert.match(html, /Evidence before claims/i);
-  assert.match(html, /If you are screening me for FDE/i);
-  assert.match(html, /What to screen me for first/i);
+  assert.match(html, /structured proof, not a longer resume/i);
+  assert.match(html, /Give me one messy workflow/i);
+  assert.match(html, /Why Wonderful, why me/i);
   assert.doesNotMatch(html, /Researched FDE roles consistently ask/i);
 });
 
 test('local static links referenced by the profile are present', async () => {
-  const html = await readText('index.html');
+  const html = `${await readText('index.html')}\n${await readText('bio.html')}`;
   const localHrefs = [...html.matchAll(/href=["']([^"']+)["']/g)]
     .map((match) => match[1])
     .filter((href) => href.startsWith('/') && !href.startsWith('//'))
@@ -188,11 +187,11 @@ test('legacy markdown URLs redirect to the profile instead of rendering raw mark
 
   assert.deepEqual(
     redirects.find((rule) => rule.source === '/profile/role-fit-profile.md'),
-    { source: '/profile/role-fit-profile.md', destination: '/#experience', permanent: false }
+    { source: '/profile/role-fit-profile.md', destination: '/bio.html#experience', permanent: false }
   );
   assert.deepEqual(
     redirects.find((rule) => rule.source === '/profile/application-kit.md'),
-    { source: '/profile/application-kit.md', destination: '/#experience', permanent: false }
+    { source: '/profile/application-kit.md', destination: '/bio.html#experience', permanent: false }
   );
 });
 
@@ -201,4 +200,16 @@ test('profile content stays credible and avoids implementation placeholders', as
 
   assert.doesNotMatch(html, /TBD|TODO|FIXME|lorem ipsum/i, 'Profile contains placeholder text');
   assert.doesNotMatch(html, /production customer deployment of this lab/i, 'Profile overstates mockup scope');
+});
+
+test('bio subpage carries detailed infographic content off the landing page', async () => {
+  const html = await readText('bio.html');
+
+  assert.match(html, /Bio infographic/i);
+  assert.match(html, /id=["']experience["']/i);
+  assert.match(html, /id=["']skills["']/i);
+  assert.match(html, /id=["']education["']/i);
+  assert.match(html, /Lead Software Engineer, Zalo/i);
+  assert.match(html, /80M/i);
+  assert.match(html, /AI workflows/i);
 });
