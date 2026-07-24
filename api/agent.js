@@ -44,7 +44,7 @@ const scenarios = {
     label: "Zalo lead matching",
     route: "Candidate signals -> recruiter demand -> policy rules -> explainable recommendation",
     guardrail: "No automated match push without consent, eligibility checks, and human review for uncertain cases.",
-    metric: "Token cost per useful match, acceptance rate, missed leads, and recruiter response time.",
+    metric: "Useful match rate, acceptance rate, missed leads, and recruiter response time.",
     nextStep: "Define the smallest matching workflow and create eval cases from real support logs.",
   },
   support: {

@@ -21,6 +21,11 @@
       "permanent": false
     },
     {
+      "source": "/let-me-help.html",
+      "destination": "/#workbench",
+      "permanent": false
+    },
+    {
       "source": "/projects/deployment-blueprint-lab.html",
       "destination": "/#workbench",
       "permanent": false

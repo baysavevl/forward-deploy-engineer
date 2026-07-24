@@ -602,6 +602,7 @@ section {
 .proof-grid,
 .story-grid,
 .capability-grid,
+.skill-grid,
 .diagnostic-grid,
 .explainer-grid,
 .toolkit-grid,
@@ -615,14 +616,19 @@ section {
 }
 
 .proof-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .capability-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.capability-card {
+.skill-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.capability-card,
+.skill-card {
   min-height: 100%;
   border: 1px solid var(--line-strong);
   border-radius: 8px;
@@ -631,7 +637,8 @@ section {
   box-shadow: 0 16px 38px rgba(18, 19, 26, 0.07);
 }
 
-.capability-card span {
+.capability-card span,
+.skill-card span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -644,11 +651,13 @@ section {
   font-weight: 1000;
 }
 
-.capability-card h3 {
+.capability-card h3,
+.skill-card h3 {
   margin-top: 16px;
 }
 
-.capability-card p {
+.capability-card p,
+.skill-card p {
   margin: 10px 0 0;
   color: var(--body);
   font-size: 15.5px;
@@ -813,7 +822,7 @@ section {
 }
 
 .proof-lab-grid {
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.78fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
 }
 
@@ -822,7 +831,6 @@ section {
   align-items: stretch;
 }
 
-.cost-lab,
 .eval-lab,
 .case-study {
   padding: 22px;
@@ -889,41 +897,6 @@ section {
   font-size: 11px;
   font-weight: 1000;
   text-transform: uppercase;
-}
-
-.slider-grid {
-  display: grid;
-  gap: 14px;
-}
-
-.slider-grid label {
-  display: grid;
-  gap: 8px;
-  color: var(--body);
-  font-size: 13px;
-  font-weight: 950;
-}
-
-.slider-grid input[type="range"] {
-  width: 100%;
-  accent-color: var(--blue);
-}
-
-.cost-output.brief-grid {
-  border-color: var(--line);
-  background: var(--line);
-}
-
-.cost-output.brief-grid div {
-  background: #fff;
-}
-
-.cost-output.brief-grid span {
-  color: var(--muted);
-}
-
-.cost-output.brief-grid strong {
-  color: var(--ink);
 }
 
 .eval-table {
@@ -1175,6 +1148,7 @@ section {
   .proof-grid,
   .story-grid,
   .capability-grid,
+  .skill-grid,
   .diagnostic-grid,
   .explainer-grid,
   .toolkit-grid,
@@ -1242,6 +1216,7 @@ section {
   .proof-grid,
   .story-grid,
   .capability-grid,
+  .skill-grid,
   .proof-matrix,
   .diagnostic-grid,
   .explainer-grid,

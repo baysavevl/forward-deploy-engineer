@@ -8,13 +8,13 @@ const pages = [
   'diagnose.html',
   'toolkit.html',
   'why-wonderful.html',
-  'why-me.html',
-  'let-me-help.html'
+  'why-me.html'
 ];
 
 const removedPages = [
   'explain.html',
   'bio.html',
+  'let-me-help.html',
   'projects/deployment-blueprint-lab.html',
   'projects/agent-eval-harness.html',
   'projects/partner-integration-runbook.html'
@@ -32,25 +32,33 @@ test('landing is an English Forward Deployed Engineer hiring brief', async () =>
   const html = await readText('index.html');
 
   const required = [
-    'Vinh Luu - Forward Deployed Engineer Candidate',
-    'Forward Deployed Engineer candidate',
+    'Vinh Luu - Forward Deployed Engineer',
+    'Forward Deployed Engineer',
     'I turn ambiguous enterprise problems into production AI systems.',
-    '30-second recruiter read',
-    'Why bring Vinh to the technical round?',
-    'What I can own as an FDE',
+    'Profile summary',
+    'Production AI delivery across product, systems, and customers.',
+    'What I can own as a Forward Deployed Engineer',
     'From customer pain to production system.',
+    'Skill map',
+    'Working skills for deployed AI systems.',
+    'Customer discovery and scoping',
+    'Solution architecture',
+    'Enterprise integration',
+    'AI workflow delivery',
+    'Governance and safety',
+    'Reusable delivery assets',
     'Run live case',
     'Open CV',
     'https://www.linkedin.com/in/vinhluulinked/',
-    'Live FDE bot',
+    'AI deployment assistant',
     'Live case room: convert ambiguity into an AI deployment plan.',
-    'AI cost simulator',
     'Eval harness',
     'Technical case',
+    'AI matching at Zalo scale: quality, trust, and safe rollout.',
     'Wonderful match',
     'Role attributes matched to evidence.',
     'Supporting material',
-    'Everything a hiring team needs to verify the signal.',
+    'Evidence package.',
     'VinhLuu_Forward_Deploy_Engineer.pdf',
     'data-chatbot',
     'data-chat-form',
@@ -70,10 +78,11 @@ test('landing is an English Forward Deployed Engineer hiring brief', async () =>
   assert.match(html, /<html lang=["']en["']>/i);
   assert.match(html, /href=["']\/why-wonderful\.html["']/i);
   assert.match(html, /href=["']\/why-me\.html["']/i);
-  assert.match(html, /href=["']\/let-me-help\.html["']/i);
   assert.match(html, /href=["']\/output\/pdf\/VinhLuu_Forward_Deploy_Engineer\.pdf["']/i);
+  assert.match(html, /href=["']#skill-map["']/i);
   assert.doesNotMatch(html, /href=["']\/explain\.html["']/i);
   assert.doesNotMatch(html, /href=["']\/bio\.html["']/i);
+  assert.doesNotMatch(html, /href=["']\/let-me-help\.html["']/i);
   assert.doesNotMatch(html, /href=["']\/projects\//i);
 });
 
@@ -90,6 +99,10 @@ test('public pages stay English-only and avoid amateur framing', async () => {
   assert.doesNotMatch(html, /The clearest proof|I build stuff|Run fit ramp|Small playground/i);
   assert.doesNotMatch(html, /quiet at first|FDE-shaped|almost ready/i);
   assert.doesNotMatch(html, /Interview recovery|first-round|first interview|This is the last impression/i);
+  assert.doesNotMatch(html, /30-second recruiter read|Why bring Vinh|technical round|Read this as role fit|The relevant question is simple/i);
+  assert.doesNotMatch(html, /Hiring screen|Next round|Everything a hiring team needs|Move to hiring manager review|Ask him to design/i);
+  assert.doesNotMatch(html, /AI cost simulator|data-cost-lab|Token cost per useful match/i);
+  assert.doesNotMatch(html, /href=["']\/let-me-help\.html["']/i);
   assert.doesNotMatch(html, /href=["'][^"']+\.md["']/i, 'Do not link recruiters to raw Markdown files.');
 });
 
@@ -100,7 +113,7 @@ test('removed noisy surfaces are not public pages anymore', async () => {
 
   const config = JSON.parse(await readText('vercel.json'));
   const redirects = config.redirects || [];
-  for (const source of ['/bio.html', '/explain.html', '/projects/deployment-blueprint-lab.html']) {
+  for (const source of ['/bio.html', '/explain.html', '/let-me-help.html', '/projects/deployment-blueprint-lab.html']) {
     assert.ok(redirects.some((rule) => rule.source === source), `Missing redirect for ${source}`);
   }
 });
@@ -120,10 +133,12 @@ test('shared design protects layout across viewport sizes', async () => {
   assert.match(css, /prefers-reduced-motion/i);
   assert.match(css, /shortlist-card/i);
   assert.match(css, /capability-grid/i);
+  assert.match(css, /skill-grid/i);
   assert.match(css, /proof-matrix/i);
-  assert.match(css, /proof-grid\s*\{[\s\S]*repeat\(4,\s*minmax\(0,\s*1fr\)\)/i);
+  assert.match(css, /proof-grid\s*\{[\s\S]*repeat\(3,\s*minmax\(0,\s*1fr\)\)/i);
   assert.doesNotMatch(css, /height:\s*380px/i);
   assert.doesNotMatch(css, /background-size:\s*44px 44px/i);
+  assert.doesNotMatch(css, /cost-lab|slider-grid|cost-output/i);
 });
 
 test('chatbot project is interactive and English-only', async () => {
@@ -159,14 +174,14 @@ test('homepage includes a real work-sample layer for recruiters and hiring manag
     'Trace view',
     'data-trace-intent',
     'data-trace-policy',
-    'AI cost simulator',
-    'data-cost-lab',
-    'data-cost-saving',
     'Eval harness',
     'Technical case',
     'AI matching at Zalo scale',
     'Signal filter',
-    'Manager review',
+    'Architecture review',
+    'Skill map',
+    'Working skills for deployed AI systems',
+    'Business translation',
     'Engage enterprise customers and uncover operational pain',
     'Convert open-ended requirements into scalable architecture',
     'Build AI-powered agents that integrate with workflows',
@@ -178,7 +193,7 @@ test('homepage includes a real work-sample layer for recruiters and hiring manag
   assert.match(js, /workflowSamples/i);
   assert.match(js, /deploymentPlans/i);
   assert.match(js, /bindPlanner/i);
-  assert.match(js, /bindCostLab/i);
+  assert.doesNotMatch(js, /bindCostLab|data-cost/i);
   assert.match(css, /planner-grid/i);
   assert.match(css, /brief-console/i);
   assert.match(css, /eval-table/i);
@@ -199,7 +214,8 @@ test('diagnostic and toolkit remain useful supporting tools', async () => {
     'What proves value',
     'data-diagnostic',
     'data-result-workflow',
-    'Token cost per useful match',
+    'Useful match rate',
+    'Efficiency metric',
     'Pilot one segment'
   ]) {
     assert.match(diagnostic, new RegExp(escapeRegex(phrase), 'i'), `Missing diagnostic phrase: ${phrase}`);
@@ -210,7 +226,7 @@ test('diagnostic and toolkit remain useful supporting tools', async () => {
     'CTO',
     'Business owner',
     'Operations',
-    'Hiring team',
+    'People',
     'What I would ask',
     'What evidence I bring',
     'How I would answer',
@@ -228,27 +244,26 @@ test('diagnostic and toolkit remain useful supporting tools', async () => {
   assert.doesNotMatch(js, /bindExplainer|const concepts/i);
 });
 
-test('Wonderful match, evidence, and 30-day pages answer the hiring proof problem', async () => {
+test('Wonderful match and evidence pages answer the role evidence problem', async () => {
   const match = await readText('why-wonderful.html');
   const evidence = await readText('why-me.html');
-  const plan = await readText('let-me-help.html');
 
   for (const phrase of [
-    'Attributes that fit the deployed engineer role',
-    'What the JD asks for, and where I match',
+    'Enterprise AI deployment, mapped to my operating strengths',
+    'What the role requires in practice',
     'Customer discovery in local enterprise environments',
     'Architecture that survives real business load',
     'AI agents connected to actual workflows',
     'Production ownership, not demo ownership',
     'Governance and reliability mindset',
     'Reusable delivery assets',
-    'Public references used for this match'
+    'Public references used for context'
   ]) {
     assert.match(match, new RegExp(escapeRegex(phrase), 'i'), `Missing Wonderful match proof: ${phrase}`);
   }
 
   for (const phrase of [
-    'AI matching cost at Zalo scale',
+    'Matching quality at Zalo scale',
     'Situation',
     'Task',
     'Action',
@@ -260,18 +275,6 @@ test('Wonderful match, evidence, and 30-day pages answer the hiring proof proble
     'Technical conviction, not generic sales talk'
   ]) {
     assert.match(evidence, new RegExp(escapeRegex(phrase), 'i'), `Missing evidence proof: ${phrase}`);
-  }
-
-  for (const phrase of [
-    'How I would start as a deployed engineer in Vietnam',
-    'From platform learning to customer-owned pilot',
-    'Learn platform constraints and playbooks',
-    'Map first customer workflows',
-    'Build a narrow pilot',
-    'Make the pilot ownable',
-    'AI that improves products and operations'
-  ]) {
-    assert.match(plan, new RegExp(escapeRegex(phrase), 'i'), `Missing 30-day proof: ${phrase}`);
   }
 });
 
@@ -324,6 +327,10 @@ test('legacy markdown and removed page URLs redirect to focused surfaces', async
   assert.deepEqual(
     redirects.find((rule) => rule.source === '/explain.html'),
     { source: '/explain.html', destination: '/why-wonderful.html', permanent: false }
+  );
+  assert.deepEqual(
+    redirects.find((rule) => rule.source === '/let-me-help.html'),
+    { source: '/let-me-help.html', destination: '/#workbench', permanent: false }
   );
 });
 

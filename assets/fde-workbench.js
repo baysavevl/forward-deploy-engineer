@@ -5,10 +5,10 @@
       title: "Lead matching",
       phase: "Advisory",
       message:
-        "Start with one high-friction matching workflow. I would map candidate signals, recruiter demand, freshness, consent, and token cost before building. The first agent should recommend and explain, not auto-push uncertain matches.",
+        "Start with one high-friction matching workflow. I would map candidate signals, recruiter demand, freshness, consent, and quality thresholds before building. The first agent should recommend and explain, not auto-push uncertain matches.",
       route: "Candidate signals -> recruiter demand -> policy rules -> explainable recommendation",
       guardrail: "No automated match push without consent, eligibility checks, and human review for uncertain cases.",
-      metric: "Token cost per useful match, acceptance rate, missed leads, recruiter response time.",
+      metric: "Useful match rate, acceptance rate, missed leads, recruiter response time.",
       nextStep: "Define the smallest matching workflow and create eval cases from real recruiter logs.",
     },
     support: {
@@ -37,8 +37,8 @@
     matching: {
       workflow: "AI lead-matching copilot",
       route: "CRM/job demand -> candidate signals -> ranker -> explanation -> recruiter action",
-      guardrail: "Human approval for uncertain matches, consent checks, and token budget by candidate segment.",
-      metric: "Useful match rate, token cost per accepted lead, missed lead count, recruiter response time.",
+      guardrail: "Human approval for uncertain matches, consent checks, and quality threshold by candidate segment.",
+      metric: "Useful match rate, accepted lead quality, missed lead count, recruiter response time.",
       next: "Pilot one segment with known job demand and build evals from accepted/rejected matches.",
     },
     support: {
@@ -91,9 +91,9 @@
     },
     people: {
       questions:
-        "Which evidence should the hiring team inspect first? Which STAR story supports the role? Which customer-room concern should be clarified?",
+        "Which evidence clarifies the role overlap first? Which STAR story supports the work? Which customer-room concern should be clarified?",
       proof:
-        "Use the corrected STAR stories: AI matching cost, recruiter onboarding, operations automation, and team promotion.",
+        "Use the corrected STAR stories: matching quality at scale, recruiter onboarding, operations automation, and team promotion.",
       objection:
         "If they question client-facing strength: say sales owns pipeline; I help technical conviction, scope, and safe deployment in the customer room.",
     },
@@ -101,7 +101,7 @@
 
   const workflowSamples = {
     matching:
-      "A recruiting customer has too many candidate leads, recruiters repeat onboarding questions, and AI matching costs can explode at Zalo-scale volume. They want an agent, but actions need audit, consent, and human review.",
+      "A recruiting customer has too many candidate leads, recruiters repeat onboarding questions, and matching quality needs to hold at Zalo-scale volume. They want an agent, but actions need audit, consent, and human review.",
     support:
       "Recruiters keep asking the same setup, job-posting, and troubleshooting questions. Support is slow after hours, onboarding is delayed, and the customer wants a KB-backed agent with safe escalation.",
     regulated:
@@ -112,11 +112,11 @@
     matching: {
       title: "AI lead-matching deployment brief",
       summary:
-        "Start with a recommendation copilot, not an autonomous action agent: reduce token waste with pre-filtering, cite match reasons, and require recruiter review before candidate outreach.",
+        "Start with a recommendation copilot, not an autonomous action agent: improve match quality with pre-filtering, cite match reasons, and require recruiter review before candidate outreach.",
       workflow: "Recruiter lead triage and match explanation",
       route: "Job demand -> candidate signals -> policy rules -> ranked recommendations",
       guardrail: "Consent, eligibility, source citation, and human approval for uncertain matches",
-      metric: "Token cost per useful match, acceptance rate, missed leads, recruiter response time",
+      metric: "Useful match rate, accepted leads, missed leads, recruiter response time",
       trace: {
         intent: "Prioritize urgent jobs and high-fit candidates.",
         data: "Candidate profile, job demand, freshness, consent, recruiter history.",
@@ -124,9 +124,9 @@
         policy: "Block outreach if consent or eligibility is missing.",
         human: "Recruiter approves match batches and rejected reasons feed evals.",
       },
-      verdict: "Move to hiring manager review",
+      verdict: "Deployment brief is reviewable",
       reason:
-        "The strongest signal is AI cost thinking at Zalo scale. This plan turns it into a concrete enterprise deployment pattern.",
+        "The signal is Zalo-scale product judgment: narrow the workflow, protect quality, keep actions governed, and measure business value.",
     },
     support: {
       title: "Recruiter support-agent deployment brief",
@@ -170,12 +170,12 @@
 
   const reviewModes = {
     recruiter: {
-      verdict: "Move to hiring manager review",
+      verdict: "Deployment brief is reviewable",
       reason:
-        "Zalo-scale product engineering, AI cost discipline, support automation, and leadership evidence map directly to the FDE job.",
+        "Zalo-scale product engineering, support automation, enterprise integration, and leadership evidence map directly to deployed AI work.",
     },
     manager: {
-      verdict: "Ask him to design a real deployment live",
+      verdict: "Technical review can go deeper",
       reason:
         "The strongest signal is not the page copy; it is the ability to decompose workflow, systems, guardrails, evals, rollout, and metrics in one structured answer.",
     },
@@ -450,38 +450,6 @@
     setMode(activeMode);
   }
 
-  function formatTokenCount(value) {
-    if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
-    if (value >= 1000) return `${Math.round(value / 1000)}K`;
-    return String(Math.round(value));
-  }
-
-  function bindCostLab() {
-    const root = document.querySelector("[data-cost-lab]");
-    if (!root) return;
-
-    function updateCost() {
-      const leads = Number(root.querySelector('[data-cost-input="leads"]')?.value || 0);
-      const tokens = Number(root.querySelector('[data-cost-input="tokens"]')?.value || 0);
-      const kept = Number(root.querySelector('[data-cost-input="kept"]')?.value || 0);
-      const raw = leads * tokens;
-      const optimized = raw * (kept / 100);
-      const saving = raw ? Math.round((1 - optimized / raw) * 100) : 0;
-      text("[data-cost-raw]", formatTokenCount(raw));
-      text("[data-cost-optimized]", formatTokenCount(optimized));
-      text("[data-cost-saving]", `${saving}%`);
-      text(
-        "[data-cost-point]",
-        saving >= 70
-          ? "Filter before generation; evaluate on useful matches."
-          : "Tune retrieval and routing until cost reduction is launch-worthy."
-      );
-    }
-
-    root.querySelectorAll("[data-cost-input]").forEach((input) => input.addEventListener("input", updateCost));
-    updateCost();
-  }
-
   function sendVisitBeacon() {
     if (!document.body.hasAttribute("data-visit-beacon")) return;
     const key = "fde-workbench-session-id";
@@ -518,7 +486,6 @@
   bindDiagnostic();
   bindToolkit();
   bindPlanner();
-  bindCostLab();
   sendVisitBeacon();
 
   window.localWorkflowReply = localWorkflowReply;
