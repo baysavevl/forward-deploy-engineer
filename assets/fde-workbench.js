@@ -91,11 +91,11 @@
     },
     people: {
       questions:
-        "Which evidence clarifies the role overlap first? Which STAR story supports the work? Which customer-room concern should be clarified?",
+        "Which evidence clarifies the role overlap first? Which practice story supports the work? Which client concern should be clarified?",
       proof:
-        "Use the corrected STAR stories: matching quality at scale, recruiter onboarding, operations automation, and team promotion.",
+        "Use the practice stories: matching quality at scale, recruiter onboarding, operations automation, and team promotion.",
       objection:
-        "If they question client-facing strength: say sales owns pipeline; I help technical conviction, scope, and safe deployment in the customer room.",
+        "If they question client-facing strength: sales owns pipeline; I help technical conviction, scope, and safe deployment with customer stakeholders.",
     },
   };
 

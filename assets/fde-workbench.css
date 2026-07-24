@@ -284,31 +284,12 @@ h3 {
   background: #2f6fe4;
 }
 
-.proof-metrics {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1px;
-  margin-top: 28px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--line);
-  overflow: hidden;
-}
-
-.proof-metrics div,
 .readout div,
 .mini-result div {
   padding: 14px;
   background: #fff;
 }
 
-.proof-metrics strong {
-  display: block;
-  font-size: 22px;
-  line-height: 1;
-}
-
-.proof-metrics span,
 .readout span,
 .mini-result span {
   display: block;
@@ -576,26 +557,16 @@ section {
 }
 
 .section-head {
-  display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(280px, 0.48fr);
-  gap: 36px;
-  align-items: end;
+  display: block;
   margin-bottom: 24px;
 }
 
 .section-head.compact-head {
-  grid-template-columns: minmax(0, 1fr);
-  gap: 12px;
   margin-bottom: 18px;
 }
 
 .section-head.compact-head h2 {
   font-size: clamp(26px, 3vw, 38px);
-}
-
-.section-head.compact-head .lead {
-  margin-top: 0;
-  font-size: 16px;
 }
 
 .tool-grid,
@@ -711,7 +682,6 @@ section {
 
 .review-verdict span,
 .brief-grid span,
-.eval-table span,
 .trace-list strong {
   display: block;
   color: var(--muted);
@@ -821,17 +791,11 @@ section {
   font-size: 14px;
 }
 
-.proof-lab-grid {
-  grid-template-columns: minmax(0, 1fr);
-  align-items: start;
-}
-
 .case-layout {
   grid-template-columns: minmax(0, 1fr) minmax(340px, 0.42fr);
   align-items: stretch;
 }
 
-.eval-lab,
 .case-study {
   padding: 22px;
 }
@@ -897,39 +861,6 @@ section {
   font-size: 11px;
   font-weight: 1000;
   text-transform: uppercase;
-}
-
-.eval-table {
-  display: grid;
-  gap: 10px;
-}
-
-.eval-table div {
-  display: grid;
-  grid-template-columns: minmax(120px, 0.34fr) minmax(0, 1fr) auto;
-  gap: 12px;
-  align-items: center;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 12px;
-  background: #fff;
-}
-
-.eval-table strong {
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.35;
-}
-
-.eval-table b {
-  min-height: 28px;
-  display: inline-flex;
-  align-items: center;
-  border-radius: 999px;
-  padding: 0 10px;
-  color: #0d5f44;
-  background: #dcfce7;
-  font-size: 12px;
 }
 
 .proof-matrix {
@@ -1062,22 +993,6 @@ section {
   margin: 0;
 }
 
-.page-note {
-  border-left: 4px solid var(--blue);
-  padding: 18px 0 18px 18px;
-}
-
-.page-note strong {
-  display: block;
-  font-size: 24px;
-  line-height: 1.15;
-}
-
-.page-note p {
-  margin: 10px 0 0;
-  color: var(--body);
-}
-
 .diagnostic-card,
 .explainer-card,
 .toolkit-card {
@@ -1155,13 +1070,11 @@ section {
   .step-grid,
   .stat-grid,
   .planner-grid,
-  .proof-lab-grid,
   .bot-demo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .planner-grid,
-  .proof-lab-grid,
   .bot-demo-grid {
     grid-template-columns: 1fr;
   }
@@ -1207,7 +1120,6 @@ section {
     padding: 46px 0;
   }
 
-  .proof-metrics,
   .readout,
   .mini-result,
   .brief-grid,
@@ -1224,8 +1136,7 @@ section {
   .step-grid,
   .stat-grid,
   .chat-form,
-  .trace-list li,
-  .eval-table div {
+  .trace-list li {
     grid-template-columns: 1fr;
   }
 
