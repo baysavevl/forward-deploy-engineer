@@ -7,7 +7,7 @@
   <meta name="description" content="Vinh Luu's practice stories for Forward Deployed Engineer roles: enterprise solutioning, partner integration, applied AI, production reliability, and leadership.">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="/assets/fde-workbench.css?v=20260724j">
+  <link rel="stylesheet" href="/assets/fde-workbench.css?v=20260724k">
 </head>
 <body data-visit-beacon>
   <header class="topbar">
@@ -32,7 +32,7 @@
       <div class="shell hero-grid">
         <div>
           <p class="kicker">Practice stories</p>
-          <h1>Practice stories from production work.</h1>
+          <h1>Practice stories from recent product work.</h1>
         </div>
       </div>
     </section>
@@ -41,43 +41,86 @@
       <div class="shell practice-stack">
         <article class="practice-section">
           <div class="practice-copy">
-            <span class="story-label">Practice 01</span>
-            <h2>Matching quality at Zalo scale</h2>
-            <p class="practice-intro">A recruiting product had high-volume candidate and recruiter signals. The risk was not whether AI could generate matches; it was whether recommendations would stay useful, explainable, and trusted.</p>
+            <div class="practice-title">
+              <span class="story-icon icon-match" aria-hidden="true"></span>
+              <div>
+                <span class="story-label">Practice 01</span>
+                <h2>Hot Lead AI mapping</h2>
+              </div>
+            </div>
+            <p class="practice-intro">Recent Job Market work: turn employer demand and candidate signals into a governed matching loop for a blue-collar recruiting product handling roughly 50k daily requests.</p>
             <div class="story-points">
-              <div><strong>Built around</strong><span>Signal filtering, match reasons, consent checks, recruiter review, feedback loops.</span></div>
-              <div><strong>Decision</strong><span>Recommendation copilot before autonomous outreach.</span></div>
-              <div><strong>Proof</strong><span>Product reasoning for an 80M-user ecosystem context.</span></div>
+              <div><strong>Built around</strong><span>Demand labeling, candidate/job signal mapping, notification follow-up, admin monitoring, quota governance.</span></div>
+              <div><strong>Decision</strong><span>Prompted as a workflow mapper: extract demand, label fit, explain after filters, keep recruiter approval in the loop.</span></div>
+              <div><strong>Proof</strong><span>2 of 3 Hot Lead modules developed in May 2026, with the remaining quota board defining controlled rollout.</span></div>
             </div>
           </div>
           <div class="practice-visual" aria-label="Matching quality evidence">
-            <div class="metric-row">
-              <div><strong>80M</strong><span>ecosystem context</span></div>
-              <div><strong>4</strong><span>quality gates</span></div>
-              <div><strong>1</strong><span>safe first pilot</span></div>
+            <div class="metric-row story-proof-grid">
+              <div><strong>50k</strong><span>daily requests</span></div>
+              <div><strong>2/3</strong><span>Hot Lead modules developed</span></div>
+              <div><strong>H2 2026 goal</strong><span>lead coverage and missed-lead reduction</span></div>
             </div>
             <div class="bar-chart">
-              <div style="--bar: 92%"><span>Signal filter</span><b></b></div>
-              <div style="--bar: 84%"><span>Explainability</span><b></b></div>
-              <div style="--bar: 78%"><span>Human review</span><b></b></div>
-              <div style="--bar: 72%"><span>Eval loop</span><b></b></div>
+              <div style="--bar: 92%"><span>Demand mapping</span><b></b></div>
+              <div style="--bar: 84%"><span>Follow-up loop</span><b></b></div>
+              <div style="--bar: 78%"><span>Admin monitoring</span><b></b></div>
+              <div style="--bar: 60%"><span>Quota board</span><b></b></div>
             </div>
+            <div class="story-goals"><strong>H2 2026 goal</strong><span>Move matching from a promising AI label into a measurable lead engine: coverage, send time, accepted leads, missed leads.</span></div>
           </div>
         </article>
 
         <article class="practice-section">
           <div class="practice-copy">
-            <span class="story-label">Practice 02</span>
-            <h2>Recruiter onboarding support</h2>
-            <p class="practice-intro">Recruiters and partners repeated setup and troubleshooting questions. The useful system was not a generic chatbot; it needed source-of-truth answers and clean escalation.</p>
+            <div class="practice-title">
+              <span class="story-icon icon-workflow" aria-hidden="true"></span>
+              <div>
+                <span class="story-label">Practice 02</span>
+                <h2>Prompt and workflow spine</h2>
+              </div>
+            </div>
+            <p class="practice-intro">I recently helped move AI work from isolated prompts into a reusable LifeServices HR workflow path: structured inputs, controlled generation, validation, and clear fallback.</p>
             <div class="story-points">
-              <div><strong>Built around</strong><span>KB-backed answers, issue classification, unresolved-question capture, support handoff.</span></div>
-              <div><strong>Decision</strong><span>Answer common setup questions, escalate account-specific uncertainty.</span></div>
+              <div><strong>Built around</strong><span>AI Workflow foundation, structured outputs, moderation API, prompt contracts, reusable implementation path.</span></div>
+              <div><strong>Decision</strong><span>Treat the prompt as a product contract: separate extraction, validation, generation, trace, and human fallback.</span></div>
+              <div><strong>Proof</strong><span>Quality moderation API deployed May 11, 2026; AI Workflow foundation completed May 21, 2026.</span></div>
+            </div>
+          </div>
+          <div class="practice-visual" aria-label="Prompt and workflow evidence">
+            <div class="metric-row story-proof-grid">
+              <div><strong>2</strong><span>AI deliverables shipped</span></div>
+              <div><strong>May 11, 2026</strong><span>moderation API</span></div>
+              <div><strong>May 21, 2026</strong><span>AI Workflow foundation</span></div>
+            </div>
+            <div class="bar-chart">
+              <div style="--bar: 88%"><span>Prompt contract</span><b></b></div>
+              <div style="--bar: 82%"><span>Structured output</span><b></b></div>
+              <div style="--bar: 76%"><span>Quality gate</span><b></b></div>
+              <div style="--bar: 70%"><span>Fallback path</span><b></b></div>
+            </div>
+            <div class="story-goals"><strong>H2 2026 goal</strong><span>Turn prompt work into a repeatable agent delivery kit for Job Market workflows: eval cases, dashboards, rollout checklist.</span></div>
+          </div>
+        </article>
+
+        <article class="practice-section">
+          <div class="practice-copy">
+            <div class="practice-title">
+              <span class="story-icon icon-support" aria-hidden="true"></span>
+              <div>
+                <span class="story-label">Practice 03</span>
+                <h2>Operational AI support</h2>
+              </div>
+            </div>
+            <p class="practice-intro">Recruiters and partners repeated setup and troubleshooting questions. The useful system was not a generic chatbot; it needed source-backed answers and clean escalation.</p>
+            <div class="story-points">
+              <div><strong>Built around</strong><span>KB-backed answers, issue classification, unresolved-question capture, support handoff, product feedback.</span></div>
+              <div><strong>Decision</strong><span>Answer repeated setup questions automatically, escalate account-specific uncertainty to an owner.</span></div>
               <div><strong>Proof</strong><span>Improved partner onboarding by 40%.</span></div>
             </div>
           </div>
-          <div class="practice-visual" aria-label="Recruiter onboarding evidence">
-            <div class="metric-row">
+          <div class="practice-visual" aria-label="Operational AI support evidence">
+            <div class="metric-row story-proof-grid">
               <div><strong>40%</strong><span>faster onboarding</span></div>
               <div><strong>KB</strong><span>source backed</span></div>
               <div><strong>Escalate</strong><span>when uncertain</span></div>
@@ -87,61 +130,43 @@
               <div style="--bar: 80%"><span>Setup guidance</span><b></b></div>
               <div style="--bar: 70%"><span>Escalation quality</span><b></b></div>
             </div>
+            <div class="story-goals"><strong>H2 2026 goal</strong><span>Make support intelligence feed the product backlog: unresolved questions, blocked steps, training gaps, and partner friction.</span></div>
           </div>
         </article>
 
         <article class="practice-section">
           <div class="practice-copy">
-            <span class="story-label">Practice 03</span>
-            <h2>Job Market workflow automation</h2>
-            <p class="practice-intro">Job Market operations involved repeated manual coordination across product, sales, ops, and engineering. The goal was faster execution without hiding operational ownership.</p>
+            <div class="practice-title">
+              <span class="story-icon icon-ownership" aria-hidden="true"></span>
+              <div>
+                <span class="story-label">Practice 04</span>
+                <h2>Owned delivery across teams</h2>
+              </div>
+            </div>
+            <p class="practice-intro">Job Market operations involved repeated manual coordination across Finance, Sales, Ops, Product, and Engineering. The work was to simplify the system while raising team ownership.</p>
             <div class="story-points">
-              <div><strong>Built around</strong><span>Manual-step mapping, business metric selection, automation boundaries, owner handoff.</span></div>
-              <div><strong>Decision</strong><span>Automate repeated work, keep exceptions visible.</span></div>
-              <div><strong>Proof</strong><span>Reduced operational overhead by 30%.</span></div>
-            </div>
-          </div>
-          <div class="practice-visual" aria-label="Workflow automation evidence">
-            <div class="metric-row">
-              <div><strong>30%</strong><span>ops overhead reduced</span></div>
-              <div><strong>4</strong><span>stakeholder groups</span></div>
-              <div><strong>Ops</strong><span>owner visible</span></div>
-            </div>
-            <div class="bar-chart">
-              <div style="--bar: 82%"><span>Manual steps removed</span><b></b></div>
-              <div style="--bar: 74%"><span>Business visibility</span><b></b></div>
-              <div style="--bar: 68%"><span>Reusable workflow</span><b></b></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="practice-section">
-          <div class="practice-copy">
-            <span class="story-label">Practice 04</span>
-            <h2>Leading a team that levels up</h2>
-            <p class="practice-intro">A four-person engineering team needed to deliver production systems while growing into higher ownership. The work was architecture, review discipline, stakeholder alignment, and coaching.</p>
-            <div class="story-points">
-              <div><strong>Built around</strong><span>Architecture review, clear ownership, delivery rhythm, promotion-level feedback.</span></div>
-              <div><strong>Decision</strong><span>Raise the operating bar through repeatable technical judgment.</span></div>
-              <div><strong>Proof</strong><span>Over two promotion cycles, all team members were promoted.</span></div>
+              <div><strong>Built around</strong><span>Manual-step mapping, architecture review, auditable reporting, clear ownership, delivery rhythm.</span></div>
+              <div><strong>Decision</strong><span>Automate repeated work, keep exceptions visible, and coach engineers to own production outcomes.</span></div>
+              <div><strong>Proof</strong><span>Reduced operational overhead by 30%; over two promotion cycles, all team members were promoted.</span></div>
             </div>
           </div>
           <div class="practice-visual" aria-label="Team leadership evidence">
-            <div class="metric-row">
+            <div class="metric-row story-proof-grid">
+              <div><strong>30%</strong><span>ops overhead reduced</span></div>
               <div><strong>4</strong><span>engineers led</span></div>
-              <div><strong>2</strong><span>promotion cycles</span></div>
               <div><strong>100%</strong><span>team promoted</span></div>
             </div>
             <div class="bar-chart">
-              <div style="--bar: 90%"><span>Ownership clarity</span><b></b></div>
+              <div style="--bar: 82%"><span>Manual steps removed</span><b></b></div>
               <div style="--bar: 86%"><span>Review discipline</span><b></b></div>
               <div style="--bar: 100%"><span>Promotion outcome</span><b></b></div>
             </div>
+            <div class="story-goals"><strong>H2 2026 goal</strong><span>Convert repeatable delivery practice into team assets: runbooks, rollout checks, owner handoff, and reusable decision records.</span></div>
           </div>
         </article>
       </div>
     </section>
   </main>
-  <script src="/assets/fde-workbench.js?v=20260724j"></script>
+  <script src="/assets/fde-workbench.js?v=20260724k"></script>
 </body>
 </html>
