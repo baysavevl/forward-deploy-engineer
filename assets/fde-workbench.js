@@ -170,11 +170,13 @@
 
   const reviewModes = {
     recruiter: {
+      modeLabel: "Business read",
       verdict: "Deployment brief is reviewable",
       reason:
         "Zalo-scale product engineering, support automation, enterprise integration, and leadership evidence map directly to deployed AI work.",
     },
     manager: {
+      modeLabel: "Technical read",
       verdict: "Technical review can go deeper",
       reason:
         "The strongest signal is not the page copy; it is the ability to decompose workflow, systems, guardrails, evals, rollout, and metrics in one structured answer.",
@@ -296,8 +298,12 @@
 
     document.querySelectorAll("[data-scenario-choice]").forEach((button) => {
       button.addEventListener("click", () => {
-        document.querySelectorAll("[data-scenario-choice]").forEach((item) => item.classList.remove("is-active"));
+        document.querySelectorAll("[data-scenario-choice]").forEach((item) => {
+          item.classList.remove("is-active");
+          item.setAttribute("aria-pressed", "false");
+        });
         button.classList.add("is-active");
+        button.setAttribute("aria-pressed", "true");
         resetChatIntro(button.dataset.scenarioChoice);
       });
     });
@@ -404,6 +410,7 @@
   function renderReviewMode(mode, planKey) {
     const modePayload = reviewModes[mode] || reviewModes.recruiter;
     const plan = deploymentPlans[planKey] || deploymentPlans.matching;
+    text("[data-brief-mode]", modePayload.modeLabel);
     text("[data-review-verdict]", mode === "recruiter" ? plan.verdict : modePayload.verdict);
     text("[data-review-reason]", mode === "recruiter" ? plan.reason : modePayload.reason);
   }
@@ -418,12 +425,17 @@
       activeMode = mode === "manager" ? "manager" : "recruiter";
       root.querySelectorAll("[data-review-mode]").forEach((button) => {
         button.classList.toggle("is-active", button.dataset.reviewMode === activeMode);
+        button.setAttribute("aria-pressed", String(button.dataset.reviewMode === activeMode));
       });
       renderReviewMode(activeMode, activePlan);
     }
 
     function setPlan(key) {
       activePlan = deploymentPlans[key] ? key : "matching";
+      root.querySelectorAll("[data-workflow-sample]").forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.workflowSample === activePlan);
+        button.setAttribute("aria-pressed", String(button.dataset.workflowSample === activePlan));
+      });
       renderDeploymentPlan(activePlan);
       renderReviewMode(activeMode, activePlan);
     }

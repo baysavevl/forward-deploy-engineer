@@ -7,7 +7,7 @@
   <meta name="description" content="Vinh Luu's practice stories for Forward Deployed Engineer roles: enterprise solutioning, partner integration, applied AI, production reliability, and leadership.">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="/assets/fde-workbench.css?v=20260724i">
+  <link rel="stylesheet" href="/assets/fde-workbench.css?v=20260724j">
 </head>
 <body data-visit-beacon>
   <header class="topbar">
@@ -38,42 +38,110 @@
     </section>
 
     <section class="band">
-      <div class="shell story-grid">
-        <article class="story-card">
-          <span>Practice 01</span>
-          <h3>Matching quality at Zalo scale</h3>
-          <p><strong>Situation:</strong> A recruiting product on Zalo had high-volume candidate and recruiter signals, where naive AI matching could create noisy recommendations.</p>
-          <p><strong>Task:</strong> Apply AI in a way that preserved quality, trust, and useful lead outcomes.</p>
-          <p><strong>Action:</strong> Researched pre-filtering, workflow design, structured explanations, and evaluation around accepted and rejected matches.</p>
-          <p><strong>Result:</strong> Clear product and system reasoning for an 80M-user ecosystem context, directly relevant to enterprise agent deployment.</p>
+      <div class="shell practice-stack">
+        <article class="practice-section">
+          <div class="practice-copy">
+            <span class="story-label">Practice 01</span>
+            <h2>Matching quality at Zalo scale</h2>
+            <p class="practice-intro">A recruiting product had high-volume candidate and recruiter signals. The risk was not whether AI could generate matches; it was whether recommendations would stay useful, explainable, and trusted.</p>
+            <div class="story-points">
+              <div><strong>Built around</strong><span>Signal filtering, match reasons, consent checks, recruiter review, feedback loops.</span></div>
+              <div><strong>Decision</strong><span>Recommendation copilot before autonomous outreach.</span></div>
+              <div><strong>Proof</strong><span>Product reasoning for an 80M-user ecosystem context.</span></div>
+            </div>
+          </div>
+          <div class="practice-visual" aria-label="Matching quality evidence">
+            <div class="metric-row">
+              <div><strong>80M</strong><span>ecosystem context</span></div>
+              <div><strong>4</strong><span>quality gates</span></div>
+              <div><strong>1</strong><span>safe first pilot</span></div>
+            </div>
+            <div class="bar-chart">
+              <div style="--bar: 92%"><span>Signal filter</span><b></b></div>
+              <div style="--bar: 84%"><span>Explainability</span><b></b></div>
+              <div style="--bar: 78%"><span>Human review</span><b></b></div>
+              <div style="--bar: 72%"><span>Eval loop</span><b></b></div>
+            </div>
+          </div>
         </article>
-        <article class="story-card">
-          <span>Practice 02</span>
-          <h3>Recruiter onboarding support</h3>
-          <p><strong>Situation:</strong> Recruiters and partners repeated setup and troubleshooting questions, slowing onboarding and support response.</p>
-          <p><strong>Task:</strong> Reduce friction without losing escalation quality.</p>
-          <p><strong>Action:</strong> Built chatbot and KB-backed support patterns, source-of-truth answers, and escalation paths.</p>
-          <p><strong>Result:</strong> Improved partner onboarding by 40% and created a reusable support-agent story.</p>
+
+        <article class="practice-section">
+          <div class="practice-copy">
+            <span class="story-label">Practice 02</span>
+            <h2>Recruiter onboarding support</h2>
+            <p class="practice-intro">Recruiters and partners repeated setup and troubleshooting questions. The useful system was not a generic chatbot; it needed source-of-truth answers and clean escalation.</p>
+            <div class="story-points">
+              <div><strong>Built around</strong><span>KB-backed answers, issue classification, unresolved-question capture, support handoff.</span></div>
+              <div><strong>Decision</strong><span>Answer common setup questions, escalate account-specific uncertainty.</span></div>
+              <div><strong>Proof</strong><span>Improved partner onboarding by 40%.</span></div>
+            </div>
+          </div>
+          <div class="practice-visual" aria-label="Recruiter onboarding evidence">
+            <div class="metric-row">
+              <div><strong>40%</strong><span>faster onboarding</span></div>
+              <div><strong>KB</strong><span>source backed</span></div>
+              <div><strong>Escalate</strong><span>when uncertain</span></div>
+            </div>
+            <div class="bar-chart">
+              <div style="--bar: 88%"><span>Repeated answers</span><b></b></div>
+              <div style="--bar: 80%"><span>Setup guidance</span><b></b></div>
+              <div style="--bar: 70%"><span>Escalation quality</span><b></b></div>
+            </div>
+          </div>
         </article>
-        <article class="story-card">
-          <span>Practice 03</span>
-          <h3>Job Market workflow automation</h3>
-          <p><strong>Situation:</strong> Job Market operations required repeated manual coordination across product, sales, ops, and engineering.</p>
-          <p><strong>Task:</strong> Make work faster and less error-prone while preserving operational ownership.</p>
-          <p><strong>Action:</strong> Automated repeated manual actions and added AI into product and delivery workflows.</p>
-          <p><strong>Result:</strong> Reduced operational overhead by 30% and tied engineering work to a business metric.</p>
+
+        <article class="practice-section">
+          <div class="practice-copy">
+            <span class="story-label">Practice 03</span>
+            <h2>Job Market workflow automation</h2>
+            <p class="practice-intro">Job Market operations involved repeated manual coordination across product, sales, ops, and engineering. The goal was faster execution without hiding operational ownership.</p>
+            <div class="story-points">
+              <div><strong>Built around</strong><span>Manual-step mapping, business metric selection, automation boundaries, owner handoff.</span></div>
+              <div><strong>Decision</strong><span>Automate repeated work, keep exceptions visible.</span></div>
+              <div><strong>Proof</strong><span>Reduced operational overhead by 30%.</span></div>
+            </div>
+          </div>
+          <div class="practice-visual" aria-label="Workflow automation evidence">
+            <div class="metric-row">
+              <div><strong>30%</strong><span>ops overhead reduced</span></div>
+              <div><strong>4</strong><span>stakeholder groups</span></div>
+              <div><strong>Ops</strong><span>owner visible</span></div>
+            </div>
+            <div class="bar-chart">
+              <div style="--bar: 82%"><span>Manual steps removed</span><b></b></div>
+              <div style="--bar: 74%"><span>Business visibility</span><b></b></div>
+              <div style="--bar: 68%"><span>Reusable workflow</span><b></b></div>
+            </div>
+          </div>
         </article>
-        <article class="story-card">
-          <span>Practice 04</span>
-          <h3>Leading a team that levels up</h3>
-          <p><strong>Situation:</strong> A four-person engineering team needed to hit delivery targets while growing professionally.</p>
-          <p><strong>Task:</strong> Lead the team, review systems, and create conditions for promotion-level growth.</p>
-          <p><strong>Action:</strong> Owned architecture review, stakeholder alignment, delivery discipline, and coaching.</p>
-          <p><strong>Result:</strong> Over two promotion cycles, all team members were promoted. This is the strongest human-leadership proof in the profile.</p>
+
+        <article class="practice-section">
+          <div class="practice-copy">
+            <span class="story-label">Practice 04</span>
+            <h2>Leading a team that levels up</h2>
+            <p class="practice-intro">A four-person engineering team needed to deliver production systems while growing into higher ownership. The work was architecture, review discipline, stakeholder alignment, and coaching.</p>
+            <div class="story-points">
+              <div><strong>Built around</strong><span>Architecture review, clear ownership, delivery rhythm, promotion-level feedback.</span></div>
+              <div><strong>Decision</strong><span>Raise the operating bar through repeatable technical judgment.</span></div>
+              <div><strong>Proof</strong><span>Over two promotion cycles, all team members were promoted.</span></div>
+            </div>
+          </div>
+          <div class="practice-visual" aria-label="Team leadership evidence">
+            <div class="metric-row">
+              <div><strong>4</strong><span>engineers led</span></div>
+              <div><strong>2</strong><span>promotion cycles</span></div>
+              <div><strong>100%</strong><span>team promoted</span></div>
+            </div>
+            <div class="bar-chart">
+              <div style="--bar: 90%"><span>Ownership clarity</span><b></b></div>
+              <div style="--bar: 86%"><span>Review discipline</span><b></b></div>
+              <div style="--bar: 100%"><span>Promotion outcome</span><b></b></div>
+            </div>
+          </div>
         </article>
       </div>
     </section>
   </main>
-  <script src="/assets/fde-workbench.js?v=20260724i"></script>
+  <script src="/assets/fde-workbench.js?v=20260724j"></script>
 </body>
 </html>

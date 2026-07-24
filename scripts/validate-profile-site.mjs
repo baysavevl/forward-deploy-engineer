@@ -59,10 +59,16 @@ test('landing is an English Forward Deployed Engineer hiring brief', async () =>
     'https://www.linkedin.com/in/vinhluulinked/',
     'AI deployment assistant',
     'Live case room: convert ambiguity into an AI deployment plan.',
+    'Project brief',
+    'Deployment brief generator',
+    'Select a workflow. The brief updates immediately.',
+    'Why it helps',
     'Generate deployment brief',
     'Trace view',
     'Technical case',
     'AI matching at Zalo scale: quality, trust, and safe rollout.',
+    'Problem',
+    'System move',
     'VinhLuu_Forward_Deploy_Engineer.pdf',
     'data-chatbot',
     'data-chat-form',
@@ -136,7 +142,7 @@ test('public pages stay English-only and avoid amateur framing', async () => {
   assert.doesNotMatch(html, /\bSTAR\b|Evidence package|Supporting material|Eval harness|What I would test before launch/i);
   assert.doesNotMatch(html, /Role attributes matched to evidence|Based on the Forward Deployed Engineer JD|The role turns ambiguous requirements/i);
   assert.doesNotMatch(html, /Condensed from the CV|Practical skill groups from the CV|The technical judgment is|Five questions turn/i);
-  assert.doesNotMatch(html, /customer-room|Role expectations|What the role requires in practice|Company context|Public references used/i);
+  assert.doesNotMatch(html, /customer-room|Customer room simulator|Role expectations|What the role requires in practice|Company context|Public references used/i);
   assert.doesNotMatch(html, /href=["']\/let-me-help\.html["']/i);
   assert.doesNotMatch(html, /href=["'][^"']+\.md["']/i, 'Do not link recruiters to raw Markdown files.');
 });
@@ -173,6 +179,12 @@ test('shared design protects layout across viewport sizes', async () => {
   assert.doesNotMatch(css, /height:\s*380px/i);
   assert.doesNotMatch(css, /background-size:\s*44px 44px/i);
   assert.doesNotMatch(css, /cost-lab|slider-grid|cost-output|proof-metrics|page-note|eval-table/i);
+  assert.match(css, /project-brief/i);
+  assert.match(css, /case-brief/i);
+  assert.match(css, /mission-grid/i);
+  assert.match(css, /practice-section/i);
+  assert.match(css, /metric-row/i);
+  assert.match(css, /bar-chart/i);
 });
 
 test('chatbot project is interactive and English-only', async () => {
@@ -203,13 +215,22 @@ test('homepage includes a real work-sample layer for recruiters and hiring manag
   for (const phrase of [
     'Flagship work sample',
     'Live case room: convert ambiguity into an AI deployment plan.',
+    'Project brief',
+    'Input',
+    'Output',
+    'Why it helps',
     'data-review-mode="recruiter"',
     'data-review-mode="manager"',
+    'data-brief-mode',
+    'data-workflow-sample="matching"',
+    'aria-pressed="true"',
     'Trace view',
     'data-trace-intent',
     'data-trace-policy',
     'Technical case',
     'AI matching at Zalo scale',
+    'High-volume candidate and recruiter signals',
+    'Filter first, explain only promising matches',
     'Signal filter',
     'Architecture review',
     'Skill map',
@@ -226,6 +247,8 @@ test('homepage includes a real work-sample layer for recruiters and hiring manag
   assert.match(js, /workflowSamples/i);
   assert.match(js, /deploymentPlans/i);
   assert.match(js, /bindPlanner/i);
+  assert.match(js, /data-brief-mode/i);
+  assert.match(js, /aria-pressed/i);
   assert.doesNotMatch(js, /bindCostLab|data-cost/i);
   assert.match(css, /planner-grid/i);
   assert.match(css, /brief-console/i);
@@ -293,7 +316,12 @@ test('Wonderful match and evidence pages answer the role evidence problem', asyn
     'Governance',
     'I treat safety as product behavior.',
     'Reusable delivery assets',
-    'I leave reusable assets behind.'
+    'I leave reusable assets behind.',
+    'Mission alignment',
+    "My operating mission matches Wonderful's operating model.",
+    'AI ambition to production impact',
+    'Local teams for real-world constraints',
+    'Critical workflows need trust'
   ]) {
     assert.match(match, new RegExp(escapeRegex(phrase), 'i'), `Missing Wonderful match proof: ${phrase}`);
   }
@@ -302,13 +330,17 @@ test('Wonderful match and evidence pages answer the role evidence problem', asyn
     'Practice stories from production work.',
     'Practice 01',
     'Matching quality at Zalo scale',
-    'Situation',
-    'Task',
-    'Action',
-    'Result',
+    'Built around',
+    'Decision',
+    'Proof',
     '80M-user ecosystem',
+    '4',
+    'quality gates',
     '40%',
     '30%',
+    '100%',
+    'team promoted',
+    'bar-chart',
     'all team members were promoted'
   ]) {
     assert.match(evidence, new RegExp(escapeRegex(phrase), 'i'), `Missing evidence proof: ${phrase}`);

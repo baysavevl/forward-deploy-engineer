@@ -435,6 +435,7 @@ h3 {
 }
 
 .segmented button.is-active,
+.prompt-row button.is-active,
 .option-row button.is-active,
 .tab-row button.is-active,
 .segmented button:hover,
@@ -642,6 +643,66 @@ section {
   font-weight: 1000;
 }
 
+.mini-icon {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--blue-soft);
+}
+
+.mini-icon::before,
+.mini-icon::after {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+.icon-input::before {
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--blue);
+  border-radius: 999px;
+}
+
+.icon-input::after {
+  right: 7px;
+  bottom: 8px;
+  width: 10px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--blue);
+  transform: rotate(42deg);
+}
+
+.icon-output {
+  background: var(--green-soft);
+}
+
+.icon-output::before {
+  width: 17px;
+  height: 12px;
+  border: 3px solid var(--green);
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(-45deg);
+}
+
+.icon-value {
+  background: var(--yellow-soft);
+}
+
+.icon-value::before {
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--yellow);
+  border-radius: 3px;
+  transform: rotate(45deg);
+}
+
 .bot-demo-grid {
   display: grid;
   grid-template-columns: minmax(280px, 0.42fr) minmax(0, 0.78fr);
@@ -654,6 +715,58 @@ section {
   grid-template-columns: minmax(320px, 0.44fr) minmax(0, 0.76fr);
   gap: 16px;
   align-items: stretch;
+}
+
+.project-brief,
+.case-brief,
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.project-brief,
+.case-brief {
+  margin-bottom: 16px;
+}
+
+.project-brief article,
+.case-brief article,
+.mission-grid article {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+}
+
+.project-brief strong,
+.case-brief strong,
+.mission-grid strong {
+  display: block;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.case-brief strong,
+.case-brief p,
+.mission-grid strong,
+.mission-grid p {
+  grid-column: 2;
+}
+
+.project-brief p,
+.case-brief p,
+.mission-grid p {
+  margin: 6px 0 0;
+  color: var(--body);
+  font-size: 14.5px;
+  line-height: 1.45;
 }
 
 .planner-input {
@@ -908,6 +1021,148 @@ section {
   font-weight: 1000;
 }
 
+.mission-panel {
+  display: grid;
+  gap: 24px;
+}
+
+.mission-panel h2 {
+  max-width: 780px;
+}
+
+.practice-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.practice-section {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.52fr);
+  gap: 20px;
+  align-items: stretch;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  padding: 22px;
+  background: #fff;
+  box-shadow: 0 16px 38px rgba(18, 19, 26, 0.07);
+}
+
+.story-label {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 1000;
+  text-transform: uppercase;
+}
+
+.practice-copy h2 {
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+.practice-intro {
+  max-width: 720px;
+  margin: 12px 0 0;
+  color: var(--body);
+  font-size: 16px;
+}
+
+.story-points {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.story-points div {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.story-points div:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.story-points strong {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 1000;
+  text-transform: uppercase;
+}
+
+.story-points span {
+  color: var(--body);
+  font-size: 14.5px;
+}
+
+.practice-visual {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.metric-row div {
+  min-width: 0;
+  padding: 14px;
+  background: var(--soft);
+}
+
+.metric-row strong {
+  display: block;
+  color: var(--ink);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.metric-row span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 1000;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.bar-chart {
+  display: grid;
+  gap: 12px;
+}
+
+.bar-chart div {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.bar-chart span {
+  color: var(--body);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.bar-chart b {
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue) var(--bar), var(--line) var(--bar));
+}
+
 .tool-card,
 .proof-card,
 .story-card,
@@ -1069,13 +1324,17 @@ section {
   .toolkit-grid,
   .step-grid,
   .stat-grid,
+  .project-brief,
+  .case-brief,
+  .mission-grid,
   .planner-grid,
   .bot-demo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .planner-grid,
-  .bot-demo-grid {
+  .bot-demo-grid,
+  .practice-section {
     grid-template-columns: 1fr;
   }
 
@@ -1135,6 +1394,12 @@ section {
   .toolkit-grid,
   .step-grid,
   .stat-grid,
+  .project-brief,
+  .case-brief,
+  .mission-grid,
+  .metric-row,
+  .story-points div,
+  .bar-chart div,
   .chat-form,
   .trace-list li {
     grid-template-columns: 1fr;

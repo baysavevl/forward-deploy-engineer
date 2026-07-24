@@ -8,7 +8,7 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/fde-workbench.css?v=20260724i">
+  <link rel="stylesheet" href="/assets/fde-workbench.css?v=20260724j">
 </head>
 <body data-visit-beacon>
   <header class="topbar">
@@ -167,9 +167,9 @@
             Returns advisory path, integration route, guardrail, metric, and next step.
           </p>
           <div class="segmented" aria-label="Demo scenarios">
-            <button class="is-active" type="button" data-scenario-choice="matching">Lead matching</button>
-            <button type="button" data-scenario-choice="support">Recruiter support</button>
-            <button type="button" data-scenario-choice="card">Risky action</button>
+            <button class="is-active" type="button" data-scenario-choice="matching" aria-pressed="true">Lead matching</button>
+            <button type="button" data-scenario-choice="support" aria-pressed="false">Recruiter support</button>
+            <button type="button" data-scenario-choice="card" aria-pressed="false">Risky action</button>
           </div>
           <div class="prompt-row" aria-label="Sample prompts">
             <button type="button" data-prompt="A recruiter has too many candidate leads and wants AI to match candidates to urgent jobs with quality controls. What would you automate first?">Matching workflow</button>
@@ -200,26 +200,50 @@
         </div>
       </div>
 
+      <div class="shell project-brief" aria-label="Live case project brief">
+        <article>
+          <span class="mini-icon icon-input" aria-hidden="true"></span>
+          <div>
+            <strong>Input</strong>
+            <p>A messy workflow, unclear owners, real system risk.</p>
+          </div>
+        </article>
+        <article>
+          <span class="mini-icon icon-output" aria-hidden="true"></span>
+          <div>
+            <strong>Output</strong>
+            <p>First workflow, integration route, guardrail, metric, trace.</p>
+          </div>
+        </article>
+        <article>
+          <span class="mini-icon icon-value" aria-hidden="true"></span>
+          <div>
+            <strong>Why it helps</strong>
+            <p>Shows how I scope an AI agent before writing production code.</p>
+          </div>
+        </article>
+      </div>
+
       <div class="shell planner-grid" data-planner>
         <div class="planner-input panel">
           <div class="bot-head">
             <div>
-              <p class="kicker">Customer room simulator</p>
-              <h3>Pick a workflow and generate a deployment plan.</h3>
+              <p class="kicker">Deployment brief generator</p>
+              <h3>Select a workflow. The brief updates immediately.</h3>
             </div>
           </div>
           <div class="segmented" aria-label="Reviewer mode">
-            <button class="is-active" type="button" data-review-mode="recruiter">Business view</button>
-            <button type="button" data-review-mode="manager">Technical view</button>
+            <button class="is-active" type="button" data-review-mode="recruiter" aria-pressed="true">Business view</button>
+            <button type="button" data-review-mode="manager" aria-pressed="false">Technical view</button>
           </div>
 
           <label class="field-label" for="workflow-input">Customer workflow</label>
           <textarea id="workflow-input" data-plan-input rows="7">A recruiting customer has too many candidate leads, recruiters repeat onboarding questions, and matching quality needs to hold at Zalo-scale volume. They want an agent, but actions need audit, consent, and human review.</textarea>
 
           <div class="prompt-row" aria-label="Workflow samples">
-            <button type="button" data-workflow-sample="matching">Matching workflow</button>
-            <button type="button" data-workflow-sample="support">Recruiter support</button>
-            <button type="button" data-workflow-sample="regulated">Regulated action</button>
+            <button class="is-active" type="button" data-workflow-sample="matching" aria-pressed="true">Matching workflow</button>
+            <button type="button" data-workflow-sample="support" aria-pressed="false">Recruiter support</button>
+            <button type="button" data-workflow-sample="regulated" aria-pressed="false">Regulated action</button>
           </div>
 
           <button class="button primary wide-action" type="button" data-generate-plan>Generate deployment brief</button>
@@ -237,7 +261,7 @@
               <p class="kicker">Generated brief</p>
               <h3 data-brief-title>AI lead-matching deployment brief</h3>
             </div>
-            <span class="status">Ownable pilot</span>
+            <span class="status" data-brief-mode>Business read</span>
           </div>
 
           <p class="brief-summary" data-brief-summary>
@@ -273,6 +297,25 @@
           <h2>AI matching at Zalo scale: quality, trust, and safe rollout.</h2>
         </div>
       </div>
+
+      <div class="shell case-brief" aria-label="Zalo technical case brief">
+        <article>
+          <span class="mini-icon icon-input" aria-hidden="true"></span>
+          <strong>Problem</strong>
+          <p>High-volume candidate and recruiter signals can create noisy AI matches if the agent starts with generation.</p>
+        </article>
+        <article>
+          <span class="mini-icon icon-output" aria-hidden="true"></span>
+          <strong>System move</strong>
+          <p>Filter first, explain only promising matches, keep outreach behind human review, then learn from accepted and rejected leads.</p>
+        </article>
+        <article>
+          <span class="mini-icon icon-value" aria-hidden="true"></span>
+          <strong>Why it matters</strong>
+          <p>The solution protects recruiter trust while making matching quality measurable enough to improve.</p>
+        </article>
+      </div>
+
       <div class="shell case-layout">
         <article class="panel case-study">
           <p class="kicker">Architecture</p>
@@ -319,6 +362,6 @@
     </div>
   </footer>
 
-  <script src="/assets/fde-workbench.js?v=20260724i"></script>
+  <script src="/assets/fde-workbench.js?v=20260724j"></script>
 </body>
 </html>
