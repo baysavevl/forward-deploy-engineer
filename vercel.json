@@ -2,12 +2,37 @@
   "redirects": [
     {
       "source": "/profile/role-fit-profile.md",
-      "destination": "/bio.html#experience",
+      "destination": "/why-me.html",
       "permanent": false
     },
     {
       "source": "/profile/application-kit.md",
-      "destination": "/bio.html#experience",
+      "destination": "/why-me.html",
+      "permanent": false
+    },
+    {
+      "source": "/bio.html",
+      "destination": "/output/pdf/VinhLuu_Forward_Deploy_Engineer.pdf",
+      "permanent": false
+    },
+    {
+      "source": "/explain.html",
+      "destination": "/why-wonderful.html",
+      "permanent": false
+    },
+    {
+      "source": "/projects/deployment-blueprint-lab.html",
+      "destination": "/#workbench",
+      "permanent": false
+    },
+    {
+      "source": "/projects/agent-eval-harness.html",
+      "destination": "/#technical-case",
+      "permanent": false
+    },
+    {
+      "source": "/projects/partner-integration-runbook.html",
+      "destination": "/why-me.html",
       "permanent": false
     }
   ]

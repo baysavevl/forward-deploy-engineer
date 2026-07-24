@@ -25,7 +25,7 @@
       title: "Risky action",
       phase: "Guarded rollout",
       message:
-        "For a state-changing action, the agent must prove identity, check policy, create an audit trail, and escalate when confidence is incomplete. Wonderful's value is not only fast build speed; it is enterprise-grade control at deployment time.",
+        "For a state-changing action, the agent must prove identity, check policy, create an audit trail, and escalate when confidence is incomplete. The enterprise value is not just speed; it is control at deployment time.",
       route: "Identity proofing -> 2FA -> controlled API -> compliance log -> human escalation",
       guardrail: "Zero unauthorized state-changing actions; escalate if identity confidence is incomplete.",
       metric: "Containment under 2 minutes with 0 unsafe mutations.",
@@ -61,49 +61,6 @@
       guardrail: "No write action without identity confidence, permission scope, and traceable approval.",
       metric: "Unsafe action rate, audit completeness, policy violation rate, mean time to containment.",
       next: "Start with read-only recommendations, then graduate specific actions behind approval gates.",
-    },
-  };
-
-  const concepts = {
-    advisory: {
-      engineer:
-        "Turn a vague customer request into system boundaries: users, tools, data freshness, auth, risk, failure mode, and measurable outcome.",
-      business:
-        "Pick the first workflow that creates visible value quickly instead of trying to transform everything at once.",
-      wonderful:
-        "This maps to Wonderful's first motion: understand the enterprise workflow before committing implementation scope.",
-    },
-    onsite: {
-      engineer:
-        "Build inside the client's real environment: API contracts, data mapping, policy checks, logging, fallback, and eval traces.",
-      business:
-        "Make the agent useful in the place work actually happens, with the client's team seeing how it behaves.",
-      wonderful:
-        "This is the FDE bridge: platform capability plus local integration and client-specific requirements.",
-    },
-    platform: {
-      engineer:
-        "Package the workflow so the client can operate more agents later: reusable patterns, evals, prompts, tool contracts, and dashboards.",
-      business:
-        "The client should own transformation after launch, not wait for every future change to become a consulting project.",
-      wonderful:
-        "This reflects Wonderful's platform promise: fast deployment plus enterprise governance at scale.",
-    },
-    governance: {
-      engineer:
-        "Treat identity, permission, audit log, rollback, and human escalation as product requirements, not compliance paperwork.",
-      business:
-        "Enterprise agents are trusted when leaders can see what happened, why it happened, and who approved risky actions.",
-      wonderful:
-        "This is where enterprise-grade agent builders separate from generic chatbots.",
-    },
-    tokens: {
-      engineer:
-        "Reduce waste with retrieval, pre-filtering, structured outputs, caching, batching, and evals tied to business usefulness.",
-      business:
-        "AI quality is not enough. A deployment must make economic sense when real users create real volume.",
-      wonderful:
-        "This is where my Zalo matching work supports Wonderful's enterprise deployment economics.",
     },
   };
 
@@ -207,7 +164,7 @@
       },
       verdict: "Enterprise-grade risk awareness",
       reason:
-        "This demonstrates the FDE behavior Wonderful needs: fast pilot, but no unsafe tool action without governance.",
+        "This demonstrates the FDE behavior the role needs: fast pilot, but no unsafe tool action without governance.",
     },
   };
 
@@ -218,7 +175,7 @@
         "Zalo-scale product engineering, AI cost discipline, support automation, and leadership evidence map directly to the FDE job.",
     },
     manager: {
-      verdict: "Ask him to scope a real workflow live",
+      verdict: "Ask him to design a real deployment live",
       reason:
         "The strongest signal is not the page copy; it is the ability to decompose workflow, systems, guardrails, evals, rollout, and metrics in one structured answer.",
     },
@@ -398,26 +355,6 @@
     updateDiagnostic();
   }
 
-  function bindExplainer() {
-    const root = document.querySelector("[data-explainer]");
-    if (!root) return;
-
-    function setConcept(key) {
-      const concept = concepts[key] || concepts.advisory;
-      root.querySelectorAll("[data-concept]").forEach((button) => {
-        button.classList.toggle("is-active", button.dataset.concept === key);
-      });
-      text("[data-explain-engineer]", concept.engineer, root);
-      text("[data-explain-business]", concept.business, root);
-      text("[data-explain-wonderful]", concept.wonderful, root);
-    }
-
-    root.querySelectorAll("[data-concept]").forEach((button) => {
-      button.addEventListener("click", () => setConcept(button.dataset.concept));
-    });
-    setConcept("advisory");
-  }
-
   function bindToolkit() {
     const root = document.querySelector("[data-toolkit]");
     if (!root) return;
@@ -579,7 +516,6 @@
 
   bindChatbot();
   bindDiagnostic();
-  bindExplainer();
   bindToolkit();
   bindPlanner();
   bindCostLab();

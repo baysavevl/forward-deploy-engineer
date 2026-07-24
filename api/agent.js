@@ -64,25 +64,25 @@ const scenarios = {
 };
 
 const baseSystemPrompt = `
-You are the live FDE demo agent on Vinh Luu's profile site for Wonderful-style enterprise AI deployment roles.
+You are the live FDE demo agent on Vinh Luu's profile site for Forward Deployed Engineer and deployed AI engineer roles.
 Answer like a real forward deployed engineer, not like a generic support bot.
 
-Wonderful context from the profile brief:
+Target-company context when the user asks about Wonderful:
 - Wonderful is an AI transformation partner for enterprises.
 - Go-to-market combines advisory, onsite implementation with the client, and a product platform.
 - The platform helps teams build and deploy agents quickly, while letting clients own their transformation.
 - The enterprise angle is scale, governance, security, compliance, and privacy.
-- The FDE bridges Wonderful's platform and client systems through integration, product building, and local requirements.
+- The FDE bridges an AI platform and client systems through integration, product building, and local requirements.
 
 Your job:
 - Continue the conversation using the provided history.
 - Translate ambiguous customer messages into deployment work: discovery, system mapping, integration route, guardrails, evals, rollout, observability, and business impact.
-- Make the Wonderful motion explicit when useful: advisory -> onsite implementation -> platform ownership.
+- Mention Wonderful only when the user asks about company fit or role match. Otherwise focus on the customer problem and deployment plan.
 - Use first-person FDE framing when helpful: "I would..." or "As the deployment owner..."
 - Be specific about enterprise systems, auth, audit, fallback, logging, latency, and human escalation.
 - Keep replies concise enough for a live demo, around 80-130 words.
 - Do not claim to call real customer systems. This is a demo; describe the intended tool route and safe action.
-- Follow the requested response language exactly: English for "en", Vietnamese for "vi".
+- Always answer in English.
 - Ask one practical clarifying question only when it would change the deployment plan.
 
 Return only valid JSON matching the requested schema.
@@ -118,7 +118,7 @@ function normalizeScenario(value) {
 }
 
 function normalizeLanguage(value) {
-  return value === "vi" ? "vi" : "en";
+  return "en";
 }
 
 function sanitizeHistory(history) {
@@ -185,33 +185,26 @@ function makeFallback({ scenarioKey, message, history, language = "en", source =
 
   let phase = "Advisory";
   let focus = "I would start with advisory: pin down the exact workflow, the system of record, the user pain, and the action that is safe enough for an agent.";
-  let focusVi = "Tôi sẽ bắt đầu bằng advisory: chốt workflow, system of record, pain point, và hành động nào đủ an toàn cho agent.";
   let nextStep = scenario.nextStep;
 
   if (lower.includes("debug") || lower.includes("fail") || lower.includes("error") || lower.includes("tool")) {
     phase = "Onsite implementation";
     focus = "I would treat this like a deployed integration: separate user intent, model output, tool request, upstream response, policy decision, and human fallback before changing prompts.";
-    focusVi = "Tôi sẽ xem đây như một integration đã deploy: tách user intent, model output, tool request, upstream response, policy decision, và human fallback trước khi sửa prompt.";
     nextStep = "Pull the failed trace, replay it against the mocked tool contract, and add an eval before patching.";
   } else if (lower.includes("eval") || lower.includes("test") || lower.includes("quality")) {
     phase = "Platform ownership";
     focus = "I would convert real support logs into eval cases so the client can keep governing and improving the agent after the first deployment.";
-    focusVi = "Tôi sẽ chuyển support log thật thành eval cases để client tiếp tục govern và cải thiện agent sau deployment đầu.";
     nextStep = "Create a small gold dataset, define pass/fail rubrics, and block launch on regressions.";
   } else if (lower.includes("launch") || lower.includes("rollout") || lower.includes("pilot")) {
     phase = "Controlled rollout";
     focus = "I would launch narrow: one workflow, known customer segment, human fallback, live dashboard, client owner sign-off, and a rollback path.";
-    focusVi = "Tôi sẽ launch thật hẹp: một workflow, một nhóm khách hàng rõ ràng, human fallback, dashboard live, owner phía client sign-off, và rollback path.";
     nextStep = "Agree on canary volume, alert thresholds, and business owner sign-off before expanding.";
   } else if (previousAgentTurn) {
     phase = "Continuation";
     focus = "Continuing from the previous turn, I would preserve the same workflow map and only add the new constraint instead of restarting the design.";
-    focusVi = "Tiếp tục từ turn trước, tôi sẽ giữ nguyên workflow map và chỉ thêm constraint mới thay vì thiết kế lại từ đầu.";
   }
 
-  const reply = language === "vi"
-    ? `${focusVi} Với workflow ${scenario.label.toLowerCase()}, giá trị FDE là nối customer language với enterprise action đáng tin cậy: ${scenario.route}. Tôi sẽ thể hiện đúng Wonderful motion: advisory để chọn workflow đầu tiên, onsite implementation để nối tool an toàn, và platform ownership để client tự govern agent sau đó.`
-    : `${focus} For ${scenario.label.toLowerCase()}, the FDE value is connecting customer language to reliable enterprise action: ${scenario.route}. I would make Wonderful's motion visible: advisory to choose the first workflow, onsite implementation to connect tools safely, and platform ownership so the client can govern future agents.`;
+  const reply = `${focus} For ${scenario.label.toLowerCase()}, the FDE value is connecting customer language to reliable enterprise action: ${scenario.route}. I would choose the first workflow, connect tools safely, set guardrails and evals, then leave the client able to govern the agent after rollout.`;
 
   return {
     reply,
@@ -259,9 +252,7 @@ function getGeminiApiKey() {
 
 async function callGemini({ apiKey, model, contents, scenarioKey, language }) {
   const scenario = scenarios[scenarioKey] || scenarios.matching;
-  const languageInstruction = language === "vi"
-    ? "Response language: Vietnamese. Use clear Vietnamese, keep FDE terms like API, eval, guardrail, rollout, and trace when those terms are useful."
-    : "Response language: English.";
+  const languageInstruction = "Response language: English.";
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), GEMINI_TIMEOUT_MS);

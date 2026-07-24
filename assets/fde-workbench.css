@@ -195,20 +195,20 @@ p {
 h1 {
   max-width: 940px;
   margin: 0;
-  font-size: clamp(48px, 8vw, 96px);
-  line-height: 0.94;
+  font-size: clamp(44px, 6.8vw, 78px);
+  line-height: 0.98;
   letter-spacing: 0;
 }
 
 .hub-hero h1 {
-  font-size: clamp(44px, 6.2vw, 78px);
-  line-height: 0.96;
+  font-size: clamp(42px, 5.8vw, 72px);
+  line-height: 0.98;
 }
 
 h2 {
   margin: 0;
-  font-size: clamp(32px, 5vw, 58px);
-  line-height: 1;
+  font-size: clamp(30px, 4.2vw, 48px);
+  line-height: 1.04;
   letter-spacing: 0;
 }
 
@@ -222,7 +222,7 @@ h3 {
   max-width: 760px;
   margin: 18px 0 0;
   color: var(--body);
-  font-size: clamp(17px, 1.8vw, 21px);
+  font-size: clamp(16px, 1.45vw, 20px);
 }
 
 .hero-actions,
@@ -353,7 +353,7 @@ h3 {
 
 .shortlist-list li {
   display: grid;
-  grid-template-columns: 92px minmax(0, 1fr);
+  grid-template-columns: 118px minmax(0, 1fr);
   gap: 12px;
   border-top: 1px solid var(--line);
   padding-top: 10px;
@@ -590,7 +590,7 @@ section {
 }
 
 .section-head.compact-head h2 {
-  font-size: clamp(28px, 3.4vw, 42px);
+  font-size: clamp(26px, 3vw, 38px);
 }
 
 .section-head.compact-head .lead {
@@ -612,6 +612,10 @@ section {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+}
+
+.proof-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .capability-grid {
@@ -1218,11 +1222,11 @@ section {
   }
 
   h1 {
-    font-size: clamp(42px, 13vw, 64px);
+    font-size: clamp(38px, 11vw, 58px);
   }
 
   .hub-hero h1 {
-    font-size: clamp(40px, 11.5vw, 56px);
+    font-size: clamp(38px, 10.5vw, 54px);
   }
 
   section {

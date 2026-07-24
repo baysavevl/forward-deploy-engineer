@@ -6,12 +6,18 @@ import { existsSync } from 'node:fs';
 const pages = [
   'index.html',
   'diagnose.html',
-  'explain.html',
   'toolkit.html',
   'why-wonderful.html',
   'why-me.html',
-  'let-me-help.html',
-  'bio.html'
+  'let-me-help.html'
+];
+
+const removedPages = [
+  'explain.html',
+  'bio.html',
+  'projects/deployment-blueprint-lab.html',
+  'projects/agent-eval-harness.html',
+  'projects/partner-integration-runbook.html'
 ];
 
 async function readText(path) {
@@ -22,39 +28,37 @@ function escapeRegex(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-test('landing is a focused Wonderful FDE candidate brief for hiring review', async () => {
+test('landing is an English Forward Deployed Engineer hiring brief', async () => {
   const html = await readText('index.html');
 
   const required = [
-    'Wonderful FDE Candidate Brief',
-    'Wonderful Forward Deployed Engineer candidate',
-    'Give me a messy workflow. I will scope, integrate, and ship the agent safely.',
+    'Vinh Luu - Forward Deployed Engineer Candidate',
+    'Forward Deployed Engineer candidate',
+    'I turn ambiguous enterprise problems into production AI systems.',
     '30-second recruiter read',
-    'What can Vinh do as an FDE?',
-    'What I can do as an FDE',
-    'The output is concrete, not just AI enthusiasm',
-    'Output: discovery brief',
-    'Output: integration map',
-    'Output: eval and cost gate',
-    'Output: ownable pilot',
+    'Why bring Vinh to the technical round?',
+    'What I can own as an FDE',
+    'From customer pain to production system.',
+    'Run live case',
+    'Open CV',
+    'https://www.linkedin.com/in/vinhluulinked/',
     'Live FDE bot',
-    'Generate deployment brief',
+    'Live case room: convert ambiguity into an AI deployment plan.',
     'AI cost simulator',
     'Eval harness',
     'Technical case',
-    'AI matching at Zalo scale',
-    'Recruiter proof matrix',
-    'What the FDE requirement means',
-    'Synthetic demo',
-    'Why Wonderful',
-    'Why me',
-    'Let me help',
-    'Give me one messy customer workflow',
+    'Wonderful match',
+    'Role attributes matched to evidence.',
+    'Supporting material',
+    'Everything a hiring team needs to verify the signal.',
+    'VinhLuu_Forward_Deploy_Engineer.pdf',
     'data-chatbot',
     'data-chat-form',
     'data-chat-input',
     'data-chat-log',
     'data-prompt',
+    'data-planner',
+    'data-generate-plan',
     'aria-live="polite"',
     'data-visit-beacon'
   ];
@@ -63,40 +67,45 @@ test('landing is a focused Wonderful FDE candidate brief for hiring review', asy
     assert.match(html, new RegExp(escapeRegex(phrase), 'i'), `Missing landing phrase: ${phrase}`);
   }
 
-  assert.match(html, /href=["']\/diagnose\.html["']/i);
-  assert.match(html, /href=["']\/explain\.html["']/i);
-  assert.match(html, /href=["']\/toolkit\.html["']/i);
+  assert.match(html, /<html lang=["']en["']>/i);
   assert.match(html, /href=["']\/why-wonderful\.html["']/i);
   assert.match(html, /href=["']\/why-me\.html["']/i);
   assert.match(html, /href=["']\/let-me-help\.html["']/i);
-  assert.match(html, /href=["']\/bio\.html["']/i);
+  assert.match(html, /href=["']\/output\/pdf\/VinhLuu_Forward_Deploy_Engineer\.pdf["']/i);
+  assert.doesNotMatch(html, /href=["']\/explain\.html["']/i);
+  assert.doesNotMatch(html, /href=["']\/bio\.html["']/i);
+  assert.doesNotMatch(html, /href=["']\/projects\//i);
 });
 
-test('landing stays clean and avoids the previous confusing framing', async () => {
-  const html = await readText('index.html');
-
-  assert.doesNotMatch(html, /FDE ROLES - WONDERFUL\.AI FIRST CONCRETE TARGET/i);
-  assert.doesNotMatch(html, /Google SA|Google Architect|The reference is|This is not a long resume page|Last section fixed/i);
-  assert.doesNotMatch(html, /href=["'][^"']+\.md["']/i, 'Do not link recruiters to raw Markdown files.');
-  assert.doesNotMatch(html, /Partner Solution Engineer|Customer Solution Engineer|SA\/PSE\/CSE/i);
-  assert.doesNotMatch(html, /99% match|100% match|Not a lifelong FDE yet/i);
-  assert.doesNotMatch(html, /id=["']star-stories["']|id=["']ai-product["']|id=["']wonderful-fit["']/i, 'STAR detail belongs on subpages now.');
-  assert.doesNotMatch(html, /30%\s*\/\s*40%/i, 'Separate 30% and 40% into distinct proof metrics.');
-});
-
-test('public pages avoid internal critique wording', async () => {
+test('public pages stay English-only and avoid amateur framing', async () => {
   const html = (await Promise.all(pages.map((page) => readText(page)))).join('\n');
+  const vietnameseCharacters = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/;
 
-  assert.doesNotMatch(html, /Google SA|Google Architect|The reference is/i);
-  assert.doesNotMatch(html, /This is not a long resume page|Last section fixed/i);
-  assert.doesNotMatch(html, /I build stuff|Run fit ramp|Small playground/i);
+  assert.doesNotMatch(html, vietnameseCharacters, 'Public site should stay English-only.');
+  assert.doesNotMatch(html, /lang=["']vi["']/i);
+  assert.doesNotMatch(html, /FDE ROLES - WONDERFUL\.AI FIRST CONCRETE TARGET/i);
+  assert.doesNotMatch(html, /Google SA|Google Architect|The reference is|Last section fixed/i);
+  assert.doesNotMatch(html, /This is not a company fan page|Open these only|Bio infographic/i);
+  assert.doesNotMatch(html, /Give me a messy workflow\. I will scope|Give me one messy customer workflow/i);
+  assert.doesNotMatch(html, /The clearest proof|I build stuff|Run fit ramp|Small playground/i);
   assert.doesNotMatch(html, /quiet at first|FDE-shaped|almost ready/i);
-  assert.doesNotMatch(html, /Client-facing concern|I do not need to be the seller/i);
-  assert.doesNotMatch(html, /Interview recovery|first-round|first interview|This is the last impression|STAR evidence from my interview/i);
-  assert.doesNotMatch(html, /Interview signal|Interview miss|sales-adjacent/i);
+  assert.doesNotMatch(html, /Interview recovery|first-round|first interview|This is the last impression/i);
+  assert.doesNotMatch(html, /href=["'][^"']+\.md["']/i, 'Do not link recruiters to raw Markdown files.');
 });
 
-test('shared workbench design protects layout across viewport sizes', async () => {
+test('removed noisy surfaces are not public pages anymore', async () => {
+  for (const page of removedPages) {
+    assert.equal(existsSync(page), false, `${page} should not remain as a public page`);
+  }
+
+  const config = JSON.parse(await readText('vercel.json'));
+  const redirects = config.redirects || [];
+  for (const source of ['/bio.html', '/explain.html', '/projects/deployment-blueprint-lab.html']) {
+    assert.ok(redirects.some((rule) => rule.source === source), `Missing redirect for ${source}`);
+  }
+});
+
+test('shared design protects layout across viewport sizes', async () => {
   const css = await readText('assets/fde-workbench.css');
 
   assert.match(css, /box-sizing:\s*border-box/i);
@@ -112,11 +121,12 @@ test('shared workbench design protects layout across viewport sizes', async () =
   assert.match(css, /shortlist-card/i);
   assert.match(css, /capability-grid/i);
   assert.match(css, /proof-matrix/i);
+  assert.match(css, /proof-grid\s*\{[\s\S]*repeat\(4,\s*minmax\(0,\s*1fr\)\)/i);
   assert.doesNotMatch(css, /height:\s*380px/i);
   assert.doesNotMatch(css, /background-size:\s*44px 44px/i);
 });
 
-test('chatbot project is interactive and uses the local agent API with fallback', async () => {
+test('chatbot project is interactive and English-only', async () => {
   const html = await readText('index.html');
   const js = await readText('assets/fde-workbench.js');
   const api = await readText('api/agent.js');
@@ -129,26 +139,23 @@ test('chatbot project is interactive and uses the local agent API with fallback'
   assert.match(js, /AbortController/i);
   assert.match(js, /localWorkflowReply/i);
   assert.match(js, /navigator\.sendBeacon|fetch\(["']\/api\/visit["']/i);
-  assert.match(api, /Wonderful is an AI transformation partner/i);
+  assert.match(api, /Always answer in English/i);
+  assert.match(api, /Mention Wonderful only when the user asks about company fit or role match/i);
   assert.match(api, /GEMINI_TIMEOUT_MS/i);
   assert.match(api, /controller\.abort/i);
-  assert.match(api, /advisory, onsite implementation/i);
-  assert.match(api, /platform ownership/i);
-  assert.match(api, /enterprise angle is scale, governance, security, compliance, and privacy/i);
+  assert.doesNotMatch(api, /Vietnamese|focusVi|Response language:\s*Vietnamese/i);
 });
 
-test('homepage includes a wow work-sample layer for recruiters and hiring managers', async () => {
+test('homepage includes a real work-sample layer for recruiters and hiring managers', async () => {
   const html = await readText('index.html');
   const js = await readText('assets/fde-workbench.js');
   const css = await readText('assets/fde-workbench.css');
 
   for (const phrase of [
     'Flagship work sample',
-    'generate the brief an FDE should bring to a customer room',
-    'data-planner',
+    'Live case room: convert ambiguity into an AI deployment plan.',
     'data-review-mode="recruiter"',
     'data-review-mode="manager"',
-    'data-generate-plan',
     'Trace view',
     'data-trace-intent',
     'data-trace-policy',
@@ -160,13 +167,12 @@ test('homepage includes a wow work-sample layer for recruiters and hiring manage
     'AI matching at Zalo scale',
     'Signal filter',
     'Manager review',
-    'Recruiter proof matrix',
-    'Deploy agents into messy enterprise workflows',
-    'Bridge business, product, and engineering',
-    'Make AI viable at production volume',
-    'Leave customers with ownership'
+    'Engage enterprise customers and uncover operational pain',
+    'Convert open-ended requirements into scalable architecture',
+    'Build AI-powered agents that integrate with workflows',
+    'Own production outcomes and continuous improvement'
   ]) {
-    assert.match(html, new RegExp(escapeRegex(phrase), 'i'), `Missing wow layer phrase: ${phrase}`);
+    assert.match(html, new RegExp(escapeRegex(phrase), 'i'), `Missing work-sample phrase: ${phrase}`);
   }
 
   assert.match(js, /workflowSamples/i);
@@ -178,8 +184,9 @@ test('homepage includes a wow work-sample layer for recruiters and hiring manage
   assert.match(css, /eval-table/i);
 });
 
-test('diagnostic page provides a separate five-question tool', async () => {
-  const html = await readText('diagnose.html');
+test('diagnostic and toolkit remain useful supporting tools', async () => {
+  const diagnostic = await readText('diagnose.html');
+  const toolkit = await readText('toolkit.html');
   const js = await readText('assets/fde-workbench.js');
 
   for (const phrase of [
@@ -192,87 +199,79 @@ test('diagnostic page provides a separate five-question tool', async () => {
     'What proves value',
     'data-diagnostic',
     'data-result-workflow',
-    'data-result-route',
-    'data-result-guardrail',
-    'data-result-metric',
-    'data-result-next',
-    'Job demand -> candidate signals -> policy rules -> ranked recommendations',
     'Token cost per useful match',
     'Pilot one segment'
   ]) {
-    assert.match(html, new RegExp(escapeRegex(phrase), 'i'), `Missing diagnostic phrase: ${phrase}`);
-  }
-
-  assert.match(js, /diagnosticRules/i);
-  assert.match(js, /updateDiagnostic/i);
-});
-
-test('explainer and toolkit pages provide reference-style tools', async () => {
-  const explainer = await readText('explain.html');
-  const toolkit = await readText('toolkit.html');
-  const js = await readText('assets/fde-workbench.js');
-
-  for (const phrase of ['Wonderful, translated into deployment work', 'Advisory', 'Onsite implementation', 'Platform ownership', 'Governance', 'AI cost']) {
-    assert.match(explainer, new RegExp(escapeRegex(phrase), 'i'), `Missing explainer phrase: ${phrase}`);
+    assert.match(diagnostic, new RegExp(escapeRegex(phrase), 'i'), `Missing diagnostic phrase: ${phrase}`);
   }
 
   for (const phrase of [
-    'Turn a vague customer request into system boundaries',
-    'Pick the first workflow that creates visible value quickly',
-    "This maps to Wonderful's first motion"
-  ]) {
-    assert.match(explainer, new RegExp(escapeRegex(phrase), 'i'), `Missing default explainer content: ${phrase}`);
-  }
-
-  for (const phrase of ['FDE conversation kit', 'CTO', 'Business owner', 'Operations', 'Hiring team', 'What I would ask', 'What evidence I bring', 'How I would answer']) {
-    assert.match(toolkit, new RegExp(escapeRegex(phrase), 'i'), `Missing toolkit phrase: ${phrase}`);
-  }
-
-  for (const phrase of [
+    'FDE conversation kit',
+    'CTO',
+    'Business owner',
+    'Operations',
+    'Hiring team',
+    'What I would ask',
+    'What evidence I bring',
+    'How I would answer',
     'Which systems are source of truth',
     'Zalo-scale production',
     'start read-only, add eval gates, expose traces'
   ]) {
-    assert.match(toolkit, new RegExp(escapeRegex(phrase), 'i'), `Missing default toolkit content: ${phrase}`);
+    assert.match(toolkit, new RegExp(escapeRegex(phrase), 'i'), `Missing toolkit phrase: ${phrase}`);
   }
 
-  assert.match(js, /const concepts/i);
+  assert.match(js, /diagnosticRules/i);
+  assert.match(js, /updateDiagnostic/i);
   assert.match(js, /const stakeholders/i);
-  assert.match(js, /bindExplainer/i);
   assert.match(js, /bindToolkit/i);
+  assert.doesNotMatch(js, /bindExplainer|const concepts/i);
 });
 
-test('why pages answer the hiring proof problem with STAR proof and product understanding', async () => {
-  const whyWonderful = await readText('why-wonderful.html');
-  const whyMe = await readText('why-me.html');
-  const help = await readText('let-me-help.html');
+test('Wonderful match, evidence, and 30-day pages answer the hiring proof problem', async () => {
+  const match = await readText('why-wonderful.html');
+  const evidence = await readText('why-me.html');
+  const plan = await readText('let-me-help.html');
 
   for (const phrase of [
-    'enterprise AI company',
-    'advisory',
-    'onsite implementation',
-    'governed platform',
-    '$150M Series B',
-    '$2B valuation',
-    '$286M total raised',
-    'TechCrunch report',
-    '30+ markets',
-    '350 to 900',
-    'Applied AI for critical workflows',
-    'logs and traces',
-    'Agent Studio',
-    'local deployment is the operating model',
-    'Research links used for this page'
+    'Attributes that fit the deployed engineer role',
+    'What the JD asks for, and where I match',
+    'Customer discovery in local enterprise environments',
+    'Architecture that survives real business load',
+    'AI agents connected to actual workflows',
+    'Production ownership, not demo ownership',
+    'Governance and reliability mindset',
+    'Reusable delivery assets',
+    'Public references used for this match'
   ]) {
-    assert.match(whyWonderful, new RegExp(escapeRegex(phrase), 'i'), `Missing Wonderful proof: ${phrase}`);
+    assert.match(match, new RegExp(escapeRegex(phrase), 'i'), `Missing Wonderful match proof: ${phrase}`);
   }
 
-  for (const phrase of ['AI matching cost at Zalo scale', 'Situation', 'Task', 'Action', 'Result', '80M-user ecosystem', '40%', '30%', 'all team members were promoted', 'Technical conviction, not generic sales talk']) {
-    assert.match(whyMe, new RegExp(escapeRegex(phrase), 'i'), `Missing Why me proof: ${phrase}`);
+  for (const phrase of [
+    'AI matching cost at Zalo scale',
+    'Situation',
+    'Task',
+    'Action',
+    'Result',
+    '80M-user ecosystem',
+    '40%',
+    '30%',
+    'all team members were promoted',
+    'Technical conviction, not generic sales talk'
+  ]) {
+    assert.match(evidence, new RegExp(escapeRegex(phrase), 'i'), `Missing evidence proof: ${phrase}`);
   }
 
-  for (const phrase of ['Give me one messy customer workflow', 'First 30 days', 'Learn the platform and playbooks', 'Map first customer workflows', 'Build a narrow pilot', 'Make it ownable', 'AI that improves products and operations']) {
-    assert.match(help, new RegExp(escapeRegex(phrase), 'i'), `Missing help proof: ${phrase}`);
+  for (const phrase of [
+    'How I would start as a deployed engineer in Vietnam',
+    'From platform learning to customer-owned pilot',
+    'Learn platform constraints and playbooks',
+    'Map first customer workflows',
+    'Build a narrow pilot',
+    'Make the pilot ownable',
+    'AI that improves products and operations'
+  ]) {
+    assert.match(plan, new RegExp(escapeRegex(phrase), 'i'), `Missing 30-day proof: ${phrase}`);
   }
 });
 
@@ -306,31 +305,26 @@ test('all local static links referenced by public pages are present', async () =
   }
 });
 
-test('legacy markdown URLs redirect to the bio page instead of rendering raw markdown', async () => {
+test('legacy markdown and removed page URLs redirect to focused surfaces', async () => {
   const config = JSON.parse(await readText('vercel.json'));
   const redirects = config.redirects || [];
 
   assert.deepEqual(
     redirects.find((rule) => rule.source === '/profile/role-fit-profile.md'),
-    { source: '/profile/role-fit-profile.md', destination: '/bio.html#experience', permanent: false }
+    { source: '/profile/role-fit-profile.md', destination: '/why-me.html', permanent: false }
   );
   assert.deepEqual(
     redirects.find((rule) => rule.source === '/profile/application-kit.md'),
-    { source: '/profile/application-kit.md', destination: '/bio.html#experience', permanent: false }
+    { source: '/profile/application-kit.md', destination: '/why-me.html', permanent: false }
   );
-});
-
-test('bio subpage carries detailed infographic content off the landing page', async () => {
-  const html = await readText('bio.html');
-
-  assert.match(html, /Bio infographic/i);
-  assert.match(html, /id=["']experience["']/i);
-  assert.match(html, /id=["']skills["']/i);
-  assert.match(html, /id=["']education["']/i);
-  assert.match(html, /Lead Software Engineer, Zalo/i);
-  assert.match(html, /80M/i);
-  assert.match(html, /AI workflows/i);
-  assert.match(html, /href=["']\/#bot["']/i);
+  assert.deepEqual(
+    redirects.find((rule) => rule.source === '/bio.html'),
+    { source: '/bio.html', destination: '/output/pdf/VinhLuu_Forward_Deploy_Engineer.pdf', permanent: false }
+  );
+  assert.deepEqual(
+    redirects.find((rule) => rule.source === '/explain.html'),
+    { source: '/explain.html', destination: '/why-wonderful.html', permanent: false }
+  );
 });
 
 test('profile content stays credible and avoids implementation placeholders', async () => {
