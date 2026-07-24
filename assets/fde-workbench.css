@@ -167,7 +167,9 @@ button {
 .stat-card,
 .result-panel,
 .cta-panel,
-.case-study {
+.case-study,
+.shortlist-card,
+.capability-card {
   min-width: 0;
 }
 
@@ -196,6 +198,11 @@ h1 {
   font-size: clamp(48px, 8vw, 96px);
   line-height: 0.94;
   letter-spacing: 0;
+}
+
+.hub-hero h1 {
+  font-size: clamp(44px, 6.2vw, 78px);
+  line-height: 0.96;
 }
 
 h2 {
@@ -313,6 +320,7 @@ h3 {
 }
 
 .bot-card,
+.shortlist-card,
 .panel,
 .diagnostic-card,
 .explainer-card,
@@ -325,6 +333,71 @@ h3 {
 
 .bot-card {
   padding: 18px;
+}
+
+.shortlist-card {
+  padding: 22px;
+}
+
+.shortlist-card h2 {
+  font-size: clamp(30px, 4vw, 50px);
+}
+
+.shortlist-list {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shortlist-list li {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.shortlist-list li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.shortlist-list strong {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 1000;
+  text-transform: uppercase;
+}
+
+.shortlist-list span {
+  color: var(--body);
+  font-size: 14.5px;
+}
+
+.verdict-bar {
+  margin-top: 18px;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 14px;
+  background: var(--green-soft);
+}
+
+.verdict-bar span {
+  display: block;
+  color: #0d5f44;
+  font-size: 11px;
+  font-weight: 1000;
+  text-transform: uppercase;
+}
+
+.verdict-bar strong {
+  display: block;
+  margin-top: 6px;
+  color: #0d5f44;
+  font-size: 18px;
+  line-height: 1.2;
 }
 
 .bot-head {
@@ -494,6 +567,10 @@ section {
   border-bottom: 1px solid var(--line);
 }
 
+.hero {
+  padding: 0;
+}
+
 .band {
   background: var(--soft);
 }
@@ -524,6 +601,7 @@ section {
 .tool-grid,
 .proof-grid,
 .story-grid,
+.capability-grid,
 .diagnostic-grid,
 .explainer-grid,
 .toolkit-grid,
@@ -534,6 +612,57 @@ section {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+}
+
+.capability-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.capability-card {
+  min-height: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 16px 38px rgba(18, 19, 26, 0.07);
+}
+
+.capability-card span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  color: #0d5f44;
+  background: var(--green-soft);
+  font-size: 12px;
+  font-weight: 1000;
+}
+
+.capability-card h3 {
+  margin-top: 16px;
+}
+
+.capability-card p {
+  margin: 10px 0 0;
+  color: var(--body);
+  font-size: 15.5px;
+}
+
+.capability-card b {
+  display: inline-flex;
+  margin-top: 16px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 1000;
+}
+
+.bot-demo-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.42fr) minmax(0, 0.78fr);
+  gap: 18px;
+  align-items: start;
 }
 
 .planner-grid {
@@ -826,6 +955,51 @@ section {
   font-size: 12px;
 }
 
+.proof-matrix {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.proof-matrix article {
+  min-width: 0;
+  padding: 20px;
+  background: #fff;
+}
+
+.proof-matrix span {
+  display: block;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 1000;
+  text-transform: uppercase;
+}
+
+.proof-matrix strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 21px;
+  line-height: 1.15;
+}
+
+.proof-matrix p {
+  margin: 10px 0 0;
+  color: var(--body);
+}
+
+.proof-matrix a {
+  display: inline-flex;
+  margin-top: 14px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 1000;
+}
+
 .tool-card,
 .proof-card,
 .story-card,
@@ -996,18 +1170,21 @@ section {
   .tool-grid,
   .proof-grid,
   .story-grid,
+  .capability-grid,
   .diagnostic-grid,
   .explainer-grid,
   .toolkit-grid,
   .step-grid,
   .stat-grid,
   .planner-grid,
-  .proof-lab-grid {
+  .proof-lab-grid,
+  .bot-demo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .planner-grid,
-  .proof-lab-grid {
+  .proof-lab-grid,
+  .bot-demo-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1044,6 +1221,10 @@ section {
     font-size: clamp(42px, 13vw, 64px);
   }
 
+  .hub-hero h1 {
+    font-size: clamp(40px, 11.5vw, 56px);
+  }
+
   section {
     padding: 46px 0;
   }
@@ -1056,6 +1237,8 @@ section {
   .tool-grid,
   .proof-grid,
   .story-grid,
+  .capability-grid,
+  .proof-matrix,
   .diagnostic-grid,
   .explainer-grid,
   .toolkit-grid,
@@ -1064,6 +1247,10 @@ section {
   .chat-form,
   .trace-list li,
   .eval-table div {
+    grid-template-columns: 1fr;
+  }
+
+  .shortlist-list li {
     grid-template-columns: 1fr;
   }
 

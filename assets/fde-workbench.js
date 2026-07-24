@@ -215,7 +215,7 @@
     recruiter: {
       verdict: "Move to hiring manager review",
       reason:
-        "Zalo-scale product engineering, AI cost discipline, support automation, and leadership evidence map directly to Wonderful's FDE motion.",
+        "Zalo-scale product engineering, AI cost discipline, support automation, and leadership evidence map directly to the FDE job.",
     },
     manager: {
       verdict: "Ask him to scope a real workflow live",

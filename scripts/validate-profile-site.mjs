@@ -22,24 +22,30 @@ function escapeRegex(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-test('landing is an AI deployment workbench for hiring review', async () => {
+test('landing is a focused Wonderful FDE candidate brief for hiring review', async () => {
   const html = await readText('index.html');
 
   const required = [
-    'AI Deployment Workbench',
-    'Lead Software Engineer at Zalo/VNG',
-    'I turn messy workflows into governed AI deployments',
-    'Paste a messy customer workflow',
+    'Wonderful FDE Candidate Brief',
+    'Wonderful Forward Deployed Engineer candidate',
+    'Give me a messy workflow. I will scope, integrate, and ship the agent safely.',
+    '30-second recruiter read',
+    'What can Vinh do as an FDE?',
+    'What I can do as an FDE',
+    'The output is concrete, not just AI enthusiasm',
+    'Output: discovery brief',
+    'Output: integration map',
+    'Output: eval and cost gate',
+    'Output: ownable pilot',
+    'Live FDE bot',
     'Generate deployment brief',
     'AI cost simulator',
     'Eval harness',
     'Technical case',
     'AI matching at Zalo scale',
-    'Proof translation',
+    'Recruiter proof matrix',
+    'What the FDE requirement means',
     'Synthetic demo',
-    'Agent Deployment Diagnostic',
-    'Wonderful motion explained',
-    'FDE conversation kit',
     'Why Wonderful',
     'Why me',
     'Let me help',
@@ -103,6 +109,9 @@ test('shared workbench design protects layout across viewport sizes', async () =
   assert.match(css, /@media\s*\(max-width:\s*920px\)[\s\S]*\.nav\s*\{[\s\S]*display:\s*none/i);
   assert.match(css, /@media\s*\(max-width:\s*760px\)[\s\S]*grid-template-columns:\s*1fr/i);
   assert.match(css, /prefers-reduced-motion/i);
+  assert.match(css, /shortlist-card/i);
+  assert.match(css, /capability-grid/i);
+  assert.match(css, /proof-matrix/i);
   assert.doesNotMatch(css, /height:\s*380px/i);
   assert.doesNotMatch(css, /background-size:\s*44px 44px/i);
 });
@@ -135,7 +144,7 @@ test('homepage includes a wow work-sample layer for recruiters and hiring manage
 
   for (const phrase of [
     'Flagship work sample',
-    'Get an enterprise AI deployment brief',
+    'generate the brief an FDE should bring to a customer room',
     'data-planner',
     'data-review-mode="recruiter"',
     'data-review-mode="manager"',
@@ -151,9 +160,11 @@ test('homepage includes a wow work-sample layer for recruiters and hiring manage
     'AI matching at Zalo scale',
     'Signal filter',
     'Manager review',
-    'Proof translation',
-    'Structured achievement stories',
-    'Technical conviction'
+    'Recruiter proof matrix',
+    'Deploy agents into messy enterprise workflows',
+    'Bridge business, product, and engineering',
+    'Make AI viable at production volume',
+    'Leave customers with ownership'
   ]) {
     assert.match(html, new RegExp(escapeRegex(phrase), 'i'), `Missing wow layer phrase: ${phrase}`);
   }

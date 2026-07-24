@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vinh Luu - AI Deployment Workbench</title>
-  <meta name="description" content="A recruiter and hiring-manager workbench by Vinh Luu: deployment brief generator, FDE bot, AI cost simulator, eval harness, STAR proof, and technical case evidence.">
+  <title>Vinh Luu - Wonderful FDE Candidate Brief</title>
+  <meta name="description" content="A focused hiring brief for Vinh Luu as a Wonderful Forward Deployed Engineer candidate: what he can do, proof from Zalo/VNG, live deployment brief, FDE bot, AI cost control, and governance evidence.">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -13,9 +13,9 @@
 <body data-visit-beacon>
   <header class="topbar">
     <div class="shell topbar-inner">
-      <a class="brand" href="/" aria-label="AI Deployment Workbench home">
+      <a class="brand" href="/" aria-label="Wonderful FDE candidate brief home">
         <img src="/assets/vinh-avatar.png" alt="">
-        <span>Vinh Luu <small>AI Deployment Workbench</small></span>
+        <span>Vinh Luu <small>Wonderful FDE candidate brief</small></span>
       </a>
       <nav class="nav" aria-label="Workbench navigation">
         <a href="/">Home</a>
@@ -34,16 +34,17 @@
     <section class="hero hub-hero">
       <div class="shell hero-grid">
         <div class="hero-copy">
-          <p class="kicker">Lead Software Engineer at Zalo/VNG -> Forward Deployed Engineer</p>
-          <h1>I turn messy workflows into governed AI deployments.</h1>
+          <p class="kicker">Wonderful Forward Deployed Engineer candidate</p>
+          <h1>Give me a messy workflow. I will scope, integrate, and ship the agent safely.</h1>
           <p class="lead">
-            6+ years building product systems in the Zalo ecosystem. Paste a messy customer workflow and see how I scope
-            discovery, integration route, guardrails, evals, rollout plan, cost signal, and the evidence behind the fit.
+            Lead Software Engineer at Zalo/VNG with 6+ years building product systems. My fit is practical:
+            I can translate customer pain into one useful AI workflow, connect it to real systems, control cost and risk,
+            and leave the client with something they can own.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#workbench">Build deployment brief</a>
-            <a class="button" href="#bot">Ask the bot</a>
-            <a class="button" href="/diagnose.html">Run diagnostic</a>
+            <a class="button primary" href="#fde-capabilities">See what I can do</a>
+            <a class="button" href="#workbench">Generate a brief</a>
+            <a class="button" href="#bot">Ask FDE bot</a>
           </div>
           <div class="proof-metrics" aria-label="Candidate proof metrics">
             <div><strong>Lead SWE</strong><span>Zalo/VNG product systems</span></div>
@@ -54,11 +55,76 @@
           </div>
         </div>
 
-        <aside id="bot" class="bot-card" data-chatbot aria-label="FDE Bot">
+        <aside class="shortlist-card" aria-label="Recruiter shortlist read">
+          <p class="kicker">30-second recruiter read</p>
+          <h2>What can Vinh do as an FDE?</h2>
+          <ul class="shortlist-list">
+            <li><strong>Scope</strong><span>Turn a vague enterprise request into first workflow, owner, risk, and success metric.</span></li>
+            <li><strong>Integrate</strong><span>Map APIs, data ownership, auth, audit, fallback, and customer-specific constraints.</span></li>
+            <li><strong>Ship safely</strong><span>Use guardrails, evals, traces, rollout gates, and cost controls before expanding.</span></li>
+            <li><strong>Translate</strong><span>Explain the plan to product, engineering, business, and customer stakeholders.</span></li>
+          </ul>
+          <div class="verdict-bar">
+            <span>Best screen</span>
+            <strong>Ask him to scope a real customer workflow live.</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="fde-capabilities">
+      <div class="shell section-head">
+        <div>
+          <p class="kicker">What I can do as an FDE</p>
+          <h2>The output is concrete, not just AI enthusiasm.</h2>
+        </div>
+        <p class="lead">
+          If I join a deployment team, these are the pieces of work I can own from day one with senior engineering judgment.
+        </p>
+      </div>
+      <div class="shell capability-grid">
+        <article class="capability-card">
+          <span>01</span>
+          <h3>Find the first workflow</h3>
+          <p>Interview users, map manual steps, define the smallest workflow worth automating, and choose the metric that proves value.</p>
+          <b>Output: discovery brief</b>
+        </article>
+        <article class="capability-card">
+          <span>02</span>
+          <h3>Connect the real systems</h3>
+          <p>Turn customer context into API route, data freshness, identity, permission, audit, and fallback requirements.</p>
+          <b>Output: integration map</b>
+        </article>
+        <article class="capability-card">
+          <span>03</span>
+          <h3>Control AI cost and quality</h3>
+          <p>Filter before generation, measure useful outcomes, build eval cases, and prevent the model from becoming an expensive demo.</p>
+          <b>Output: eval and cost gate</b>
+        </article>
+        <article class="capability-card">
+          <span>04</span>
+          <h3>Launch with governance</h3>
+          <p>Ship a narrow pilot with human review, traceability, rollback, escalation, and a handover path for customer ownership.</p>
+          <b>Output: ownable pilot</b>
+        </article>
+      </div>
+    </section>
+
+    <section id="bot" class="band">
+      <div class="shell bot-demo-grid">
+        <div class="section-head compact-head">
+          <div>
+            <p class="kicker">Live FDE bot</p>
+            <h2>Ask how I would scope a customer AI workflow.</h2>
+          </div>
+          <p class="lead">This is a demo of the role behavior: clarify, map systems, set guardrails, define metrics, and propose the next deployment step.</p>
+        </div>
+
+        <aside class="bot-card" data-chatbot aria-label="FDE Bot">
           <div class="bot-head">
             <div>
               <p class="kicker">FDE Bot</p>
-              <h2>Your deployment helper</h2>
+              <h3>Your deployment helper</h3>
             </div>
             <span class="status" data-chat-status>Ready</span>
           </div>
@@ -92,15 +158,15 @@
       </div>
     </section>
 
-    <section id="workbench" class="band">
+    <section id="workbench">
       <div class="shell section-head">
         <div>
           <p class="kicker">Flagship work sample</p>
-          <h2>Paste a messy workflow. Get an enterprise AI deployment brief.</h2>
+          <h2>The clearest proof: generate the brief an FDE should bring to a customer room.</h2>
         </div>
         <p class="lead">
-          This is the strongest hiring signal: I can turn ambiguity into scope, systems, risk controls, metrics,
-          and a rollout plan that a customer team can actually own.
+          Recruiter read: this is not portfolio decoration. It shows how I break ambiguity into workflow,
+          integration, guardrail, metric, trace, rollout, and owner handoff.
         </p>
       </div>
 
@@ -108,8 +174,8 @@
         <div class="planner-input panel">
           <div class="bot-head">
             <div>
-              <p class="kicker">Review mode</p>
-              <h3>What should the reviewer see first?</h3>
+              <p class="kicker">Customer room simulator</p>
+              <h3>Pick a workflow and generate the FDE output.</h3>
             </div>
           </div>
           <div class="segmented" aria-label="Reviewer mode">
@@ -129,9 +195,9 @@
           <button class="button primary wide-action" type="button" data-generate-plan>Generate deployment brief</button>
 
           <div class="review-verdict" aria-label="Recruiter quick verdict">
-            <span>Screening verdict</span>
+            <span>Shortlist reason</span>
             <strong data-review-verdict>Move to hiring manager review</strong>
-            <p data-review-reason>Zalo-scale product engineering, AI cost discipline, support automation, and leadership evidence map directly to Wonderful's FDE motion.</p>
+            <p data-review-reason>Zalo-scale product engineering, AI cost discipline, support automation, and leadership evidence map directly to the FDE job.</p>
           </div>
         </div>
 
@@ -170,7 +236,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="band">
       <div class="shell proof-lab-grid">
         <article class="panel cost-lab" data-cost-lab>
           <div class="section-head compact-head">
@@ -214,7 +280,7 @@
       </div>
     </section>
 
-    <section class="band" id="technical-case">
+    <section id="technical-case">
       <div class="shell section-head">
         <div>
           <p class="kicker">Technical case</p>
@@ -249,55 +315,60 @@
       </div>
     </section>
 
-    <section>
+    <section class="band">
       <div class="shell section-head">
         <div>
-          <p class="kicker">Workbench map</p>
-          <h2>A hiring artifact that behaves like an FDE tool.</h2>
+          <p class="kicker">Recruiter proof matrix</p>
+          <h2>What the FDE requirement means, and where this profile proves it.</h2>
         </div>
         <p class="lead">
-          The home bot and tool pages show how I diagnose, explain, and handle customer-room objections across
-          advisory, onsite implementation, and platform ownership motion.
+          This is the missing bridge: not a long resume, but a direct map from role requirement to evidence and live test.
         </p>
       </div>
-      <div class="shell tool-grid">
-        <a class="tool-card" href="/diagnose.html">
-          <span>Interactive tool</span>
-          <h3>Agent Deployment Diagnostic</h3>
-          <p>Answer 5 questions and get a recommended first workflow, integration route, guardrail, and metric.</p>
-          <b>Run diagnostic -></b>
-        </a>
-        <a class="tool-card" href="/explain.html">
-          <span>Plain explainer</span>
-          <h3>Wonderful motion explained</h3>
-          <p>See advisory, onsite implementation, platform ownership, governance, and token-cost control explained for different audiences.</p>
-          <b>Open explainer -></b>
-        </a>
-        <a class="tool-card" href="/toolkit.html">
-          <span>Client toolkit</span>
-          <h3>FDE conversation kit</h3>
-          <p>Prep questions, stakeholder concerns, objection handling, and proof to bring into a customer room.</p>
-          <b>Open toolkit -></b>
-        </a>
+      <div class="shell proof-matrix">
+        <article>
+          <span>Role need</span>
+          <strong>Deploy agents into messy enterprise workflows</strong>
+          <p>Evidence: recruiting workflow ownership in the Zalo/VNG ecosystem.</p>
+          <a href="#workbench">Live test: generate deployment brief</a>
+        </article>
+        <article>
+          <span>Role need</span>
+          <strong>Bridge business, product, and engineering</strong>
+          <p>Evidence: lead engineer work with stakeholders, support, operations, and product delivery.</p>
+          <a href="/toolkit.html">Live test: conversation toolkit</a>
+        </article>
+        <article>
+          <span>Role need</span>
+          <strong>Make AI viable at production volume</strong>
+          <p>Evidence: AI matching and token-budget thinking for high-volume lead workflows.</p>
+          <a href="#technical-case">Live test: technical case</a>
+        </article>
+        <article>
+          <span>Role need</span>
+          <strong>Leave customers with ownership</strong>
+          <p>Evidence: support automation, onboarding acceleration, runbooks, evals, and handoff mindset.</p>
+          <a href="/let-me-help.html">Live test: first 30 days</a>
+        </article>
       </div>
     </section>
 
     <section>
       <div class="shell section-head">
         <div>
-          <p class="kicker">Evidence</p>
-          <h2>Zalo-scale AI work, translated into Wonderful deployment value.</h2>
+          <p class="kicker">Deeper proof</p>
+          <h2>Open these only if you want more evidence.</h2>
         </div>
         <p class="lead">
-          The core signal is practical: product scale, AI cost discipline, support automation, and a clear view of
-          how a local FDE bridges platform capability with client systems.
+          The homepage should already answer what I can do. These subpages provide source-backed company research,
+          STAR stories, and a contribution plan.
         </p>
       </div>
       <div class="shell proof-grid">
         <a class="proof-card" href="/why-wonderful.html">
           <h3>Why Wonderful</h3>
-          <p>AI transformation partner, 100+ paying clients, 30+ locations, almost $300M funding, Vietnam on the Q3 map.</p>
-          <span>Product understanding</span>
+          <p>Source-backed read on Wonderful's enterprise AI platform, local deployment model, funding, governance, and Agent Studio.</p>
+          <span>Company understanding</span>
         </a>
         <a class="proof-card" href="/why-me.html">
           <h3>Why me</h3>
@@ -309,45 +380,6 @@
           <p>A concrete first-30-days plan for Vietnam: discovery, first workflow, integration map, pilot, and client ownership kit.</p>
           <span>First 30 days</span>
         </a>
-      </div>
-    </section>
-
-    <section class="band">
-      <div class="shell section-head">
-        <div>
-          <p class="kicker">Proof translation</p>
-          <h2>Raw experience, structured into hiring evidence.</h2>
-        </div>
-        <p class="lead">
-          Each proof card connects production experience to what a recruiter or manager should care about:
-          scale, AI economics, structured storytelling, and customer-room judgment.
-        </p>
-      </div>
-      <div class="shell story-grid">
-        <article class="story-card">
-          <span>Scale</span>
-          <h3>Zalo-scale credibility</h3>
-          <p><strong>Production signal:</strong> 80M-user ecosystem context and recruiting workflow ownership.</p>
-          <p><strong>Proof:</strong> The planner centers high-volume matching, token cost, support load, and recruiter outcomes.</p>
-        </article>
-        <article class="story-card">
-          <span>Economics</span>
-          <h3>AI cost discipline</h3>
-          <p><strong>Deployment signal:</strong> Token-cost optimization is framed as a product and business requirement.</p>
-          <p><strong>Proof:</strong> The simulator shows pre-filtering and eval-driven cost control as launch requirements.</p>
-        </article>
-        <article class="story-card">
-          <span>Clarity</span>
-          <h3>Structured achievement stories</h3>
-          <p><strong>Evidence:</strong> AI matching, onboarding support, ops automation, and team growth are separated into STAR stories.</p>
-          <p><strong>Proof:</strong> The Why Me page gives managers clean evidence without forcing them to reconstruct the narrative.</p>
-        </article>
-        <article class="story-card">
-          <span>Customer room</span>
-          <h3>Technical conviction</h3>
-          <p><strong>Manager signal:</strong> I can support sales by making scope, risk, integration, and value concrete.</p>
-          <p><strong>Proof:</strong> Toolkit and planner show questions, tradeoffs, pilot shape, guardrails, and value proof.</p>
-        </article>
       </div>
     </section>
 
